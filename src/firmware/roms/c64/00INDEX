@@ -1,0 +1,185 @@
+** Firmware for all variations on the Commodore 64k computer.
+** The eprom type for 8k BASIC & KERNAL is a 2564.  A 2764 can
+** be used with an appropriate adapter.  Char roms can be
+** replaced with a 2532, or a 2732 with adapter.  The 16k rom
+** in the 64C can be replaced with a 27128 eprom.
+
+drives/
+  Disk drive firmware
+
+carts/
+  Firmware for various C64 cartridges, mostly games
+
+max/
+  Firmware for the Commodore MAX machine, a.k.a. VIC-10 or UltiMax,
+  an early Commodore 64 like game console.
+
+diag/
+  Firmware for various diagnostic cartridges and tools
+
+schematics/
+  Commodore 64 schematic diagrams
+
+source/
+  Commodore 64 ROM disassemblies
+
+64c.251913-01.bin
+  The 251913-01, used in newer versions of the Commodore 64 and some
+  versions of the Commodore 128, is a 16-kilobyte 23128 ROM chip.  It
+  contains the Commodore 64 BASIC interpreter ($A000-$BFFF,
+  corresponding to the 8-kilobyte 2364 ROM chip 901226-01) and the
+  Commodore 64 KERNAL ($E000-$FFFF, corresponding to the 8-kilobyte 2364
+  ROM chip 901227-03) in that order.
+
+64gs.390852-01.bin
+  The 390852-01, used in the ill-fated Commodore 64GS game console based
+  on the BN/E circuit board, is a 16-kilobyte chip similar to the
+  251913-01.  This one was archived from a 27128 EPROM 27128 EPROM chip
+  in a West German machine DA5 016014E, assy no. 250469, 252311 rev.B.
+  The chip has the label © 1984, 90 CBM / 390852-01 / C64GS ROM CS=DF34.
+  The BASIC part corresponds otherwise to 901226-01, but the 30 unused
+  bytes at $BF53-$BF70 are filled with $00 instead of $AA.  The KERNAL
+  part has been modified from the 901227-03, and most modifications are
+  in the area $F72C-$FC92, which also contains a copyright message.
+  Many jumps have been redirected to $FB4D, which in turn jumps to
+  $F707, which in turn triggers I/O error #5.
+
+82S100+Jedec.zip
+  PLA binary generator and source
+
+README
+  Commodore 64 parts and firmware versions
+
+basic.901226-01.bin
+  Commodore 64 BASIC V2.  The first and essentially only revision,
+  located at $A000-$BFFF.  In the 64GS system firmware, the 30 unused
+  bytes at $BF53-$BF70 are filled with $00 instead of $AA.  In the
+  Commodore 65 firmware, these bytes are filled with $FF.
+
+C64_PLA_Dissected.pdf
+  C64 PLA doc by Thomas 'skoe' Giesel
+
+c64pla.txt
+  A simplification of the 906114-1 PLA equations by Dave Dahle.
+
+characters.325018-02.bin
+  Character rom from Swedish c64
+
+characters.325018-02.C2G007.bin
+  Character rom from Swedish c64, labeled 8407, C2D007, 28B-U4-KRN
+
+characters.325056-03.bin
+  Character ROM from Spanish C64C
+
+characters.901225-01-DK.bin
+  Character rom from Danish c64
+
+characters.901225-01.bin
+  The character generator ROM. 2532 type.
+
+characters.906143-02.bin
+  The character generator ROM from a Japanese Commodore 64.
+
+characters.turkish.bin
+  Char rom from Turkish C-64 "Teleteknik"
+
+croatian.zip
+  Croatian char rom and kernal uploaded  by HN
+
+kernal-sx-64-ieee.bin
+  Strange SX-64 kernal signalling use with IEEE devices?
+
+kernal.325017.swedish-02.bin
+  Commodore 64 kernal from unit with Swedish keyboard layout.
+
+kernal.4064.901246-01.bin
+  This 8-kilobyte ROM has been reported in various machines (4064,
+  PET64, EDUCATOR64), which are versions of the Commodore 64 built in a
+  PET case with an integrated monochrome monitor.  The system interrupt
+  routine resets sprite, background and border colors to black unless
+  the high-order bit of the location 646 (cursor colour, $0286) is set.  Using
+  any colour command resets location 646 and, therefore, the colors.
+
+kernal.901227-01.bin
+  This 8-kilobyte 2364 ROM is the first revision of the Commodore 64
+  KERNAL.  The RS-232 timing table is designed for exactly 1 MHz system
+  clock frequency, although no C64 runs at that clock rate.  Unlike
+  later KERNAL revisions, this one does not detect the video system
+  (PAL/NTSC).  This KERNAL was probably only used in early North
+  American Commodore 64 units.
+
+kernal.901227-02.bin
+  This 8-kilobyte 2364 ROM is the second revision of the Commodore 64 KERNAL.
+  It is the second most widely spread version.
+
+kernal.901227-03-DK.bin
+  Commodore 64 kernal from unit with Danish keyboard layout.
+
+kernal.901227-03.bin
+  This 8-kilobyte 2364 ROM is the third and essentially last revision of the
+  Commodore 64 KERNAL.  It is the most widely spread version.
+
+kernal.906145-02.bin
+  This 8-kilobyte 2364 ROM is from a Japanese release Commodore 64.
+
+kernal.c64-scand.bin
+  Kernal on a 2764 from a Scandinavian SX64.  Had matrix printed label.
+  ** Reported broken**! Do you have a good image you can upload?
+
+kernal.swedish-03.C2D007.bin
+  Commodore 64 kernal from unit with Danish keyboard layout labeled 8407,
+  C2G007, 24B-U5-TKN
+
+kernal.sx.251104-04.bin
+  This 8-kilobyte ROM is the Commodore SX-64 KERNAL, which is based on
+  901227-03.
+
+kernal.swedish.txt
+  A description of the Swedish/Finnish versions of the Commodore 64 and
+  Commodore SX-64 KERNAL ROM
+
+kernal.sx.ISI-AZ-001.zip
+  SX-64 kernal w/ diff keyboard mapping that swaps azqm<>: Zip contains images.
+
+kernal.sx64-scand.bin
+  Kernal on a 2564 from a Scandinavian SX64.  Had matrix printed label.
+
+kernal.turkish.bin
+  Kernal rom from Turkish C-64 "Teleteknik". Different boot screen. Similar to
+  german 901227-03
+
+pla.c
+  This C program contains the logic equations for the 82S100 PLA chip
+  used in the C64 (906114-1), and converts them to a 64-kilobyte truth
+  table file.  In this second version of the program, the input and output
+  lines are permuted so that they correspond to the 82S100-to-27512 adapter
+  built by Jens Schönfeld, so that he could read out the PLA with an EPROM
+  programming device.
+
+pla.txt
+  Logic equations in Abel format for the 82S100 PLA chip used in
+  the C64 (906114-1), and a JEDEC file that can used to burn a 82S100
+  as a 906114-1.
+
+pla.zip
+  An MS-DOS program for displaying the memory map of the Commodore 64
+  in different configurations.  Turbo Pascal source code included.
+  The archive also contains a picture of Jens Schönfeld's SuperPLA
+  adapter board.
+
+pla-906114-1.c
+  Another version of pla.c, corresponding to the logic equations obtained
+  by Jens Schönfeld.  The equation for CASRAM is much simpler.
+pla-906114-1.pds
+  A MACHXL design description of a replacement for the 906114-1 PLA.
+
+pla.251064-01.bin
+  As 901664-01, but pins A15-A0 and D7-D0 match the original PLA
+
+pla.901664-01.bin
+  Pins rearranged for a 27C512>PLA adapter PCB
+
+revisions.txt
+  This document lists the differences between all non-localised Commodore
+  64 system firmware revisions that were published by Commodore.
+

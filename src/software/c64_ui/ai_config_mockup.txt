@@ -1,0 +1,28 @@
+****************************************
+*      SUPERCPU AI CONFIGURATION       *
+****************************************
+*                                      *
+*  ACTIVE PROVIDER: [ OLLAMA ]         *
+*                                      *
+*  1. OLLAMA   [X]                     *
+*     MODEL: llama3                    *
+*     URL:   http://localhost:11434    *
+*                                      *
+*  2. OPENAI   [ ]                     *
+*     MODEL: gpt-4                     *
+*     KEY:   sk-proj-****1234          *
+*                                      *
+*  3. GOOGLE   [ ]                     *
+*     MODEL: gemini-pro                *
+*     KEY:   (NOT SET)                 *
+*                                      *
+*  4. COPILOT  [ ]                     *
+*                                      *
+*  COMMANDS:                           *
+*  [F1] SELECT PROVIDER                *
+*  [F3] EDIT KEY                       *
+*  [F5] TOGGLE ENABLE                  *
+*  [F7] TEST CONNECTION                *
+*                                      *
+****************************************
+> _

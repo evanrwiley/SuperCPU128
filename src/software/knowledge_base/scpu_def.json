@@ -1,0 +1,24 @@
+{
+  "machine": "SuperCPU 128",
+  "cpu": "W65C816S (20 MHz)",
+  "memory_map": {
+    "super_ram_start": 65536,
+    "super_ram_end": 16777215,
+    "registers": 53360
+  },
+  "features": {
+    "speed": "20 MHz (20x standard C64)",
+    "modes": ["Native (16-bit)", "Emulation (8-bit)"],
+    "registers": {
+      "$D070": "Turbo Control",
+      "$D074": "System Status",
+      "$D07A": "Bridge Window Control"
+    }
+  },
+  "coding_rules": [
+    "Use 'STA $D07A' to map high memory into the C64 address space.",
+    "Interrupts must handle 16-bit mode (REP/SEP #$30).",
+    "Use DMA for fast block moves.",
+    "JiffyDOS is integrated for fast disk access."
+  ]
+}

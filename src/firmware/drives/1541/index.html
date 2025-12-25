@@ -1,0 +1,143 @@
+<?xml version="1.0"?><!-- -*- xml -*- -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html
+ xmlns="http://www.w3.org/1999/xhtml"
+ lang="en" xml:lang="en" dir="ltr">
+
+<head>
+<title>/pub/cbm/firmware/drives/new/1541/</title>
+<link rel="stylesheet" href="../../../../.index.css" />
+<link rel="icon" href="../../../../.icon.png" />
+<link rel="SHORTCUT ICON" href="../../../../.icon.ico" />
+<link rel="top" href="../index.html" />
+<link rel="next" href="../1551/index.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head><body>
+<img src="/zimmersfiles2.png" ALIGN=LEFT ALT="Zimmers.NET Files (formerly ftp.funet.fi)" HEIGHT=74 WIDTH=130 style="position:absolute;left:0px">
+<h1 style="position: relative">/pub/<a
+href="../../../../">cbm</a>/<a
+href="../../../">firmware</a>/<a
+href="../../">drives</a>/<a
+href="../">new</a>/1541/</h1>
+<BR CLEAR=LEFT>
+<div class="top">
+<p>This directory contains ROMs of 1540, 1541, 1541C and 1541-II drives.<br />
+The ROM checksums are valid.  If you add the byte values together
+(adc data:adc #0), the sum of the $c000-$dfff ROM will be $c0, and the
+$e000-$ffff ROM will add up to $e0.  This applies also to the halves of
+the 1541-II ROM.  The 2764 and 27128 eproms can be used as replacements.</p>
+</div>
+<h2><a class="anchor" name="dirs">Subdirectories</a></h2>
+<div class="dirs">
+<dl>
+<dt><a href="hacks/index.html">hacks/</a></dt>
+<dd>3rd party modifications to the firmware</dd>
+<dt><a href="../../../../schematics/drives/new/1541/index.html">schematics@</a></dt>
+<dd>Schematic diagrams</dd>
+</dl>
+</div>
+<h2><a class="anchor" name="files">Files</a></h2>
+<div class="files">
+<dl>
+<dt><a href="1540-c000.325302-01.bin">1540-c000.325302-01.bin</a>
+<span class="date">2009-08-18</span>
+<span class="length">8192</span></dt>
+<dd>The ROM chip for $c000-$dfff.  This seems to be the same on all<br />
+models before the 1541-II.<br /><br /></dd>
+<dt><a href="1540-e000.325303-01.bin">1540-e000.325303-01.bin</a>
+<span class="date">2009-08-18</span>
+<span class="length">8192</span></dt>
+<dd>The firmware of an 1540 (the drive that the C64 wouldn't keep up with).<br />
+The revision number might be something else than -01.  A speciality of<br />
+this chip is the power-up message: 73,CBM DOS V2.6 V170,00,00.  Did<br />
+Commodore want to call the drive V170 first?  The ROM checksum is correct.<br />
+The long-board 1541 had the same hardware as the 1540; this upper ROM<br />
+was the only difference.  The lower ROM was 325302-01 on both drives.<br /><br /></dd>
+<dt><a href="1541-c000.325302-01.bin">1541-c000.325302-01.bin</a>
+<span class="date">2009-08-18</span>
+<span class="length">8192</span></dt>
+<dd>The ROM chip for $c000-$dfff.  This seems to be the same on all<br />
+models before the 1541-II.<br /><br /></dd>
+<dt><a href="1541-dos_diffs.zip">1541-dos_diffs.zip</a>
+<span class="date">2013-05-15</span>
+<span class="length">7216</span></dt>
+<dd>Assembly differences between various 1541 roms<br /><br /></dd>
+<dt><a href="1541-e000.901229-01.bin">1541-e000.901229-01.bin</a>
+<span class="date">2009-08-18</span>
+<span class="length">8192</span></dt>
+<dd>This is believed to be the first revision of the 1541 firmware.  The<br />
+service manual says that this ROM is for North America and Japan only.<br />
+According to it, a 901229-02 also exists, but not in North America.<br />
+901229-03 is said to be the first version that is usable in Europe.<br /><br /></dd>
+<dt><a href="1541-e000.901229-02.bin">1541-e000.901229-02.bin</a>
+<span class="date">2009-08-18</span>
+<span class="length">8192</span></dt>
+<dd>Second version of the 1541 firmware.  Uploaded by Raymond Day<br />
+&lt;raymondday@hotmail.com&gt;.  Two delay loops are shorter than in 901229-03,<br />
+and the checksum byte at $fee6 has been adjusted accordingly.<br /><br /></dd>
+<dt><a href="1541-e000.901229-03.bin">1541-e000.901229-03.bin</a>
+<span class="date">2009-08-18</span>
+<span class="length">8192</span></dt>
+<dd>The firmware of an old-style 1541 with long board.<br />
+This ROM has an autobooting feature: if CLK and DATA are held low<br />
+during bootup, the drive will wait for them to raise, and execute<br />
+a "&amp;*" command.<br /><br /></dd>
+<dt><a href="1541-e000.901229-04.bin">1541-e000.901229-04.bin</a>
+<span class="date">2020-08-04</span>
+<span class="length">8192</span></dt>
+<dd>Take from an SX-64<br /><br /></dd>
+<dt><a href="1541-e000.901229-05.bin">1541-e000.901229-05.bin</a>
+<span class="date">2009-08-18</span>
+<span class="length">8192</span></dt>
+<dd>The firmware of an old-style 1541 with short board.<br /><br /></dd>
+<dt><a href="1541-e000.901229-06AA.bin">1541-e000.901229-06AA.bin</a>
+<span class="date">2009-08-18</span>
+<span class="length">8192</span></dt>
+<dd>The firmware of an old-style 1541 with short board.<br /><br /></dd>
+<dt><a href="1541-II.251968-03.bin">1541-II.251968-03.bin</a>
+<span class="date">2009-08-18</span>
+<span class="length">16384</span></dt>
+<dd>1541-II firmware.  Released in 1987.<br /><br /></dd>
+<dt><a href="1541-II.355640-01.bin">1541-II.355640-01.bin</a>
+<span class="date">2009-08-18</span>
+<span class="length">16384</span></dt>
+<dd>1541-II firmware.  This version only appears in drives with the newtronics<br /><br />
+mechanisms with belt type drives and no track 0 sensor.<br /><br /></dd>
+<dt><a href="1541C-to-1541-II.txt">1541C-to-1541-II.txt</a>
+<span class="date">2009-08-18</span>
+<span class="length">11214</span></dt>
+<dd>A comparison of the 1541C and 1541-II firmware by Wolfgang Moser.<br />
+The support for the optical "track 0" sensor, which was introduced<br />
+in the 1541C firmware, was removed in the 1541-II firmware.<br /><br /></dd>
+<dt><a href="1541C.251968-01.bin">1541C.251968-01.bin</a>
+<span class="date">2009-08-18</span>
+<span class="length">16384</span></dt>
+<dd>The firmware of an old-style 1541 in white case.  This drive was introduced<br />
+around the same time with the C128 and the 1570, to make it look like the<br />
+C128 and the 1570, which was also in a white 1541-style case.  The C128 was<br />
+also white.  This drive has an optical track 1 sensor, but it won't be used<br />
+unless the jumper J3 on the board is cut.<br /><br />
+The $c000-$dfff part of this chip is identical to the 325302-01 ROM.<br /><br /></dd>
+<dt><a href="1541C.251968-02.bin">1541C.251968-02.bin</a>
+<span class="date">2009-08-18</span>
+<span class="length">16384</span></dt>
+<dd>An upgrade ROM for the 1541C.  There are patches in both 8k halves.</dd>
+<dt><a href="1541C.251968-02.txt">1541C.251968-02.txt</a>
+<span class="date">2009-08-18</span>
+<span class="length">1847</span></dt>
+<dd>Release notes for the 251968-02.<br /><br /></dd>
+<dt><a href="Commodore%201541%20ROM%20genealogy.pdf">Commodore 1541 ROM genealogy.pdf</a>
+<span class="date">2025-07-15</span>
+<span class="length">193593</span></dt>
+<dd>Overview of rom differences, by Nico de Vries<br /><br /></dd>
+</dl>
+</div>
+<p class="bot"><a href="../../../../MIRRORS.html">Mirror sites</a>
+&ndash;
+<a href="../../../../README.html">General information</a>
+&ndash;
+<a href="../../../../FILETYPES.html">File types</a>
+&ndash;
+<a href="../../../../crossplatform/transfer/transfer.html">Data transfer</a></p>
+</body></html>

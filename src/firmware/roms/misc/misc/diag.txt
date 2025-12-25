@@ -1,0 +1,18 @@
+Raymond Carlsen (rrcc@u.washington.edu) writes:
+
+I've not had a chance to try the carts... perhaps today. I understand
+that one type of diag cart requires an "octopus" cable or "harness" that
+tests all the ports. Obviously I didn't get such a cable or any docs.
+
+Some info on what I have: The C64 cart has the number V586220 on a
+paper sticker after "C64 DIAGNOSTIC" on top. Inside, there is one 2764
+socketed EPROM labeled U1, an empty 28 pin socket labeled U2, and a 24 pin
+board location without a socket at U3. There are no other components except
+a few caps and three "jumpers" (like a disk drive has for device #).
+
+The other cart has no number, just "VIC-20 DIAGNOSTIC" on a paper
+sticker glued to the top of a standard game cart type of case. Inside,
+there is a socketed 2532 UV-erasable EPROM, no socket at a 24 pin board
+location, and six M589581P SRAM chips. Nothing is marked except six of the
+eight "jumpers". The board has a few ID numbers and "copyright 1980 CBM".
+

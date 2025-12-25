@@ -1,0 +1,161 @@
+
+64config211.lnx
+  CONFIGURE 2.1.1 with better REU support
+
+64DUALTOP2.0.lnx
+  Dual Top v2.0 - alternative deskTop
+
+64DUALTOP25.lnx
+  Dual Top v2.5 - alternative deskTop
+
+BSW2Swedish.cvt
+BSW2Swedish.readme
+  FontChanger V1.0 by Irv Cobb.
+  Modifies the default GEOS font (BSW) to include swedish characters
+  Å, Ä and Ö as well as É and Ü.  Uploaded by Jonas Hultén
+  (md6cbm@mdstud.chalmers.se).
+
+desktop21.cvt
+  deskTop 2.1, with 4 drive support, new icons
+
+DUAL TOP.CVT
+  Alternative deskTop for GEOS 64 and gateWay 64
+
+dual_top_3.cvt
+  Dual Top Rev E 3.0, a deskTop replacement by Paul Murdaugh
+
+DUALMOD.lnx
+  Convert module for Dual Top
+
+DUALTOP.lnx
+  DualTop 1.0 alternative deskTop for gateWay 64 by Paul Murdaugh
+
+DUALTOP4.lnx
+  Demo of Dual Top Rev E 3.0, a deskTop replacement by J.D. Robbins
+
+DUALTOPDOC.CVT
+  Docs for Dual Top
+
+dualTopV3.1R1.13+.d64.gz
+  Dual Top 3.1 R1.3+ by Paul Murdaugh, released 2022
+
+gateWay26_64_r001.d81.gz
+  gateWay64 v2.6 system disk r0.01 by Paul Murdaugh
+
+gateWay64-v25-docs.d64.gz
+  Documentation for gateWay64 v2.5
+
+gateWay64.d64.gz
+  gateWay 64 v2.5 system disk - requires GEOS 2.0 boot
+
+gdesk64-v10en.d64.gz
+  geoDesk 64 v1.0e desktop replacement
+
+GDOS 083 eng.zip
+  GDOS Extended Desktop by Markus Kanet, based off MegaPatch3.  Includes .D81
+  boot disk and applications disk.
+
+geos-nederlands.d64.gz
+  GEOS 2.0 localized for the netherlands.
+
+geos20_d64.zip
+  GEOS 64 v2.0 boot disk and utility disks, with manual
+
+GEOS2000-20020329.tar.gz
+  GEOS 2.0 source code, assembled by Maciej Witkowiak
+
+GEOS25de.d64.gz
+  GEOS 2.5 (topDesk) boot disk
+
+GEOS64-2.1e.zip
+  GEOS 64 2.0 rom-based system w/sd2iec support
+
+GEOS64v1.0.d64.gz
+  GEOS 1.0 boot disk.
+
+geoShell-2.2_d64.zip
+  geoShell command line interface for GEOS
+
+geoShell-new-commands-disks_d64.zip
+  Command extensions for geoShell
+
+geosnap.lnx
+  geoSnap - makes bootable disk image.  Source included.
+
+geosyscopy.lnx
+  GEOS 1.3 system copy package
+
+gw64-4mb-r01.d64.gz
+  Patch files for gateWay 64 to support 4mb
+
+mp33-de.d81.gz
+  MegaPatch 3 for GEOS 64 - OS patch (2018 version - German)
+
+mp33-en.d81.gz
+  MegaPatch 3 for GEOS 64 - OS patch (2018 version - English)
+
+mp3_c64.d64.gz
+  megaPatch 3 for GEOS 64 - deskTop replacement and OS patch (1998 rev)
+
+mp3v3e64.d81.gz
+  MegaPatch 3 for GEOS 64 - deskTop replacement and OS patch (1999 rev)
+
+multigeos.lnx
+  Demo of a new type of plug-in deskTop
+
+quick-change1.6.lnx
+  Simple dialog-box type deskTop
+
+quick-change1.cvt
+  Simple dialog-box type deskTop
+
+qwik top 3.0.cvt
+  Qwik Top v3.0 by John Howard
+
+qwik top3.1.cvt
+  QwikTop 3.1 - desktop replacement
+
+qwiktop2.4.cvt
+  QwikTop 2.4 - desktop replacement
+
+qwiktop20.lnx
+  QwikTop 2.0 - desktop replacement
+
+qwiktop22.lnx
+  QwikTop 2.2 - deskTop replacement
+
+rboot.cvt
+  RBOOT by BSW for GEOS 1.3
+
+rescue 64.lnx
+  Rescue 64 - Reboot GEOS 128 from BASIC.
+
+RPN.readme
+RPN64.cvt
+  RPN 64 V1.0 by Robert A. Knop Jr.
+  Calculator for GEOS 64.  Reverse Polish Notation?
+
+SwedishKeys64.cvt
+SwedishKeys64.readme
+  Kbd Install V1.0 by Jonas Hultén.
+  Modifies the GEOS 64 2.0 keyboard table to handle a swedish keyboard.
+  Uploaded by the author, Jonas Hultén (md6cbm@mdstud.chalmers.se).
+
+topdesk.d64.gz
+  topDesk deskTop replacement for GEOS 64 3.2 - German language
+
+topDesk64-1305.d64.gz
+  GEOS64 TopDesk desktop replacement, v5.0- German and English
+
+WorkDesk5.1.cvt
+  AutoExec mini deskTop by Payton Snider
+
+wormdesk 5.0.cvt
+  WormDesk v5.0 by Payton Snider
+
+WormDesk4.cvt
+  Alternate deskTop for GEOS 64 v2
+
+WormDesk4Docs.cvt
+  Docs for WormDesk 4
+

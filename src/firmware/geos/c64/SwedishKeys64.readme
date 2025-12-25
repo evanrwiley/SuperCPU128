@@ -1,0 +1,40 @@
+Name:
+	swedishkey64.cvt
+
+Format:
+	Converted Auto-Executable GEOS file. Convert it to GEOS with
+	Convert2.5.
+
+Description:
+	Modifies GEOS64 2.0's key table to handle a swedish keyboard.
+	Will autoboot if copied to GEOS boot disk.
+
+	Keymap is defined as follows:
+
+	Unshifted:
+
+	   TAB  1  2  3  4  5  6  7  8  9  0  -  =  :  HOME DEL
+	   CTRL  q  w  e  r  t  y  u  i  o  p  å  É  ü  RESTORE
+	STOP LOCK a  s  d  f  g  h  j  k  l  ö  ä  ;  RETURN
+	CBM  SHIFT z  x  c  v  b  n  m  ,  .  /  SHIFT DOWN RIGHT
+
+	Shifted:
+
+	UNDERSC 1  2  3  4  5  6  7  8  9  0  -  =  *  HOME DEL
+	   CTRL  Q  W  E  R  T  Y  U  I  O  P  Å  é  Ü  RESTORE
+	STOP LOCK A  S  D  F  G  H  J  K  L  Ö  Ä  +  RETURN
+	CBM  SHIFT Z  X  C  V  B  N  M  <  >  ?  SHIFT DOWN RIGHT
+
+	Yes, I know the É and é seems misplaced but I thought that
+	those characters are quite unneccessary compared to @, ^ and ~
+	in those days so if you use a font without É the @ will be
+	at the correct place.
+
+	The swedish fonts I have seen all use å, ä, ö, ü and é.
+
+Copyright:
+	This program is freeware.
+
+Author:
+	Jonas Hultén
+	E-mail: md6cbm@mdstud.chalmers.se

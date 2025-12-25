@@ -1,0 +1,38 @@
+{
+  "providers": {
+    "ollama": {
+      "enabled": true,
+      "base_url": "http://localhost:11434",
+      "api_key": "", 
+      "default_model": "llama3",
+      "available_models": ["llama3", "codellama", "mistral"]
+    },
+    "openai": {
+      "enabled": false,
+      "base_url": "https://api.openai.com/v1",
+      "api_key": "YOUR_OPENAI_KEY_HERE",
+      "default_model": "gpt-4-turbo",
+      "available_models": ["gpt-4-turbo", "gpt-3.5-turbo"]
+    },
+    "google": {
+      "enabled": false,
+      "base_url": "https://generativelanguage.googleapis.com/v1beta/models",
+      "api_key": "YOUR_GOOGLE_API_KEY_HERE",
+      "default_model": "gemini-pro",
+      "available_models": ["gemini-pro", "gemini-1.5-pro"]
+    },
+    "copilot": {
+      "enabled": false,
+      "base_url": "https://api.githubcopilot.com", 
+      "api_key": "YOUR_COPILOT_TOKEN_HERE",
+      "default_model": "copilot-chat",
+      "available_models": ["copilot-chat"]
+    }
+  },
+  "system": {
+    "active_provider": "ollama",
+    "request_timeout": 30,
+    "max_tokens": 2048,
+    "temperature": 0.7
+  }
+}

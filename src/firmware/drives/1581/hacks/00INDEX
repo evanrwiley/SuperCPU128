@@ -1,0 +1,12 @@
+** These files were uploaded by TFSS of GPS (golden_pig@hotmail.com).
+
+1581rom5.bin
+  CBM-1581 Binary ROM Program UpDate-5 By TFSS Of The GPS
+
+list1581.ls5
+  CBM-1581 Source Listing ROM UpDate-5 (August 11, 1996)
+  Using 8K SRAM Expansion $2000-$3FFE, And MOSTECH 6529B PIO $3FFF
+  for parallel data transfer routine from BARD'S TALE III.
+
+list1581.ls6
+  CBM-1581 Source Listing ROM UpDate-6 By TFSS Of The GPS

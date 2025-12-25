@@ -1,0 +1,12 @@
+** Modifications to the original Commodore 1540, 1541 or 1541-II firmware
+
+1541-II-SpeedDOS.txt
+  Instructions for adapting the SpeedDOS firmware for the 1541-II.
+
+1541-II-relocated.bin
+  A version of the 1541-II ROM where the modifications to older firmware
+  have been relocated to the lower bank ($c000-$dfff), to improve
+  compatibility with fastloader systems.  Made by Wolfgang Moser.
+1541-II-relocated.txt
+  Documentation for 1541-II-relocated.bin.
+

@@ -1,0 +1,35 @@
+C64/4064/Educator64/PET64/SX-64 Parts
+
+Location       Part Number    Description
+U6                            2114 1K x 4 static RAM
+U9-U12, U21-U24               4164-20 (8) 64K x 1 dynamic RAM
+U9-U10                        50464-150 (2) 64K x 4 dynamic RAM
+U7                            6510 CPU
+U1, U2                        6526 (2) CIA
+U19                           6567 VIC-II (NTSC)
+U19                           6569 VIC-II (PAL)
+U18                           6581 SID
+U17            906114-01      7700/82S100 PLA
+U31            251527-01      7701/8701 CLK GEN (except version A)
+U5             901225-01      2332 ROM character
+U3             901226-01      2364 ROM Basic 2 A000-BFFF
+U4             901227-01      2364 ROM KERNAL E000-FFFF
+U4             901227-02      2364 ROM KERNALr E000-FFFF
+U4             901246-01      2364 ROM KERNALr E000-FFFF (4064)
+U4             251104-04      8K ROM KERNALr E000-FFFF (SX-64)
+U4             901227-03      2364 ROM KERNALr2 E000-FFFF
+
+C64E Parts
+
+Location       Part Number    Description
+U19                           2114 1K x 4 static RAM (with 251715-01)
+U10, U11                      41464-150 (2) 64K x 4 dynamic RAM
+U1, U2                        6526 (2) CIA
+U9                            6581/8580 SID
+U6                            8500 CPU
+U7                            8565 VIC-II
+U20                           8701 CLK GEN
+U8             251715-01      64 pin custom chip
+U8             252535-01      64 pin custom chip with 1K x 4 RAM
+U5                            2332C ROM character
+U4             251913-01      23128 ROM Basic 2r2

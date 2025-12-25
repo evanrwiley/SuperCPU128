@@ -1,0 +1,19 @@
+** Firmware for the Commodore printer MPS-1230
+
+601240-95-v1.1d-19881110.bin
+  Contents of the 27C512 EPROM, labeled "PDL2".  This firmware is dated
+  November 10, 1988, and it is for the German version of the printer.
+
+mps1200-k405-0202.bin
+  Read from IEC MPS-1200 board
+
+mps1230-v11e-xxxxxx-xx.bin
+
+mps1250_k111_0201.bin
+
+parts.txt
+  Parts and layout info for this printer.
+
+r-1.1e-19890809.bin
+  Revised firmware for MPS-1230
+

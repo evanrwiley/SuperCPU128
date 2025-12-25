@@ -1,0 +1,18 @@
+** BTX, or Bildschirmtext, is/was a modem-based on-line system that started
+** in the 1980s.  It was run by the state-owned telephone corporation.
+
+btx-mk1-325221-02.bin
+  Firmware of a BTX decoder mark I, part number 325221-02, checksum $3E0F.
+  This was copied from a 27128 EPROM labelled with the part number and
+  "BTX C64 C128".
+btx-mk2-V30113-C375-81-1.bin
+  Firmware of a BTX decoder mark II, dumped from a 27256 EPROM.  The sticker
+  on the erase window has a Siemens logo and "V30113-" at the top line,
+  "C375-81-1" at the middle line and "( EX )" at bottom.  The checksum is
+  $D68F.
+btx-v3.3.bin
+  Firmware of a BTX decoder mark II, version 3.3.
+
+index.html
+  Firmware for the Buildschirmtext Decoder cartridge
+

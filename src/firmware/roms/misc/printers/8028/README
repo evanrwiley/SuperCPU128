@@ -1,0 +1,27 @@
+CBM 8028 daisywheel printer, German version.
+
+Board 8028-040 Rev J
+
+UA1             6522    VIA
+UA2             6522    VIA
+UA3             6522    VIA
+UA4             6502    CPU
+UA5             2764    EPROM "M 07 A"
+UA6             2114    1k x 4 static RAM
+UA7             2114    1k x 4 static RAM
+UA8             EM6532 003 REV A 
+                daughterboard with 6532 RIOT, 74LS04, 2716 EPROM "DSY 06"
+UA9             6504    CPU
+UA10            EM6532 003 REV A 
+                daughterboard with 6532 RIOT, 74LS04, 2716 EPROM "CAR 06"
+UA11            6504    CPU
+UA12            NE555   timer
+
+UB1             74LS00
+UB2             7406
+UB3             74LS00
+UB4             74LS139
+UB5             7414
+UB6             7416
+UB7             74LS00
+UB8             74177

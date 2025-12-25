@@ -1,0 +1,12 @@
+
+diag-vic20.bin
+  The firmware of a diagnostic cartridge for the Commodore VIC-20.
+  Mapped to -BLK5 ($a000).
+vc-20-diag.324173-01.bin
+  Another diagnostic cartridge for the Commodore VIC-20.
+  Mapped to -BLK5 ($a000).
+vc-20-diag.txt
+  Notes on the above diagnostic cartridge.
+vc-20-diag.zip
+  Pictures of the above diagnostic cartridge and its wiring harness.
+

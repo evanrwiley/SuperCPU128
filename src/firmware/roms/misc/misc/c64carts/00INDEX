@@ -1,0 +1,239 @@
+
+btx/
+  Firmware for the Bildschirmtext Decoder cartridge
+
+251476-01.bin
+  Rom for C64 Magic Voice cartridge, a 27128
+
+315102-01.bin
+  Super Games cartridge (U1)
+
+315103-01.bin
+  Super Games cartridge (U2)
+
+317004-01.bin
+  Magic Desk I (U1)
+
+317005-01.bin
+  Magic Desk I (U2)
+
+317006-01.bin
+  Magic Desk I (U3)
+
+317007-01.bin
+  Magic Desk I (U4)
+
+317017-01.bin
+  International Soccer (U1)
+
+317018-01.bin
+  International Soccer (U2)
+
+317038-01.bin
+  Jack Attack (U1)
+
+317039-01.bin
+  Jack Attack (U2)
+
+324872-03.bin
+  Der Rechenl�we: Fit in Addition und Subtraktion (U1)
+
+324872-04.bin
+  Der Rechenl�we: Fit in Addition und Subtraktion (U2)
+
+324874-03.bin
+  Der Rechenl�we: Fit in Mathematik - 1. Schuljahr (Ger) (U1)
+
+324874-04.bin
+  Der Rechenl�we: Fit in Mathematik - 1. Schuljahr (Ger) (U2)
+
+325351-02.bin
+  Jupiter Lander
+
+325356-02.bin
+  Clowns
+
+325362-02.bin
+  Kickman
+
+325426-01.bin
+  Tooth Invader (U1)
+
+325427-01.bin
+  Tooth Invader (U2)
+
+901230-01.bin
+  MAX Maxi-Basic Cartridge U1
+
+901231-01.bin
+  MAX Maxi-Basic Cartridge U2
+
+ieee488.bin
+  Commodore 64 IEEE-488 Adapter 2732 ROM
+
+viatel67886.bin
+  Firmware for C64 Australia Viatel modem
+
+C64104_Super_Expander-8000.bin
+  ROM for C64 Super Expander Cartridge
+
+C64108_Simons_Basic_1-8000.bin
+C64108_Simons_Basic_2-a000.bin
+  ROM for C64 Simon's BASIC Cartridge
+  
+C64228_Financial_Advisor-8000.bin
+  ROM for C64 Financial Advisor Cartridge
+  
+C64312_Number_Nabber_Shape_Grabber-8000.bin
+  ROM for C64 Number Nabber Cartridge
+
+C64320_A_Bee_Cs-8000.bin
+  ROM for C64 ABCs Cartridge
+
+C64402_Music_Machine-e000.bin
+  ROM for C64 Music Machine Cartridge
+
+C64403_Music_Composer-e000.bin
+  ROM for C64 Music Composer Cartridge
+
+C64601_Jupiter_Lander-e000.bin
+  ROM for C64 Jupiter Lander Cartridge
+
+C64602_Kickman-e000.bin
+  ROM for C64 Kickman Cartridge
+
+C64603_Sea_Wolf-e000.bin
+  ROM for C64 Sea Wolf Cartridge
+
+C64604_Speed_Bingo_Math-e000.bin
+  ROM for C64 Speed Math/Bingo Math Cartridge
+
+C64605_Radar_Rat_Race-e000.bin
+  ROM for C64 Radar Rat Race Cartridge
+
+C64606_Clowns-e000.bin
+  ROM for C64 Clowns Cartridge
+
+C64609_Visible_Solar_System-e000.bin
+  ROM for C64 Visible Solar System Cartridge
+
+C64610_Tooth_Invaders-8000.bin
+  ROM for C64 Tooth Invaders Cartridge
+
+C64612_Blueprint-8000.bin
+  ROM for C64 Blueprint Cartridge
+
+C64613_Lazarian-8000.bin
+  ROM for C64 Lazarian Cartridge
+
+C64614_Omega_Race-8000.bin
+  ROM for C64 Omega Race Cartridge
+
+C64615_Wizard_of_Wor-8000.bin
+  ROM for C64 Wizard of Wor Cartridge
+
+C64616_Le_Mans-e000.bin
+  ROM for C64 Le Mans Cartridge
+
+C64617_Pinball_Spectacular_1-8000.bin
+C64617_Pinball_Spectacular_2-e000.bin
+  ROM for C64 Pinball Spectacular Cartridge
+
+C64618_Gorf-8000.bin
+  ROM for C64 Gorf Cartridge
+
+C64619_Solar_Fox-8000.bin
+  ROM for C64 Solar Fox Cartridge
+
+C64621_Avenger-e000.bin
+  ROM for C64 Avenger Cartridge
+
+C64622_Super_Smash-8000.bin
+  ROM for C64 Super Smash Cartridge
+
+C64623_Star_Post-8000.bin
+  ROM for C64 Star Post Cartridge
+
+C64624_Frog_Master-8000.bin
+  ROM for C64 Frog Master Cartridge
+
+C64631_Star_Ranger-8000.bin
+  ROM for C64 Star Ranger Cartridge
+
+C64632_Dragons_Den-8000.bin
+  ROM for C64 Dragons Den Cartridge
+
+C64635_International_Soccer-8000.bin
+  ROM for C64 International Soccer Cartridge
+
+C64636_Viduzzles-8000.bin
+  ROM for C64 Viduzzles Cartridge
+
+C64638_Jack_Attack-8000.bin
+  ROM for C64 Jack Attack Cartridge
+
+C64801_Magic_Desk_I_1-8000.bin
+C64801_Magic_Desk_I_2-8000.bin
+C64801_Magic_Desk_I_3-8000.bin
+C64801_Magic_Desk_I_4-8000.bin
+  ROM for C64 Magic Desk Cartridge
+
+C64801_Magic_Desk_I_(CCS)_1-8000.bin
+C64801_Magic_Desk_I_(CCS)_2-8000.bin
+C64801_Magic_Desk_I_(CCS)_3-8000.bin
+C64801_Magic_Desk_I_(CCS)_4-8000.bin
+  ROM for C64 Magic Desk (CCS) Cartridge
+
+Comal_80_1-8000.bin
+Comal_80_2-8000.bin
+Comal_80_3-8000.bin
+Comal_80_4-8000.bin
+  ROM for C64 Comal 80 Cartridge
+
+MagicDeskwithMagicVoiceROMs.zip
+  Magic Desk with Magic Voice support.  Includes 3 roms, crt file, pics.
+  Provided by John Feagans and Chuck Hutchins
+
+MAX3101_Mini_Basic-e000.bin
+  ROM for Max Machine Mini BASIC Cartridge
+
+MAX3102_Max_Basic_1-8000.bin
+MAX3102_Max_Basic_2-e000.bin
+  ROM for Max Machine Max BASIC Cartridge
+
+MAX3401_Omega_Race-e000.bin
+  ROM for Max Machine Omega Race Cartridge
+
+MAX3402_Wizard_of_Wor_Ver_1-e000.bin
+  ROM for Max Machine Wizard of Wor (version 1) Cartridge
+
+MAX3402_Wizard_of_Wor__Ver_2-e000.bin
+  ROM for Max Machine Wizard of Wor (version 2) Cartridge
+
+MAX3402_Wizard_of_Wor_Ver_3-e000.bin
+  ROM for Max Machine Wizard of Wor (version 3) Cartridge
+
+MAX3504_Radar_Rat_Race-e000.bin
+  ROM for Max Machine Radar Rat Race Cartridge
+
+MAX3509_Clowns-e000.bin
+  ROM for Max Machine Clowns Cartridge
+
+Sales_Cartridge-8000.bin
+  ROM for C64 Sales Cartridge
+
+Structured_BASIC_Waterloo_1984_original.crt
+  Waterloo Structured BASIC (16k version)
+
+Super_Games_1-8000.bin
+Super_Games_2-8000.bin
+Super_Games_3-8000.bin
+Super_Games_4-8000.bin
+  ROM for C64 Super Games Cartridge
+
+Waterloo_Structured_BASIC.crt
+  Waterloo Structured BASIC (4k version)
+
+Waterloo_Structured_Basic_Docs.zip
+  Waterloo Structured BASIC (Manual in images)
+

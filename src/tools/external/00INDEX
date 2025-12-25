@@ -1,0 +1,42 @@
+
+c64/
+  Software specifically for C64 CP/M cartridge
+HiTech_C/
+  ANSI C compiler for CP/M.
+
+documents/
+  CP/M related programming information.
+
+C-Compiler.d71.gz
+  Small-C compiler, in 1571 disk image
+
+C-Interpretor.d71.gz
+  Small-C Interpretor in 1571 disk image
+
+Cobol.d71.gz
+  Cobol compiler, in 1571 disk image
+
+Forth-83.d81.gz
+  Forth-83 in 1581 disk image
+
+forth.lbr
+  Forth computer language
+
+MacroAssembler.d81.gz
+  Macro Assembler package in 1581 disk image
+
+mbascom.lbr
+  Basic Compiler
+
+MBASIC.d71.gz
+  Microsoft BASIC in 1571 disk image
+
+TurboLessons.d81.gz
+  Turbo Pascal 2.00a tutorial lessons in 1581 disk image
+
+TurboPascal.d71.gz
+  Turbo Pascal 2.00a in 1571 disk image
+
+TurboPascal.d81.gz
+  Turbo Pascal 2.00a with example source in 1581 disk image
+

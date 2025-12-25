@@ -1,0 +1,104 @@
+# ==============================================================================
+# PIN ASSIGNMENTS (DERIVED FROM GERBER FILES)
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# CLOCK & RESET
+# ------------------------------------------------------------------------------
+# C64 PHI2 -> GPIO_1[33] (PIN_AG26)
+set_location_assignment PIN_AG26 -to C64_PHI2
+
+# C64 RESET_N -> GPIO_1[34] (PIN_AH24)
+set_location_assignment PIN_AH24 -to C64_RESET_N
+
+# C64 NMI_N -> GPIO_1[32] (PIN_AF25)
+set_location_assignment PIN_AF25 -to C64_NMI_N
+
+# C64 IRQ_N -> GPIO_1[30] (PIN_AE24)
+set_location_assignment PIN_AE24 -to C64_IRQ_N
+
+# ------------------------------------------------------------------------------
+# ADDRESS BUS (A0-A15)
+# ------------------------------------------------------------------------------
+# A0 -> GPIO_1[0] (PIN_Y15)
+set_location_assignment PIN_Y15 -to C64_ADDR[0]
+# A1 -> GPIO_1[1] (PIN_AC24)
+set_location_assignment PIN_AC24 -to C64_ADDR[1]
+# A2 -> GPIO_1[2] (PIN_AA15)
+set_location_assignment PIN_AA15 -to C64_ADDR[2]
+# A3 -> GPIO_1[3] (PIN_AD26)
+set_location_assignment PIN_AD26 -to C64_ADDR[3]
+# A4 -> GPIO_1[4] (PIN_AG28)
+set_location_assignment PIN_AG28 -to C64_ADDR[4]
+# A5 -> GPIO_1[5] (PIN_AF28)
+set_location_assignment PIN_AF28 -to C64_ADDR[5]
+# A6 -> GPIO_1[6] (PIN_AE25)
+set_location_assignment PIN_AE25 -to C64_ADDR[6]
+# A7 -> GPIO_1[7] (PIN_AF27)
+set_location_assignment PIN_AF27 -to C64_ADDR[7]
+# A8 -> GPIO_1[8] (PIN_AG25)
+set_location_assignment PIN_AG25 -to C64_ADDR[8]
+# A9 -> GPIO_1[9] (PIN_AH27)
+set_location_assignment PIN_AH27 -to C64_ADDR[9]
+# A10 -> GPIO_1[10] (PIN_AG23)
+set_location_assignment PIN_AG23 -to C64_ADDR[10]
+# A11 -> GPIO_1[11] (PIN_AH26)
+set_location_assignment PIN_AH26 -to C64_ADDR[11]
+# A12 -> GPIO_1[12] (PIN_AH23)
+set_location_assignment PIN_AH23 -to C64_ADDR[12]
+# A13 -> GPIO_1[13] (PIN_AA20)
+set_location_assignment PIN_AA20 -to C64_ADDR[13]
+# A14 -> GPIO_1[14] (PIN_AF22)
+set_location_assignment PIN_AF22 -to C64_ADDR[14]
+# A15 -> GPIO_1[15] (PIN_AE22)
+set_location_assignment PIN_AE22 -to C64_ADDR[15]
+
+# ------------------------------------------------------------------------------
+# DATA BUS (D0-D7)
+# ------------------------------------------------------------------------------
+# D0 -> GPIO_1[16] (PIN_AG21)
+set_location_assignment PIN_AG21 -to C64_DATA[0]
+# D1 -> GPIO_1[17] (PIN_AH21)
+set_location_assignment PIN_AH21 -to C64_DATA[1]
+# D2 -> GPIO_1[18] (PIN_AF21)
+set_location_assignment PIN_AF21 -to C64_DATA[2]
+# D3 -> GPIO_1[19] (PIN_AG20)
+set_location_assignment PIN_AG20 -to C64_DATA[3]
+# D4 -> GPIO_1[20] (PIN_AE19)
+set_location_assignment PIN_AE19 -to C64_DATA[4]
+# D5 -> GPIO_1[21] (PIN_AF20)
+set_location_assignment PIN_AF20 -to C64_DATA[5]
+# D6 -> GPIO_1[22] (PIN_AD19)
+set_location_assignment PIN_AD19 -to C64_DATA[6]
+# D7 -> GPIO_1[23] (PIN_AG19)
+set_location_assignment PIN_AG19 -to C64_DATA[7]
+
+# ------------------------------------------------------------------------------
+# CONTROL SIGNALS
+# ------------------------------------------------------------------------------
+# R/W -> GPIO_1[24] (PIN_AE17)
+set_location_assignment PIN_AE17 -to C64_RW
+
+# IO1 -> GPIO_1[25] (PIN_AF18)
+set_location_assignment PIN_AF18 -to C64_IO1_N
+
+# IO2 -> GPIO_1[26] (PIN_AD20)
+set_location_assignment PIN_AD20 -to C64_IO2_N
+
+# ROML -> GPIO_1[27] (PIN_AF19)
+set_location_assignment PIN_AF19 -to C64_ROML_N
+
+# ROMH -> GPIO_1[28] (PIN_AC23)
+set_location_assignment PIN_AC23 -to C64_ROMH_N
+
+# DMA -> GPIO_1[29] (PIN_AD23)
+set_location_assignment PIN_AD23 -to SCPU_DMA_N
+
+# BA -> GPIO_1[31] (PIN_AF24)
+set_location_assignment PIN_AF24 -to C64_BA
+
+# GAME -> GPIO_1[35] (PIN_AE23)
+set_location_assignment PIN_AE23 -to SCPU_GAME_N
+
+# EXROM -> GPIO_0[0] (PIN_V12) - CHECK THIS ONE
+set_location_assignment PIN_V12 -to SCPU_EXROM_N

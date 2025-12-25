@@ -1,0 +1,260 @@
+<?xml version="1.0"?><!-- -*- xml -*- -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html
+ xmlns="http://www.w3.org/1999/xhtml"
+ lang="en" xml:lang="en" dir="ltr">
+
+<head>
+<title>/pub/cbm/firmware/computers/c64/</title>
+<link rel="stylesheet" href="../../../.index.css" />
+<link rel="icon" href="../../../.icon.png" />
+<link rel="SHORTCUT ICON" href="../../../.icon.ico" />
+<link rel="top" href="../index.html" />
+<link rel="prev" href="../c128/index.html" />
+<link rel="next" href="../c65/index.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head><body>
+<img src="/zimmersfiles2.png" ALIGN=LEFT ALT="Zimmers.NET Files (formerly ftp.funet.fi)" HEIGHT=74 WIDTH=130 style="position:absolute;left:0px">
+<h1 style="position: relative">/pub/<a
+href="../../../">cbm</a>/<a
+href="../../">firmware</a>/<a
+href="../">computers</a>/c64/</h1>
+<BR CLEAR=LEFT>
+<div class="top">
+<p>Firmware for all variations on the Commodore 64k computer.
+The eprom type for 8k BASIC &amp; KERNAL is a 2564.  A 2764 can
+be used with an appropriate adapter.  Char roms can be
+replaced with a 2532, or a 2732 with adapter.  The 16k rom
+in the 64C can be replaced with a 27128 eprom.</p>
+</div>
+<h2><a class="anchor" name="dirs">Subdirectories</a></h2>
+<div class="dirs">
+<dl>
+<dt><a href="../../misc/c64carts/index.html">carts@</a></dt>
+<dd>Firmware for various C64 cartridges, mostly games</dd>
+<dt><a href="../../misc/c64diag/index.html">diag@</a></dt>
+<dd>Firmware for various diagnostic cartridges and tools</dd>
+<dt><a href="../../drives/new/index.html">drives@</a></dt>
+<dd>Disk drive firmware</dd>
+<dt><a href="max/index.html">max/</a></dt>
+<dd>Firmware for the Commodore MAX machine, a.k.a. VIC-10 or UltiMax,
+an early Commodore 64 like game console.</dd>
+<dt><a href="../../../schematics/computers/c64/index.html">schematics@</a></dt>
+<dd>Commodore 64 schematic diagrams</dd>
+<dt><a href="../../../src/c64/index.html">source@</a></dt>
+<dd>Commodore 64 ROM disassemblies</dd>
+</dl>
+</div>
+<h2><a class="anchor" name="files">Files</a></h2>
+<div class="files">
+<dl>
+<dt><a href="64c.251913-01.bin">64c.251913-01.bin</a>
+<span class="date">2018-03-07</span>
+<span class="length">16384</span></dt>
+<dd>The 251913-01, used in newer versions of the Commodore 64 and some<br />
+versions of the Commodore 128, is a 16-kilobyte 23128 ROM chip.  It<br />
+contains the Commodore 64 BASIC interpreter ($A000-$BFFF,<br />
+corresponding to the 8-kilobyte 2364 ROM chip 901226-01) and the<br />
+Commodore 64 KERNAL ($E000-$FFFF, corresponding to the 8-kilobyte 2364<br />
+ROM chip 901227-03) in that order.<br /><br /></dd>
+<dt><a href="64gs.390852-01.bin">64gs.390852-01.bin</a>
+<span class="date">2018-03-07</span>
+<span class="length">16384</span></dt>
+<dd>The 390852-01, used in the ill-fated Commodore 64GS game console based<br />
+on the BN/E circuit board, is a 16-kilobyte chip similar to the<br />
+251913-01.  This one was archived from a 27128 EPROM 27128 EPROM chip<br />
+in a West German machine DA5 016014E, assy no. 250469, 252311 rev.B.<br />
+The chip has the label © 1984, 90 CBM / 390852-01 / C64GS ROM CS=DF34.<br />
+The BASIC part corresponds otherwise to 901226-01, but the 30 unused<br />
+bytes at $BF53-$BF70 are filled with $00 instead of $AA.  The KERNAL<br />
+part has been modified from the 901227-03, and most modifications are<br />
+in the area $F72C-$FC92, which also contains a copyright message.<br />
+Many jumps have been redirected to $FB4D, which in turn jumps to<br />
+$F707, which in turn triggers I/O error #5.<br /><br /></dd>
+<dt><a href="82S100%2bJedec.zip">82S100+Jedec.zip</a>
+<span class="date">2018-03-07</span>
+<span class="length">10486</span></dt>
+<dd>PLA binary generator and source<br /><br /></dd>
+<dt><a href="basic.901226-01.bin">basic.901226-01.bin</a>
+<span class="date">2018-03-07</span>
+<span class="length">8192</span></dt>
+<dd>Commodore 64 BASIC V2.  The first and essentially only revision,<br />
+located at $A000-$BFFF.  In the 64GS system firmware, the 30 unused<br />
+bytes at $BF53-$BF70 are filled with $00 instead of $AA.  In the<br />
+Commodore 65 firmware, these bytes are filled with $FF.<br /><br /></dd>
+<dt><a href="C64_PLA_Dissected.pdf">C64_PLA_Dissected.pdf</a>
+<span class="date">2018-03-07</span>
+<span class="length">2942596</span></dt>
+<dd>C64 PLA doc by Thomas 'skoe' Giesel<br /><br /></dd>
+<dt><a href="c64pla.txt">c64pla.txt</a>
+<span class="date">2008-05-27</span>
+<span class="length">2540</span></dt>
+<dd>A simplification of the 906114-1 PLA equations by Dave Dahle.<br /><br /></dd>
+<dt><a href="characters.325018-02.bin">characters.325018-02.bin</a>
+<span class="date">2018-03-07</span>
+<span class="length">4096</span></dt>
+<dd>Character rom from Swedish c64<br /><br /></dd>
+<dt><a href="characters.325018-02.C2G007.bin">characters.325018-02.C2G007.bin</a>
+<span class="date">2018-03-07</span>
+<span class="length">4096</span></dt>
+<dd>Character rom from Swedish c64, labeled 8407, C2D007, 28B-U4-KRN<br /><br /></dd>
+<dt><a href="characters.325056-03.bin">characters.325056-03.bin</a>
+<span class="date">2018-03-07</span>
+<span class="length">4096</span></dt>
+<dd>Character ROM from Spanish C64C<br /><br /></dd>
+<dt><a href="characters.901225-01-DK.bin">characters.901225-01-DK.bin</a>
+<span class="date">2018-03-07</span>
+<span class="length">4096</span></dt>
+<dd>Character rom from Danish c64<br /><br /></dd>
+<dt><a href="characters.901225-01.bin">characters.901225-01.bin</a>
+<span class="date">2018-03-07</span>
+<span class="length">4096</span></dt>
+<dd>The character generator ROM. 2532 type.<br /><br /></dd>
+<dt><a href="characters.906143-02.bin">characters.906143-02.bin</a>
+<span class="date">2018-03-07</span>
+<span class="length">4096</span></dt>
+<dd>The character generator ROM from a Japanese Commodore 64.<br /><br /></dd>
+<dt><a href="characters.turkish.bin">characters.turkish.bin</a>
+<span class="date">2019-06-24</span>
+<span class="length">4096</span></dt>
+<dd>Char rom from Turkish C-64 "Teleteknik"<br /><br /></dd>
+<dt><a href="croatian.zip">croatian.zip</a>
+<span class="date">2024-11-12</span>
+<span class="length">70191</span></dt>
+<dd>Croatian char rom and kernal uploaded  by HN<br /><br /></dd>
+<dt><a href="kernal-sx-64-ieee.bin">kernal-sx-64-ieee.bin</a>
+<span class="date">2020-12-12</span>
+<span class="length">8194</span></dt>
+<dd>Strange SX-64 kernal signalling use with IEEE devices?<br /><br /></dd>
+<dt><a href="kernal.325017.swedish-02.bin">kernal.325017.swedish-02.bin</a>
+<span class="date">2018-03-07</span>
+<span class="length">8192</span></dt>
+<dd>Commodore 64 kernal from unit with Swedish keyboard layout.<br /><br /></dd>
+<dt><a href="kernal.4064.901246-01.bin">kernal.4064.901246-01.bin</a>
+<span class="date">2018-03-07</span>
+<span class="length">8192</span></dt>
+<dd>This 8-kilobyte ROM has been reported in various machines (4064,<br />
+PET64, EDUCATOR64), which are versions of the Commodore 64 built in a<br />
+PET case with an integrated monochrome monitor.  The system interrupt<br />
+routine resets sprite, background and border colors to black unless<br />
+the high-order bit of the location 646 (cursor colour, $0286) is set.  Using<br />
+any colour command resets location 646 and, therefore, the colors.<br /><br /></dd>
+<dt><a href="kernal.901227-01.bin">kernal.901227-01.bin</a>
+<span class="date">2018-03-07</span>
+<span class="length">8192</span></dt>
+<dd>This 8-kilobyte 2364 ROM is the first revision of the Commodore 64<br />
+KERNAL.  The RS-232 timing table is designed for exactly 1 MHz system<br />
+clock frequency, although no C64 runs at that clock rate.  Unlike<br />
+later KERNAL revisions, this one does not detect the video system<br />
+(PAL/NTSC).  This KERNAL was probably only used in early North<br />
+American Commodore 64 units.<br /><br /></dd>
+<dt><a href="kernal.901227-02.bin">kernal.901227-02.bin</a>
+<span class="date">2018-03-07</span>
+<span class="length">8192</span></dt>
+<dd>This 8-kilobyte 2364 ROM is the second revision of the Commodore 64 KERNAL.<br />
+It is the second most widely spread version.<br /><br /></dd>
+<dt><a href="kernal.901227-03-DK.bin">kernal.901227-03-DK.bin</a>
+<span class="date">2018-03-07</span>
+<span class="length">8192</span></dt>
+<dd>Commodore 64 kernal from unit with Danish keyboard layout.<br /><br /></dd>
+<dt><a href="kernal.901227-03.bin">kernal.901227-03.bin</a>
+<span class="date">2018-03-07</span>
+<span class="length">8192</span></dt>
+<dd>This 8-kilobyte 2364 ROM is the third and essentially last revision of the<br />
+Commodore 64 KERNAL.  It is the most widely spread version.<br /><br /></dd>
+<dt><a href="kernal.906145-02.bin">kernal.906145-02.bin</a>
+<span class="date">2018-03-07</span>
+<span class="length">8192</span></dt>
+<dd>This 8-kilobyte 2364 ROM is from a Japanese release Commodore 64.<br /><br /></dd>
+<dt><a href="kernal.c64-scand.bin">kernal.c64-scand.bin</a>
+<span class="date">2018-03-07</span>
+<span class="length">8192</span></dt>
+<dd>Kernal on a 2764 from a Scandinavian SX64.  Had matrix printed label.<br />
+** Reported broken**! Do you have a good image you can upload?<br /><br /></dd>
+<dt><a href="kernal.swedish-03.C2D007.bin">kernal.swedish-03.C2D007.bin</a>
+<span class="date">2018-03-07</span>
+<span class="length">8192</span></dt>
+<dd>Commodore 64 kernal from unit with Danish keyboard layout labeled 8407,<br />
+C2G007, 24B-U5-TKN<br /><br /></dd>
+<dt><a href="kernal.swedish.txt">kernal.swedish.txt</a>
+<span class="date">2018-03-07</span>
+<span class="length">1582</span></dt>
+<dd>A description of the Swedish/Finnish versions of the Commodore 64 and<br />
+Commodore SX-64 KERNAL ROM<br /><br /></dd>
+<dt><a href="kernal.sx.251104-04.bin">kernal.sx.251104-04.bin</a>
+<span class="date">2018-03-07</span>
+<span class="length">8192</span></dt>
+<dd>This 8-kilobyte ROM is the Commodore SX-64 KERNAL, which is based on<br />
+901227-03.<br /><br /></dd>
+<dt><a href="kernal.sx.ISI-AZ-001.zip">kernal.sx.ISI-AZ-001.zip</a>
+<span class="date">2018-03-07</span>
+<span class="length">427787</span></dt>
+<dd>SX-64 kernal w/ diff keyboard mapping that swaps azqm&lt;&gt;: Zip contains images.<br /><br /></dd>
+<dt><a href="kernal.sx64-scand.bin">kernal.sx64-scand.bin</a>
+<span class="date">2018-03-07</span>
+<span class="length">8192</span></dt>
+<dd>Kernal on a 2564 from a Scandinavian SX64.  Had matrix printed label.<br /><br /></dd>
+<dt><a href="kernal.turkish.bin">kernal.turkish.bin</a>
+<span class="date">2019-06-24</span>
+<span class="length">8192</span></dt>
+<dd>Kernal rom from Turkish C-64 "Teleteknik". Different boot screen. Similar to<br />
+german 901227-03<br /><br /></dd>
+<dt><a href="pla-906114-1.c">pla-906114-1.c</a>
+<span class="date">2018-03-07</span>
+<span class="length">3265</span></dt>
+<dd>Another version of pla.c, corresponding to the logic equations obtained<br />
+by Jens Schönfeld.  The equation for CASRAM is much simpler.</dd>
+<dt><a href="pla-906114-1.pds">pla-906114-1.pds</a>
+<span class="date">2018-03-07</span>
+<span class="length">2182</span></dt>
+<dd>A MACHXL design description of a replacement for the 906114-1 PLA.<br /><br /></dd>
+<dt><a href="pla.251064-01.bin">pla.251064-01.bin</a>
+<span class="date">2021-07-15</span>
+<span class="length">65536</span></dt>
+<dd>As 901664-01, but pins A15-A0 and D7-D0 match the original PLA<br /><br /></dd>
+<dt><a href="pla.901664-01.bin">pla.901664-01.bin</a>
+<span class="date">2018-03-07</span>
+<span class="length">65536</span></dt>
+<dd>Pins rearranged for a 27C512&gt;PLA adapter PCB<br /><br /></dd>
+<dt><a href="pla.c">pla.c</a>
+<span class="date">2018-03-07</span>
+<span class="length">7158</span></dt>
+<dd>This C program contains the logic equations for the 82S100 PLA chip<br />
+used in the C64 (906114-1), and converts them to a 64-kilobyte truth<br />
+table file.  In this second version of the program, the input and output<br />
+lines are permuted so that they correspond to the 82S100-to-27512 adapter<br />
+built by Jens Schönfeld, so that he could read out the PLA with an EPROM<br />
+programming device.<br /><br /></dd>
+<dt><a href="pla.txt">pla.txt</a>
+<span class="date">2018-03-07</span>
+<span class="length">12142</span></dt>
+<dd>Logic equations in Abel format for the 82S100 PLA chip used in<br />
+the C64 (906114-1), and a JEDEC file that can used to burn a 82S100<br />
+as a 906114-1.<br /><br /></dd>
+<dt><a href="pla.zip">pla.zip</a>
+<span class="date">2018-03-07</span>
+<span class="length">96798</span></dt>
+<dd>An MS-DOS program for displaying the memory map of the Commodore 64<br />
+in different configurations.  Turbo Pascal source code included.<br />
+The archive also contains a picture of Jens Schönfeld's SuperPLA<br />
+adapter board.<br /><br /></dd>
+<dt><a href="README">README</a>
+<span class="date">2018-03-07</span>
+<span class="length">1609</span></dt>
+<dd>Commodore 64 parts and firmware versions<br /><br /></dd>
+<dt><a href="revisions.txt">revisions.txt</a>
+<span class="date">2018-03-07</span>
+<span class="length">10971</span></dt>
+<dd>This document lists the differences between all non-localised Commodore<br />
+64 system firmware revisions that were published by Commodore.<br /><br /></dd>
+</dl>
+</div>
+<p class="bot"><a href="../../../MIRRORS.html">Mirror sites</a>
+&ndash;
+<a href="../../../README.html">General information</a>
+&ndash;
+<a href="../../../FILETYPES.html">File types</a>
+&ndash;
+<a href="../../../crossplatform/transfer/transfer.html">Data transfer</a></p>
+</body></html>

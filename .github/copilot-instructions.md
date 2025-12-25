@@ -5,14 +5,20 @@ This file guides AI coding agents on the specific architecture, conventions, and
 ## 🏗 Project Architecture
 - **Overview**: This project aims to recreate and enhance the **CMD SuperCPU** accelerator for Commodore 64/128 computers using modern FPGA hardware.
 - **Hardware Platform**:
-  - **Target Board**: DE10-Nano (FPGA) + Sysop-64 Carrier Board (or compatible).
+  - **Target Board**: DE10-Nano (FPGA) + Sysop-64 Carrier Board (V1.6).
+  - **Connectivity**: WiFi/Bluetooth required for AI API access. **MUST use USB Dongle** (GPIO headers are occupied by Carrier).
   - **Interface**: C64/C128 Expansion Port (Cartridge Port). *Note: Requires additional lines (_CHAREN, _HIRAM, _LORAM) for full control.*
 - **Core Components**:
   - **CPU**: W65C816S Soft Core (running at ~20MHz or higher).
-  - **Memory**: Up to 16MB RAM (SuperRAM emulation) + REU (Ram Expansion Unit) emulation.
+  - **Memory**: Up to 16MB RAM or higher (SuperRAM emulation) + REU (Ram Expansion Unit) emulation.
   - **Logic**: SuperCPU compatible banking, registers, and JiffyDOS integration.
+- **AI Co-Processor Integration**:
+  - **Concept**: The ARM CPU (Linux) acts as an "AI Co-Processor" for the C64/C128.
+  - **Workflow**: C64 writes code/requests to shared memory -> ARM Service sends to AI API (Ollama, Google, Copilot) -> ARM writes result (assembly/binary) back to C64 RAM.
+  - **Capabilities**: Decompilation, real-time assembly, code generation, and automated testing.
 - **Design Philosophy**:
   - **Compatibility**: Maintain 100% software compatibility with original SuperCPU software.
+
   - **Modularity**: Separate the Bus Interface, CPU Core, and Memory Controller logic in HDL.
 
 ## 🛠 Tech Stack & Conventions
@@ -47,6 +53,8 @@ This file guides AI coding agents on the specific architecture, conventions, and
   - [Wikipedia](https://en.wikipedia.org/wiki/SuperCPU)
   - [User Guide (Text)](https://archive.org/stream/CMD_SuperCPU_128_V2_Users_Guide/CMD_SuperCPU_128_V2_Users_Guide_djvu.txt)
   - [Tech Specs](https://web.archive.org/web/20090623063229/http://ftp.giga.or.at/pub/c64/supercpu/superspec.html)
-- **Sysop-64 (Hardware Base)**:
-  - [GitHub Repo](https://github.com/Bloodmosher/Sysop-64) (Carrier board & FPGA interface)
+- **Sysop-64 (Hardware Platform)**:
+  - **Carrier Board**: We are using the physical Sysop-64 carrier board.
+  - **Codebase**: **INDEPENDENT**. We are building the FPGA core and software stack from scratch, not using the Sysop-64 binaries.
+
 

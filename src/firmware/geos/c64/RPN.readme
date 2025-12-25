@@ -1,0 +1,9 @@
+rpn128.cvt
+rpn64.cvt
+
+These are my Desk Accessory RPN calculators, respectively for the 128 and the
+64.
+
+------------------------------------------------------------------------------
+rpn128.cvt: pcrc = 175 170 114 249 172 51 101 155 ; crcsum=1187
+rpn64.cvt:  pcrc = 105 92 159 232 243 4 24 137 ; crcsum=996

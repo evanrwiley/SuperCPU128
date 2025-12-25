@@ -1,0 +1,18 @@
+** The 1551 was designed for the Commodore 264 series of computers,
+** consisting of the C16, C116 and plus/4.
+** Replacement eprom for firmware is the 27128
+
+schematics/
+  Commodore 1551 schematic diagrams
+
+1551.251641-3.c
+  This C program contains the logic equations of the PLA.
+
+1551.318008-01.bin
+  The only known version of Commodore 1551 disk drive firmware
+
+pla.251641-03.bin
+
+README
+  Information about the 1551 disk drive
+

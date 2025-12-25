@@ -1,0 +1,85 @@
+** This directory contains ROMs of 1540, 1541, 1541C and 1541-II drives. 
+** The ROM checksums are valid.  If you add the byte values together
+** (adc data:adc #0), the sum of the $c000-$dfff ROM will be $c0, and the
+** $e000-$ffff ROM will add up to $e0.  This applies also to the halves of
+** the 1541-II ROM.  The 2764 and 27128 eproms can be used as replacements.
+
+hacks/
+  3rd party modifications to the firmware
+
+schematics/
+  Schematic diagrams
+
+1540-c000.325302-01.bin
+  The ROM chip for $c000-$dfff.  This seems to be the same on all
+  models before the 1541-II.
+
+1540-e000.325303-01.bin
+  The firmware of an 1540 (the drive that the C64 wouldn't keep up with).
+  The revision number might be something else than -01.  A speciality of
+  this chip is the power-up message: 73,CBM DOS V2.6 V170,00,00.  Did
+  Commodore want to call the drive V170 first?  The ROM checksum is correct.
+  The long-board 1541 had the same hardware as the 1540; this upper ROM
+  was the only difference.  The lower ROM was 325302-01 on both drives.
+
+1541-II.251968-03.bin
+  1541-II firmware.  Released in 1987.
+  
+1541-II.355640-01.bin
+  1541-II firmware.  This version only appears in drives with the newtronics 
+  mechanisms with belt type drives and no track 0 sensor.
+
+1541-c000.325302-01.bin
+  The ROM chip for $c000-$dfff.  This seems to be the same on all
+  models before the 1541-II.
+
+1541-dos_diffs.zip
+  Assembly differences between various 1541 roms
+
+1541-e000.901229-01.bin
+  This is believed to be the first revision of the 1541 firmware.  The
+  service manual says that this ROM is for North America and Japan only.
+  According to it, a 901229-02 also exists, but not in North America.
+  901229-03 is said to be the first version that is usable in Europe.
+
+1541-e000.901229-02.bin
+  Second version of the 1541 firmware.  Uploaded by Raymond Day
+  <raymondday@hotmail.com>.  Two delay loops are shorter than in 901229-03,
+  and the checksum byte at $fee6 has been adjusted accordingly.
+
+1541-e000.901229-03.bin
+  The firmware of an old-style 1541 with long board.
+  This ROM has an autobooting feature: if CLK and DATA are held low
+  during bootup, the drive will wait for them to raise, and execute
+  a "&*" command.
+
+1541-e000.901229-04.bin
+  Take from an SX-64
+
+1541-e000.901229-05.bin
+  The firmware of an old-style 1541 with short board.
+
+1541-e000.901229-06AA.bin
+  The firmware of an old-style 1541 with short board.
+
+1541C-to-1541-II.txt
+  A comparison of the 1541C and 1541-II firmware by Wolfgang Moser.
+  The support for the optical "track 0" sensor, which was introduced
+  in the 1541C firmware, was removed in the 1541-II firmware.
+
+1541C.251968-01.bin
+  The firmware of an old-style 1541 in white case.  This drive was introduced
+  around the same time with the C128 and the 1570, to make it look like the
+  C128 and the 1570, which was also in a white 1541-style case.  The C128 was
+  also white.  This drive has an optical track 1 sensor, but it won't be used
+  unless the jumper J3 on the board is cut. 
+  The $c000-$dfff part of this chip is identical to the 325302-01 ROM.
+
+1541C.251968-02.bin
+  An upgrade ROM for the 1541C.  There are patches in both 8k halves.
+1541C.251968-02.txt
+  Release notes for the 251968-02.
+
+Commodore 1541 ROM genealogy.pdf
+  Overview of rom differences, by Nico de Vries
+

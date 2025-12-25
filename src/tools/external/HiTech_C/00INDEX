@@ -1,0 +1,29 @@
+** HiTech C is a ISO 9899:1990 C compiler that produces Z80 code for use with
+** the Commodore 128's CP/M mode.  It might work on other Z80 systems as well.
+
+SteveGoldsmith/
+  Some Commodore 128 programming stuff for the HiTech C compiler
+  by Steve Goldsmith.
+
+README
+  A readme for HiTech C
+atob.c
+  HiTech src ATOB encoder 
+hitechc.txt
+  Text file about HiTech C 
+htc-ovl.lzh
+  OVL file for HiTech C
+htc-ovl.pma
+  Same PMARCHIVE
+libsrc.lzh
+  src file for HiTech C
+libz01.lbr
+  lib for HiTech C
+z80doc.lzh
+  Document file
+z80v309.lzh
+
+HI-TECH-C-Compiler.d71.gz
+
+HI-TECH-C-Headers.d71.gz
+  HiTech CP/M C Compiler

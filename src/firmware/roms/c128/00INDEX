@@ -1,0 +1,278 @@
+
+diag/
+  Firmware for diagnostic cartridges
+
+drives/
+  Disk drive firmware
+
+other/
+  3rd party firmware (function ROMs etc.)
+
+schematics/
+  Commodore 128 and 128DCR schematic diagrams
+
+128ROMs.readme
+  Some information about the C128 ROMs.
+
+8721.zip
+  A full dump of the 8721 PLA in binary "truth table" format, extracted by
+  Nicolas Welte.  Who can come up with the simplified logic equations?
+8721reduced.zip
+  Reduced equations for the 8721 PLA dump.  Produced by Wolfgang Moser.
+  Who can reduce these further?
+
+README.italian
+  Notes about the Italian C128 firmware
+
+basic-4000.318018-02.bin
+  Commodore 128 BASIC V7 ROM.  1985 version, low part.
+basic-4000.318018-03.bin
+  Commodore 128 BASIC V7 ROM first upgrade.  low part.
+basic-4000.318018-04.bin
+  Commodore 128 BASIC V7 ROM.  1986 version (final upgrade), low part.
+  Saved from an EPROM.
+basic-8000.318019-02.bin
+  Commodore 128 BASIC V7 ROM.  1985 version (final upgrade), high part.
+  Saved from an EPROM.
+basic-8000.318019-03.bin
+  Commodore 128 BASIC V7 ROM first upgrade.  high part.
+basic-8000.318019-04.bin
+  Commodore 128 BASIC V7 ROM.  1986 version, high part.
+
+
+basic.252343-03.bin
+  Commodore 128 BASIC V7 ROM, a slightly newer 1985 version from a
+  cost-reduced Commdore 128 (128CR).  The chip was a 27256 from a
+  motherboard marked "ENGR SAMPLE".
+
+basic.318022-01.bin
+  Commodore 128 BASIC V7 ROM (1985). Same as 318018-02+318019-02.
+basic.318022-02.bin
+  Commodore 128 BASIC V7 ROM (1986). Same as 318018-04+318019-04 and 390393-01.
+
+basic.390393-01.bin
+  Commodore 128 BASIC V7 ROM (1986). Same as 318022-02 and
+  318018-04+318019-04.
+
+basic64.danish.325176-07.bin
+  C64 Kernel from a Danish C128.
+
+c128_c64part.325182-01.bin
+  C64 Kernel from a Swedish C128.  Last revision.
+
+c128_c64part.norwegian.325179-01.bin
+  C64 Kernel for a Norwegian C128. Taken from a loose EPROM.
+
+c128rom1.gif
+c128rom2.gif
+c128rom3.gif
+c128rom4.gif
+  Commodore's C128 ROM Release announcement.
+
+characters.390059-01.bin
+  Commodore 64 character set and C128 mode character set.  In the C128 mode
+  set, the lower case characters b, d, f, h, i, j, k, l, m, s, t, u, w and
+  y are different (all except the m are equal to the plus/4 character set).
+
+characters.danish-d.325175-02.bin
+  Danish Commodore 128D ASCII/DIN character set. The PETSCII character set is
+  the usual C64 character set, and the national character set is based on the
+  C64 character set.
+
+characters.danish.325175-01.bin
+  Danish Commodore 128 ASCII/DIN character set. The PETSCII character set is
+  the usual C64 character set, and the national character set is based on the
+  C64 character set.
+
+characters.french.325167-01.bin
+  French Commodore 128 ASCII/DIN character set.  The PETSCII character set is
+  the usual C64 character set, and the national character set is based
+  on the VIC-20 character set.  The same character set has also been used
+  in Belgian and Italian versions.
+
+characters.german.315079-01.bin
+  German Commodore 128 ASCII/DIN character set.  The PETSCII character set is
+  the usual C64 character set, and the national character set is based
+  on the VIC-20 character set.
+
+characters.ifb.325167-02.bin
+  Unknown Commodore 128 character set (I/F/B). The PETSCII character set is the
+  usual C64 character set, and the national character set is based on the VIC-20
+  character set.
+
+characters.norwegian.325078-02.bin
+  Norwegian Commodore 128 ASCII/DIN character set. The PETSCII character set is
+  the usual C64 character set, and the national character set is based on the
+  VIC-20 character set.
+
+characters.norwegian.325178-01..bin
+  Norwegian Commodore 128 ASCII/DIN character set. The PETSCII character set is
+  the usual C64 character set, and the national character set is based on the
+  VIC-20 character set.
+
+characters.spanish.325171-01.bin
+  Spanish Commodore 128 ASCII/DIN character set. The PETSCII character set is
+  the usual C64 character set, and the national character set is based on the
+  VIC-20 character set.
+
+characters.swedish.325181-01.bin
+  Swedish Commodore 128 ASCII/DIN character set.  The PETSCII character set is
+  the usual C64 character set, and the national character set is based
+  on the C64 character set.
+
+characters.swiss.325173-01D.bin
+  Swiss Commodore 128D ASCII/DIN character set. The PETSCII character set is the
+  usual C64 character set, and the national character set is based on the C64
+  character set.
+
+complete.252343-04.bin
+  Commodore 64 ROMs and Commodore 128 screen editor, Z80 BIOS and KERNAL,
+  a slightly newer 1985 version from a cost-reduced Commodore 128 (128CR).
+  The chip was a 27256 from a motherboard marked "ENGR SAMPLE".
+
+complete.318023-02.bin
+  Complete system ROM of an American Commodore 128 DCR.
+  The C128 mode BASIC and the character generator are on separate ROMs. 
+  Layout: C64 BASIC (901226-01), C64 KERNAL (901227-03), C128 editor,
+  Z80 BIOS and C128 KERNAL.
+
+complete.danish.318082-01.bin
+  Ditto, for a Danish Commodore 128 DCR. The only differences from the American
+  ROM are in the editor (jump to accent character handler) and in the main
+  KERNAL (keyboard maps and accent tables).
+
+complete.french.bin
+  Ditto, for a French Commodore 128 DCR. The only differences from the American
+  ROM are in the editor (jump to accent character handler) and in the main
+  KERNAL (keyboard maps and accent tables).
+
+complete.german.318077-01.bin
+  Ditto, for a German Commodore 128 DCR.  The only differences from the
+  American ROM are in the editor (jump to accent character handler) and
+  in the main KERNAL (keyboard maps and accent tables).
+
+complete.german.318077-03.bin
+  Ditto, for a German Commodore 128 DCR.  The only differences from the
+  American ROM are in the editor (jump to accent character handler) and
+  in the main KERNAL (keyboard maps and accent tables).
+
+complete.italian.318079-01.bin
+  Ditto, for a Italian Commodore 128 DCR. The only differences from the American
+  ROM are in the editor (jump to accent character handler) and in the main
+  KERNAL (keyboard maps and accent tables).
+
+complete.norwegian.318083-01.bin
+  Ditto, for a Norwegian Commodore 128 DCR. The only differences from the
+  American ROM are in the editor (jump to accent character handler) and in the
+  main KERNAL (keyboard maps and accent tables).
+
+complete.spanish.bin
+  Ditto, for a Spanish Commodore 128 DCR. The only differences from the American
+  ROM are in the editor (jump to accent character handler) and in the main
+  KERNAL (keyboard maps and accent tables).
+
+complete.swedish.318034-01.bin
+  Ditto, for a Swedish/Finnish Commodore 128 DCR.  EPROM label: 
+  318034-01 DCR 
+  C128 Ker.Sw/Fi
+
+complete.swiss.318081-01.bin
+  Complete system ROM of a Swiss Commodore 128 DCR.
+
+editor.finnish1.bin
+  Finnish version of the Commodore 128 system ROM,
+  the Editor part ($C000-$CFFF).  All have been copied from bigger
+  ROMs or EPROMs.
+editor.finnish2.bin
+  Finnish version of the Commodore 128 system ROM,
+  the Editor part ($C000-$CFFF).  All have been copied from bigger
+  ROMs or EPROMs.
+editor.french.bin
+  French version of the Commodore 128 system ROM,
+  the Editor part ($C000-$CFFF).  All have been copied from bigger
+  ROMs or EPROMs.
+editor.italian.bin
+  Italian version of the Commodore 128 system ROM,
+  the Editor part ($C000-$CFFF).  All have been copied from bigger
+  ROMs or EPROMs.
+editor.norwegian.bin
+  Norwegian version of the Commodore 128 system ROM,
+  the Editor part ($C000-$CFFF).  All have been copied from bigger
+  ROMs or EPROMs.
+
+kernal.318020-03.bin
+  The C128 KERNAL ROM, containing the editor, the Z80 BIOS and
+  the actual KERNAL part.  This should be the first version.
+kernal.318020-04.bin
+  The C128 KERNAL ROM, containing the editor, the Z80 BIOS and
+  the actual KERNAL part.  First upgrade version
+kernal.318020-05.bin
+  The C128 KERNAL ROM, containing the editor, the Z80 BIOS and
+  the actual KERNAL part.  This is identical with the upper half
+  of the 318023-02 ROM.  Saved from an EPROM.
+
+kernal.fb.325166-02.bin
+  Unknown (F/B) C128 KERNAL ROM, containing the editor, the Z80 BIOS and the
+  actual KERNAL part. Saved from an EPROM.
+
+kernal.german.315078-01.bin
+  The German C128 KERNAL ROM, containing the editor, the Z80 BIOS and
+  the actual KERNAL part.  Saved from an EPROM.
+
+kernal.german.315078-02.bin
+  The German C128 KERNAL ROM, containing the editor, the Z80 BIOS and
+  the actual KERNAL part.  Saved from an EPROM.
+
+kernal.german.315078-03.bin
+  Updated German kernal rom
+
+kernal.german.315078-03p7.bin
+  Alternate german kernal uploaded by Sándor
+
+kernal.german.U35.bin
+  German C128 KERNAL ROM, containing the editor, the Z80 BIOS and the actual
+  KERNAL part from C128 SN#DA4-246431
+
+kernal.italian.325168-02.bin
+  Italian C128 KERNAL ROM, containing the editor, the Z80 BIOS and the actual
+  KERNAL part. Saved from an EPROM.
+
+kernal.norwegian.325177-02.bin
+  Norwegian C128 KERNAL ROM, containing the editor, the Z80 BIOS and the actual
+  KERNAL part. Saved from an EPROM.
+
+kernal.swedish.325180-02.bin
+  Swedish German C128 KERNAL ROM, containing the editor, the Z80 BIOS and the
+  actual KERNAL part. Saved from an EPROM.
+
+kernal.swedish.325189-01.bin
+  Swedish German C128 KERNAL ROM, containing the editor, the Z80 BIOS and the
+  actual KERNAL part. Saame as 325180-02.
+
+kernal.swiss.325172-01.bin
+  Swiss C128 KERNAL ROM, containing the editor, the Z80 BIOS and the actual
+  KERNAL part. Taken from VICE.
+
+kernal.swiss.325172-02.bin
+  Swiss C128 KERNAL ROM, containing the editor, the Z80 BIOS and the actual
+  KERNAL part. Saved from an EPROM.
+
+kernalpart.finnish1.bin
+  Finnish version of the Commodore 128 system ROM, the KERNAL part
+  ($E000-$FFFF).  All have been copied from bigger ROMs or EPROMs.
+kernalpart.finnish2.bin
+  Finnish version of the Commodore 128 system ROM, the KERNAL part
+  ($E000-$FFFF).  All have been copied from bigger ROMs or EPROMs.
+kernalpart.french.bin
+  French version of the Commodore 128 system ROM, the KERNAL part
+  ($E000-$FFFF).  All have been copied from bigger ROMs or EPROMs.
+kernalpart.italian.bin
+  Italian version of the Commodore 128 system ROM, the KERNAL part
+  ($E000-$FFFF).  All have been copied from bigger ROMs or EPROMs.
+kernalpart.norwegian.bin
+  Norwegian version of the Commodore 128 system ROM, the KERNAL part
+  ($E000-$FFFF).  All have been copied from bigger ROMs or EPROMs.
+
+z80bios.bin
+  Commodore 128 Z80 BIOS.  The first and only version.
+

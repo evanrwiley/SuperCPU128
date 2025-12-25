@@ -1,0 +1,41 @@
+** ROM images for the open function-rom socket of the c128
+
+basic8.bin
+  BASIC 8 extension for C128.  Requires BASIC 8 disk.
+
+C128_U36_MEGABIT.zip
+  MEGABIT 128 rom for U36, includes schematics
+
+diskmaster128v3_27128.bin
+  Diskmaster - hold CNTRL on boot to activate menu.
+
+geos-128-rom-usa-1571.bin
+  GEOS 128 boot rom.  Requires deskTop disk in 1571 drive 8
+
+geos-128-rom-am-1581.bin
+  GEOS 128 boot rom.  Requires deskTop disk in 1581 drive 8
+
+ieee-128_251913-01_C64.bin
+  Companion to IEEE-128, this is the C64 rom, similar to 251913-01
+
+ieee-128_315078-01_C128.bin
+  IEEE-128 kernal rom , possibly for German keyboards-- more information needed
+
+keydos-v2.3.bin
+  Utilities rom
+keydos-v2-user-manual.pdf
+  Manual for keydos utilities rom
+
+servant.bin
+  The Servant is another utilities rom
+servant-manual.pdf
+  Manual for The Servant, another utilities rom
+
+super_chip_a.bin
+  An enhancement EPROM that goes into the Function ROM socket on the 128
+super_chip_a.txt
+  Docs for Super Chip (rev A): an enhancement EPROM
+
+super_chip_b.bin
+  An enhancement EPROM that goes into the Function ROM socket on the 128
+  The 1581 utilities?

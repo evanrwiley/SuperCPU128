@@ -1,0 +1,98 @@
+Changes applied to the SpeedDOS-ROMs of the 35 and 40 track
+versions, so that they make use of the 1541-II patches.
+These SpeedDOS upper ROMs (at 0xE000) have to be combined
+with the lower part of a patched 1541-II ROM named
+"1541-II-relocated.bin".
+
+
+** 0xE69C (3):
+        call patch instead of "lda #00; sed" || || ||
+< 00e690 d1 c9 04 b0 03 20 27 d2 4c e7 eb aa a9 00 f8 e0
+---                                          ** ** **
+> 00e690 d1 c9 04 b0 03 20 27 d2 4c e7 eb aa 4c 7f c0 e0
+
+
+** 0xE780 (1):
+         || old, unneeded code removed
+< 00e780 60 8d 03 18 a9 68 8d 00 1c a9 6f 8d 02 1c 4c b1
+---      **
+> 00e780 ea 8d 03 18 a9 68 8d 00 1c a9 6f 8d 02 1c 4c b1
+
+
+** 0xEA69 (2):          call patch  || ||
+< 00ea60 10 09 60 ad 00 18 10 fa 4c 5b e8 4c d7 e8 a2 00
+---                                 ** **
+> 00ea60 10 09 60 ad 00 18 10 fa 4c c0 c0 4c d7 e8 a2 00
+
+
+** 0xEB22 (3): || || ||  call patch instead of "ldx #45; txs"
+< 00eb20 71 ea a2 45 9a ad 00 1c 29 f7 8d 00 1c a9 01 8d
+---            ** ** **
+> 00eb20 71 ea 4c b9 c0 ad 00 1c 29 f7 8d 00 1c a9 01 8d
+
+
+** 0xEC05 (2):          || ||  call patch
+< 00ec00 a5 7c f0 03 4c 5b e8 58 a9 0e 85 72 a9 00 85 6f
+---                     ** **
+> 00ec00 a5 7c f0 03 4c c0 c0 58 a9 0e 85 72 a9 00 85 6f
+
+
+** 0xEE1E (2):                         call patch  || ||
+< 00ee10 a5 e2 10 05 a9 33 4c c8 c1 29 01 85 7f 20 00 c1
+---                                                ** **
+> 00ee10 a5 e2 10 05 a9 33 4c c8 c1 29 01 85 7f 20 a6 c0
+
+
+** 0xEE3E (2):                         call patch  || ||
+< 00ee30 12 b9 01 02 95 13 20 60 fb a9 01 85 80 20 c6 c8
+---                                                ** **
+> 00ee30 12 b9 01 02 95 13 20 60 fb a9 01 85 80 20 9f c0
+
+
+** 0xEFC5 (4):
+            call patch  || || || ||  instead of "cmp #03; bcs efce"
+< 00efc0 d0 0c bd fa 02 c9 03 b0 05 a9 72 20 c7 e6 60 20
+---                     ** ** ** **
+> 00efc0 d0 0c bd fa 02 4c 93 c0 ea a9 72 20 c7 e6 60 20
+
+
+** 0xF017 (4):    call patch  || || || ||  instead of "ldx 7f; lda ff,x"
+< 00f010 60 a5 6f 48 a5 70 48 a6 7f b5 ff f0 05 a9 74 20
+---                           ** ** ** **
+> 00f010 60 a5 6f 48 a5 70 48 4c ca c0 ea f0 05 a9 74 20
+
+
+Special notes:
+
+  The 1541-II patch at memory location 0xFCAF has been
+  omitted with the SpeedDOS-ROMs, because the 1541-II fix
+  decreases a delay loop, while this delay is completely
+  removed with SpeedDOS. To not change the behaviour of
+  SpeedDOS, this delay loop removal has not been changed.
+
+
+  An additional SpeedDOS patch has been applied at address
+  0xFF7D. This is needed, so that this ROM can be used with
+  the 6502-RAMROM hardware extension board for flashing other
+  Flash-ROM banks. Without this patch, the 6502-RAMROM cannot
+  be used, when the Flash mode is enabled.
+
+  ** 0xFF7D (3):        "bit 67, nop" instead of  || || ||  "sta fe67,x"
+  < 00ff70 ad 0c 18 29 08 d0 03 4c 16 e9 20 b7 e9 9d 67 fe
+  ---                                             ** ** **
+  > 00ff70 ad 0c 18 29 08 d0 03 4c 16 e9 20 b7 e9 24 67 ea
+
+
+  The possibly alternative checksum byte change at address
+  0xFFE5 has been omitted for the SpeedDOS ROMs, because
+  this address is used by SpeedDOS routines.
+
+
+  Some spare space of the lower ROM patch area (0xC0E9) is
+  used for version string information instead of changing the
+  ident strings (SPEEDDOS 2.7 1541).
+
+
+  The checksum byte at address 0xFEE6 is being recalculated
+  independently for the 35 and 40 track version of the
+  SpeedDOS ROM after applying all patches.

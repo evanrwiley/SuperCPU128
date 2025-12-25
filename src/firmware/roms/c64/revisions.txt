@@ -1,0 +1,257 @@
+The copies of the Commodore 64 system firmware have been removed from
+the archive, because Ironstone Partners Ltd has signed an exclusive
+worldwide licensing deal with Tulip Computers BV for the Commodore 64
+and associated products.
+
+This document lists MD5 signatures of the files, as reported by the
+"md5sum" utility of GNU textutils, and should provide enough
+information to reconstruct any published version of the system
+firmware from a copy of one published version of the Commodore 64
+system firmware.
+
+8c37b056c00a44c0725508b8cedbbefb  64c.251913-01.bin
+
+The 251913-01, used in newer versions of the Commodore 64 and some
+versions of the Commodore 128, is a 16-kilobyte 23128 ROM chip.  It
+contains the Commodore 64 BASIC interpreter ($A000-$BFFF,
+corresponding to the 8-kilobyte 2364 ROM chip 901226-01) and the
+Commodore 64 KERNAL ($E000-$FFFF, corresponding to the 8-kilobyte 2364
+ROM chip 901227-03) in that order.
+
+049e657afafbdd802e8c6a4f88f3d730  64gs.390852-01.bin
+
+The 390852-01, used in the ill-fated Commodore 64GS game console based
+on the BN/E circuit board, is a 16-kilobyte chip similar to the
+251913-01.  This one was archived from a 27128 EPROM 27128 EPROM chip
+in a West German machine DA5 016014E, assy no. 250469, 252311 rev.B.
+The chip has the label © 1984, 90 CBM / 390852-01 / C64GS ROM CS=DF34.
+The BASIC part corresponds otherwise to 901226-01, but the 30 unused
+bytes at $BF53-$BF70 are filled with $00 instead of $AA.  The KERNAL
+part has been modified from the 901227-03, and most modifications are
+in the area $F72C-$FC92, which also contains a copyright message.
+Many jumps have been redirected to $FB4D, which in turn jumps to
+$F707, which in turn triggers I/O error #5.
+
+57af4ae21d4b705c2991d98ed5c1f7b8  basic.901226-01.bin
+
+Commodore 64 BASIC V2.  The first and essentially only revision,
+located at $A000-$BFFF.  In the 64GS system firmware, the 30 unused
+bytes at $BF53-$BF70 are filled with $00 instead of $AA.  In the
+Commodore 65 firmware, these bytes are filled with $FF.
+
+da92801e3a03b005b746a4dd0b639c7c  kernal.4064.901246-01.bin
+
+This 8-kilobyte ROM has been reported in various machines (4064,
+PET64, EDUCATOR64), which are versions of the Commodore 64 built in a
+PET case with an integrated monochrome monitor.  The system interrupt
+routine resets sprite, background and border colors to black unless
+the high-order bit of the location 646 (cursor colour, $0286) is set.  Using
+any colour command resets location 646 and, therefore, the colors.
+The differences from 901227-02 are as follows.  Note that some patches
+of 901227-03 are included.
+
+$E42D-$E42F: (printing the start-up message)
+901227-02: JSR $AB1E
+901246-01: JMP $E441 (do not print " BASIC BYTES FREE\r")
+$E477: (first part of start-up message)
+901227-02: "  **** COMMODORE 64 BASIC V2 ****\r\r 64K RAM SYSTEM  \0"
+901246-01: "**** COMMODORE 4064  BASIC V2.0 ****\r\r\0              "
+$E4AC: (checksum byte?)
+901227-02: $5C
+901246-01: $63
+$E4C8: (patch: reset the colours unless the high-order bit of 646 is set)
+901227-02: filled with eighteen $AA bytes
+901246-01: BIT $286:BMI *+12:LDA #0:LDX #14:STA $D020,X:DEX:BPL *-4:JMP $EA87
+$E535: (default cursor colour)
+901227-02: $0E (light blue)
+901246-01: $01 (white)
+$E57C-$E599: (compute screen address)
+901227-02: LDA $D9,X:AND #3:ORA $288:STA $D2:LDA $ECF0,X:STA $D1:LDA #$27
+           INX:LDY $D9,X:BMI *+8:CLC:ADC #$28:INX:BPL *-8:STA $D5:RTS
+901246-01: JSR $E9F0:LDA #$27:INX:LDY $D9,X:BMI *+8:CLC:ADC #$28:INX:BPL *-8:
+           STA $D5:JMP $EA24:CPX $C9:BEQ *+5:JMP $E6ED:RTS:NOP
+$E621:
+901227-02: JSR $E6ED
+901246-01: JSR $E591
+$EA7B: (patch to reset the colours)
+901227-02: JSR $EA87
+901246-01: JSR $E4C8
+$ECD9-$ECE6: (initial values of video chip registers at $D020-$D03E)
+901227-02: 14, 6, 1, 2, 3, 4, 0, 1, 2, 3, 4, 5, 6, 7
+901246-01:  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+$F81E: (check the high-order bit of $9D before message output)
+901227-02: JSR $F12F
+901246-01: JSR $F12B
+$F82B: (check the high-order bit of $9D before message output)
+901227-02: JMP $F12F
+901246-01: JMP $F12B
+$FF80: (KERNAL version identifier)
+901227-02: $00
+901246-01: $64
+$FFF8: (unused bytes)
+901227-02: "BY" (initials of Bob Yannes?)
+901246-01: $00, $00
+
+1ae0ea224f2b291dafa2c20b990bb7d4  kernal.901227-01.bin
+
+This 8-kilobyte 2364 ROM is the first revision of the Commodore 64
+KERNAL.  The RS-232 timing table is designed for exactly 1 MHz system
+clock frequency, although no C64 runs at that clock rate.  Unlike
+later KERNAL revisions, this one does not detect the video system
+(PAL/NTSC).  This KERNAL was probably only used in early North
+American Commodore 64 units.  The differences from the second revision
+are as follows.
+
+$E118: (output a character from BASIC)
+901227-01: JSR $FFC9
+901227-02: JSR $E4AD
+$E4AC: (checksum byte?)
+901227-01: $2B
+901227-02: $5C
+$E4AD-$E4B7: (patch area)
+901227-01: filled with $AA
+901227-02: PHA:JSR $FFC9:TAX:PLA:BCC *+3:TXA:RTS
+$E4DA-$E4DF: (patch for "clear screen" routine)
+901227-01: filled with $AA
+901227-02: LDA $D021:STA ($F3),Y:RTS
+$E4E0-$E4EB: (patch: wait for keypress or timeout)
+901227-01: filled with $AA
+901227-02: ADC #$2:LDY $91:INY:BNE *+6:CMP $A1:BNE *-7:RTS
+$E4EC-$E4FF: (patch area, RS-232 speed table for PAL systems)
+901227-01: filled with $AA
+901227-02: $2619, $1944, $111A, $0DE8, $0C70, $0606, $02D1, $0137, $00AE, $0069
+$EA0B: (set the character colour when clearing the screen)
+901227-01: LDA #1:STA ($F3),Y
+901227-02: JSR $E4DA:NOP
+$ECCA-$ECCB: (initial values of video chip registers at $D011-$D012)
+901227-01: $1B, $00 (raster compare at line 0)
+901227-02: $9B, $37 (raster compare at line 311)
+$ECD2: (initial value of video chip register at $D019)
+901227-01: $00
+901227-02: $0F (acknowledge all VIC-II interrupts)
+$F428-$F44C: (set up RS-232 timing)
+901227-01: BNE *+13:LDA $295:ASL:TAY:LDA $296:JMP $F43F
+           ASL:TAX:LDA $FEC0,X:ASL:TAY:LDA $FEC1,X:ROL
+           PHA:TYA:ADC #$C8:STA $299:PLA:ADC #$0:STA $29A
+901227-02: BEQ *+30:ASL:TAX:LDA $2A6:BNE *+11
+           LDY $FEC1,X:LDA $FEC0,X:JMP *+9
+           LDY $E4EB,X:LDA $E4EA,X
+           STY $296:STA $295:LDA $295:ASL:JSR $FF2E
+$F459: (set up RS-232 emulation)
+901227-01: JMP $F00D
+901227-02: JSR $F00D
+$F761: (wait for keypress after displaying FOUND)
+901227-01: LDA $91:CMP #$FF:BEQ *-4 (wait indefinitely)
+901227-02: LDA $A1:JSR $E4E0:NOP (wait for a key or timeout)
+$FCFB: (RESET routine)
+901227-01: JSR $E518 (initialise I/O)
+901227-02: JSR $FF5B (JSR $E518 and detect PAL/NTSC)
+$FDDD-$FDF7: (initialise system timer)
+901227-01: LDA #$1B:STA $DC04:LDA #$41:STA $DC05:LDA #$81:STA $DC0D
+           LDA $DC0E:AND #$80:ORA #$11:STA $DC0E:JMP $EE8E 
+           ; at 60 Hz, the clock rate would be ($411B+1)*60=1000080 Hz
+901227-02: LDA $2A6:BEQ *+12
+           LDA #$25:STA $DC04:LDA #$40:JMP *+10
+           LDA #$95:STA $DC04:LDA #$42
+           STA $DC05:JMP $FF6E
+           ; at 60 Hz, PAL clock rate would be ($4025+1)*60=985320 Hz
+           ; and NTSC clock rate would be ($4295+1)*60=1024680 Hz
+           ; (the actual values are 17734472/18=985248 and 14318181/14=1022727)
+$FEC2-$FED5: (RS-232 speed table for 1 MHz timing, or for NTSC systems)
+901227-01: $26AC, $19A7, $115D, $0E1F, $0CA1, $061F, $02DD, $013D, $00B2, $006C
+901227-02: $27C1, $1A3E, $11C5, $0E74, $0CED, $0645, $02F0, $0146, $00B8, $0071
+$FF07-$FF42: (timer initialisation for RS-232 emulation)
+901227-01: LDA $293:AND #$F:BNE *+14:LDA $295:STA $DD06:LDA $296:JMP *+14
+           ASL:TAX:LDA $FEC0,X:STA $DD06:LDA $FEC1,X
+           STA $DD07:LDA #$11:STA $DD0F:LDA #$12:EOR $2A1:STA $2A1:LDA #$FF
+           STA $DD06:STA $DD07:LDX $298:STX $A8:RTS
+901227-02: LDA $295:STA $DD06:LDA $296:STA $DD07:LDA #$11:STA $DD0F
+           LDA #$12:EOR $2A1:STA $2A1:LDA #$FF:STA $DD06:STA $DD07
+           LDX $298:STX $A8:RTS
+           TAX:LDA $296:ROL:TAY:TXA:ADC #$C8:STA $299:TYA:ADC #0:STA $29A:RTS
+           NOP:NOP
+$FF5B-$FF7F: (patch: detect PAL/NTSC and initialise system timer)
+901227-01: filled with $AA
+901227-02: JSR $E518:LDA $D012:BNE *-3:LDA $D019:AND #$1:STA $2A6:JMP $FDDD
+$FF80: (KERNAL version identifier)
+901227-01: $AA (really a fill byte)
+901227-02: $00
+$FF81: CINT vector
+901227-01: JMP $FF5B
+901227-02: JMP $E518
+
+7360b296d64e18b88f6cf52289fd99a1  kernal.901227-02.bin
+39065497630802346bce17963f13c092  kernal.901227-03.bin
+
+These 8-kilobyte 2364 ROMs are the second and third revision of the
+Commodore 64 KERNAL.  These are the most widely spread versions.  The
+differences are as follows:
+
+$E4AC: (checksum byte?)
+901227-02: $5C
+901227-03: $81
+$E4D3: (patch)
+901227-02: $AA, $AA, $AA, $AA, $AA, $AA, $AA
+901227-03: STA $A9:LDA #1:STA $AB:RTS
+$E4DA: (get the character colour for clearing the screen memory)
+901227-02: LDA $D021 (background colour)
+901227-03: LDA $286 (cursor colour)
+$E57C-$E599: (compute screen address)
+901227-02: LDA $D9,X:AND #3:ORA $288:STA $D2:LDA $ECF0,X:STA $D1:LDA #$27
+           INX:LDY $D9,X:BMI *+8:CLC:ADC #$28:INX:BPL *-8:STA $D5:RTS
+901227-03: JSR $E9F0:LDA #$27:INX:LDY $D9,X:BMI *+8:CLC:ADC #$28:INX:BPL *-8:
+           STA $D5:JMP $EA24:CPX $C9:BEQ *+5:JMP $E6ED:RTS:NOP
+$E621:
+901227-02: JSR $E6ED
+901227-03: JSR $E591
+$EA07-$EA12: (fill screen line with spaces)
+901227-02: LDA #$20:STA ($D1),Y:JSR $E4DA:NOP:DEY:BPL *-9:RTS
+901227-03: JSR $E4DA:LDA #$20:STA ($D1),Y:DEY:BPL *-8:RTS:NOP
+$EF94: (jump to patch)
+901227-02: STA $A9:RTS
+901227-03: JMP $E4D3
+$FF80: (KERNAL version identifier)
+901227-02: $00
+901227-03: $03
+
+187b8c713b51931e070872bd390b472a  kernal.sx.251104-04.bin
+
+This 8-kilobyte ROM is the Commodore SX-64 KERNAL, which is based on
+901227-03.  The differences are as follows.
+
+$E479: (start-up message)
+901227-03: "**** COMMODORE 64 BASIC V2 ****"
+251104-04: " *****  SX-64 BASIC V2.0  *****"
+$E4AC: (checksum byte?)
+901227-03: $81
+251104-04: $B3
+$E535: (default cursor colour)
+901227-03: $0E (light blue)
+251104-04: $06 (dark blue)
+$E5EE: (length of the string expansion of the key combination Shift+STOP)
+901227-03: 9 ("LOAD\rRUN\r")
+251104-04: 15 ("LOAD\":*\",8\rRUN\r")
+$E5F3: (pointer to the string expansion of the key combination Shift+STOP)
+901227-03: LDA $ECE6,X
+251104-04: LDA $F0D7,X
+$ECD9-$ECE6: (initial screen colours $D020-$D021)
+901227-03: 14, 6 (light blue and dark blue)
+251104-04:  3, 1 (cyan and white, like the VIC-20)
+$F0D7: (string area)
+901227-03: "\rPRESS PLAY ON "
+251104-04: "LOAD\":*\",8\rRUN\r"
+$F386: (OPEN, checking the device number)
+901227-03: BNE $F38B
+251104-04: BNE $F390 (report ILLEGAL DEVICE NUMBER for tape)
+$F4B6: (LOAD, checking the device number)
+901227-03: BCC $F533 (check if the device number is 1, for tape)
+251104-04: BCC $F4AF (report ILLEGAL DEVICE NUMBER for devices 0..3)
+$F5F8: (SAVE, checking the device number)
+901227-03: BCC $F659 (check if the device number is 1, for tape)
+251104-04: BCC $F5F1 (report ILLEGAL DEVICE NUMBER for devices 0..3)
+$FF80: (KERNAL version identifier)
+901227-03: $03
+251104-04: $43
+
+October 8, 2003
+Marko Mäkelä (msmakela@nic.funet.fi)

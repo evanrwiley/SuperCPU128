@@ -1,0 +1,23 @@
+I got these files from Giuseppe Liuzzo <syd@mbox.infcom.it>, who saved this
+firmware of his plastic C128D to disk after instructions I gave him. After 
+some rearrangement of data, the following files resulted:
+
+characters.italian.bin     an image of the character ROM, labeled:
+                           325167-01   C128 char I/F/B
+                           This suggests that the same ROM was used for 
+                           Italian, French and Belgic localizations. 
+                           Confirmed by comparison to characters.french.bin
+
+editor.italian.bin         editor part of the kernal ROM, part number 
+                           information is not yet available.
+
+kernalpart.italian.bin     kernal part of the kernal ROM. part number
+                           information is not yet available.
+
+The BASIC ROM found in this machine is the first version, the contents match
+318022-01.
+
+I converted these files into VICE x128 format and tested the keyboard layout,
+it is the same as the one on the "mystery" Italian keyboard on:
+http://www.chemie.uni-konstanz.de/~welte/cbm/keyboards.html
+

@@ -1,0 +1,20 @@
+This is a ROM dump of an EPROM I found socketed in the "empty" socket of my 
+C128. The label on the EPROM says: 
+
+	Super Chip
+	Chip "A"
+	2.0
+
+I don't have any original documentation on it. 
+
+It adds the following features to the function keys in C128 mode:
+
+F1 = Nibbler
+F2 = GO64:LOAD":*",8,1
+F3 = File Copier
+F4 = Seq file reader
+F5 = Terminal
+F6 = Screen Dump
+
+It may do more, but that's all I've figured out.
+

@@ -1,0 +1,32 @@
+** This directory contains original firmware of 6502-based Commodore
+** products, for the purpose of troubleshooting and repairing old
+** equipment.  If you have other ROMs or more precise information
+** (i.e. ROM part numbers), feel free to contact us.
+
+characters/
+  Character sets of different C= computers.
+
+computers/
+  Firmware for Commodore computers.
+
+drives/
+  Firmware for Commodore disk drives.
+
+misc/
+  Firmware for miscellanous products.
+
+printers/
+  Printer firmware.
+
+speed/
+  Combination firmware for speeding up computer/drive io
+
+ALLFILES
+  Index of all files under this area, text version.
+ALLFILES.html
+  Index of all files under this area, HTML version.
+
+README.txt
+  Commodore Technical Support Bulletin table of contents 
+  and Commodore ROM Genealogy
+

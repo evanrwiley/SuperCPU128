@@ -1,0 +1,55 @@
+
+264diag/
+  Diagnostic cartridge images for 264-series computers (Plus/4, C16, etc)
+
+c64carts/
+  Cartridge roms for the Commodore 64/128
+
+cbm2carts/
+  Cartridge roms for CBM-II computers (600, B128, etc)
+
+cbm_video_board/
+  Firmware for CBM and CBM-II Video Boards
+
+chessmate/
+  The C= chessMate was a chess playing computer.
+
+cmd/
+  firmware from Creative Micro Designs devices
+
+c128diag/
+  binaries, manuals, and schematics for c128 diagnostic firmware
+
+c64diag/
+  binaries, manuals, and schematics for c64 diagnostic firmware
+
+petdiag/
+  Diagnostic roms for the PET series
+
+plus4carts/
+  Firmware for cartridges for the Plus/4
+
+printerif/
+  IEC printer interfaces
+
+unknown/
+  Unknown roms from various loose eprom collections.  If you have any
+  information, please message me!
+
+vc-20diag/
+  binaries, manuals, and schematics for vic20/vc-20 diagnostic firmware
+
+viccarts/
+  binaries and roms for vic-20 cartridges
+
+c900_bios_reformat_hd.zip
+  Custom roms for C900 to reformat hard drive, includes instructions.
+
+diag.txt
+  Notes on the diagnostic cartridges Raymond Carlsen acquired.  See
+  <URL:http://www.funet.fi/pub/cbm/schematics/cartridges/c64/diag/>
+  for the Commodore 64 diagnostic cartridge.
+
+magicboard_2516.bin
+  2k rom from PET 8032 'Magic Board" printer adapter add-on from C=.
+

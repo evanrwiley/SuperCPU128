@@ -1,0 +1,8 @@
+** This directory contains firmware for computers and disk drives
+** to speed up disk io.  Check the manuals area for documentation.
+
+sjdmaker-0.1.tar.gz
+  DOS/Unix software to convert U.S. JiffyDOS roms to Swedish
+
+sx64-flash.zip
+  1541-Flash! firmware for the sx-64 and internal 1541 disk drive

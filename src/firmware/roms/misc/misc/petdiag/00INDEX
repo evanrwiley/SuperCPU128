@@ -1,0 +1,33 @@
+
+2001test10.bin
+  Diagnostic rom for original chiclet 2001 by Vossi (H7 socket)
+
+40col_diag_20_10_1_f000.bin
+  Diag rom for 40 col PET kernal socket.   Find diag clip info @
+  schematics/cartridges/pet
+
+80col_diag_v1.1.bin
+  Diag rom v1,1 for 80 col PET kernal socket   Find diag clip info @
+  schematics/cartridges/pet
+
+901447-18.081c7aad.bin
+  Unknown rom, probably Diagnostics-related.
+
+901447-30-9000.bin
+  2001 diag rom @ 9000 - sys 38912 to start   Find diag clip info @
+  schematics/cartridges/pet
+
+901447-30_2001_ext_diag_unit.bin
+  2001 diag rom for external expansion.  Might be at $9800   Find diag clip info
+  @ schematics/cartridges/pet
+
+901481-01_80col_diag_f000.bin
+  Diag rom for 80 col PET kernal socket   Find diag clip info @
+  schematics/cartridges/pet
+
+petdiag.zip
+  Modification to Use the Diagnostic Test Fixture on Original PET's
+
+pettest2kv04.zip
+  Diagnostic rom for various PETs by David Roberts
+

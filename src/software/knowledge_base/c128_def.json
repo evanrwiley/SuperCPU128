@@ -1,0 +1,29 @@
+{
+  "machine": "Commodore 128",
+  "cpu": "MOS 8502 (1 MHz / 2 MHz)",
+  "modes": ["C64 Mode", "C128 Mode", "CP/M Mode"],
+  "memory_map": {
+    "basic_ram_start": 7169,
+    "basic_ram_end": 65280,
+    "screen_ram_40": 1024,
+    "color_ram_40": 55296,
+    "vdc_ram": "16KB or 64KB (Dedicated)",
+    "mmu_register": 65280
+  },
+  "graphics": {
+    "chips": ["VIC-IIe (40 Col)", "VDC 8563/8568 (80 Col)"],
+    "vic_resolution": "320x200 (16 Colors)",
+    "vdc_resolution": "640x200 (RGBI - 16 Colors)",
+    "notes": "VDC has dedicated video RAM and is accessed via registers $D600/$D601. It supports color attributes."
+  },
+  "speed_control": {
+    "fast_mode": "Bit 0 of $D030 (1=2MHz, 0=1MHz)",
+    "constraints": "VIC-IIe screen is blanked in 2MHz mode unless in border. VDC works fine in 2MHz."
+  },
+  "coding_rules": [
+    "Use MMU ($FF00) to switch banks (RAM 0, RAM 1, ROMs).",
+    "BASIC 7.0 starts at $1C01.",
+    "Zero Page is relocatable via MMU.",
+    "VDC access is slow; check status bit before writing."
+  ]
+}

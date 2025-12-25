@@ -1,0 +1,58 @@
+The following table summarizes my understanding of the 128 ROM revisions for
+the United States.
+
+Version         BASlo           BAShi           Kernal
+-------         -----           -----           ------
+First           318018-02       318019-02       318020-03
+Middle upgrade  318018-03       318019-03       318020-04
+Final upgrade   318018-04       318019-04       318020-05
+128DCR          318022-02 lo    318022-02 hi    318023-02 hi
+
+Part number 251913-01 is the 16K 64 OS ROM, which is present in both the 64C
+and the low-profile 128.  I have confirmed that this ROM is identical to the
+first half of 318023-02.  Also, I have confirmed that the final ROM upgrade
+is the same as the 128DCR version.  The only difference is that the OS for
+the low-profile 128 is stored in four 16K x 8 ROMs rather than two 32K x 8
+chips.
+
+-David Gahris
+ dgahris@eece.maine.edu
+
+------------------------------------------------------------------------------
+
+I have a copy of an announcement from Commodore detailing the differences
+between the rev. 0 and rev. 1 ROMs, with part numbers, signature bytes,
+revision bytes, checksums and copyright dates. 252343-03 and 252343-04 fit
+neither the rev. 0 or the rev. 1 descriptions, but are half way between
+them.  I have done a three way comparison of the ROMs. the results are
+summarized in the following table.
+
+                             rev. 0    252343-03 & 252343-04     rev. 1
+copyright date               1985             1985               1986
+ROM signature at 7FFC-D      FFFF             5CAC               8DEF
+rev. byte at 7FFE             00               01                 01
+checksum at 7FFF              4C               DC                 61
+ROM signature at BFFC-D      FFFF             E266               CDC8
+rev. byte at BFFE             00               01                 01
+checksum at                   3A               8A                 5C
+ROM signature at CFFC-D      FFFF             AB16               8F76
+rev. byte at CFFE             00               01                 01
+checksum at CFFF              C3               BC                 3C
+rev. byte at FF80             00               01                 01
+
+All changes in 252343 are also present in the rev. 1 roms.
+There are no changes in 252343 that are not in the rev. 1 ROMs.
+There are additional changes in the rev. 1 ROMs which are not present in
+252434. 
+There is one patch at FC44 that shows two stages of revision.  The patch
+in  252343 has five bytes added in the rev. 1 ROM at the begining of the
+routine and the rest of the routine is move up in memory to make room for
+it. Five addresses in the kernal are therefore different in all three
+versions to accommodate the different versions of the patch.
+
+These ROMs were probably a test version of the rev. 1 ROM since they
+contain rev. 1 identification but do not conform to the announced rev. 1
+checksums and signatures. 
+
+-William M. Levak
+ <wlevak@umich.edu>

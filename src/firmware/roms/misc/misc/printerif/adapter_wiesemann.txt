@@ -1,0 +1,22 @@
+wiesemann interface
+
+adapter between commodore serial bus (c64, vic20,...) to centronics
+for printer
+
+WW INTERFACE 92000/G C64/Centr
+
+6 dips switches
+
+processor 
+label: ww 11-1983 test ok: fl sn 1160
+philips M ??8035ml 6p
+
+rom: (c) 1984 ww 9262
+nec 2732c
+
+board number 92000/17
+
+maybe I have the manual somewhere (but don't ask)
+
+The Project 64 file wtpara10.txt seams to describe a sequel of this interface.
+

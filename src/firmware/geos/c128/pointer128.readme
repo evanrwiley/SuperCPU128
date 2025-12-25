@@ -1,0 +1,9 @@
+This utility replaces the default GEOS128 80-column pointer with another
+smaller pointer.  This is not a pointer editor; the alternate pointer is
+hardcoded into the program.
+
+Source code is included, so if you have geoProgrammer, you could change the
+code to reflect whatever pointer you want; one could also envision expanding
+this to a real pointer editor....
+
+crc32 = 1093725481 for "pointer128.lzh".

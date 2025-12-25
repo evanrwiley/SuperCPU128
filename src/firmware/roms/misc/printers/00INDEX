@@ -1,0 +1,54 @@
+
+1525/
+  Commodore 1525 dot matrix IEC printer
+1515/
+  Commodore VIC-1515 IEC printer
+1520/
+  Commodore VIC-1520 Printer/Plotter
+1526/
+  The 1526 and MPS-802 have an IEC interface
+3022/
+  The 3022, an IEEE-488 printer. Includes the 2022 and 4022.
+4022/
+  CBM 4022 IEEE-488 Printer
+4023/
+  The 4023 is a variant of the 1526 having an IEEE-488 interface.
+6400/
+  Commodore 6400 IEEE-488 business printer
+8023P-MPP1361/
+  The 8023P has an IEEE-488 interface and was designed by Commodore. The
+  MPP1361 uses the same firmware.
+8028/
+  The 8028 is a Commodore daisy wheel printer with IEEE-488 interface.
+dps1101/
+  Enormous IEC daisywheel printer for the Plus/4
+mcs801/
+  MCS 801 color printer
+
+mcs810-820/
+  Commodore MCS-810 and MCS-820 color IEC printers
+
+mps1000/
+  MPS1000 dot matrix IEC printer
+
+mps1224/
+  24 pin dot matrix printer
+
+mps1230/
+  MPS-1230 serial roms includes the MPS-1200 and MPS-1250
+
+mps1270/
+  Ink Jet centronics printer
+
+mps2020/
+  Commodore MPS series printers with a Commodore serial bus interface.
+
+mps801/
+  MPS 801 IEC Serial Printer
+
+mps803/
+  Early dot-matrix IEC printer
+
+control.txt
+  Control codes and secondary addresses for Commodore printers
+

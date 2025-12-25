@@ -1,0 +1,35 @@
+** The Commodore 1526 is a dot matrix printer that attaches to the serial bus.
+
+1526-07b.skand.bin
+  Firmware of the Commodore 1526 printer with Finnish character set. It
+  contains a string "COMMODORE MODEL MPS-802 PRINTER - REV 07B". This 2564
+  EPROM chip was installed on a 24/28 pin ROM/EPROM pinout adapter and the
+  label has the text: 
+    CBM 1526
+    VERS. 1.0 
+    SKAND.GEN
+
+1526-325341-05.bin
+  Firmware for Commodore 1526 printer
+
+1526-325341-08.bin
+  Firmware for Commodore 1526 printer
+
+4023-325360-02.bin
+  Firmware of the Commodore 4023 IEEE-488 printer.  Except for the interface
+  this printer seems to be the same as the 1526/MPS 802.  The 2764 EPROM
+  containing the firmware is labeled: 4023 /P 360-02 This EPROM is installed on
+  a 24/28 pin ROM/EPROM adaptor.
+
+mps802-341-07b.bin
+  ROM from MPS-802, marked 341-07B
+
+mps802_rev_7b_swedish.bin
+  Custom Swedish rom for 1526/mps802
+
+mps802_switchable_gfx.bin
+  Switchable graphics rom uploaded by Martin Hansen
+
+README
+  Part list and a list of ribbons that are suitable for the 1526.
+

@@ -1,0 +1,22 @@
+1526/MPS-802 Parts
+
+Location       Part Number    Description
+U70                           6504 CPU
+U60                           6522 VIA
+U40, U50                      6532 (2) RIOT
+U80            325341-05      2764 EPROM 1526 rev. 05
+U80            325341-08      2364 ROM 1526/MPS-802 rev. 07C
+U80                           2764 EPROM 1526/MPS-802 rev. 07C
+ribbon         613160550      Commodore 1526, 4023, MPS-802
+ribbon                        Atari 801, 804
+ribbon                        Blue Chip M120-10, M150-10
+ribbon                        Facit B1100, B1200
+ribbon         F698BKMS       Fullmark
+ribbon                        Legend 800, 808, 880, 1080, 1380
+ribbon         609474-1       Mannesmann-Tally F80, MT80, MT81, SP80
+ribbon                        Mitsui CP80, MP80
+ribbon         B197           Nu-kote
+ribbon                        Okidata 1600
+ribbon                        Sears SR1000
+ribbon                        Shinwa CPA80, CPB80, VP-130 plus, VP-130E
+ribbon                        Silver Reed 100-80, 130-80

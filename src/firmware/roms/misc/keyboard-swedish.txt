@@ -1,0 +1,15 @@
+Swedish/Finnish VIC-20/C64/C128 keyboard layout:
+
+      ! " # $ % & ' ( )       *             f2
+   <- 1 2 3 4 5 6 7 8 9 0 - = : home del    f1
+
+                                            f4
+  ctrl q w e r t y u i o p å @ ^ restore    f3
+
+                              +             f6
+stop sl a s d f g h j k l ö ä ; return      f5
+
+                       < > ?       cu cr    f8
+C= shift z x c v b n m , . / shift cd cl    f7
+
+              space bar

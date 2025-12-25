@@ -1,0 +1,15 @@
+** These files were contributed by Nicolas Welte
+** <welte@chemie.uni-konstanz.de>.
+
+README
+  General information about the boards inside the 8028 printer
+UA10-CAR 06.bin
+  UA10 2716 EPROM
+UA5-M 07 A.bin
+  UA5 2764 EPROM
+UA8-DSY 06.bin
+  UA8 2716 EPROM
+
+UA8-DSY 06-2.bin
+  Second variation on UA8-DSY 06.  Sent by  Christian Forstreuter
+

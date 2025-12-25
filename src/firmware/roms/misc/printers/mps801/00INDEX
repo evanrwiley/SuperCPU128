@@ -1,0 +1,11 @@
+
+mps801-unknown2732.bin
+  Unknown 2732 eprom labeled "New MPS801"
+
+mps801.bin
+  Firmware of the MPS801 printer.  This is a 2732 EPROM with a paper label on it
+  reading"5JW". The circuit board is labeled "SEIKOSHA GP-500J".
+
+mps801_swe.bin
+  MPS801 rom with Swedish (and Finnish?) characters
+

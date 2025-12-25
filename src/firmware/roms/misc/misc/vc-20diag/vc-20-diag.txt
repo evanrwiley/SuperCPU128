@@ -1,0 +1,20 @@
+The file vc-20-diag.324173-01.bin was read out of a TI 2532 Eprom, the
+label to that Eprom says
+                                                                                
+324173-01
+VC 20 DIAG
+                                                                                
+The Eprom was soldered in, on a PCB with Fab.No 324.171-01. The PCB seems
+to be prepared to carry more stuff: 1K of memory is also located on the
+cart, but there seems to be an option for 3K and another 4K Eprom. A bunch
+of jumpers seems to make 4K/8K/16K cartridges on that PCB.
+                                                                                
+The cartridge itself is labelled
+                                                                                
+DIAGNOSTIC-TEST
+VIC 20/VC 20
+324159-01
+                                                                                
+The cartridge is brown plastic. Of course, there are some diagnostic plugs
+in the set, but I won't have the complete set (the IEC port connector is
+missing, I only have open wires on that end).

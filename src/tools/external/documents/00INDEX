@@ -1,0 +1,21 @@
+** Here you will find some documentation for CP/M, and for
+** Commodore 128 CP/M in particular.  These documents were grabbed
+** from the Herne Data Systems CP/M page <URL:http://www.herne.com/cpm.htm>,
+** renamed and rearchived.
+
+ccp-internals.gz
+  Internal CCP commands
+console.gz
+  The Console
+customizing.gz
+  Customizing C-128 CP/M
+disk-system-details.gz
+  CP/M Disk Format Details
+disk-system.gz
+  The Disk system
+external commands.gz
+  External utilities
+introduction.gz
+  Intro to C-128 CP/M
+memorymap.gz
+  C-128 CP/M Memory map

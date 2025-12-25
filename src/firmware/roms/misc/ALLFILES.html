@@ -1,0 +1,2716 @@
+<?xml version="1.0"?><!-- -*- xml -*- -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html
+ xmlns="http://www.w3.org/1999/xhtml"
+ lang="en" xml:lang="en" dir="ltr">
+
+<head>
+<title>/pub/cbm/firmware index</title>
+<link rel="stylesheet" href="../.index.css" />
+<link rel="icon" href="../.icon.png" />
+<link rel="SHORTCUT ICON" href="../.icon.ico" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head><body>
+
+<h1>Files under <a href="index.html">/pub/cbm/firmware</a></h1>
+<div class="files">
+<dl>
+<dd>This directory contains original firmware of 6502-based Commodore
+products, for the purpose of troubleshooting and repairing old
+equipment.  If you have other ROMs or more precise information
+(i.e. ROM part numbers), feel free to contact us.</dd>
+<dt><a href="ALLFILES">ALLFILES</a></dt>
+<dd>Index of all files under this area, text version.</dd>
+<dt><a href="ALLFILES.html">ALLFILES.html</a></dt>
+<dd>Index of all files under this area, HTML version.</dd>
+<dt><a href="README.txt">README.txt</a></dt>
+<dd>Commodore Technical Support Bulletin table of contents<br />
+and Commodore ROM Genealogy</dd>
+</dl>
+<dl>
+<dt><a href="characters/index.html">characters/</a></dt>
+<dd><dl>
+<dt><a href="characters/c128.bin">c128.bin</a></dt>
+<dd>390059-01 Commodore 128 character ROM.  The first half has the standard
+Commodore 64 character set, and the second half has the C128 mode character
+set, which is slightly different.  All characters except the lower case m
+are identical with the Commodore 16 character set.  The uppercase/graphics
+character set is identical with the C64, including the reverse at sign (@)
+bug, which is missing from the lowercase/uppercase character set.</dd>
+<dt><a href="characters/c16-hungarian.bin">c16-hungarian.bin</a></dt>
+<dd>Hungarian Commodore 16 character set made by Novotrade.  The capital A and P,
+the lower-case i and the graphics characters $65 and $67 in the
+uppercase/graphics bank and $65 in the lowercase/uppercase bank have gone
+through cosmetic changes.  The national characters are present in the
+lowercase/uppercase bank in positions obtained by pressing the C= key with
+a letter.</dd>
+<dt><a href="characters/c16-hungarian.readme">c16-hungarian.readme</a></dt>
+<dd>Keyboard layout for using the Hungarian Commodore 16 character set.  Typed
+in the ISO 8859-2 (Latin-2) character set; when viewed with ISO 8859-1
+(Latin-1), the accents look a bit different.</dd>
+<dt><a href="characters/c16.bin">c16.bin</a></dt>
+<dd>Commodore 16 character set with more beautiful lowercase/uppercase
+character set than the C64.  The lower case characters b, c, d, e, f, h,
+i, j, k, l and m have been improved.  The font does not contain reversed
+characters, therefore only 2 kilobytes.</dd>
+<dt><a href="characters/c64-german.bin">c64-german.bin</a></dt>
+<dd>An amateur hacked version of the Commodore 64 character set, with some
+German special characters.  This was found on a piggybacked EPROM in
+a German VIC-20 (VC-20).  There are three inconsistencies in the reversed
+uppercase/graphics character set: The at sign bug/feature, the space char
+(the ROM tries to define a fancy cursor), and the line-drawing char C=e
+(code 113; an apparent bug).  In the lowercase/uppercase character set
+there are inconsistencies in following characters: @, j, m, y, space, ä
+(code 110; the reversed ä is corrupted).</dd>
+<dt><a href="characters/c64-hungarian.bin">c64-hungarian.bin</a></dt>
+<dd>An amateur hacked version of the Commodore 64 character set, with some
+Hungarian special characters.  Except for the at sign (in the
+uppercase/graphics character set at position 0; in the lowercase/uppercase
+character set at position 100), the reverse character set is consistent.</dd>
+<dt><a href="characters/c64-swedish.bin">c64-swedish.bin</a></dt>
+<dd>Official Commodore 64 Swedish/Finnish character set with the å, ä and ö
+characters.  In addition to the at sign bug/feature, there's a bug in
+the reversed upper case Ä character in both character sets.  This image might
+be corrupt.  See c64-swedish3.bin.</dd>
+<dt><a href="characters/c64-swedish2.bin">c64-swedish2.bin</a></dt>
+<dd>Alternative version of the Commodore 64 Swedish/Finnish character set.
+Compared to c64-swedish.bin, the Ä and Ö dots and the Å ring are wider.
+This image might be corrupt.  See c64-swedish4.bin.</dd>
+<dt><a href="characters/c64-swedish3.bin">c64-swedish3.bin</a></dt>
+<dd>Character rom from Swedish c64, equivalent to c64-swedish.bin</dd>
+<dt><a href="characters/c64-swedish4.bin">c64-swedish4.bin</a></dt>
+<dd>Character rom from Swedish c64, equivalent to c64-swedish2.bin</dd>
+<dt><a href="characters/c64.bin">c64.bin</a></dt>
+<dd>901225-01 Commodore 64/128 character set.  Every vertical line is at least
+2 pixels wide in order to avoid color errors on television.  Also the C=M
+and C=G graphic characters have been made 2 pixels wide, which is an error.
+The reverse at sign is not an exact reverse of the character, which can be
+seen either as a bug (because of the 2 pixels minimum width restriction)
+or as a feature. 2532 type.</dd>
+<dt><a href="characters/c65-caff.bin">c65-caff.bin</a></dt>
+<dd>Commodore 65 alternative character set, taken from a C65 ROM with
+the checksum $CAFF.  This is an exact copy of the Commodore 128 character
+set.</dd>
+<dt><a href="characters/characters.901225-01.gif">characters.901225-01.gif</a></dt>
+<dd>image of the PET char rom 901225-01</dd>
+<dt><a href="characters/characters.901447-08.gif">characters.901447-08.gif</a></dt>
+<dd>image of the PET char rom 901447-08</dd>
+<dt><a href="characters/characters.901447-10.gif">characters.901447-10.gif</a></dt>
+<dd>image of the PET char rom 901447-10</dd>
+<dt><a href="characters/characters.901447-azerty.bin">characters.901447-azerty.bin</a></dt>
+<dd>Char rom for french AZERTY keyboard, based on 901447-08 and 10.</dd>
+<dt><a href="characters/kauno.bin">kauno.bin</a></dt>
+<dd>A calligraphic font (Finnish: kaunokirjoitus, Swedish: välskrivning) for
+the Commodore 64.  The data was saved from a tape from 1985.</dd>
+<dt><a href="characters/keyboard-swedish.txt">keyboard-swedish.txt</a></dt>
+<dd>Swedish/Finnish keyboard layout of the VIC-20, Commodore 64 and
+Commodore 128.  Composed by Pasi Ojala and Marko Mäkelä.</dd>
+<dt><a href="characters/listfont.c">listfont.c</a></dt>
+<dd>C source code for displaying a 8*8 font.</dd>
+<dt><a href="characters/pet-1.bin">pet-1.bin</a></dt>
+<dd>901447-08 PET character generator ROM (BASIC 1).  The character design
+is the same as in 901447-10, only the lower case and upper case characters
+have changed places.  Reversed characters are absent.</dd>
+<dt><a href="characters/pet-2.bin">pet-2.bin</a></dt>
+<dd>901447-10 PET character generator ROM.  Used in the Fat 40, 8032SK and
+8296.  Doesn't contain reversed characters.  This ROM is just like the
+VIC-20 character set, except that the code $1c (in both halves) is backslash
+(\) instead of the British pound sign (£), which was used in the newer
+character sets.</dd>
+<dt><a href="characters/pet-greek.bin">pet-greek.bin</a></dt>
+<dd>Greek character generator ROM.  Some Latin characters have been replaced
+with Greek ones.  This font is not very consistent: for instance, the
+two copies of the @ sign at code positions $00 and $80, as do the
+two copies of the capital Phi at $06 and $c6.  This character generator
+was found on a 4-kilobyte chip, whose first half was identical with
+the 901447-10 character generator.</dd>
+<dt><a href="characters/pet-norwegian.bin">pet-norwegian.bin</a></dt>
+<dd>Norwegian character generator ROM.</dd>
+<dt><a href="characters/pet-russian.bin">pet-russian.bin</a></dt>
+<dd>901447-10 PET character generator ROM modified to have Cyrillic letters
+in the positions $42..$5a.  Contributed (manually reproduced) by
+Dima Sobolev.</dd>
+<dt><a href="characters/pet-swedish.bin">pet-swedish.bin</a></dt>
+<dd>901447-14 PET character generator ROM with the characters [\]{|} replaced
+with ÅÖÅäöå.</dd>
+<dt><a href="characters/superpet-swedish.bin">superpet-swedish.bin</a></dt>
+<dd>901640-01 SKAND.GEN (label on EPROM).  SuperPET character generator ROM
+with the characters [\]{|} replaced with ÄÖÅäöå.</dd>
+<dt><a href="characters/superpet.bin">superpet.bin</a></dt>
+<dd>901640-01 SuperPET character generator ROM.  The first half of this ROM
+is identical with pet-2.bin, and the second half of this ROM contains
+a true ASCII character set and an APL character set.</dd>
+<dt><a href="characters/vic20-german.bin">vic20-german.bin</a></dt>
+<dd>A German character set modelled after the Vic-20 character set.  Used
+in the German Commodore 128 (top part of the 315079-01 ROM) and in the
+German 64DX (C65) prototype.</dd>
+<dt><a href="characters/vic20-japanese.bin">vic20-japanese.bin</a></dt>
+<dd>A Japanese character set used in the VIC-1001.  The British pound (£) has
+been replaced with a Japanese yen (¥) symbol, and the lowercase/uppercase
+set has been replaced with an uppercase/Kanji set of glyphs.</dd>
+<dt><a href="characters/vic20-norwegian.bin">vic20-norwegian.bin</a></dt>
+<dd>A Norwegian/Danish character set modelled after the Vic-20 character set.
+Used in the Norwegian/Danish Commodore 128.  The characters @, !, /, &lt;, &gt;
+and the up arrow are different, and so are many graphics characters.  The
+characters [£] have been replaced with ÆØÅ.</dd>
+<dt><a href="characters/vic20-swedish.bin">vic20-swedish.bin</a></dt>
+<dd>A Swedish/Finnish character set based on the Vic-20 character set.  Grabbed
+from a localized VIC-20.  The reversed lower case ö is malformed.
+Chip markings: NEC JAPAN R22101-207 / D2332C 510 UD7.
+(Yes, it is a mask-programmable 4k*8 ROM!)</dd>
+<dt><a href="characters/vic20.bin">vic20.bin</a></dt>
+<dd>901460-03 VIC-20 character generator ROM.  Most lines are 1 pixel wide,
+since there is no possibility of color errors with the Vic's wide pixels.
+This character generator is also used on many PET computers.</dd>
+</dl>
+</dd>
+<dt><a href="computers/index.html">computers/</a></dt>
+<dd><dl>
+<dd>Firmware for Commodore 8-bit home computers.
+The chronological order is: VIC-20, C64, plus/4, C128, C65.</dd>
+</dl>
+<dl>
+<dt><a href="computers/b/index.html">b/</a></dt>
+<dd><dl>
+<dd>The Commodore 600 series was known as the B128 in the United States,
+and the machine that was known there as the B256, was called the 700
+series in Europe.  These machines are also known as "CBM II Low Profile"
+and "CBM II High Profile", respectively.<br />
+The 600 and the 700 series are almost identical, but 700 series machines
+have a built-in monitor, a separate keyboard, and a different character
+generator ROM.  The 610/710 has 128kB RAM, the 620/720 has 256kB RAM,
+and the 630/730 has 256kB RAM and a co-processor card (Z80 and 8088 were
+planned, but it is not sure if these cards actually existed).<br />
+The 500 series uses a 6567/6569 VIC-II video chip instead of the 6845 CRTC.
+It also runs at around 1 MHz instead of the 2 MHz of other Model B
+computers.<br />
+Of th roms below, the kernal and BASIC 8k roms are 2364 / MCM68764 compatible,
+while the character roms are .. complicated.  The schematic says they are 4k
+2332s, but also that pin 21 (an active-high chip select on the 2332) is A12,
+which suggests it wants to be an 8k 2364/68764.  I have no idea.<br />
+See also <a class="link" href="../b/index.html">../b/index.html</a> and <a class="link" href="../../../b/index.html">../../../b/index.html</a>.</dd>
+<dt><a href="computers/b/8088.zip">8088.zip</a></dt>
+<dd>Firmware of the 8088 board.  The included disassembly has not been
+cleaned up.</dd>
+<dt><a href="computers/b/906114-0X-JEDs.zip">906114-0X-JEDs.zip</a></dt>
+<dd>Data for various CBM-II PLAs in JED format by Steve Gray</dd>
+<dt><a href="computers/b/b128-8000.901243-02b.bin">b128-8000.901243-02b.bin</a></dt>
+<dd>B128 BASIC 4, low part.</dd>
+<dt><a href="computers/b/b128-8000.901243-04a.bin">b128-8000.901243-04a.bin</a></dt>
+<dd>B128 BASIC 4, low part, updated version.</dd>
+<dt><a href="computers/b/b128-a000.901242-02b.bin">b128-a000.901242-02b.bin</a></dt>
+<dd>B128 BASIC 4, high part.</dd>
+<dt><a href="computers/b/b128-a000.901242-03s2.bin">b128-a000.901242-03s2.bin</a></dt>
+<dd>BASIC 4, high part from PET700(B128), sent by Christian Forstreuter, bundled
+with 901243-02b and 901244-03b.  Mislabeled 901240; corrected here.</dd>
+<dt><a href="computers/b/b128-a000.901242-04_.bin">b128-a000.901242-04_.bin</a></dt>
+<dd>B128 BASIC 4, high part, with some additions to 901242-04a.</dd>
+<dt><a href="computers/b/b128-a000.901242-04a.bin">b128-a000.901242-04a.bin</a></dt>
+<dd>B128 BASIC 4, high part, updated version.</dd>
+<dt><a href="computers/b/b256-8000.610u60.bin">b256-8000.610u60.bin</a></dt>
+<dd>This ROM was in the socket U60 of a Hungarian B256, mapped at address $8000.</dd>
+<dt><a href="computers/b/b256-8000.901241-03.bin">b256-8000.901241-03.bin</a></dt>
+<dd>B256 BASIC 4, low part.</dd>
+<dt><a href="computers/b/b256-a000.901240-03.bin">b256-a000.901240-03.bin</a></dt>
+<dd>B256 BASIC 4, high part.</dd>
+<dt><a href="computers/b/b256-a000.901240-04.bin">b256-a000.901240-04.bin</a></dt>
+<dd>B256 BASIC 4, high part. Contributed by Oliver Fleischmann</dd>
+<dt><a href="computers/b/b256-a000.xxxxxx-xx-wgbz.bin">b256-a000.xxxxxx-xx-wgbz.bin</a></dt>
+<dd>B256 BASIC 4 high part, from Bo Zimmermans West German low profile machine.
+Paired with 901241-03.bin and unk kernal</dd>
+<dt><a href="computers/b/b500-8000.901243-01.bin">b500-8000.901243-01.bin</a></dt>
+<dd>B500 BASIC 4, low part.</dd>
+<dt><a href="computers/b/b500-a000.901242-01a.bin">b500-a000.901242-01a.bin</a></dt>
+<dd>B500 BASIC 4, high part.</dd>
+<dt><a href="computers/b/b500-firmware.txt">b500-firmware.txt</a></dt>
+<dd>Notes on the B500 firmware.</dd>
+<dt><a href="computers/b/characters-hungarian.bin">characters-hungarian.bin</a></dt>
+<dd>Hungarian model II character set, 8�8 matrix expanded to 8�16 by adding
+blank lines.</dd>
+<dt><a href="computers/b/characters.324867-02.bin">characters.324867-02.bin</a></dt>
+<dd>German character rom from CBM 7X0 computer</dd>
+<dt><a href="computers/b/characters.901225-01.bin">characters.901225-01.bin</a></dt>
+<dd>Commodore P500 character set, 8�8 matrix (the same as in the Commodore 64).</dd>
+<dt><a href="computers/b/characters.901232-01.bin">characters.901232-01.bin</a></dt>
+<dd>Standard model II character set, 8�16 matrix.</dd>
+<dt><a href="computers/b/characters.901232-02.bin">characters.901232-02.bin</a></dt>
+<dd>Char rom from Christian Forstreuter's high profile CBM 710.</dd>
+<dt><a href="computers/b/characters.901233-03.swedish.bin">characters.901233-03.swedish.bin</a></dt>
+<dd>Swedish/Finnish model II character set, 8�16 matrix.</dd>
+<dt><a href="computers/b/characters.901237-01.bin">characters.901237-01.bin</a></dt>
+<dd>Standard model II character set, 8�8 matrix expanded to 8�16 by adding
+blank lines.</dd>
+<dt><a href="computers/b/characters.pet700_swe.bin">characters.pet700_swe.bin</a></dt>
+<dd>Char rom of PET700(B128), sent by Christian Forstreuter</dd>
+<dt><a href="computers/b/fpla-p500.zip">fpla-p500.zip</a></dt>
+<dd>Fuse maps for the two Signetics N82S100N chips used in the P500.
+Submitted by Edward Shockley, <a class="link" href="http://www.insectria.net/b128.html">http://www.insectria.net/b128.html</a>.</dd>
+<dt><a href="computers/b/fpla.zip">fpla.zip</a></dt>
+<dd>Fuse maps for the Signetics N82S100N chip used in non-P models.
+Submitted by Edward Shockley, <a class="link" href="http://www.insectria.net/b128.html">http://www.insectria.net/b128.html</a>.</dd>
+<dt><a href="computers/b/kernal.324866-03.bin">kernal.324866-03.bin</a></dt>
+<dd>CBM-II kernal chip from German CBM 700 contributed by Oliver Fleischmann</dd>
+<dt><a href="computers/b/kernal.901234-01.bin">kernal.901234-01.bin</a></dt>
+<dd>Commodore P500 KERNAL ROM, older revision.  Part of the KERNAL ROM is
+stored in the high part of the BASIC ROM 901235-01.</dd>
+<dt><a href="computers/b/kernal.901234-02.bin">kernal.901234-02.bin</a></dt>
+<dd>Commodore P500 KERNAL ROM, newer revision.</dd>
+<dt><a href="computers/b/kernal.901244-01.bin">kernal.901244-01.bin</a></dt>
+<dd>Commodore B500 (a.k.a. 610) KERNAL ROM</dd>
+<dt><a href="computers/b/kernal.901244-03.swedish.bin">kernal.901244-03.swedish.bin</a></dt>
+<dd>Swedish/Finnish B128/B256 KERNAL ROM</dd>
+<dt><a href="computers/b/kernal.901244-03b-swe.bin">kernal.901244-03b-swe.bin</a></dt>
+<dd>Kernal from Swedish PET700(B128), sent by Christian Forstreuter, bundled with
+901243-02b and 901242-03S2</dd>
+<dt><a href="computers/b/kernal.901244-03b.bin">kernal.901244-03b.bin</a></dt>
+<dd>B128/B256 KERNAL ROM</dd>
+<dt><a href="computers/b/kernal.901244-04a.bin">kernal.901244-04a.bin</a></dt>
+<dd>B128/B256 KERNAL ROM, updated version.</dd>
+<dt><a href="computers/b/kernal.901244-04a.official.bin">kernal.901244-04a.official.bin</a></dt>
+<dd>Official updated ROM from CBUG #67</dd>
+<dt><a href="computers/b/kernal.901244-04b.official.bin">kernal.901244-04b.official.bin</a></dt>
+<dd>Official updated ROM from CBUG #67</dd>
+<dt><a href="computers/b/kernal.hungarian.bin">kernal.hungarian.bin</a></dt>
+<dd>Hungarian B128/B256 KERNAL ROM</dd>
+<dt><a href="computers/b/kernal.xxxxxx-xx-wgbz.bin">kernal.xxxxxx-xx-wgbz.bin</a></dt>
+<dd>B256 Kernal from Bo Zimmermans West German low profile machine.   Paired with
+901241-03.bin and unk BASIC HI</dd>
+<dt><a href="computers/b/kernal610-v3b-mod.zip">kernal610-v3b-mod.zip</a></dt>
+<dd>A modified kernal (version 3) for handling a 1541 connected to the Cassette
+port. The source code is in ca65 format, and the schematic diagram of the
+cable is included as a GIF file. Uploaded by the author, Ullrich von Bassewitz
+(uz@musoftware.de).</dd>
+<dt><a href="computers/b/kernal610.zip">kernal610.zip</a></dt>
+<dd>A disassembly (in ca65 format) of the kernal version 3 with German comments.
+Uploaded by the author, Ullrich von Bassewitz (uz@musoftware.de).</dd>
+<dt><a href="computers/b/p500-basic-hi.901235-01.bin">p500-basic-hi.901235-01.bin</a></dt>
+<dd>Commodore 500 BASIC 4, high part, older revision.  Part of the
+901234-01 KERNAL is at the end of this ROM.</dd>
+<dt><a href="computers/b/p500-basic-hi.901235-02.bin">p500-basic-hi.901235-02.bin</a></dt>
+<dd>Commodore 500 BASIC 4, high part, newer revision.</dd>
+<dt><a href="computers/b/p500-basic-lo.901236-01.bin">p500-basic-lo.901236-01.bin</a></dt>
+<dd>Commodore 500 BASIC 4, low part, older revision.</dd>
+<dt><a href="computers/b/p500-basic-lo.901236-02.bin">p500-basic-lo.901236-02.bin</a></dt>
+<dd>Commodore 500 BASIC 4, low part, newer revision.</dd>
+<dt><a href="computers/b/pla-hp-906114-5.c">pla-hp-906114-5.c</a></dt>
+<dd>This C program contains logic equations of the 906114-5 PLA of
+Commodore 700 series computers (high profile PET II).</dd>
+<dt><a href="computers/b/pla-lp-906114-4.c">pla-lp-906114-4.c</a></dt>
+<dd>This C program contains logic equations of the 906114-5 PLA of
+Commodore 700 series computers (high profile PET II).  The
+equations were obtained independently, and they match pla.zip
+exactly.</dd>
+<dt><a href="computers/b/pla-p500.zip">pla-p500.zip</a></dt>
+<dd>64-kilobyte truth table dumps of the two PLAs used in the Commodore 500.
+The inputs and outputs are permuted; see pla-hp-906114-5.c for the mapping.</dd>
+<dt><a href="computers/b/pla.zip">pla.zip</a></dt>
+<dd>Contents of the 82S100 PLA used in the Commodore 600 series computers
+(low profile PET II), part number 906114-5.
+Includes plans for replacing the chip with a PAL16L8.</dd>
+<dt><a href="computers/b/plaReplacement2.jpg">plaReplacement2.jpg</a></dt>
+<dd>Schematic for replacement -04 PLA, by Mate Sebok</dd>
+</dl>
+<dl>
+<dt><a href="drives/old/index.html">drives@</a> (link)</dt>
+<dt><a href="../b/carts/index.html">other@</a> (link)</dt>
+<dt><a href="../schematics/computers/b/index.html">schematics@</a> (link)</dt>
+</dl>
+</dd>
+<dt><a href="computers/c128/index.html">c128/</a></dt>
+<dd><dl>
+<dt><a href="computers/c128/128ROMs.readme">128ROMs.readme</a></dt>
+<dd>Some information about the C128 ROMs.</dd>
+<dt><a href="computers/c128/8721.zip">8721.zip</a></dt>
+<dd>A full dump of the 8721 PLA in binary "truth table" format, extracted by
+Nicolas Welte.  Who can come up with the simplified logic equations?</dd>
+<dt><a href="computers/c128/8721reduced.zip">8721reduced.zip</a></dt>
+<dd>Reduced equations for the 8721 PLA dump.  Produced by Wolfgang Moser.
+Who can reduce these further?</dd>
+<dt><a href="computers/c128/README.italian">README.italian</a></dt>
+<dd>Notes about the Italian C128 firmware</dd>
+<dt><a href="computers/c128/basic-4000.318018-02.bin">basic-4000.318018-02.bin</a></dt>
+<dd>Commodore 128 BASIC V7 ROM.  1985 version, low part.</dd>
+<dt><a href="computers/c128/basic-4000.318018-03.bin">basic-4000.318018-03.bin</a></dt>
+<dd>Commodore 128 BASIC V7 ROM first upgrade.  low part.</dd>
+<dt><a href="computers/c128/basic-4000.318018-04.bin">basic-4000.318018-04.bin</a></dt>
+<dd>Commodore 128 BASIC V7 ROM.  1986 version (final upgrade), low part.
+Saved from an EPROM.</dd>
+<dt><a href="computers/c128/basic-8000.318019-02.bin">basic-8000.318019-02.bin</a></dt>
+<dd>Commodore 128 BASIC V7 ROM.  1985 version (final upgrade), high part.
+Saved from an EPROM.</dd>
+<dt><a href="computers/c128/basic-8000.318019-03.bin">basic-8000.318019-03.bin</a></dt>
+<dd>Commodore 128 BASIC V7 ROM first upgrade.  high part.</dd>
+<dt><a href="computers/c128/basic-8000.318019-04.bin">basic-8000.318019-04.bin</a></dt>
+<dd>Commodore 128 BASIC V7 ROM.  1986 version, high part.</dd>
+<dt><a href="computers/c128/basic.252343-03.bin">basic.252343-03.bin</a></dt>
+<dd>Commodore 128 BASIC V7 ROM, a slightly newer 1985 version from a
+cost-reduced Commdore 128 (128CR).  The chip was a 27256 from a
+motherboard marked "ENGR SAMPLE".</dd>
+<dt><a href="computers/c128/basic.318022-01.bin">basic.318022-01.bin</a></dt>
+<dd>Commodore 128 BASIC V7 ROM (1985). Same as 318018-02+318019-02.</dd>
+<dt><a href="computers/c128/basic.318022-02.bin">basic.318022-02.bin</a></dt>
+<dd>Commodore 128 BASIC V7 ROM (1986). Same as 318018-04+318019-04 and 390393-01.</dd>
+<dt><a href="computers/c128/basic.390393-01.bin">basic.390393-01.bin</a></dt>
+<dd>Commodore 128 BASIC V7 ROM (1986). Same as 318022-02 and
+318018-04+318019-04.</dd>
+<dt><a href="computers/c128/basic64.danish.325176-07.bin">basic64.danish.325176-07.bin</a></dt>
+<dd>C64 Kernel from a Danish C128.</dd>
+<dt><a href="computers/c128/c128_c64part.325182-01.bin">c128_c64part.325182-01.bin</a></dt>
+<dd>C64 Kernel from a Swedish C128.  Last revision.</dd>
+<dt><a href="computers/c128/c128_c64part.norwegian.325179-01.bin">c128_c64part.norwegian.325179-01.bin</a></dt>
+<dd>C64 Kernel for a Norwegian C128. Taken from a loose EPROM.</dd>
+<dt><a href="computers/c128/c128rom1.gif">c128rom1.gif</a></dt>
+<dt><a href="computers/c128/c128rom2.gif">c128rom2.gif</a></dt>
+<dt><a href="computers/c128/c128rom3.gif">c128rom3.gif</a></dt>
+<dt><a href="computers/c128/c128rom4.gif">c128rom4.gif</a></dt>
+<dd>Commodore's C128 ROM Release announcement.</dd>
+<dt><a href="computers/c128/characters.390059-01.bin">characters.390059-01.bin</a></dt>
+<dd>Commodore 64 character set and C128 mode character set.  In the C128 mode
+set, the lower case characters b, d, f, h, i, j, k, l, m, s, t, u, w and
+y are different (all except the m are equal to the plus/4 character set).</dd>
+<dt><a href="computers/c128/characters.danish-d.325175-02.bin">characters.danish-d.325175-02.bin</a></dt>
+<dd>Danish Commodore 128D ASCII/DIN character set. The PETSCII character set is
+the usual C64 character set, and the national character set is based on the
+C64 character set.</dd>
+<dt><a href="computers/c128/characters.danish.325175-01.bin">characters.danish.325175-01.bin</a></dt>
+<dd>Danish Commodore 128 ASCII/DIN character set. The PETSCII character set is
+the usual C64 character set, and the national character set is based on the
+C64 character set.</dd>
+<dt><a href="computers/c128/characters.french.325167-01.bin">characters.french.325167-01.bin</a></dt>
+<dd>French Commodore 128 ASCII/DIN character set.  The PETSCII character set is
+the usual C64 character set, and the national character set is based
+on the VIC-20 character set.  The same character set has also been used
+in Belgian and Italian versions.</dd>
+<dt><a href="computers/c128/characters.german.315079-01.bin">characters.german.315079-01.bin</a></dt>
+<dd>German Commodore 128 ASCII/DIN character set.  The PETSCII character set is
+the usual C64 character set, and the national character set is based
+on the VIC-20 character set.</dd>
+<dt><a href="computers/c128/characters.ifb.325167-02.bin">characters.ifb.325167-02.bin</a></dt>
+<dd>Unknown Commodore 128 character set (I/F/B). The PETSCII character set is the
+usual C64 character set, and the national character set is based on the VIC-20
+character set.</dd>
+<dt><a href="computers/c128/characters.norwegian.325078-02.bin">characters.norwegian.325078-02.bin</a></dt>
+<dd>Norwegian Commodore 128 ASCII/DIN character set. The PETSCII character set is
+the usual C64 character set, and the national character set is based on the
+VIC-20 character set.</dd>
+<dt><a href="computers/c128/characters.norwegian.325178-01..bin">characters.norwegian.325178-01..bin</a></dt>
+<dd>Norwegian Commodore 128 ASCII/DIN character set. The PETSCII character set is
+the usual C64 character set, and the national character set is based on the
+VIC-20 character set.</dd>
+<dt><a href="computers/c128/characters.spanish.325171-01.bin">characters.spanish.325171-01.bin</a></dt>
+<dd>Spanish Commodore 128 ASCII/DIN character set. The PETSCII character set is
+the usual C64 character set, and the national character set is based on the
+VIC-20 character set.</dd>
+<dt><a href="computers/c128/characters.swedish.325181-01.bin">characters.swedish.325181-01.bin</a></dt>
+<dd>Swedish Commodore 128 ASCII/DIN character set.  The PETSCII character set is
+the usual C64 character set, and the national character set is based
+on the C64 character set.</dd>
+<dt><a href="computers/c128/characters.swiss.325173-01D.bin">characters.swiss.325173-01D.bin</a></dt>
+<dd>Swiss Commodore 128D ASCII/DIN character set. The PETSCII character set is the
+usual C64 character set, and the national character set is based on the C64
+character set.</dd>
+<dt><a href="computers/c128/complete.252343-04.bin">complete.252343-04.bin</a></dt>
+<dd>Commodore 64 ROMs and Commodore 128 screen editor, Z80 BIOS and KERNAL,
+a slightly newer 1985 version from a cost-reduced Commodore 128 (128CR).
+The chip was a 27256 from a motherboard marked "ENGR SAMPLE".</dd>
+<dt><a href="computers/c128/complete.318023-02.bin">complete.318023-02.bin</a></dt>
+<dd>Complete system ROM of an American Commodore 128 DCR.
+The C128 mode BASIC and the character generator are on separate ROMs.<br />
+Layout: C64 BASIC (901226-01), C64 KERNAL (901227-03), C128 editor,
+Z80 BIOS and C128 KERNAL.</dd>
+<dt><a href="computers/c128/complete.danish.318082-01.bin">complete.danish.318082-01.bin</a></dt>
+<dd>Ditto, for a Danish Commodore 128 DCR. The only differences from the American
+ROM are in the editor (jump to accent character handler) and in the main
+KERNAL (keyboard maps and accent tables).</dd>
+<dt><a href="computers/c128/complete.french.bin">complete.french.bin</a></dt>
+<dd>Ditto, for a French Commodore 128 DCR. The only differences from the American
+ROM are in the editor (jump to accent character handler) and in the main
+KERNAL (keyboard maps and accent tables).</dd>
+<dt><a href="computers/c128/complete.german.318077-01.bin">complete.german.318077-01.bin</a></dt>
+<dd>Ditto, for a German Commodore 128 DCR.  The only differences from the
+American ROM are in the editor (jump to accent character handler) and
+in the main KERNAL (keyboard maps and accent tables).</dd>
+<dt><a href="computers/c128/complete.german.318077-03.bin">complete.german.318077-03.bin</a></dt>
+<dd>Ditto, for a German Commodore 128 DCR.  The only differences from the
+American ROM are in the editor (jump to accent character handler) and
+in the main KERNAL (keyboard maps and accent tables).</dd>
+<dt><a href="computers/c128/complete.italian.318079-01.bin">complete.italian.318079-01.bin</a></dt>
+<dd>Ditto, for a Italian Commodore 128 DCR. The only differences from the American
+ROM are in the editor (jump to accent character handler) and in the main
+KERNAL (keyboard maps and accent tables).</dd>
+<dt><a href="computers/c128/complete.norwegian.318083-01.bin">complete.norwegian.318083-01.bin</a></dt>
+<dd>Ditto, for a Norwegian Commodore 128 DCR. The only differences from the
+American ROM are in the editor (jump to accent character handler) and in the
+main KERNAL (keyboard maps and accent tables).</dd>
+<dt><a href="computers/c128/complete.spanish.bin">complete.spanish.bin</a></dt>
+<dd>Ditto, for a Spanish Commodore 128 DCR. The only differences from the American
+ROM are in the editor (jump to accent character handler) and in the main
+KERNAL (keyboard maps and accent tables).</dd>
+<dt><a href="computers/c128/complete.swedish.318034-01.bin">complete.swedish.318034-01.bin</a></dt>
+<dd>Ditto, for a Swedish/Finnish Commodore 128 DCR.  EPROM label:<br />
+318034-01 DCR<br />
+C128 Ker.Sw/Fi</dd>
+<dt><a href="computers/c128/complete.swiss.318081-01.bin">complete.swiss.318081-01.bin</a></dt>
+<dd>Complete system ROM of a Swiss Commodore 128 DCR.</dd>
+<dt><a href="computers/c128/editor.finnish1.bin">editor.finnish1.bin</a></dt>
+<dd>Finnish version of the Commodore 128 system ROM,
+the Editor part ($C000-$CFFF).  All have been copied from bigger
+ROMs or EPROMs.</dd>
+<dt><a href="computers/c128/editor.finnish2.bin">editor.finnish2.bin</a></dt>
+<dd>Finnish version of the Commodore 128 system ROM,
+the Editor part ($C000-$CFFF).  All have been copied from bigger
+ROMs or EPROMs.</dd>
+<dt><a href="computers/c128/editor.french.bin">editor.french.bin</a></dt>
+<dd>French version of the Commodore 128 system ROM,
+the Editor part ($C000-$CFFF).  All have been copied from bigger
+ROMs or EPROMs.</dd>
+<dt><a href="computers/c128/editor.italian.bin">editor.italian.bin</a></dt>
+<dd>Italian version of the Commodore 128 system ROM,
+the Editor part ($C000-$CFFF).  All have been copied from bigger
+ROMs or EPROMs.</dd>
+<dt><a href="computers/c128/editor.norwegian.bin">editor.norwegian.bin</a></dt>
+<dd>Norwegian version of the Commodore 128 system ROM,
+the Editor part ($C000-$CFFF).  All have been copied from bigger
+ROMs or EPROMs.</dd>
+<dt><a href="computers/c128/kernal.318020-03.bin">kernal.318020-03.bin</a></dt>
+<dd>The C128 KERNAL ROM, containing the editor, the Z80 BIOS and
+the actual KERNAL part.  This should be the first version.</dd>
+<dt><a href="computers/c128/kernal.318020-04.bin">kernal.318020-04.bin</a></dt>
+<dd>The C128 KERNAL ROM, containing the editor, the Z80 BIOS and
+the actual KERNAL part.  First upgrade version</dd>
+<dt><a href="computers/c128/kernal.318020-05.bin">kernal.318020-05.bin</a></dt>
+<dd>The C128 KERNAL ROM, containing the editor, the Z80 BIOS and
+the actual KERNAL part.  This is identical with the upper half
+of the 318023-02 ROM.  Saved from an EPROM.</dd>
+<dt><a href="computers/c128/kernal.fb.325166-02.bin">kernal.fb.325166-02.bin</a></dt>
+<dd>Unknown (F/B) C128 KERNAL ROM, containing the editor, the Z80 BIOS and the
+actual KERNAL part. Saved from an EPROM.</dd>
+<dt><a href="computers/c128/kernal.german.315078-01.bin">kernal.german.315078-01.bin</a></dt>
+<dd>The German C128 KERNAL ROM, containing the editor, the Z80 BIOS and
+the actual KERNAL part.  Saved from an EPROM.</dd>
+<dt><a href="computers/c128/kernal.german.315078-02.bin">kernal.german.315078-02.bin</a></dt>
+<dd>The German C128 KERNAL ROM, containing the editor, the Z80 BIOS and
+the actual KERNAL part.  Saved from an EPROM.</dd>
+<dt><a href="computers/c128/kernal.german.315078-03.bin">kernal.german.315078-03.bin</a></dt>
+<dd>Updated German kernal rom</dd>
+<dt><a href="computers/c128/kernal.german.315078-03p7.bin">kernal.german.315078-03p7.bin</a></dt>
+<dd>Alternate german kernal uploaded by S�ndor</dd>
+<dt><a href="computers/c128/kernal.german.U35.bin">kernal.german.U35.bin</a></dt>
+<dd>German C128 KERNAL ROM, containing the editor, the Z80 BIOS and the actual
+KERNAL part from C128 SN#DA4-246431</dd>
+<dt><a href="computers/c128/kernal.italian.325168-02.bin">kernal.italian.325168-02.bin</a></dt>
+<dd>Italian C128 KERNAL ROM, containing the editor, the Z80 BIOS and the actual
+KERNAL part. Saved from an EPROM.</dd>
+<dt><a href="computers/c128/kernal.norwegian.325177-02.bin">kernal.norwegian.325177-02.bin</a></dt>
+<dd>Norwegian C128 KERNAL ROM, containing the editor, the Z80 BIOS and the actual
+KERNAL part. Saved from an EPROM.</dd>
+<dt><a href="computers/c128/kernal.swedish.325180-02.bin">kernal.swedish.325180-02.bin</a></dt>
+<dd>Swedish German C128 KERNAL ROM, containing the editor, the Z80 BIOS and the
+actual KERNAL part. Saved from an EPROM.</dd>
+<dt><a href="computers/c128/kernal.swedish.325189-01.bin">kernal.swedish.325189-01.bin</a></dt>
+<dd>Swedish German C128 KERNAL ROM, containing the editor, the Z80 BIOS and the
+actual KERNAL part. Saame as 325180-02.</dd>
+<dt><a href="computers/c128/kernal.swiss.325172-01.bin">kernal.swiss.325172-01.bin</a></dt>
+<dd>Swiss C128 KERNAL ROM, containing the editor, the Z80 BIOS and the actual
+KERNAL part. Taken from VICE.</dd>
+<dt><a href="computers/c128/kernal.swiss.325172-02.bin">kernal.swiss.325172-02.bin</a></dt>
+<dd>Swiss C128 KERNAL ROM, containing the editor, the Z80 BIOS and the actual
+KERNAL part. Saved from an EPROM.</dd>
+<dt><a href="computers/c128/kernalpart.finnish1.bin">kernalpart.finnish1.bin</a></dt>
+<dd>Finnish version of the Commodore 128 system ROM, the KERNAL part
+($E000-$FFFF).  All have been copied from bigger ROMs or EPROMs.</dd>
+<dt><a href="computers/c128/kernalpart.finnish2.bin">kernalpart.finnish2.bin</a></dt>
+<dd>Finnish version of the Commodore 128 system ROM, the KERNAL part
+($E000-$FFFF).  All have been copied from bigger ROMs or EPROMs.</dd>
+<dt><a href="computers/c128/kernalpart.french.bin">kernalpart.french.bin</a></dt>
+<dd>French version of the Commodore 128 system ROM, the KERNAL part
+($E000-$FFFF).  All have been copied from bigger ROMs or EPROMs.</dd>
+<dt><a href="computers/c128/kernalpart.italian.bin">kernalpart.italian.bin</a></dt>
+<dd>Italian version of the Commodore 128 system ROM, the KERNAL part
+($E000-$FFFF).  All have been copied from bigger ROMs or EPROMs.</dd>
+<dt><a href="computers/c128/kernalpart.norwegian.bin">kernalpart.norwegian.bin</a></dt>
+<dd>Norwegian version of the Commodore 128 system ROM, the KERNAL part
+($E000-$FFFF).  All have been copied from bigger ROMs or EPROMs.</dd>
+<dt><a href="computers/c128/z80bios.bin">z80bios.bin</a></dt>
+<dd>Commodore 128 Z80 BIOS.  The first and only version.</dd>
+</dl>
+<dl>
+<dt><a href="misc/c128diag/index.html">diag@</a> (link)</dt>
+<dt><a href="drives/new/index.html">drives@</a> (link)</dt>
+<dt><a href="computers/c128/other/index.html">other/</a></dt>
+<dd><dl>
+<dd>ROM images for the open function-rom socket of the c128</dd>
+<dt><a href="computers/c128/other/C128_U36_MEGABIT.zip">C128_U36_MEGABIT.zip</a></dt>
+<dd>MEGABIT 128 rom for U36, includes schematics</dd>
+<dt><a href="computers/c128/other/basic8.bin">basic8.bin</a></dt>
+<dd>BASIC 8 extension for C128.  Requires BASIC 8 disk.</dd>
+<dt><a href="computers/c128/other/diskmaster128v3_27128.bin">diskmaster128v3_27128.bin</a></dt>
+<dd>Diskmaster - hold CNTRL on boot to activate menu.</dd>
+<dt><a href="computers/c128/other/geos-128-rom-am-1581.bin">geos-128-rom-am-1581.bin</a></dt>
+<dd>GEOS 128 boot rom.  Requires deskTop disk in 1581 drive 8</dd>
+<dt><a href="computers/c128/other/geos-128-rom-usa-1571.bin">geos-128-rom-usa-1571.bin</a></dt>
+<dd>GEOS 128 boot rom.  Requires deskTop disk in 1571 drive 8</dd>
+<dt><a href="computers/c128/other/ieee-128_251913-01_C64.bin">ieee-128_251913-01_C64.bin</a></dt>
+<dd>Companion to IEEE-128, this is the C64 rom, similar to 251913-01</dd>
+<dt><a href="computers/c128/other/ieee-128_315078-01_C128.bin">ieee-128_315078-01_C128.bin</a></dt>
+<dd>IEEE-128 kernal rom , possibly for German keyboards-- more information needed</dd>
+<dt><a href="computers/c128/other/keydos-v2-user-manual.pdf">keydos-v2-user-manual.pdf</a></dt>
+<dd>Manual for keydos utilities rom</dd>
+<dt><a href="computers/c128/other/keydos-v2.3.bin">keydos-v2.3.bin</a></dt>
+<dd>Utilities rom</dd>
+<dt><a href="computers/c128/other/servant-manual.pdf">servant-manual.pdf</a></dt>
+<dd>Manual for The Servant, another utilities rom</dd>
+<dt><a href="computers/c128/other/servant.bin">servant.bin</a></dt>
+<dd>The Servant is another utilities rom</dd>
+<dt><a href="computers/c128/other/super_chip_a.bin">super_chip_a.bin</a></dt>
+<dd>An enhancement EPROM that goes into the Function ROM socket on the 128</dd>
+<dt><a href="computers/c128/other/super_chip_a.txt">super_chip_a.txt</a></dt>
+<dd>Docs for Super Chip (rev A): an enhancement EPROM</dd>
+<dt><a href="computers/c128/other/super_chip_b.bin">super_chip_b.bin</a></dt>
+<dd>An enhancement EPROM that goes into the Function ROM socket on the 128
+The 1581 utilities?</dd>
+</dl>
+</dd>
+<dt><a href="../schematics/computers/c128/index.html">schematics@</a> (link)</dt>
+</dl>
+</dd>
+<dt><a href="computers/c64/index.html">c64/</a></dt>
+<dd><dl>
+<dd>Firmware for all variations on the Commodore 64k computer.
+The eprom type for 8k BASIC &amp; KERNAL is a 2564.  A 2764 can
+be used with an appropriate adapter.  Char roms can be
+replaced with a 2532, or a 2732 with adapter.  The 16k rom
+in the 64C can be replaced with a 27128 eprom.</dd>
+<dt><a href="computers/c64/64c.251913-01.bin">64c.251913-01.bin</a></dt>
+<dd>The 251913-01, used in newer versions of the Commodore 64 and some
+versions of the Commodore 128, is a 16-kilobyte 23128 ROM chip.  It
+contains the Commodore 64 BASIC interpreter ($A000-$BFFF,
+corresponding to the 8-kilobyte 2364 ROM chip 901226-01) and the
+Commodore 64 KERNAL ($E000-$FFFF, corresponding to the 8-kilobyte 2364
+ROM chip 901227-03) in that order.</dd>
+<dt><a href="computers/c64/64gs.390852-01.bin">64gs.390852-01.bin</a></dt>
+<dd>The 390852-01, used in the ill-fated Commodore 64GS game console based
+on the BN/E circuit board, is a 16-kilobyte chip similar to the
+251913-01.  This one was archived from a 27128 EPROM 27128 EPROM chip
+in a West German machine DA5 016014E, assy no. 250469, 252311 rev.B.
+The chip has the label © 1984, 90 CBM / 390852-01 / C64GS ROM CS=DF34.
+The BASIC part corresponds otherwise to 901226-01, but the 30 unused
+bytes at $BF53-$BF70 are filled with $00 instead of $AA.  The KERNAL
+part has been modified from the 901227-03, and most modifications are
+in the area $F72C-$FC92, which also contains a copyright message.
+Many jumps have been redirected to $FB4D, which in turn jumps to
+$F707, which in turn triggers I/O error #5.</dd>
+<dt><a href="computers/c64/82S100%2bJedec.zip">82S100+Jedec.zip</a></dt>
+<dd>PLA binary generator and source</dd>
+<dt><a href="computers/c64/C64_PLA_Dissected.pdf">C64_PLA_Dissected.pdf</a></dt>
+<dd>C64 PLA doc by Thomas 'skoe' Giesel</dd>
+<dt><a href="computers/c64/README">README</a></dt>
+<dd>Commodore 64 parts and firmware versions</dd>
+<dt><a href="computers/c64/basic.901226-01.bin">basic.901226-01.bin</a></dt>
+<dd>Commodore 64 BASIC V2.  The first and essentially only revision,
+located at $A000-$BFFF.  In the 64GS system firmware, the 30 unused
+bytes at $BF53-$BF70 are filled with $00 instead of $AA.  In the
+Commodore 65 firmware, these bytes are filled with $FF.</dd>
+<dt><a href="computers/c64/c64pla.txt">c64pla.txt</a></dt>
+<dd>A simplification of the 906114-1 PLA equations by Dave Dahle.</dd>
+<dt><a href="computers/c64/characters.325018-02.C2G007.bin">characters.325018-02.C2G007.bin</a></dt>
+<dd>Character rom from Swedish c64, labeled 8407, C2D007, 28B-U4-KRN</dd>
+<dt><a href="computers/c64/characters.325018-02.bin">characters.325018-02.bin</a></dt>
+<dd>Character rom from Swedish c64</dd>
+<dt><a href="computers/c64/characters.325056-03.bin">characters.325056-03.bin</a></dt>
+<dd>Character ROM from Spanish C64C</dd>
+<dt><a href="computers/c64/characters.901225-01-DK.bin">characters.901225-01-DK.bin</a></dt>
+<dd>Character rom from Danish c64</dd>
+<dt><a href="computers/c64/characters.901225-01.bin">characters.901225-01.bin</a></dt>
+<dd>The character generator ROM. 2532 type.</dd>
+<dt><a href="computers/c64/characters.906143-02.bin">characters.906143-02.bin</a></dt>
+<dd>The character generator ROM from a Japanese Commodore 64.</dd>
+<dt><a href="computers/c64/characters.turkish.bin">characters.turkish.bin</a></dt>
+<dd>Char rom from Turkish C-64 "Teleteknik"</dd>
+<dt><a href="computers/c64/croatian.zip">croatian.zip</a></dt>
+<dd>Croatian char rom and kernal uploaded  by HN</dd>
+<dt><a href="computers/c64/kernal-sx-64-ieee.bin">kernal-sx-64-ieee.bin</a></dt>
+<dd>Strange SX-64 kernal signalling use with IEEE devices?</dd>
+<dt><a href="computers/c64/kernal.325017.swedish-02.bin">kernal.325017.swedish-02.bin</a></dt>
+<dd>Commodore 64 kernal from unit with Swedish keyboard layout.</dd>
+<dt><a href="computers/c64/kernal.4064.901246-01.bin">kernal.4064.901246-01.bin</a></dt>
+<dd>This 8-kilobyte ROM has been reported in various machines (4064,
+PET64, EDUCATOR64), which are versions of the Commodore 64 built in a
+PET case with an integrated monochrome monitor.  The system interrupt
+routine resets sprite, background and border colors to black unless
+the high-order bit of the location 646 (cursor colour, $0286) is set.  Using
+any colour command resets location 646 and, therefore, the colors.</dd>
+<dt><a href="computers/c64/kernal.901227-01.bin">kernal.901227-01.bin</a></dt>
+<dd>This 8-kilobyte 2364 ROM is the first revision of the Commodore 64
+KERNAL.  The RS-232 timing table is designed for exactly 1 MHz system
+clock frequency, although no C64 runs at that clock rate.  Unlike
+later KERNAL revisions, this one does not detect the video system
+(PAL/NTSC).  This KERNAL was probably only used in early North
+American Commodore 64 units.</dd>
+<dt><a href="computers/c64/kernal.901227-02.bin">kernal.901227-02.bin</a></dt>
+<dd>This 8-kilobyte 2364 ROM is the second revision of the Commodore 64 KERNAL.
+It is the second most widely spread version.</dd>
+<dt><a href="computers/c64/kernal.901227-03-DK.bin">kernal.901227-03-DK.bin</a></dt>
+<dd>Commodore 64 kernal from unit with Danish keyboard layout.</dd>
+<dt><a href="computers/c64/kernal.901227-03.bin">kernal.901227-03.bin</a></dt>
+<dd>This 8-kilobyte 2364 ROM is the third and essentially last revision of the
+Commodore 64 KERNAL.  It is the most widely spread version.</dd>
+<dt><a href="computers/c64/kernal.906145-02.bin">kernal.906145-02.bin</a></dt>
+<dd>This 8-kilobyte 2364 ROM is from a Japanese release Commodore 64.</dd>
+<dt><a href="computers/c64/kernal.c64-scand.bin">kernal.c64-scand.bin</a></dt>
+<dd>Kernal on a 2764 from a Scandinavian SX64.  Had matrix printed label.
+** Reported broken**! Do you have a good image you can upload?</dd>
+<dt><a href="computers/c64/kernal.swedish-03.C2D007.bin">kernal.swedish-03.C2D007.bin</a></dt>
+<dd>Commodore 64 kernal from unit with Danish keyboard layout labeled 8407,
+C2G007, 24B-U5-TKN</dd>
+<dt><a href="computers/c64/kernal.swedish.txt">kernal.swedish.txt</a></dt>
+<dd>A description of the Swedish/Finnish versions of the Commodore 64 and
+Commodore SX-64 KERNAL ROM</dd>
+<dt><a href="computers/c64/kernal.sx.251104-04.bin">kernal.sx.251104-04.bin</a></dt>
+<dd>This 8-kilobyte ROM is the Commodore SX-64 KERNAL, which is based on
+901227-03.</dd>
+<dt><a href="computers/c64/kernal.sx.ISI-AZ-001.zip">kernal.sx.ISI-AZ-001.zip</a></dt>
+<dd>SX-64 kernal w/ diff keyboard mapping that swaps azqm&lt;&gt;: Zip contains images.</dd>
+<dt><a href="computers/c64/kernal.sx64-scand.bin">kernal.sx64-scand.bin</a></dt>
+<dd>Kernal on a 2564 from a Scandinavian SX64.  Had matrix printed label.</dd>
+<dt><a href="computers/c64/kernal.turkish.bin">kernal.turkish.bin</a></dt>
+<dd>Kernal rom from Turkish C-64 "Teleteknik". Different boot screen. Similar to
+german 901227-03</dd>
+<dt><a href="computers/c64/pla-906114-1.c">pla-906114-1.c</a></dt>
+<dd>Another version of pla.c, corresponding to the logic equations obtained
+by Jens Schönfeld.  The equation for CASRAM is much simpler.</dd>
+<dt><a href="computers/c64/pla-906114-1.pds">pla-906114-1.pds</a></dt>
+<dd>A MACHXL design description of a replacement for the 906114-1 PLA.</dd>
+<dt><a href="computers/c64/pla.251064-01.bin">pla.251064-01.bin</a></dt>
+<dd>As 901664-01, but pins A15-A0 and D7-D0 match the original PLA</dd>
+<dt><a href="computers/c64/pla.901664-01.bin">pla.901664-01.bin</a></dt>
+<dd>Pins rearranged for a 27C512&gt;PLA adapter PCB</dd>
+<dt><a href="computers/c64/pla.c">pla.c</a></dt>
+<dd>This C program contains the logic equations for the 82S100 PLA chip
+used in the C64 (906114-1), and converts them to a 64-kilobyte truth
+table file.  In this second version of the program, the input and output
+lines are permuted so that they correspond to the 82S100-to-27512 adapter
+built by Jens Schönfeld, so that he could read out the PLA with an EPROM
+programming device.</dd>
+<dt><a href="computers/c64/pla.txt">pla.txt</a></dt>
+<dd>Logic equations in Abel format for the 82S100 PLA chip used in
+the C64 (906114-1), and a JEDEC file that can used to burn a 82S100
+as a 906114-1.</dd>
+<dt><a href="computers/c64/pla.zip">pla.zip</a></dt>
+<dd>An MS-DOS program for displaying the memory map of the Commodore 64
+in different configurations.  Turbo Pascal source code included.
+The archive also contains a picture of Jens Schönfeld's SuperPLA
+adapter board.</dd>
+<dt><a href="computers/c64/revisions.txt">revisions.txt</a></dt>
+<dd>This document lists the differences between all non-localised Commodore
+64 system firmware revisions that were published by Commodore.</dd>
+</dl>
+<dl>
+<dt><a href="misc/c64carts/index.html">carts@</a> (link)</dt>
+<dt><a href="misc/c64diag/index.html">diag@</a> (link)</dt>
+<dt><a href="drives/new/index.html">drives@</a> (link)</dt>
+<dt><a href="computers/c64/max/index.html">max/</a></dt>
+<dd><dl>
+<dt><a href="computers/c64/max/basic.901230-01.bin">basic.901230-01.bin</a></dt>
+<dd>CBM BASIC V2, taken from the BASIC cartridge for the Commodore MAX,
+also known as VIC-10 or UltiMax.  Unlike the BASIC interpreter in
+the Commodore 64, which resides at $A000-$BFFF, this one is
+located at $8000-$9FFF.  The 2764 EPROM was hand labeled 901230-01.
+The board in the cartridge has three chips: two 2764 EPROMs (U1, BASIC
+and U2, KERNAL) and one HM6116P-4 SRAM (U3).  The bottom side is
+marked FAB 326314, A/W 326315 REV A, and the top side is labelled
+EPROM/EPROM/RAM and ASSY 326312.  See also kernal.901231-01.bin.
+There should also be "MINI BASIC I".</dd>
+<dt><a href="computers/c64/max/kernal.901231-01.bin">kernal.901231-01.bin</a></dt>
+<dd>Commodore MAX KERNAL ROM, taken from the BASIC cartridge for the
+Commodore MAX.  There is a copy of the standard Commodore 64 upper case
+character set (corresponding to the first half of 901225-01) located
+at $F000-$F7FF.  The 2764 EPROM was hand labeled 901231-01.  See also
+basic.901230-01.bin.</dd>
+</dl>
+</dd>
+<dt><a href="../schematics/computers/c64/index.html">schematics@</a> (link)</dt>
+<dt><a href="../src/c64/index.html">source@</a> (link)</dt>
+</dl>
+</dd>
+<dt><a href="computers/c65/index.html">c65/</a></dt>
+<dd><dl>
+<dd>The Commodore 65 was never produced.  These ROM images are from
+prototype units.  The number codes are date codes: YYMMDD.</dd>
+<dt><a href="computers/c65/900321_prototype.bin">900321_prototype.bin</a></dt>
+<dd>ROM image built from discovered source by Guenther Reiter</dd>
+<dt><a href="computers/c65/910111-390488-01.bin">910111-390488-01.bin</a></dt>
+<dd>This is the ROM from the C65 (Alan Share's), checksum $caff. The date on boot
+up is 910111. The ROM date (at the beginning) is 910110. A bit modified
+character set at $9000, with taller b and d letters, for instance. Normal
+characters at $D000.  Also found on a chip marked C65 390488-03.</dd>
+<dt><a href="computers/c65/910429.bin">910429.bin</a></dt>
+<dd>This is the ROM from the C64DX (Russell Alphey's), checksum $e96a.
+The date on boot up is 910429.
+The ROM date (at the beginning) is 910501.
+Identical to a marked CSE96A-910501.bin from Anthony Becketts machine.<br />
+German character set at $9000.
+Normal characters at $D000.</dd>
+<dt><a href="computers/c65/910523.bin">910523.bin</a></dt>
+<dd>C65 ROM V0.9B.910523 (Christian Zahn)</dd>
+<dt><a href="computers/c65/910624.bin">910624.bin</a></dt>
+<dd>C65 ROM (from Bo Zimmerman's rev 2b)</dd>
+<dt><a href="computers/c65/910626.bin">910626.bin</a></dt>
+<dd>This is the ROM from the C65 (Stephan Kleinert's).
+Version number: V0.9B.910626.</dd>
+<dt><a href="computers/c65/910725.bin">910725.bin</a></dt>
+<dd>Taken from a German C65</dd>
+<dt><a href="computers/c65/910828.bin">910828.bin</a></dt>
+<dd>C65 ROM V0.9B.910828 (Simon &amp; Veit Laule)</dd>
+<dt><a href="computers/c65/911001.bin">911001.bin</a></dt>
+<dd>This is the ROM from a C65 (Thomas Hechelhammer's), checksum $4bcf.
+The date on boot up is 911001.
+The ROM date (at the beginning) is 911008.
+The character sets are the same as in the 910111 ROM.  There is a
+BASIC program stored at $4000.  This must have been in a firmware
+developer's machine.</dd>
+<dt><a href="computers/c65/911001patched.bin">911001patched.bin</a></dt>
+<dd>This is the ROM from a C65 (Thomas Hechelhammer's), dated 911001.
+The ROM date (at the beginning) is 911008.
+Based on 911001.bin, this version has been patched by<br />
+bobek@boxpl.com to replace the BASIC program which does disk<br />
+accesses with a different program that drops the user into<br />
+the built-in monitor.</dd>
+<dt><a href="computers/c65/911210.zip">911210.zip</a></dt>
+<dd>Rom reconstructed from src by Guenther Reiter.  Zip includes source and
+binary.</dd>
+<dt><a href="computers/c65/c65-6ep1-UseWith4510r3.bin">c65-6ep1-UseWith4510r3.bin</a></dt>
+<dd>Rom from Bo Zimmerman's workbench c65, undated, on a 27C512 EPROM.</dd>
+<dt><a href="computers/c65/c65-pals-2b.zip">c65-pals-2b.zip</a></dt>
+<dd>PAL dumps from C65 rev 2b in U3 and U11. "Elmer"</dd>
+<dt><a href="computers/c65/c65prom.lzh">c65prom.lzh</a></dt>
+<dd>Unknown C65 ROM dump, includes two 128k roms, and 3 8k roms
+presumably the C64 basic and kernal</dd>
+</dl>
+</dd>
+<dt><a href="computers/c900/index.html">c900/</a></dt>
+<dd><dl>
+<dd>Various roms and disk images for the Commodore C900 (Z8000) computer</dd>
+<dt><a href="computers/c900/Coherent.0.7.3.Vol1.Hi.Res.bin">Coherent.0.7.3.Vol1.Hi.Res.bin</a></dt>
+<dd>Coherent boot/install disk #1 image for hi-res machines</dd>
+<dt><a href="computers/c900/Coherent.0.7.3.Vol1.Low.Res.bin">Coherent.0.7.3.Vol1.Low.Res.bin</a></dt>
+<dd>Coherent boot/install disk #1 image for low-res machines</dd>
+<dt><a href="computers/c900/Coherent.0.7.3.Vol2.bin">Coherent.0.7.3.Vol2.bin</a></dt>
+<dd>Coherent boot/install disk #2 image</dd>
+<dt><a href="computers/c900/Coherent.0.7.3.Vol3.bin">Coherent.0.7.3.Vol3.bin</a></dt>
+<dd>Coherent boot/install disk #3 image</dd>
+<dt><a href="computers/c900/FD_Fl.Cont._S41_6-20-85.bin">FD_Fl.Cont._S41_6-20-85.bin</a></dt>
+<dd>Floppy controller rom</dd>
+<dt><a href="computers/c900/bios_disassembly.txt">bios_disassembly.txt</a></dt>
+<dd>Portion of C900 bios disassembled</dd>
+<dt><a href="computers/c900/boot-H_V_1.0.bin">boot-H_V_1.0.bin</a></dt>
+<dd>C900 boot rom (High)</dd>
+<dt><a href="computers/c900/boot-L_V_1.0.bin">boot-L_V_1.0.bin</a></dt>
+<dd>C900 boot rom (Low)</dd>
+<dt><a href="computers/c900/chars_380217-01_R.B_PC_U2.bin">chars_380217-01_R.B_PC_U2.bin</a></dt>
+<dd>Char rom from Low-res video board</dd>
+<dt><a href="computers/c900/chars_380217-01_R.B_PC_U2_BZ.bin">chars_380217-01_R.B_PC_U2_BZ.bin</a></dt>
+<dd>Char rom from Low-res video board, Bo Zimmerman's machine</dd>
+<dt><a href="computers/c900/fd_disassembly.txt">fd_disassembly.txt</a></dt>
+<dd>Information about the C900 floppy control system</dd>
+<dt><a href="computers/c900/keyboard-r2.3-25.04.84.bin">keyboard-r2.3-25.04.84.bin</a></dt>
+<dd>Keyboard controller rom </dd>
+<dt><a href="computers/c900/python_scripts.zip">python_scripts.zip</a></dt>
+<dd>Python scripts for learning more about the roms here</dd>
+<dt><a href="computers/c900/wdc_MCU_U10.bin">wdc_MCU_U10.bin</a></dt>
+</dl>
+</dd>
+<dt><a href="computers/kim1/index.html">kim1/</a></dt>
+<dd><dl>
+<dt><a href="computers/kim1/6530-002.bin">6530-002.bin</a></dt>
+<dd>Firmware at $1c00-$1fff</dd>
+<dt><a href="computers/kim1/6530-003.bin">6530-003.bin</a></dt>
+<dd>Firmware at $1800-$1bff</dd>
+<dt><a href="computers/kim1/6530-004.bin">6530-004.bin</a></dt>
+<dd>TIM firmware from $7000-$73ff</dd>
+</dl>
+</dd>
+<dt><a href="computers/lcd/index.html">lcd/</a></dt>
+<dd><dl>
+<dd>27c256 roms from the two known prototypes, namely those
+from Bil Herd and Jeff Porter, with thanks to those<br />
+gentlemen for their help.</dd>
+<dt><a href="computers/lcd/calc-13apr-u105.bin">calc-13apr-u105.bin</a></dt>
+<dd>"Calc" rom from Bil Herd's C=LCD</dd>
+<dt><a href="computers/lcd/calc-u107.bin">calc-u107.bin</a></dt>
+<dd>"Calc" rom from Jeff Porter's C= LCD</dd>
+<dt><a href="computers/lcd/char-rom-jp-u16.bin">char-rom-jp-u16.bin</a></dt>
+<dd>Char rom from Jeff Porter's C= LCD</dd>
+<dt><a href="computers/lcd/char-rom-u16.bin">char-rom-u16.bin</a></dt>
+<dd>Char rom from Bil Herd's C= LCD</dd>
+<dt><a href="computers/lcd/kiz-5-28-new-io-u105.bin">kiz-5-28-new-io-u105.bin</a></dt>
+<dd>Rom from Jeff Porter's C= LCD</dd>
+<dt><a href="computers/lcd/kiz-apr-u102.bin">kiz-apr-u102.bin</a></dt>
+<dd>Rom from Bil Herd's C=LCD</dd>
+<dt><a href="computers/lcd/siz-3-24-85-u108.bin">siz-3-24-85-u108.bin</a></dt>
+<dd>Rom from Jeff Porter's C= LCD</dd>
+<dt><a href="computers/lcd/siz-apr-u103.bin">siz-apr-u103.bin</a></dt>
+<dd>Rom from Bil Herd's C=LCD</dd>
+<dt><a href="computers/lcd/term-sept-M-13apr-u104.bin">term-sept-M-13apr-u104.bin</a></dt>
+<dd>Term/Word Proc Rom from Bil Herd's C=LCD</dd>
+<dt><a href="computers/lcd/term-wp-5-30-u106.bin">term-wp-5-30-u106.bin</a></dt>
+<dd>Term/Word Proc Rom from Jeff Porter's C= LCD</dd>
+</dl>
+</dd>
+<dt><a href="computers/pet/index.html">pet/</a></dt>
+<dd><dl>
+<dt><a href="computers/pet/Commodore%20ROM%20Genealogy.pdf">Commodore ROM Genealogy.pdf</a></dt>
+<dd>ROM info from Pet Users Club magazine by C=</dd>
+<dt><a href="computers/pet/PET-Interfaces.txt">PET-Interfaces.txt</a></dt>
+<dd>This document tells where in the PET address space different interface chips
+are mapped.  Written by William Levak.</dd>
+<dt><a href="computers/pet/PET-board.txt">PET-board.txt</a></dt>
+<dd>Information about the PET components and main boards, composed by
+William Levak.</dd>
+<dt><a href="computers/pet/PET-parts.txt">PET-parts.txt</a></dt>
+<dd>Information about PET parts and firmware, composed by William Levak.</dd>
+<dt><a href="computers/pet/README">README</a></dt>
+<dd>General information about the PET firmware, composed by Olaf Seibert.</dd>
+<dt><a href="computers/pet/README.also">README.also</a></dt>
+<dd>Additional information and corrections to the README document, written
+by William Levak.</dd>
+<dt><a href="computers/pet/basic-2-c000.901465-01.bin">basic-2-c000.901465-01.bin</a></dt>
+<dd>Also available as 6540-020 + 6540-021.</dd>
+<dt><a href="computers/pet/basic-2-d000.901465-02.bin">basic-2-d000.901465-02.bin</a></dt>
+<dd>Also available as 6540-022 + 6540-023.</dd>
+<dt><a href="computers/pet/basic-4-b000.901465-19.bin">basic-4-b000.901465-19.bin</a></dt>
+<dd>BASIC 4 ROM, original version</dd>
+<dt><a href="computers/pet/basic-4-b000.901465-23.bin">basic-4-b000.901465-23.bin</a></dt>
+<dd>BASIC 4 ROM, patched version</dd>
+<dt><a href="computers/pet/basic-4-c000.901465-20.bin">basic-4-c000.901465-20.bin</a></dt>
+<dd>BASIC 4 ROM</dd>
+<dt><a href="computers/pet/basic-4-d000.901465-21.bin">basic-4-d000.901465-21.bin</a></dt>
+<dd>BASIC 4 ROM</dd>
+<dt><a href="computers/pet/basic4e.zip">basic4e.zip</a></dt>
+<dd>An unknown ROM-Set saved from a CBM 3032. It seems to be a modified Basic 4.0 for CBM 3001</dd>
+<dt><a href="computers/pet/characters-1.901447-08.bin">characters-1.901447-08.bin</a></dt>
+<dd>Character generator for BASIC 1.  Slightly different mapping than in the
+901447-10 ROM.  This ROM has upper case characters where the characters-2
+has lower case  and  characters-1 has lower case where characters-2 has
+upper case.</dd>
+<dt><a href="computers/pet/characters-2.901447-10.bin">characters-2.901447-10.bin</a></dt>
+<dd>Character generator for BASIC 2 and BASIC 4.  The very same character set
+was used in the VIC-20, except for one modification: the backslash
+character (\) was replaced with a sterling pound symbol (£).</dd>
+<dt><a href="computers/pet/characters-german.bin">characters-german.bin</a></dt>
+<dd>German character generator rom.</dd>
+<dt><a href="computers/pet/characters-german2.bin">characters-german2.bin</a></dt>
+<dd>German character generator rom from VICE</dd>
+<dt><a href="computers/pet/characters-hungarian.bin">characters-hungarian.bin</a></dt>
+<dd>Hungarian character generator ROM</dd>
+<dt><a href="computers/pet/characters-japan.901447-12.bin">characters-japan.901447-12.bin</a></dt>
+<dd>Japanese character generator rom from original machine.</dd>
+<dt><a href="computers/pet/characters-norwegian.bin">characters-norwegian.bin</a></dt>
+<dd>Norwegian character generator for BASIC 2 and BASIC 4.  The characters
+[\] are replaced by ÆØÅ; in the uppercase/lowercase set, the uppercase
+ÆØÅ replace the three graphic characters that look like +|-, and the
+graphic characters +| replace the two graphic characters that contain
+ascending and descending diagonal patterns.  Dumped from a 2716 EPROM
+in a CBM 3032 by Eirik Risholm &lt;signoff@online.no&gt;.</dd>
+<dt><a href="computers/pet/characters-swedish.901447-14.bin">characters-swedish.901447-14.bin</a></dt>
+<dd>Swedish/Finnish character generator for BASIC 2 and BASIC 4.  The characters
+[\] are replaced by ÄÖÅ; in the uppercase/lowercase set, the uppercase
+ÄÖÅ replace the three graphic characters that look like +|-.</dd>
+<dt><a href="computers/pet/edit-2-b.901474-01.bin">edit-2-b.901474-01.bin</a></dt>
+<dd>Screen editor ($E000-$E7FF) for BASIC 2, business keyboard,
+no CRTC (40 columns)</dd>
+<dt><a href="computers/pet/edit-2-n.901447-24.bin">edit-2-n.901447-24.bin</a></dt>
+<dd>Screen editor for BASIC 2, normal keyboard, no CRTC (40 columns)</dd>
+<dt><a href="computers/pet/edit-4-40-b-50Hz.ts.bin">edit-4-40-b-50Hz.ts.bin</a></dt>
+<dd>901498-01 modified to use a business keyboard on a 50Hz 4032</dd>
+<dt><a href="computers/pet/edit-4-40-b-60Hz.ts.bin">edit-4-40-b-60Hz.ts.bin</a></dt>
+<dd>901499-01 modified to use a business keyboard on a 60Hz 4032</dd>
+<dt><a href="computers/pet/edit-4-40-n-50Hz.901498-01.bin">edit-4-40-n-50Hz.901498-01.bin</a></dt>
+<dd>Screen editor for BASIC 4, normal keyboard, CRTC, 40 columns, 50 Hz</dd>
+<dt><a href="computers/pet/edit-4-40-n-60Hz.901499-01.bin">edit-4-40-n-60Hz.901499-01.bin</a></dt>
+<dd>Screen editor for BASIC 4, normal keyboard, CRTC, 40 columns, 60 Hz</dd>
+<dt><a href="computers/pet/edit-4-40-n-60hz-901499-01.dis.txt">edit-4-40-n-60hz-901499-01.dis.txt</a></dt>
+<dd>Commented disassembly of the PET 40 col editor by Steve J. Gray</dd>
+<dt><a href="computers/pet/edit-4-40-n-alternate1.bin">edit-4-40-n-alternate1.bin</a></dt>
+<dd>Editor rom found in a 4032 -- possibly custom?</dd>
+<dt><a href="computers/pet/edit-4-40-n-alternate2.bin">edit-4-40-n-alternate2.bin</a></dt>
+<dd>Editor rom from unknown source for 40 col BASIC 4 PETs.</dd>
+<dt><a href="computers/pet/edit-4-80-b-50Hz.901474-04-0283.bin">edit-4-80-b-50Hz.901474-04-0283.bin</a></dt>
+<dd>Screen editor for BASIC 4, business keyboard, CRTC, 80 columns, 50 Hz</dd>
+<dt><a href="computers/pet/edit-4-80-b-50Hz.901474-04-3681.bin">edit-4-80-b-50Hz.901474-04-3681.bin</a></dt>
+<dd>Screen editor for BASIC 4, business keyboard, CRTC, 80 columns, 50 Hz.
+The chip is dated 3681.  There are some differences from the other
+archived copies of the 901474-04 ROM.</dd>
+<dt><a href="computers/pet/edit-4-80-b-50Hz.901474-04_alt.bin">edit-4-80-b-50Hz.901474-04_alt.bin</a></dt>
+<dd>Screen editor for BASIC 4, business keyboard, CRTC, 80 columns, 50 Hz</dd>
+<dt><a href="computers/pet/edit-4-80-b-50Hz.german.bin">edit-4-80-b-50Hz.german.bin</a></dt>
+<dd>Screen editor for BASIC 4, a German EPROM.  Further information is
+unavailable at the moment.</dd>
+<dt><a href="computers/pet/edit-4-80-b-50Hz.swedish.bin">edit-4-80-b-50Hz.swedish.bin</a></dt>
+<dd>Screen editor for BASIC 4, business keyboard, CRTC, 80 columns, 50 Hz,
+Swedish/Finnish keyboard layout.  The 2716 EPROM chip has a label with text
+"8000-UD7, SCREEN-04".</dd>
+<dt><a href="computers/pet/edit-4-80-b-60Hz.901474-03.bin">edit-4-80-b-60Hz.901474-03.bin</a></dt>
+<dd>Screen editor for BASIC 4, business keyboard, CRTC, 80 columns, 60 Hz</dd>
+<dt><a href="computers/pet/edit-4-80-b-60hz.german.bin">edit-4-80-b-60hz.german.bin</a></dt>
+<dd>Screen editor for BASIC 4, business keyboard, CRTC, 80 columns, 60 Hz, German
+keyboard layout.  EPROM Labeled "80/2/781"</dd>
+<dt><a href="computers/pet/edit-4-80-n-50Hz.4016_to_8016.bin">edit-4-80-n-50Hz.4016_to_8016.bin</a></dt>
+<dd>Editor rom from PET 4016 found in Australia, Made in Japan. A 4016
+running in 80 columns with 6845 and normal keyboard, etc.</dd>
+<dt><a href="computers/pet/edit-4-80-n_unk.bin">edit-4-80-n_unk.bin</a></dt>
+<dd>Editor rom for N-keyboard PETs with CRTC converted to 80 cols</dd>
+<dt><a href="computers/pet/edit-4-b.901474-02.bin">edit-4-b.901474-02.bin</a></dt>
+<dd>Screen editor for BASIC 4, business keyboard, no CRTC (40 columns)</dd>
+<dt><a href="computers/pet/edit-4-n.901447-29.bin">edit-4-n.901447-29.bin</a></dt>
+<dd>Screen editor for BASIC 4, normal keyboard, no CRTC (40 columns)</dd>
+<dt><a href="computers/pet/kernal-2.901465-03.bin">kernal-2.901465-03.bin</a></dt>
+<dd>KERNAL for BASIC 2.  Also available as 6540-025 + 6540-026.</dd>
+<dt><a href="computers/pet/kernal-4.901465-22.bin">kernal-4.901465-22.bin</a></dt>
+<dd>KERNAL for BASIC 4</dd>
+<dt><a href="computers/pet/pet3008-basic4-4080-videoboard.zip">pet3008-basic4-4080-videoboard.zip</a></dt>
+<dd>Basic 4, editor, and char roms from 3008 with 6845-based 80 col video board.</dd>
+<dt><a href="computers/pet/rom-1-c000.901439-01.bin">rom-1-c000.901439-01.bin</a></dt>
+<dd>Original PET 2001 BASIC 1 C000-C7FF ROM.  This is part of a bigger set.
+Also found as model 6540-011.  Might also be 901439-09.bin
+The files matching the pattern rom-1-*-901439* will form the complete set.</dd>
+<dt><a href="computers/pet/rom-1-c000.901447-01.bin">rom-1-c000.901447-01.bin</a></dt>
+<dd>Original PET 2001 BASIC 1 C000-C7FF ROM.  This is part of a bigger set.
+The files matching the pattern *901447* will form the complete set.</dd>
+<dt><a href="computers/pet/rom-1-c800.901439-05.bin">rom-1-c800.901439-05.bin</a></dt>
+<dd>Original PET 2001 BASIC 1/2 C800-CFFF ROM. See rom-1-c000.901439-01.bin
+Also found as model 6540-012</dd>
+<dt><a href="computers/pet/rom-1-c800.901447-02.bin">rom-1-c800.901447-02.bin</a></dt>
+<dd>Original PET 2001 BASIC 1/2 C800-CFFF ROM. See rom-1-c000.901447-01.bin</dd>
+<dt><a href="computers/pet/rom-1-d000.901439-02.bin">rom-1-d000.901439-02.bin</a></dt>
+<dd>Original PET 2001 BASIC 1/2 D000-D7FF ROM. See rom-1-c000.901439-01.bin
+Also found as model 6540-013</dd>
+<dt><a href="computers/pet/rom-1-d000.901447-03.bin">rom-1-d000.901447-03.bin</a></dt>
+<dd>Original PET 2001 BASIC 1/2 D000-D7FF ROM. See rom-1-c000.901447-01.bin</dd>
+<dt><a href="computers/pet/rom-1-d800.901439-06.bin">rom-1-d800.901439-06.bin</a></dt>
+<dd>Original PET 2001 BASIC 1/2 D800-DFFF ROM. See rom-1-c000.901439-01.bin
+Also found as model 6540-014</dd>
+<dt><a href="computers/pet/rom-1-d800.901447-04.bin">rom-1-d800.901447-04.bin</a></dt>
+<dd>Original PET 2001 BASIC 1/2 D800-DFFF ROM. See rom-1-c000.901447-01.bin</dd>
+<dt><a href="computers/pet/rom-1-e000.901439-03.bin">rom-1-e000.901439-03.bin</a></dt>
+<dd>Original PET 2001 BASIC 1/2 E000-E7FF ROM. See rom-1-c000.901439-01.bin
+Also found as model 6540-015</dd>
+<dt><a href="computers/pet/rom-1-e000.901447-05.bin">rom-1-e000.901447-05.bin</a></dt>
+<dd>Original PET 2001 BASIC 1/2 E000-E7FF ROM. See rom-1-c000.901447-01.bin</dd>
+<dt><a href="computers/pet/rom-1-f000.901439-04.bin">rom-1-f000.901439-04.bin</a></dt>
+<dd>Original PET 2001 BASIC 1/2 F000-F7FF ROM. See rom-1-c000.901439-01.bin
+Also found as model 6540-016</dd>
+<dt><a href="computers/pet/rom-1-f000.901447-06.bin">rom-1-f000.901447-06.bin</a></dt>
+<dd>Original PET 2001 BASIC 1/2 F000-F7FF ROM. See rom-1-c000.901447-01.bin</dd>
+<dt><a href="computers/pet/rom-1-f800.901439-07.bin">rom-1-f800.901439-07.bin</a></dt>
+<dd>Original PET 2001 BASIC 1/2 F800-FFFF ROM. See rom-1-c000.901439-01.bin
+Also found as model 6540-018</dd>
+<dt><a href="computers/pet/rom-1-f800.901447-07.bin">rom-1-f800.901447-07.bin</a></dt>
+<dd>Original PET 2001 BASIC 1/2 F800-FFFF ROM. See rom-1-c000.901447-01.bin</dd>
+<dt><a href="computers/pet/rom-2-c000.901439-09.bin">rom-2-c000.901439-09.bin</a></dt>
+<dd>Revised PET 2001 BASIC 2 C000-C7FF ROM.  See rom-1-c000.901439-01.bin
+Also found as model 6540-019</dd>
+<dt><a href="computers/pet/rom-2-c000.901447-09.bin">rom-2-c000.901447-09.bin</a></dt>
+<dd>Revised PET 2001 BASIC 2 C000-C7FF ROM.  See rom-1-c000.901447-01.bin</dd>
+<dt><a href="computers/pet/rom-3-c000.901439-13.bin">rom-3-c000.901439-13.bin</a></dt>
+<dd>Original PET 2001 BASIC 3 C000-C7FF ROM.  This is part of a bigger set.
+Also found as model 6540-020
+The files matching the pattern rom-3-*901439* will form the complete set.</dd>
+<dt><a href="computers/pet/rom-3-c000.901447-20.bin">rom-3-c000.901447-20.bin</a></dt>
+<dd>Original PET 2001 BASIC 3 C000-C7FF ROM.  This is part of a bigger set.
+The files matching the pattern rom-3-*901447* will form the complete set.</dd>
+<dt><a href="computers/pet/rom-3-c800.901439-14.bin">rom-3-c800.901439-14.bin</a></dt>
+<dd>Original PET 2001 BASIC 3 C800-CFFF ROM. See rom-3-c000.901439-013.bin
+Also found as model 6540-021</dd>
+<dt><a href="computers/pet/rom-3-c800.901447-21.bin">rom-3-c800.901447-21.bin</a></dt>
+<dd>Original PET 2001 BASIC 3 C800-CFFF ROM. See rom-3-c000.901447-20.bin</dd>
+<dt><a href="computers/pet/rom-3-d000.901439-15.bin">rom-3-d000.901439-15.bin</a></dt>
+<dd>Original PET 2001 BASIC 3 D000-D7FF ROM. See rom-3-c000.901439-013.bin
+Also found as model 6540-022</dd>
+<dt><a href="computers/pet/rom-3-d000.901447-22.bin">rom-3-d000.901447-22.bin</a></dt>
+<dd>Original PET 2001 BASIC 3 D000-D7FF ROM. See rom-3-c000.901447-20.bin</dd>
+<dt><a href="computers/pet/rom-3-d800.901439-16.bin">rom-3-d800.901439-16.bin</a></dt>
+<dd>Original PET 2001 BASIC 3 D800-DFFF ROM. See rom-3-c000.901439-013.bin
+Also found as model 6540-023</dd>
+<dt><a href="computers/pet/rom-3-d800.901447-23.bin">rom-3-d800.901447-23.bin</a></dt>
+<dd>Original PET 2001 BASIC 3 D800-DFFF ROM. See rom-3-c000.901447-20.bin</dd>
+<dt><a href="computers/pet/rom-3-e000.901439-17.bin">rom-3-e000.901439-17.bin</a></dt>
+<dd>Original PET 2001 BASIC 3 E000-E7FF ROM. See rom-3-c000.901439-013.bin
+Also found as model 6540-024</dd>
+<dt><a href="computers/pet/rom-3-e000.901447-24.bin">rom-3-e000.901447-24.bin</a></dt>
+<dd>Original PET 2001 BASIC 3 E000-E7FF ROM. See rom-3-c000.901447-20.bin</dd>
+<dt><a href="computers/pet/rom-3-f000.901439-18.bin">rom-3-f000.901439-18.bin</a></dt>
+<dd>Original PET 2001 BASIC 3 F000-F7FF ROM. See rom-3-c000.901439-013.bin
+Also found as model 6540-025</dd>
+<dt><a href="computers/pet/rom-3-f000.901447-25.bin">rom-3-f000.901447-25.bin</a></dt>
+<dd>Original PET 2001 BASIC 3 F000-F7FF ROM. See rom-3-c000.901447-20.bin</dd>
+<dt><a href="computers/pet/rom-3-f800.901439-19.bin">rom-3-f800.901439-19.bin</a></dt>
+<dd>Original PET 2001 BASIC 3 F800-FFFF ROM. See rom-3-c000.901439-013.bin
+Also found as model 6540-026</dd>
+<dt><a href="computers/pet/rom-3-f800.901447-26.bin">rom-3-f800.901447-26.bin</a></dt>
+<dd>Original PET 2001 BASIC 3 F800-FFFF ROM. See rom-3-c000.901447-20.bin</dd>
+</dl>
+<dl>
+<dt><a href="computers/pet/8096/index.html">8096/</a></dt>
+<dd><dl>
+<dt><a href="computers/pet/8096/characters-french.bin">characters-french.bin</a></dt>
+<dd>Character generator from French 8096 PET</dd>
+<dt><a href="computers/pet/8096/edit-french.bin">edit-french.bin</a></dt>
+<dd>8096 editor from french PET</dd>
+</dl>
+</dd>
+<dt><a href="computers/pet/8296/index.html">8296/</a></dt>
+<dd><dl>
+<dd>Commodore 8296 specific firmware</dd>
+<dt><a href="computers/pet/8296/8296_uc2_74S288_prom.bin">8296_uc2_74S288_prom.bin</a></dt>
+<dd>32 byte prom found at U2, read by Alessandro Liberalato</dd>
+<dt><a href="computers/pet/8296/8296desc3.tar.gz">8296desc3.tar.gz</a></dt>
+<dd>This archive contains the readouts of the three PROMs on the CBM 8296
+motherboard, UC2, UE5 and UE6.  It further contains the logic equations,
+the program to derive the logic equations and some explanations.</dd>
+<dt><a href="computers/pet/8296/8296gd_info.txt">8296gd_info.txt</a></dt>
+<dd>Information about the graphics-board for the 8296<br />
+For more explanations, please have a look at the 8296 addendum to the
+8032 manual.<br />
+Created and uploaded by André Fachat.
+[Note: some equations in the file 829desc.txt in 82s100.tar.gz contained
+errors.  They were corrected by André Fachat in 2005.]</dd>
+<dt><a href="computers/pet/8296/8296ue5cr.zip">8296ue5cr.zip</a></dt>
+<dd>How to replace the PLA UE5 in a CBM8296 with a GAL 20V8
+written in 2005 by Nicolas Welte (http://x1541.de)</dd>
+<dt><a href="computers/pet/8296/901474-04-0384.bin">901474-04-0384.bin</a></dt>
+<dd>Editor ROM from André Fachat's non-working 8296; the same as
+901474-04-3681.bin from the PET directory.</dd>
+<dt><a href="computers/pet/8296/PaperClip.bin">PaperClip.bin</a></dt>
+<dd>UE9</dd>
+<dt><a href="computers/pet/8296/characters-3.901447-xx.bin">characters-3.901447-xx.bin</a></dt>
+<dd>Editor rom from Dave M's 50hz 8296 with very extended international chars.</dd>
+<dt><a href="computers/pet/8296/characters-324242-01.bin">characters-324242-01.bin</a></dt>
+<dd>PET Character DIN (UC5)</dd>
+<dt><a href="computers/pet/8296/characters-324242-10.bin">characters-324242-10.bin</a></dt>
+<dd>German language chargen rom for 8296d</dd>
+<dt><a href="computers/pet/8296/characters-901447-german8296d.bin">characters-901447-german8296d.bin</a></dt>
+<dd>Char rom from German 8296D</dd>
+<dt><a href="computers/pet/8296/edit-50hz-324243-02b.bin">edit-50hz-324243-02b.bin</a></dt>
+<dd>Editor ROM from André Fachat's working 8296.  This is an EPROM marked "8296
+UE8", and it contains a patched version of 901474-04.</dd>
+<dt><a href="computers/pet/8296/edit-50hz-324243-02b.txt">edit-50hz-324243-02b.txt</a></dt>
+<dd>Some notes about UE8.bin and other firmware in André Fachat's 8296 systems.</dd>
+<dt><a href="computers/pet/8296/edit-50hz-324243-02s.bin">edit-50hz-324243-02s.bin</a></dt>
+<dd>8296d Swiss language editor ue8</dd>
+<dt><a href="computers/pet/8296/edit-50hz-324243-04.bin">edit-50hz-324243-04.bin</a></dt>
+<dd>8296d Editor Rom</dd>
+<dt><a href="computers/pet/8296/edit-50hz-324243-04_disassembly.txt">edit-50hz-324243-04_disassembly.txt</a></dt>
+<dd>8296d rom disassembly</dd>
+<dt><a href="computers/pet/8296/edit-50hz-324243-04s.bin">edit-50hz-324243-04s.bin</a></dt>
+<dd>German language editor rom for 8296d</dd>
+<dt><a href="computers/pet/8296/edit-50hz-324243-xx.bin">edit-50hz-324243-xx.bin</a></dt>
+<dd>Character rom from Dave M's 50hz 8296 with very extended international chars.</dd>
+<dt><a href="computers/pet/8296/edit-50hz-german8296d.bin">edit-50hz-german8296d.bin</a></dt>
+<dd>Editor rom from German 8296D</dd>
+<dt><a href="computers/pet/8296/edit-xxhz-324243-01.bin">edit-xxhz-324243-01.bin</a></dt>
+<dd>8296d Editor ue8</dd>
+<dt><a href="computers/pet/8296/edit-xxhz-324243-03.bin">edit-xxhz-324243-03.bin</a></dt>
+<dd>8296d Editor Rom</dd>
+<dt><a href="computers/pet/8296/execudesk-50hz.bin">execudesk-50hz.bin</a></dt>
+<dd>Editor ROM based off edit-4-80-b-50Hz.901474-04.bin and execudesk-60hz.bin</dd>
+<dt><a href="computers/pet/8296/execudesk-60hz.bin">execudesk-60hz.bin</a></dt>
+<dd>Editor ROM from 8296 in UE8. Based off edit-4-80-b-60Hz.901474-03.bin</dd>
+<dt><a href="computers/pet/8296/hires-324992-02.bin">hires-324992-02.bin</a></dt>
+<dd>8296gd Hires Emulator (at $9000)</dd>
+<dt><a href="computers/pet/8296/hires-324993-02.bin">hires-324993-02.bin</a></dt>
+<dd>8296gd HiRes BASIC (at $A000)</dd>
+<dt><a href="computers/pet/8296/hpg-324402-01.bin">hpg-324402-01.bin</a></dt>
+<dd>PET High Speed Graphik (same as 324381-01b)</dd>
+<dt><a href="computers/pet/8296/kernal-basic-324746-01.bin">kernal-basic-324746-01.bin</a></dt>
+<dd>BASIC/KERNAL ROM; a combination of: 901465-23 ($B***) 901465-20 ($C***)
+901465-21 ($D***) 901465-22 ($F***). Uploaded by André Fachat.</dd>
+<dt><a href="computers/pet/8296/kernal-basic-324746-01_b.bin">kernal-basic-324746-01_b.bin</a></dt>
+<dd>Combined rom from Christian Forstreuter's machine. Differs in first 9 bytes
+from earlier rom.</dd>
+<dt><a href="computers/pet/8296/kernal-basic-324878-01.bin">kernal-basic-324878-01.bin</a></dt>
+<dd>UE7 daughterboard, 2764 EPROM.  A combination of 901465-20 and 901465-21.</dd>
+<dt><a href="computers/pet/8296/kernal-basic-324878-02.bin">kernal-basic-324878-02.bin</a></dt>
+<dd>UE7 daughterboard, 2764 EPROM.  A combination of 901465-23 and 901465-22.</dd>
+<dt><a href="computers/pet/8296/pla-324744-01.bin">pla-324744-01.bin</a></dt>
+<dt><a href="computers/pet/8296/pla-324744-1.c">pla-324744-1.c</a></dt>
+<dd>Verified logic equations of UE6, the address decoding PLA.</dd>
+<dt><a href="computers/pet/8296/pla-324745-01.bin">pla-324745-01.bin</a></dt>
+<dt><a href="computers/pet/8296/pla-324745-1.c">pla-324745-1.c</a></dt>
+<dd>Verified logic equations of UE5, the controller for the 8296 add-on.</dd>
+</dl>
+<dl>
+<dt><a href="../schematics/computers/pet/8296/index.html">schematics@</a> (link)</dt>
+</dl>
+</dd>
+<dt><a href="computers/pet/SuperPET/index.html">SuperPET/</a></dt>
+<dd><dl>
+<dd>The SuperPET is a 8032 PET with one or two added boards that were designed
+at the University of Waterloo.  The computer has a built-in RS-232C
+interface and many built-in programming languages.  In Europe, this machine
+was called the MicroMainFrame 9000, or MMF 9000.</dd>
+<dt><a href="computers/pet/SuperPET/README">README</a></dt>
+<dd>SuperPET part list and firmware, composed by William Levak.</dd>
+<dt><a href="computers/pet/SuperPET/characters.901640-01.bin">characters.901640-01.bin</a></dt>
+<dd>SuperPET character generator.  The second half of this ROM contains a
+true ASCII character set and an APL character set.</dd>
+<dt><a href="computers/pet/SuperPET/characters.swedish.bin">characters.swedish.bin</a></dt>
+<dd>SuperPET character generator, with characters [\]{|} replaced with ÄÖÅäöå.
+EPROM label: 901640-01 SKAND.GEN.</dd>
+<dt><a href="computers/pet/SuperPET/sp2516-ud1-sp9000-blkcod.bin">sp2516-ud1-sp9000-blkcod.bin</a></dt>
+<dd>Unknown rom found in UD11 of a 3-board SuperPET.</dd>
+<dt><a href="computers/pet/SuperPET/waterloo-a000-bfff.970018-12.bin">waterloo-a000-bfff.970018-12.bin</a></dt>
+<dt><a href="computers/pet/SuperPET/waterloo-a000.901898-01.bin">waterloo-a000.901898-01.bin</a></dt>
+<dt><a href="computers/pet/SuperPET/waterloo-b000.901898-02.bin">waterloo-b000.901898-02.bin</a></dt>
+<dt><a href="computers/pet/SuperPET/waterloo-c000-dfff.970019-12.bin">waterloo-c000-dfff.970019-12.bin</a></dt>
+<dt><a href="computers/pet/SuperPET/waterloo-c000.901898-03.bin">waterloo-c000.901898-03.bin</a></dt>
+<dt><a href="computers/pet/SuperPET/waterloo-d000.901898-04.bin">waterloo-d000.901898-04.bin</a></dt>
+<dt><a href="computers/pet/SuperPET/waterloo-e000-ffff-970034-12.bin">waterloo-e000-ffff-970034-12.bin</a></dt>
+<dd>From Christian Forstreuters 50Hz MMF9000 at U49</dd>
+<dt><a href="computers/pet/SuperPET/waterloo-e000-ffff.970020-12.bin">waterloo-e000-ffff.970020-12.bin</a></dt>
+<dt><a href="computers/pet/SuperPET/waterloo-e000.901897-01.bin">waterloo-e000.901897-01.bin</a></dt>
+<dt><a href="computers/pet/SuperPET/waterloo-e000.901897-x.50Hz.bin">waterloo-e000.901897-x.50Hz.bin</a></dt>
+<dd>Identical to 901897-01, with 50hz video changes. Uploaded by Christian Forstreuter.</dd>
+<dt><a href="computers/pet/SuperPET/waterloo-f000.901898-05.bin">waterloo-f000.901898-05.bin</a></dt>
+<dd>Waterloo firmware for the 6809.  The firmware was also available on a set
+of three 2764 EPROMs, see the README file.</dd>
+</dl>
+<dl>
+<dt><a href="../schematics/computers/pet/SuperPET/index.html">schematics@</a> (link)</dt>
+</dl>
+</dd>
+<dt><a href="computers/pet/cash_register/index.html">cash_register/</a></dt>
+<dd><dl>
+<dd>ROMS for prototype Commodore Cash Register, from Frank Hughes</dd>
+<dt><a href="computers/pet/cash_register/ccr-9000.bin">ccr-9000.bin</a></dt>
+<dt><a href="computers/pet/cash_register/ccr-901465-01-c000.bin">ccr-901465-01-c000.bin</a></dt>
+<dt><a href="computers/pet/cash_register/ccr-901465-02-d000.bin">ccr-901465-02-d000.bin</a></dt>
+<dt><a href="computers/pet/cash_register/ccr-901465-03-f000.bin">ccr-901465-03-f000.bin</a></dt>
+<dt><a href="computers/pet/cash_register/ccr-a000.bin">ccr-a000.bin</a></dt>
+<dt><a href="computers/pet/cash_register/ccr-b000.bin">ccr-b000.bin</a></dt>
+<dt><a href="computers/pet/cash_register/ccr-e000.bin">ccr-e000.bin</a></dt>
+<dt><a href="computers/pet/cash_register/ccr-printer-19810429.bin">ccr-printer-19810429.bin</a></dt>
+</dl>
+<dl>
+<dt><a href="../pictures/cash_register/index.html">pictures@</a> (link)</dt>
+<dt><a href="../schematics/computers/pet/cash_register/index.html">schematics@</a> (link)</dt>
+</dl>
+</dd>
+<dt><a href="drives/old/index.html">drives@</a> (link)</dt>
+<dt><a href="computers/pet/other/index.html">other/</a></dt>
+<dd><dl>
+<dd>3rd party firmware for the PET
+Mostly for option rom slots:
+-- UD12 $9000 (36864)
+-- UD11 $A000 (40960)</dd>
+<dt><a href="computers/pet/other/324381-01b.bin">324381-01b.bin</a></dt>
+<dd>PET High Speed Graphic Rev 1B</dd>
+<dt><a href="computers/pet/other/4032-2001N-9000-basic45-sys37000.bin">4032-2001N-9000-basic45-sys37000.bin</a></dt>
+<dd>Basic extension for 40 col PETs. Basic 4.5 -- sys 37000 to start.</dd>
+<dt><a href="computers/pet/other/8-4032-9inches.bin">8-4032-9inches.bin</a></dt>
+<dd>Completely unknown option from from a 9" 4032. Also possibly corrupt image.</dd>
+<dt><a href="computers/pet/other/8032-CraneOperator.zip">8032-CraneOperator.zip</a></dt>
+<dd>Package of roms from 8032, possibly to operate a crane</dd>
+<dt><a href="computers/pet/other/BATPRO.zip">BATPRO.zip</a></dt>
+<dd>Basic, Assembly, &amp; Text Processor. Includes ROM images, pdf docs.</dd>
+<dt><a href="computers/pet/other/BEC_Accounting_bcc-2.bin">BEC_Accounting_bcc-2.bin</a></dt>
+<dd>ROM for BEE Accounting software</dd>
+<dt><a href="computers/pet/other/BPI_Accounting_Dongle_bpi-3.bin">BPI_Accounting_Dongle_bpi-3.bin</a></dt>
+<dd>ROM for BPI Accounting package</dd>
+<dt><a href="computers/pet/other/Basic%20Expand-a000.bin">Basic Expand-a000.bin</a></dt>
+<dd>Basic Expand is a support tool for the Basic programmer on CBM3016/3032
+machines.  It contains a lot of helpful additional Basic commands such<br />
+as: AUTO RENUMBER FIND DELETE DLIST DPRINT DRUN<br />
+The file is for a 4k EPROM located at the addresses $a000-$afff.
+Uploaded by: guettich@t-online.de</dd>
+<dt><a href="computers/pet/other/Basic%20Expand.txt">Basic Expand.txt</a></dt>
+<dd>User's manual of Basic Expand (in German)</dd>
+<dt><a href="computers/pet/other/EXBASIC_levelII.zip">EXBASIC_levelII.zip</a></dt>
+<dd>Expanded BASIC for all PET models.  Includes german-language pdf manual.</dd>
+<dt><a href="computers/pet/other/Monjana1Assembler.38000.bin">Monjana1Assembler.38000.bin</a></dt>
+<dd>Mojana Assember, labeled MON 697B.  Started with SYS 38000</dd>
+<dt><a href="computers/pet/other/Monjana1Assembler_user_manual.pdf">Monjana1Assembler_user_manual.pdf</a></dt>
+<dd>Mojana Assembler rom manual</dd>
+<dt><a href="computers/pet/other/OrgaBASIC101-a000.bin">OrgaBASIC101-a000.bin</a></dt>
+<dd>ORGABASIC 101 V 1.4.015 (A000-AFFF)</dd>
+<dt><a href="computers/pet/other/PETTESTE2KV04.zip">PETTESTE2KV04.zip</a></dt>
+<dd>Diag rom for all PETs developed by David E. Roberts.</dd>
+<dt><a href="computers/pet/other/PaperClip20.bin">PaperClip20.bin</a></dt>
+<dd>Option rom labeled CES PaperClip 2.0</dd>
+<dt><a href="computers/pet/other/PetMaster_Superchip_QuickRef.pdf">PetMaster_Superchip_QuickRef.pdf</a></dt>
+<dd>QuickReference chart for PetMaster Superchip.</dd>
+<dt><a href="computers/pet/other/SMK_B_2.2-UD3.bin">SMK_B_2.2-UD3.bin</a></dt>
+<dd>SM-Kit Rev 2.2, BASIC utility extension for BASIC4 PETs</dd>
+<dt><a href="computers/pet/other/SMKit_2.2_B%2bM_8032.zip">SMKit_2.2_B+M_8032.zip</a></dt>
+<dd>SMKit BASIC and ML Utils for 8032, UD11 and UD12 bin files in this package.</dd>
+<dt><a href="computers/pet/other/Super_Monitor_3032_B000_Metz_1983.bin">Super_Monitor_3032_B000_Metz_1983.bin</a></dt>
+<dd>Monitor rom found in 3032.  Provided by Christian.</dd>
+<dt><a href="computers/pet/other/TCLpascal1_8_d80.zip">TCLpascal1_8_d80.zip</a></dt>
+<dd>TCL Pascal 1.8 with option rom and .d80 disk image.</dd>
+<dt><a href="computers/pet/other/UD7_dump_univertex_8032_50hz.bin">UD7_dump_univertex_8032_50hz.bin</a></dt>
+<dd>Unknown "Univertex" rom for 50hz 8032 in UD7</dd>
+<dt><a href="computers/pet/other/amon1_a0.bin">amon1_a0.bin</a></dt>
+<dd>2k monitor for the 30xx at $a000.  Uploaded by Christian Forstreuter.
+SYS41000</dd>
+<dt><a href="computers/pet/other/arrow-a000.bin">arrow-a000.bin</a></dt>
+<dd>A 3600 baud tape fastloader for BASIC 2.</dd>
+<dt><a href="computers/pet/other/arrow-v4-a000.bin">arrow-v4-a000.bin</a></dt>
+<dd>A 3600 baud tape fastloader for BASIC 4.</dd>
+<dt><a href="computers/pet/other/arrow.txt">arrow.txt</a></dt>
+<dd>Instructions for Arrow.</dd>
+<dt><a href="computers/pet/other/bee_3.1.b000.bin">bee_3.1.b000.bin</a></dt>
+<dd>Unknown dongle rom @ b000</dd>
+<dt><a href="computers/pet/other/characters-901447-10m.bin">characters-901447-10m.bin</a></dt>
+<dd>Custom char generator for PET. Unknown author.</dd>
+<dt><a href="computers/pet/other/com40n.bin">com40n.bin</a></dt>
+<dd>Command-O ROM - 1980 BASIC Plus I com4-ou-1581</dd>
+<dt><a href="computers/pet/other/command-o_rom-9000.bin">command-o_rom-9000.bin</a></dt>
+<dd>Command-O ROM - 1980 BASIC extension</dd>
+<dt><a href="computers/pet/other/create-base_rom-9000.bin">create-base_rom-9000.bin</a></dt>
+<dd>Option rom for Create-a-Base. This rom appears short, and is<br />
+untested.  If you have another copy, please upload it.</dd>
+<dt><a href="computers/pet/other/cross_ref-rom-9000.bin">cross_ref-rom-9000.bin</a></dt>
+<dd>cross ref option rom.  Alsoa byte short, and untested.</dd>
+<dt><a href="computers/pet/other/disc-o-pro_1980_30xx.rtf">disc-o-pro_1980_30xx.rtf</a></dt>
+<dd>Docs for disc-o-pro BASIC extension (discopr9.bin)</dd>
+<dt><a href="computers/pet/other/discopr9.bin">discopr9.bin</a></dt>
+<dd>BASIC extension for 30xx at $9000.  SYS 36864.  Uploaded by Christian
+Forstreuter</dd>
+<dt><a href="computers/pet/other/edex_4.2_french_a000_ud11.bin">edex_4.2_french_a000_ud11.bin</a></dt>
+<dd>EDEX 4.2 BASIC enhancement for 8032</dd>
+<dt><a href="computers/pet/other/edex_4.4_french_a000_ud11.bin">edex_4.4_french_a000_ud11.bin</a></dt>
+<dd>Option rom found in UD11 of a French 8096 computer</dd>
+<dt><a href="computers/pet/other/edit-4-80-b-50Hz.901474-04-azerty.bin">edit-4-80-b-50Hz.901474-04-azerty.bin</a></dt>
+<dd>Alternate editor rom from French PET 8032 w/ AZERTY keyboard</dd>
+<dt><a href="computers/pet/other/helpb4_ue10_97f8.bin">helpb4_ue10_97f8.bin</a></dt>
+<dd>Unknown utility eprom from an 8296, started with SYS38904</dd>
+<dt><a href="computers/pet/other/infodesigns-20447.bin">infodesigns-20447.bin</a></dt>
+<dd>Unknown UD12 chip labeled Info Designs</dd>
+<dt><a href="computers/pet/other/jimsam4_rom-a000.bin">jimsam4_rom-a000.bin</a></dt>
+<dd>Jinsam 4 Database option rom.  Tested and working, but a byte short.</dd>
+<dt><a href="computers/pet/other/jinsam8-rom-a000.bin">jinsam8-rom-a000.bin</a></dt>
+<dd>Jimsam 8 option rom.  1 byte short, and untested.</dd>
+<dt><a href="computers/pet/other/kram2.0-rom-9000.bin">kram2.0-rom-9000.bin</a></dt>
+<dd>Kram 2.0 option rom for $9000.  1 byte short, and untested.</dd>
+<dt><a href="computers/pet/other/kram2.0-rom-a000.bin">kram2.0-rom-a000.bin</a></dt>
+<dd>Kram 2.0 option rom for $a000.  1 byte short, and untested.</dd>
+<dt><a href="computers/pet/other/mcterm1.11-rom-9000.bin">mcterm1.11-rom-9000.bin</a></dt>
+<dd>McTerm 1.1 option rom.  Untested.</dd>
+<dt><a href="computers/pet/other/mcterm1.17-rom-9000.bin">mcterm1.17-rom-9000.bin</a></dt>
+<dd>McTerm 1.17 option rom.  Untested.</dd>
+<dt><a href="computers/pet/other/mcterm1.21_rom-9000.bin">mcterm1.21_rom-9000.bin</a></dt>
+<dd>McTerm 1.21 option rom.  Untested.</dd>
+<dt><a href="computers/pet/other/micromon40-plus-a000.bin">micromon40-plus-a000.bin</a></dt>
+<dd>ml monitor rom for 40 col pets @ a000</dd>
+<dt><a href="computers/pet/other/micromon40-ud12.bin">micromon40-ud12.bin</a></dt>
+<dd>ml monitor rom for 40 col pets in UD12</dd>
+<dt><a href="computers/pet/other/micromon80-ud11-a000.bin">micromon80-ud11-a000.bin</a></dt>
+<dd>ml monitor rom for 80 col pets @ a000</dd>
+<dt><a href="computers/pet/other/micromon_9000.bin">micromon_9000.bin</a></dt>
+<dd>ml monitor rom from unknown pet.  sys36864 to enter.</dd>
+<dt><a href="computers/pet/other/mikromon-instructions-DE.pdf">mikromon-instructions-DE.pdf</a></dt>
+<dd>Commands and docs for Mikromon, in German</dd>
+<dt><a href="computers/pet/other/mikromon.bin">mikromon.bin</a></dt>
+<dd>Mikromon rom from cbm 3008</dd>
+<dt><a href="computers/pet/other/monitor_6502_8032_9000.bin">monitor_6502_8032_9000.bin</a></dt>
+<dd>6502 Monitor by Manfred Tausch from 8032</dd>
+<dt><a href="computers/pet/other/msvweigh-a000.bin">msvweigh-a000.bin</a></dt>
+<dd>This program controls an electronic scale.</dd>
+<dt><a href="computers/pet/other/newtim-9000.bin">newtim-9000.bin</a></dt>
+<dd>NEWTIM S is an expanded TIM monitor for the CBM3016/3032.  It contains
+40 additional commands such as assembler and disassembler and supports
+comfortable printer output.  In addition, it contains a DOS wedge that
+can be accessed from BASIC.<br />
+The file is for a 4k EPROM located at the addresses $9000-$9fff.
+Uploaded by: guettich@t-online.de</dd>
+<dt><a href="computers/pet/other/newtim.txt">newtim.txt</a></dt>
+<dd>User's manual of NEWTIM S (in German)</dd>
+<dt><a href="computers/pet/other/newtim31-9000.bin">newtim31-9000.bin</a></dt>
+<dd>newtim v.3.1 o.p.104 (9000-9FFF)
+(this binary may be non-functional or corrupt)</dd>
+<dt><a href="computers/pet/other/oracle%20rom%209000.bin">oracle rom 9000.bin</a></dt>
+<dd>For Oracle Consultant from Delphi Group</dd>
+<dt><a href="computers/pet/other/oth-9000-ue10.bin">oth-9000-ue10.bin</a></dt>
+<dd>The contents of a 2532 EPROM labelled OTH 001321, plugged into the
+UE10 socket of an 8296.  Almost identical to SUO-9000.BIN, so perhaps
+a calc result rom.</dd>
+<dt><a href="computers/pet/other/paics2001-b000.bin">paics2001-b000.bin</a></dt>
+<dd>Paics $8000 for BASIC 1 PET 2001.  Uploaded by Christian Forstreuter</dd>
+<dt><a href="computers/pet/other/paics_fish_b000.bin">paics_fish_b000.bin</a></dt>
+<dd>Multifunction run from unknown pet.  Use SYS45056 for PAICS toolkit, and SYS
+48267 for Fish n chip</dd>
+<dt><a href="computers/pet/other/pal_assembler_a000.bin">pal_assembler_a000.bin</a></dt>
+<dd>PAL Assembler.  SYS40960 to execute</dd>
+<dt><a href="computers/pet/other/paperclip-unk.bin">paperclip-unk.bin</a></dt>
+<dd>Similar to Paperclip-20 rom, so perhaps an unk version</dd>
+<dt><a href="computers/pet/other/pascal3.0_rom-a000.bin">pascal3.0_rom-a000.bin</a></dt>
+<dd>TCL Pascal 1.6 option rom.  1 byte short, and untested.</dd>
+<dt><a href="computers/pet/other/pet80.zip">pet80.zip</a></dt>
+<dd>eproms from a 9" 40 to 80 column adapter in a CBM 3008</dd>
+<dt><a href="computers/pet/other/pet8032sk_sv-UD11-2732-104883B.bin">pet8032sk_sv-UD11-2732-104883B.bin</a></dt>
+<dd>An $a000 ROM inside a Swedish 8032-SK, an 2732 EPROM labeled 104883B.
+What is this?  Dumped by MagerValp@cling.gu.se.</dd>
+<dt><a href="computers/pet/other/petbasic2-erweiterung-b000.bin">petbasic2-erweiterung-b000.bin</a></dt>
+<dd>This is a German BASIC expansion (BASIC ERWEITERUNG 1), started with<br />
+SYS47100, using 2k of ROM.  The commands are:
+RUN AUTO STEP TRACE OFF RENUMBER DELETE HELP FIND DUMP APPEND.</dd>
+<dt><a href="computers/pet/other/petester.bin">petester.bin</a></dt>
+<dd>Kernel replacement that tests non-CRTC PET memory and screen</dd>
+<dt><a href="computers/pet/other/pettest2.bin">pettest2.bin</a></dt>
+<dd>Kernel that tests 40 column CRTC PET memory and screen by Dave M</dd>
+<dt><a href="computers/pet/other/pettester8032.bin">pettester8032.bin</a></dt>
+<dd>8032 version of pettester.bin, supports CRTC</dd>
+<dt><a href="computers/pet/other/picChip_micromonplus_doswedge_a000.bin">picChip_micromonplus_doswedge_a000.bin</a></dt>
+<dd>Multi-function rom from unknown pet.  Use SYS 40960 for picchip, 44103 for
+micromon, and 33559 for dos wedge. The wedge suggests 2.0 machines?</dd>
+<dt><a href="computers/pet/other/picchip2001-9000.bin">picchip2001-9000.bin</a></dt>
+<dd>PicChip $9000 for BASIC 1 PET 2001.  Uploaded by Christian Forstreuter</dd>
+<dt><a href="computers/pet/other/power-rom-9000.bin">power-rom-9000.bin</a></dt>
+<dd>Option rom for unknown program</dd>
+<dt><a href="computers/pet/other/power_basic_30xx_a000.bin">power_basic_30xx_a000.bin</a></dt>
+<dd>Power BASIC extension rom for PET 30xx models (and 2001-XX non-CRTC pets?)</dd>
+<dt><a href="computers/pet/other/power_basic_8032_a000.bin">power_basic_8032_a000.bin</a></dt>
+<dd>Power BASIC extension for 8032 PETs by Michael Shulte (sys 40960)</dd>
+<dt><a href="computers/pet/other/power_rom-9000.bin">power_rom-9000.bin</a></dt>
+<dd>BASIC programming add-on POWER by Brad Templeton. Known to work on<br />
+40 col CRTC PETs.  Maybe others?</dd>
+<dt><a href="computers/pet/other/programmersToolkitArticlesPDF.tar.gz">programmersToolkitArticlesPDF.tar.gz</a></dt>
+<dd>Two PDFs with some high level usage information about PET Programmers
+Toolkit.</dd>
+<dt><a href="computers/pet/other/s-tool_ud3.bin">s-tool_ud3.bin</a></dt>
+<dd>Disk Wedge + keyboard autorepeat option ROM found on an italian 3032 on
+position UD3. Activated by SYS37000.</dd>
+<dt><a href="computers/pet/other/sm-kit.zip">sm-kit.zip</a></dt>
+<dd>SM-Kit BASIC 4 extension and ML monitor on a 4k ROM.  Includes the pdf
+manual. No version listed, so, rev1?</dd>
+<dt><a href="computers/pet/other/smkit_m2_b2.zip">smkit_m2_b2.zip</a></dt>
+<dd>SM-Kit Revs 2.1-2.4 BASIC 4 extension ROMs for different PETs. Includes pdf.</dd>
+<dt><a href="computers/pet/other/spellmaster-9000.bin">spellmaster-9000.bin</a></dt>
+<dd>Spellmaster ROM for the Spellmaster spell checking program used with Wordpro.
+This is a 2532 EPROM with a gold colored paper label and is located at $9000.</dd>
+<dt><a href="computers/pet/other/suo-9000.bin">suo-9000.bin</a></dt>
+<dd>The contents of a TMS2532JL EPROM labelled SUO 001024, plugged into the
+UD12 socket of a Finnish CBM 8032-SK (Commodore Model 200).  Might be<br />
+a Calc Result rom, as it has been confirmed to allow that software to run. </dd>
+<dt><a href="computers/pet/other/superchip-9000.bin">superchip-9000.bin</a></dt>
+<dd>An editor enhancement.</dd>
+<dt><a href="computers/pet/other/superchip-toolkit.txt">superchip-toolkit.txt</a></dt>
+<dd>Instructions for Superchip and Toolkit, which can be used together and
+with Arrow.</dd>
+<dt><a href="computers/pet/other/superchip40-9000.bin">superchip40-9000.bin</a></dt>
+<dd>SuperChip editor enhancement 4.0</dd>
+<dt><a href="computers/pet/other/superchip4000-9000.bin">superchip4000-9000.bin</a></dt>
+<dd>SuperChip editor enhancement 4.0 variation (v4000)</dd>
+<dt><a href="computers/pet/other/toolkit-b000.bin">toolkit-b000.bin</a></dt>
+<dt><a href="computers/pet/other/toolkit-b000.txt">toolkit-b000.txt</a></dt>
+<dd>The BASIC Programmer's Toolkit (3032 version).  Adds new commands to
+PET's BASIC interpreter.</dd>
+<dt><a href="computers/pet/other/toolkit3.0-rom-b000.bin">toolkit3.0-rom-b000.bin</a></dt>
+<dd>Toolkit 3.0 option rom.  1 byte short, and untested.</dd>
+<dt><a href="computers/pet/other/toolkit4.0_alt-a000.bin">toolkit4.0_alt-a000.bin</a></dt>
+<dd>Alt version of toolkit4.0_rom, differs by 2 bytes and padding</dd>
+<dt><a href="computers/pet/other/toolkit4.0_alt2-a000.bin">toolkit4.0_alt2-a000.bin</a></dt>
+<dd>Alt version of toolkit4.0_rom</dd>
+<dt><a href="computers/pet/other/toolkit4.0_rom-a000.bin">toolkit4.0_rom-a000.bin</a></dt>
+<dd>Toolkit 4.0 option rom. 1 byte short, and untested.</dd>
+<dt><a href="computers/pet/other/toolkit4.0_rom-a800.bin">toolkit4.0_rom-a800.bin</a></dt>
+<dd>Identical to tooklkit4.0_rom-a000 except on 2716 rom marked TC49BX PAICS</dd>
+<dt><a href="computers/pet/other/ud11_1541_80_a_2532.zip">ud11_1541_80_a_2532.zip</a></dt>
+<dd>ROM that possibly allows a 1541 to be used from the user port.</dd>
+<dt><a href="computers/pet/other/unk_ayates.zip">unk_ayates.zip</a></dt>
+<dd>Unknown 2k and 4k roms from Allen Yates disk collection.</dd>
+<dt><a href="computers/pet/other/unk_ud12_%20ST-01_80D.bin">unk_ud12_ ST-01_80D.bin</a></dt>
+<dd>Unknown rom from 4032 in UD12</dd>
+<dt><a href="computers/pet/other/visicalc-9000.901472-04.bin">visicalc-9000.901472-04.bin</a></dt>
+<dd>Firmware for running all versions of Visicalc.  The chip was manufactured
+by MOS Technologies, and it is mapped at the $9000-$9fff area.</dd>
+<dt><a href="computers/pet/other/visicalc_rom-9000.bin">visicalc_rom-9000.bin</a></dt>
+<dd>Visicalc option rom -- tested!</dd>
+<dt><a href="computers/pet/other/watbas2-t2193.bin">watbas2-t2193.bin</a></dt>
+<dd>Waterloo Structured BASIC for basic v2 PETs. sys36864 to start.</dd>
+<dt><a href="computers/pet/other/watbas4-5929.bin">watbas4-5929.bin</a></dt>
+<dd>Waterloo Structured BASIC for UD12 on basic v4 PETs. sys36864 to start.</dd>
+<dt><a href="computers/pet/other/wedge_d64.zip">wedge_d64.zip</a></dt>
+<dd>ROM or loadable DOS wedge for $9000 or $a000</dd>
+<dt><a href="computers/pet/other/wordcheck_rom-9000.bin">wordcheck_rom-9000.bin</a></dt>
+<dd>WordCheck option rom</dd>
+<dt><a href="computers/pet/other/wordcraft-9000.bin">wordcraft-9000.bin</a></dt>
+<dd>2532 EPROM, "Wordcraft, HI7, UD12". The chip was installed in the
+socket UD12 of a CBM 8032 with Finnish keyboard layout.</dd>
+<dt><a href="computers/pet/other/wordpro-a000.bin">wordpro-a000.bin</a></dt>
+<dd>ROM for the Wordpro word processor for the PET.  This is a mask programmed ROM
+labeled PSI-5054 and is located at $A000.  It is used for version 4 and 5 of
+Wordpro.  Version 3 did not require a ROM.</dd>
+<dt><a href="computers/pet/other/wordpro3-keyrom.bin">wordpro3-keyrom.bin</a></dt>
+<dd>Uncertain, but apears to be wordpro v3 keyrom.</dd>
+<dt><a href="computers/pet/other/wordpro3-rom-a000.bin">wordpro3-rom-a000.bin</a></dt>
+<dd>WordPro 3 option rom for $a000.  Also 1 byte short, and untested.</dd>
+<dt><a href="computers/pet/other/wordpro3-rom.9000.bin">wordpro3-rom.9000.bin</a></dt>
+<dd>WordPro 3 option rom for $9000.  Also 1 byte short, and untested.</dd>
+<dt><a href="computers/pet/other/wordpro4_rom-a000.bin">wordpro4_rom-a000.bin</a></dt>
+<dd>WordPro 4 option rom. Truncated and untested.</dd>
+</dl>
+</dd>
+<dt><a href="misc/petdiag/index.html">petdiag@</a> (link)</dt>
+<dt><a href="../schematics/computers/pet/index.html">schematics@</a> (link)</dt>
+<dt><a href="../src/pet/index.html">source@</a> (link)</dt>
+</dl>
+</dd>
+<dt><a href="computers/plus4/index.html">plus4/</a></dt>
+<dd><dl>
+<dd>Here are the ROMs for the Commodore 264 series, which includes the
+C16, C116 and the plus/4.</dd>
+<dt><a href="computers/plus4/1551.318008-01.bin">1551.318008-01.bin</a></dt>
+<dd>1551 disk drive DOS ROM.  The drive is connected to the expansion port
+via the TCBM interface (triple interface adapter chip).</dd>
+<dt><a href="computers/plus4/3-plus-1.317053-01-french.bin">3-plus-1.317053-01-french.bin</a></dt>
+<dd>French version of the 3-plus-1 word processor, function ROM low.</dd>
+<dt><a href="computers/plus4/3-plus-1.317053-01.bin">3-plus-1.317053-01.bin</a></dt>
+<dd>The 3-plus-1 word processor, function ROM low.</dd>
+<dt><a href="computers/plus4/3-plus-1.317054-01-french.bin">3-plus-1.317054-01-french.bin</a></dt>
+<dd>French version of the 3-plus-1 word processor, function ROM high.</dd>
+<dt><a href="computers/plus4/3-plus-1.317054-01.bin">3-plus-1.317054-01.bin</a></dt>
+<dd>The 3-plus-1 word processor, function ROM high.</dd>
+<dt><a href="computers/plus4/3-plus-1.325010-01.bin">3-plus-1.325010-01.bin</a></dt>
+<dd>The 3-plus-1 word processor, function ROM low. German language.</dd>
+<dt><a href="computers/plus4/3-plus-1.325011-01.bin">3-plus-1.325011-01.bin</a></dt>
+<dd>The 3-plus-1 word processor, function ROM high. German language.</dd>
+<dt><a href="computers/plus4/3-plus-1.325155-01_swedish.bin">3-plus-1.325155-01_swedish.bin</a></dt>
+<dd>Swedish version of the 3-plus-1 word processor, function ROM high.</dd>
+<dt><a href="computers/plus4/3-plus-1.325155-02_swedish.bin">3-plus-1.325155-02_swedish.bin</a></dt>
+<dd>Swedish version of the 3-plus-1 word processor, function ROM low.</dd>
+<dt><a href="computers/plus4/3-plus-1.bin">3-plus-1.bin</a></dt>
+<dd>The 3-PLUS-1 word processor.  This has been saved from a running
+system, and therefore the bytes under the I/O area at $fd00-$ff3f
+are wrong.  The part number is unknown, but this should be the
+newer of the two usual versions.</dd>
+<dt><a href="computers/plus4/README">README</a></dt>
+<dd>plus/4 parts and firmware versions</dd>
+<dt><a href="computers/plus4/basic.318006-01.bin">basic.318006-01.bin</a></dt>
+<dd>Commodore 16 BASIC V3.5.</dd>
+<dt><a href="computers/plus4/kernal.318004-03.bin">kernal.318004-03.bin</a></dt>
+<dd>Commodore 16 KERNAL, machine language monitor and the character set.
+PAL-G version, revision 3.</dd>
+<dt><a href="computers/plus4/kernal.318004-04.bin">kernal.318004-04.bin</a></dt>
+<dd>Commodore 16 KERNAL, machine language monitor and the character set.
+PAL-G version, revision 4.</dd>
+<dt><a href="computers/plus4/kernal.318004-05.bin">kernal.318004-05.bin</a></dt>
+<dd>Commodore 16 KERNAL, machine language monitor and the character set.
+PAL-G version, revision 5.</dd>
+<dt><a href="computers/plus4/kernal.318005-04.bin">kernal.318005-04.bin</a></dt>
+<dd>Commodore 16 KERNAL, machine language monitor and the character set.
+NTSC-M version, revision 4.</dd>
+<dt><a href="computers/plus4/kernal.318005-05-french.bin">kernal.318005-05-french.bin</a></dt>
+<dd>French version of the 264 KERNAL, ML monitor and the character set. NTSC-M
+version, revision 5</dd>
+<dt><a href="computers/plus4/kernal.318005-05.bin">kernal.318005-05.bin</a></dt>
+<dd>Commodore 16 KERNAL, machine language monitor and the character set.
+NTSC-M version, revision 5.</dd>
+<dt><a href="computers/plus4/kernal.318030-01.bin">kernal.318030-01.bin</a></dt>
+<dd>Commodore 264 KERNAL, Hungarian, Rev1</dd>
+<dt><a href="computers/plus4/kernal.318030-02.bin">kernal.318030-02.bin</a></dt>
+<dd>Commodore 264 KERNAL, Hungarian, Rev2</dd>
+<dt><a href="computers/plus4/kernel.325155-03_swedish.bin">kernel.325155-03_swedish.bin</a></dt>
+<dd>Commodore 264 KERNAL, Swedish</dd>
+<dt><a href="computers/plus4/pla.251641-02.bin">pla.251641-02.bin</a></dt>
+<dt><a href="computers/plus4/pla.c">pla.c</a></dt>
+<dd>This C program contains the logic equations for the 82S100 PLA chip
+used in the 264 series, and converts them to a 64-kilobyte truth table file.</dd>
+<dt><a href="computers/plus4/pla.txt">pla.txt</a></dt>
+<dd>Commodore 16 and plus/4 PLA truth table and memory configuration information
+supplied by William M. Levak &lt;wlevak@umich.edu&gt;.</dd>
+</dl>
+<dl>
+<dt><a href="computers/plus4/232/index.html">232/</a></dt>
+<dd><dl>
+<dt><a href="computers/plus4/232/kernal.318004-01.bin">kernal.318004-01.bin</a></dt>
+<dd>Commodore 232 KERNAL, machine language monitor and the character set.
+NTSC-M version, revision 1.</dd>
+</dl>
+</dd>
+<dt><a href="computers/plus4/264/index.html">264/</a></dt>
+<dd><dl>
+<dt><a href="computers/plus4/264/basic-264-0119.bin">basic-264-0119.bin</a></dt>
+<dd>BASIC Rom from Bo Zimmermans 264 prototype, marked 1/19</dd>
+<dt><a href="computers/plus4/264/basic-264-0203.bin">basic-264-0203.bin</a></dt>
+<dd>Commodore 264 BASIC from Jim Brains 264. Only marking was BASIC 2/3</dd>
+<dt><a href="computers/plus4/264/basic-264-alpha.bin">basic-264-alpha.bin</a></dt>
+<dd>BASIC rom from an alpha 264 machine</dd>
+<dt><a href="computers/plus4/264/kernal-264-0119.bin">kernal-264-0119.bin</a></dt>
+<dd>KERNAL Rom from Bo Zimmermans 264 prototype, marked 1/19</dd>
+<dt><a href="computers/plus4/264/kernal-264-0203.bin">kernal-264-0203.bin</a></dt>
+<dt><a href="computers/plus4/264/kernal-264-alpha.bin">kernal-264-alpha.bin</a></dt>
+<dd>KERNAL rom from an alpha 264 machine
+Commodore 264 KERNAL from Jim Brains 264.  Only marking was KERNAL 2/3</dd>
+</dl>
+</dd>
+<dt><a href="computers/plus4/364/index.html">364/</a></dt>
+<dd><dl>
+<dd>This directory contains original firmware of the Commodore 364
+prototype.  Uploaded by Bo Zimmerman (bo@zimmers.net).  See
+<a class="link" href="http://www.zimmers.net/cbmpics/c116s.html">http://www.zimmers.net/cbmpics/c116s.html</a> for more information
+All are 16K, either 23128 ROMs and 27128 EPROMs </dd>
+<dt><a href="computers/plus4/364/3-plus-1.317053-01.bin">3-plus-1.317053-01.bin</a></dt>
+<dd>Low Function ROM 3-plus-1</dd>
+<dt><a href="computers/plus4/364/3-plus-1.317054-01.bin">3-plus-1.317054-01.bin</a></dt>
+<dd>High Function ROM 3-plus-1</dd>
+<dt><a href="computers/plus4/364/basic.318006-01.bin">basic.318006-01.bin</a></dt>
+<dd>BASIC ROM</dd>
+<dt><a href="computers/plus4/364/proto-ted-kernal.bin">proto-ted-kernal.bin</a></dt>
+<dd>EPROM prototype of the C116 family kernal ($c000-$ffff)</dd>
+<dt><a href="computers/plus4/364/spk3cc4.bin">spk3cc4.bin</a></dt>
+<dd>Speech ROM ($c000-$ffff?)</dd>
+</dl>
+</dd>
+<dt><a href="computers/plus4/PI9/index.html">PI9/</a></dt>
+<dd><dl>
+<dt><a href="computers/plus4/PI9/ted-hihi.bin">ted-hihi.bin</a></dt>
+<dt><a href="computers/plus4/PI9/ted-hilo.bin">ted-hilo.bin</a></dt>
+<dt><a href="computers/plus4/PI9/ted-lo.bin">ted-lo.bin</a></dt>
+</dl>
+</dd>
+<dt><a href="misc/plus4carts/index.html">carts@</a> (link)</dt>
+<dt><a href="misc/264diag/index.html">diag@</a> (link)</dt>
+<dt><a href="drives/new/index.html">drives@</a> (link)</dt>
+<dt><a href="../schematics/computers/plus4/index.html">schematics@</a> (link)</dt>
+<dt><a href="../src/plus4/index.html">source@</a> (link)</dt>
+</dl>
+</dd>
+<dt><a href="computers/vic20/index.html">vic20/</a></dt>
+<dd><dl>
+<dt><a href="computers/vic20/basic.901486-01.bin">basic.901486-01.bin</a></dt>
+<dd>Commodore VIC-20 BASIC V2.  The first and only version.</dd>
+<dt><a href="computers/vic20/characters.901460-02.bin">characters.901460-02.bin</a></dt>
+<dd>Commodore VIC-1001 (Japanese VIC-20) character generator ROM.</dd>
+<dt><a href="computers/vic20/characters.901460-03.bin">characters.901460-03.bin</a></dt>
+<dd>Commodore VIC-20 character generator ROM.</dd>
+<dt><a href="computers/vic20/characters.DK_901460-03.bin">characters.DK_901460-03.bin</a></dt>
+<dd>Commodore VIC-20 character generator ROM for Danish character set.</dd>
+<dt><a href="computers/vic20/characters.NecP22101-207.bin">characters.NecP22101-207.bin</a></dt>
+<dd>Commodore VIC-20 character generator ROM for Swedish/Finnish character set.</dd>
+<dt><a href="computers/vic20/kernal.901486-02.bin">kernal.901486-02.bin</a></dt>
+<dd>Commodore VIC-1001 (Japanese VIC-20, NTSC-M) KERNAL ROM.</dd>
+<dt><a href="computers/vic20/kernal.901486-04.bin">kernal.901486-04.bin</a></dt>
+<dd>Commodore VIC-20 KERNAL ROM, revision 4. Found in a early  NTSC VIC-20.
+Provided by Jeff Schaap.  Came on ceramic MOS part dated 0881.</dd>
+<dt><a href="computers/vic20/kernal.901486-06.bin">kernal.901486-06.bin</a></dt>
+<dd>Commodore VIC-20 KERNAL ROM, revision 6.  Intended for NTSC-M systems.
+Probably not the first revision.  But not the sixth revision either,
+since the BASIC ROM has the same part number.</dd>
+<dt><a href="computers/vic20/kernal.901486-07.bin">kernal.901486-07.bin</a></dt>
+<dd>Commodore VIC-20 KERNAL ROM, revision 7.  Intended for PAL-B systems.
+Probably the last revision.</dd>
+<dt><a href="computers/vic20/kernal.DKB_901486-07.bin">kernal.DKB_901486-07.bin</a></dt>
+<dd>Commodore VIC-20 KERNAL ROM, 901486-07 version patched for Danish keyboard and
+character set.</dd>
+<dt><a href="computers/vic20/kernal.NecP22081-206.bin">kernal.NecP22081-206.bin</a></dt>
+<dd>Commodore VIC-20 KERNAL ROM, 901486-07 version patched for Swedish/Finnish
+keyboard and character set.  Chip markings: NEC JAPAN P22489-207 /
+D2364C 689 UE12 (Yes, it is a 8kb*8 mask-programmable ROM!).</dd>
+<dt><a href="computers/vic20/kernal.differences">kernal.differences</a></dt>
+<dd>Lists the differences between the VIC-20 KERNAL ROMs 901486-06 and</dd>
+<dt><a href="computers/vic20/vic20patchedkernalswe.bin">vic20patchedkernalswe.bin</a></dt>
+<dd>Fixes tape bug in Swedish Keyboard VIC-20s
+901486-07.</dd>
+</dl>
+<dl>
+<dt><a href="../vic20/roms/index.html">carts@</a> (link)</dt>
+<dt><a href="misc/vc-20diag/index.html">diag@</a> (link)</dt>
+<dt><a href="drives/new/index.html">drives@</a> (link)</dt>
+<dt><a href="../schematics/computers/vic20/index.html">schematics@</a> (link)</dt>
+<dt><a href="../src/vic20/index.html">source@</a> (link)</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt><a href="drives/index.html">drives/</a></dt>
+<dd><dl>
+<dd>Firmware for Commodore disk drives.<br />
+According to William Levak, Commodore used six different native
+disk formats:<br />
+2040/3040 - This is slightly different from later formats:
+tracks 18 - 24 have 20 sectors instead of 19.<br />
+2031/4040/1540/1541/1551/1570 - single sided, single density, 48tpi<br />
+1571 - A double sided version.<br />
+8050 - single sided, 96tpi<br />
+1001/8250 - double sided, 96tpi<br />
+1581, 3½" DD with MFM<br />
+While we're on the subject, Commodore's single density drives are actually
+double density, and the double density drives are actually quad density.
+Quad density disks have the same capacity of high density disks, but the
+magnetic film is compatible with double density disks.</dd>
+</dl>
+<dl>
+<dt><a href="drives/new/index.html">new/</a></dt>
+<dd><dl>
+<dd>Serial bus based Commodore disk drives</dd>
+</dl>
+<dl>
+<dt><a href="drives/new/1541/index.html">1541/</a></dt>
+<dd><dl>
+<dd>This directory contains ROMs of 1540, 1541, 1541C and 1541-II drives.<br />
+The ROM checksums are valid.  If you add the byte values together
+(adc data:adc #0), the sum of the $c000-$dfff ROM will be $c0, and the
+$e000-$ffff ROM will add up to $e0.  This applies also to the halves of
+the 1541-II ROM.  The 2764 and 27128 eproms can be used as replacements.</dd>
+<dt><a href="drives/new/1541/1540-c000.325302-01.bin">1540-c000.325302-01.bin</a></dt>
+<dd>The ROM chip for $c000-$dfff.  This seems to be the same on all
+models before the 1541-II.</dd>
+<dt><a href="drives/new/1541/1540-e000.325303-01.bin">1540-e000.325303-01.bin</a></dt>
+<dd>The firmware of an 1540 (the drive that the C64 wouldn't keep up with).
+The revision number might be something else than -01.  A speciality of
+this chip is the power-up message: 73,CBM DOS V2.6 V170,00,00.  Did
+Commodore want to call the drive V170 first?  The ROM checksum is correct.
+The long-board 1541 had the same hardware as the 1540; this upper ROM
+was the only difference.  The lower ROM was 325302-01 on both drives.</dd>
+<dt><a href="drives/new/1541/1541-II.251968-03.bin">1541-II.251968-03.bin</a></dt>
+<dd>1541-II firmware.  Released in 1987.</dd>
+<dt><a href="drives/new/1541/1541-II.355640-01.bin">1541-II.355640-01.bin</a></dt>
+<dd>1541-II firmware.  This version only appears in drives with the newtronics<br />
+mechanisms with belt type drives and no track 0 sensor.</dd>
+<dt><a href="drives/new/1541/1541-c000.325302-01.bin">1541-c000.325302-01.bin</a></dt>
+<dd>The ROM chip for $c000-$dfff.  This seems to be the same on all
+models before the 1541-II.</dd>
+<dt><a href="drives/new/1541/1541-dos_diffs.zip">1541-dos_diffs.zip</a></dt>
+<dd>Assembly differences between various 1541 roms</dd>
+<dt><a href="drives/new/1541/1541-e000.901229-01.bin">1541-e000.901229-01.bin</a></dt>
+<dd>This is believed to be the first revision of the 1541 firmware.  The
+service manual says that this ROM is for North America and Japan only.
+According to it, a 901229-02 also exists, but not in North America.
+901229-03 is said to be the first version that is usable in Europe.</dd>
+<dt><a href="drives/new/1541/1541-e000.901229-02.bin">1541-e000.901229-02.bin</a></dt>
+<dd>Second version of the 1541 firmware.  Uploaded by Raymond Day
+&lt;raymondday@hotmail.com&gt;.  Two delay loops are shorter than in 901229-03,
+and the checksum byte at $fee6 has been adjusted accordingly.</dd>
+<dt><a href="drives/new/1541/1541-e000.901229-03.bin">1541-e000.901229-03.bin</a></dt>
+<dd>The firmware of an old-style 1541 with long board.
+This ROM has an autobooting feature: if CLK and DATA are held low
+during bootup, the drive will wait for them to raise, and execute
+a "&amp;*" command.</dd>
+<dt><a href="drives/new/1541/1541-e000.901229-04.bin">1541-e000.901229-04.bin</a></dt>
+<dd>Take from an SX-64</dd>
+<dt><a href="drives/new/1541/1541-e000.901229-05.bin">1541-e000.901229-05.bin</a></dt>
+<dd>The firmware of an old-style 1541 with short board.</dd>
+<dt><a href="drives/new/1541/1541-e000.901229-06AA.bin">1541-e000.901229-06AA.bin</a></dt>
+<dd>The firmware of an old-style 1541 with short board.</dd>
+<dt><a href="drives/new/1541/1541C-to-1541-II.txt">1541C-to-1541-II.txt</a></dt>
+<dd>A comparison of the 1541C and 1541-II firmware by Wolfgang Moser.
+The support for the optical "track 0" sensor, which was introduced
+in the 1541C firmware, was removed in the 1541-II firmware.</dd>
+<dt><a href="drives/new/1541/1541C.251968-01.bin">1541C.251968-01.bin</a></dt>
+<dd>The firmware of an old-style 1541 in white case.  This drive was introduced
+around the same time with the C128 and the 1570, to make it look like the
+C128 and the 1570, which was also in a white 1541-style case.  The C128 was
+also white.  This drive has an optical track 1 sensor, but it won't be used
+unless the jumper J3 on the board is cut.<br />
+The $c000-$dfff part of this chip is identical to the 325302-01 ROM.</dd>
+<dt><a href="drives/new/1541/1541C.251968-02.bin">1541C.251968-02.bin</a></dt>
+<dd>An upgrade ROM for the 1541C.  There are patches in both 8k halves.</dd>
+<dt><a href="drives/new/1541/1541C.251968-02.txt">1541C.251968-02.txt</a></dt>
+<dd>Release notes for the 251968-02.</dd>
+<dt><a href="drives/new/1541/Commodore%201541%20ROM%20genealogy.pdf">Commodore 1541 ROM genealogy.pdf</a></dt>
+<dd>Overview of rom differences, by Nico de Vries</dd>
+</dl>
+<dl>
+<dt><a href="drives/new/1541/hacks/index.html">hacks/</a></dt>
+<dd><dl>
+<dd>Modifications to the original Commodore 1540, 1541 or 1541-II firmware</dd>
+<dt><a href="drives/new/1541/hacks/1541-II-SpeedDOS.txt">1541-II-SpeedDOS.txt</a></dt>
+<dd>Instructions for adapting the SpeedDOS firmware for the 1541-II.</dd>
+<dt><a href="drives/new/1541/hacks/1541-II-relocated.bin">1541-II-relocated.bin</a></dt>
+<dd>A version of the 1541-II ROM where the modifications to older firmware
+have been relocated to the lower bank ($c000-$dfff), to improve
+compatibility with fastloader systems.  Made by Wolfgang Moser.</dd>
+<dt><a href="drives/new/1541/hacks/1541-II-relocated.txt">1541-II-relocated.txt</a></dt>
+<dd>Documentation for 1541-II-relocated.bin.</dd>
+</dl>
+</dd>
+<dt><a href="../schematics/drives/new/1541/index.html">schematics@</a> (link)</dt>
+</dl>
+</dd>
+<dt><a href="drives/new/1551/index.html">1551/</a></dt>
+<dd><dl>
+<dd>The 1551 was designed for the Commodore 264 series of computers,
+consisting of the C16, C116 and plus/4.
+Replacement eprom for firmware is the 27128</dd>
+<dt><a href="drives/new/1551/1551.251641-3.c">1551.251641-3.c</a></dt>
+<dd>This C program contains the logic equations of the PLA.</dd>
+<dt><a href="drives/new/1551/1551.318008-01.bin">1551.318008-01.bin</a></dt>
+<dd>The only known version of Commodore 1551 disk drive firmware</dd>
+<dt><a href="drives/new/1551/README">README</a></dt>
+<dd>Information about the 1551 disk drive</dd>
+<dt><a href="drives/new/1551/pla.251641-03.bin">pla.251641-03.bin</a></dt>
+</dl>
+<dl>
+<dt><a href="../schematics/drives/new/1551/index.html">schematics@</a> (link)</dt>
+</dl>
+</dd>
+<dt><a href="drives/new/1571/index.html">1571/</a></dt>
+<dd><dl>
+<dd>Here is the firmware of the 1570, 1571 and 1571CR drives.  There are some
+differences between these drives.  The 1570 is single-sided, while the
+others are double-sided.  See the README file for details.
+The 27256 eprom can be used as a firmware replacement.</dd>
+<dt><a href="drives/new/1571/1570-rom.315090-01.bin">1570-rom.315090-01.bin</a></dt>
+<dd>The firmware of a 1570 disk drive.  The board may say "1571 disk", but
+the 1570 and 1571 were very similar anyway, the most remarkable difference
+being that the 1570 has single-sided drive mechanism.</dd>
+<dt><a href="drives/new/1571/1571-rom.310654-03.bin">1571-rom.310654-03.bin</a></dt>
+<dd>The firmware of a 128D's built-in 1571 disk drive, or of a stand-alone 1571.</dd>
+<dt><a href="drives/new/1571/1571-rom.310654-04.10-12-86.d8c6.bin">1571-rom.310654-04.10-12-86.d8c6.bin</a></dt>
+<dd>The firmware from a CBM rom collection, uploaded by Tokra</dd>
+<dt><a href="drives/new/1571/1571-rom.310654-05.bin">1571-rom.310654-05.bin</a></dt>
+<dd>An upgrade of the above.  Corrects the bug of 310654-03 that moves the
+R/W head between each sector when writing on the disk's top side.</dd>
+<dt><a href="drives/new/1571/1571.zip">1571.zip</a></dt>
+<dd>Source Code</dd>
+<dt><a href="drives/new/1571/1571cr-rom.318047-01.bin">1571cr-rom.318047-01.bin</a></dt>
+<dd>The firmware of a 128DCR's built-in 1571CR disk drive.</dd>
+<dt><a href="drives/new/1571/1571cr-rom.318047-02.bin">1571cr-rom.318047-02.bin</a></dt>
+<dd>Identical to 1571cr-rom.318047-01.bin, which makes this file suspicious.
+It's been seen as an eprom in one or more boards with a printed sticker
+label.</dd>
+</dl>
+<dl>
+<dt><a href="../schematics/drives/new/1571/index.html">schematics@</a> (link)</dt>
+</dl>
+</dd>
+<dt><a href="drives/new/1581/index.html">1581/</a></dt>
+<dd><dl>
+<dd>The Commodore 1581 is a 3,5 inch drive with serial bus connection.
+The drive used a normal MFM controller and a double density drive
+mechanism.  The 27256 can be used as a replacement eprom.</dd>
+<dt><a href="drives/new/1581/1563-rom.bin">1563-rom.bin</a></dt>
+<dd>ROM from a C128D / 81 with "1563" board inside.</dd>
+<dt><a href="drives/new/1581/1581-rom.318045-01.bin">1581-rom.318045-01.bin</a></dt>
+<dd>System firmware, first version.  This chip has also been numbered
+312558-01.</dd>
+<dt><a href="drives/new/1581/1581-rom.318045-02.bin">1581-rom.318045-02.bin</a></dt>
+<dd>System firmware, second version.</dd>
+<dt><a href="drives/new/1581/1581-rom.beta.bin">1581-rom.beta.bin</a></dt>
+<dd>EPROM dated 11/26/1986 from prototype 1581 in Amiga 1010 case.</dd>
+<dt><a href="drives/new/1581/1581.zip">1581.zip</a></dt>
+<dd>Source Code</dd>
+<dt><a href="drives/new/1581/1581ref.txt">1581ref.txt</a></dt>
+<dt><a href="drives/new/1581/1581zp.txt">1581zp.txt</a></dt>
+<dd>A few cross-references for the 1581 firmware 318045-01, created
+by Asger Alstrup &lt;alstrup@diku.dk&gt;.</dd>
+</dl>
+<dl>
+<dt><a href="drives/new/1581/hacks/index.html">hacks/</a></dt>
+<dd><dl>
+<dd>These files were uploaded by TFSS of GPS (golden_pig@hotmail.com).</dd>
+<dt><a href="drives/new/1581/hacks/1581rom5.bin">1581rom5.bin</a></dt>
+<dd>CBM-1581 Binary ROM Program UpDate-5 By TFSS Of The GPS</dd>
+<dt><a href="drives/new/1581/hacks/list1581.ls5">list1581.ls5</a></dt>
+<dd>CBM-1581 Source Listing ROM UpDate-5 (August 11, 1996)
+Using 8K SRAM Expansion $2000-$3FFE, And MOSTECH 6529B PIO $3FFF
+for parallel data transfer routine from BARD'S TALE III.</dd>
+<dt><a href="drives/new/1581/hacks/list1581.ls6">list1581.ls6</a></dt>
+<dd>CBM-1581 Source Listing ROM UpDate-6 By TFSS Of The GPS</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt><a href="drives/old/index.html">old/</a></dt>
+<dd><dl>
+<dd>Here you will find firmware and technical data of Commodore's
+professional disk drives, equipped with the IEEE-488 interface.<br />
+Most of the disk drive information was supplied by
+William M. Levak &lt;wlevak@umich.edu&gt;.</dd>
+<dt><a href="drives/old/read6530.lst">read6530.lst</a></dt>
+<dd>A PET BASIC program by William Levak that reads out the 6530 ROM.</dd>
+</dl>
+<dl>
+<dt><a href="drives/old/1001/index.html">1001/</a></dt>
+<dd><dl>
+<dd>Firmware ROMs of COMMODORE SFD 1001 IEEE488 Floppy Disk Drive,
+with 1MB capacity on 5¼" DS/DD disks.</dd>
+<dt><a href="drives/old/1001/251257-02A.bin">251257-02A.bin</a></dt>
+<dd>Floppy Disk Controller (FDC) ROM.  Different from 8250.</dd>
+<dt><a href="drives/old/1001/901467-01.bin">901467-01.bin</a></dt>
+<dd>SFD-1001 GCR ROM</dd>
+<dt><a href="drives/old/1001/901887-01.bin">901887-01.bin</a></dt>
+<dd>Disk Operating System (DOS) ROM low. Same DOS in 8250 drive.</dd>
+<dt><a href="drives/old/1001/901888-01.bin">901888-01.bin</a></dt>
+<dd>Disk Operating System (DOS) ROM high. Same DOS in 8250 drive.</dd>
+</dl>
+<dl>
+<dt><a href="../schematics/drives/old/1001/index.html">schematics@</a> (link)</dt>
+</dl>
+</dd>
+<dt><a href="drives/old/2031/index.html">2031/</a></dt>
+<dd><dl>
+<dd>These files were uploaded by William M. Levak &lt;wlevak@umich.edu&gt;.</dd>
+<dt><a href="drives/old/2031/901484-03.bin">901484-03.bin</a></dt>
+<dd>2364-107 ROM DOS 2.6 C000-DFFF</dd>
+<dt><a href="drives/old/2031/901484-05.bin">901484-05.bin</a></dt>
+<dd>2364-123 ROM DOS 2.6 E000-FFFF</dd>
+</dl>
+<dl>
+<dt><a href="../schematics/drives/old/2031/index.html">schematics@</a> (link)</dt>
+</dl>
+</dd>
+<dt><a href="drives/old/4040/index.html">4040/</a></dt>
+<dd><dl>
+<dd>These files were uploaded by William M. Levak &lt;wlevak@sdf.org&gt;.</dd>
+<dt><a href="drives/old/4040/4040.zip">4040.zip</a></dt>
+<dd>Source code</dd>
+<dt><a href="drives/old/4040/901466-01.bin">901466-01.bin</a></dt>
+<dd>6530 RIOT DOS 1</dd>
+<dt><a href="drives/old/4040/901466-02.bin">901466-02.bin</a></dt>
+<dd>6530-028 RIOT DOS 1.2</dd>
+<dt><a href="drives/old/4040/901466-04.bin">901466-04.bin</a></dt>
+<dd>6530-034 RIOT DOS 2</dd>
+<dt><a href="drives/old/4040/901468-06.bin">901468-06.bin</a></dt>
+<dd>2332-020 ROM DOS 1 E000-EFFF</dd>
+<dt><a href="drives/old/4040/901468-07.bin">901468-07.bin</a></dt>
+<dd>2332-021 ROM DOS 1 F000-FFFF</dd>
+<dt><a href="drives/old/4040/901468-11.bin">901468-11.bin</a></dt>
+<dd>2332 ROM DOS 2 D000-DFFF</dd>
+<dt><a href="drives/old/4040/901468-12.bin">901468-12.bin</a></dt>
+<dd>2332 ROM DOS 2 E000-EFFF</dd>
+<dt><a href="drives/old/4040/901468-13.bin">901468-13.bin</a></dt>
+<dd>2332 ROM DOS 2 F000-FFFF</dd>
+<dt><a href="drives/old/4040/901468-14.bin">901468-14.bin</a></dt>
+<dd>2332-191 ROM DOS 2 rev2 D000-DFFF</dd>
+<dt><a href="drives/old/4040/901468-15.bin">901468-15.bin</a></dt>
+<dd>2332-192 ROM DOS 2 rev2 E000-EFFF</dd>
+<dt><a href="drives/old/4040/901468-16.bin">901468-16.bin</a></dt>
+<dd>2332-193 ROM DOS 2 rev2 F000-FFFF</dd>
+</dl>
+<dl>
+<dt><a href="../schematics/drives/old/4040/index.html">schematics@</a> (link)</dt>
+</dl>
+</dd>
+<dt><a href="drives/old/8050/index.html">8050/</a></dt>
+<dd><dl>
+<dd>These files were uploaded by William M. Levak &lt;wlevak@sdf.org&gt;.</dd>
+<dt><a href="drives/old/8050/251167-01.bin">251167-01.bin</a></dt>
+<dd>8250LP GCR ROM (same as 901467)</dd>
+<dt><a href="drives/old/8050/251474-01b.bin">251474-01b.bin</a></dt>
+<dd>The floppy drive controller (FDC) firmware for 8250LP and 8296D
+drives.  This is very similar to 901869-01.  Ville Muikkula reports
+that his 8250LP has a little circuit board inserted in the place of
+the 6530 RIOT chip.  Located on this circuit board are the original
+901869-01 and a 2732 EPROM chip.  The first 3 kilobytes of the 2732
+are filled with $aa.  In Marko Mäkelä's 8296D, the daughter board
+contains a 901885-04 RIOT and a 74LS04 in addition to the EPROM.</dd>
+<dt><a href="drives/old/8050/8250lp.txt">8250lp.txt</a></dt>
+<dd>Parts list for 8250LP.  Compiled by William Levak</dd>
+<dt><a href="drives/old/8050/901467-01.bin">901467-01.bin</a></dt>
+<dd>6316-017 ROM GCR (the same as 901467 without the revision marking)</dd>
+<dt><a href="drives/old/8050/901482-03.bin">901482-03.bin</a></dt>
+<dd>2364 ROM DOS 2.5 C000-DFFF</dd>
+<dt><a href="drives/old/8050/901482-04.bin">901482-04.bin</a></dt>
+<dd>2364 ROM DOS 2.5 E000-FFFF</dd>
+<dt><a href="drives/old/8050/901482-06.bin">901482-06.bin</a></dt>
+<dd>2364-092 ROM DOS 2.5 rev. $a000-$bfff and $e000-$ffff </dd>
+<dt><a href="drives/old/8050/901482-07.bin">901482-07.bin</a></dt>
+<dd>2364-091 ROM DOS 2.5 rev. $8000-$9fff and $c000-$dfff</dd>
+<dt><a href="drives/old/8050/901483-02.bin">901483-02.bin</a></dt>
+<dd>6530-036 RIOT DOS 2.5</dd>
+<dt><a href="drives/old/8050/901483-03.bin">901483-03.bin</a></dt>
+<dd>6530-038 RIOT DOS 2.5 Micropolis</dd>
+<dt><a href="drives/old/8050/901483-04.bin">901483-04.bin</a></dt>
+<dd>6530-039 RIOT DOS 2.5 (Tandon)</dd>
+<dt><a href="drives/old/8050/901869-01.bin">901869-01.bin</a></dt>
+<dd>6530-48 RIOT DOS 2.7 MPI</dd>
+<dt><a href="drives/old/8050/901885-04.bin">901885-04.bin</a></dt>
+<dd>6530-47 RIOT DOS 2.7 Micropolis</dd>
+<dt><a href="drives/old/8050/901887-01.bin">901887-01.bin</a></dt>
+<dd>2364 ROM DOS 2.7 C000-DFFF</dd>
+<dt><a href="drives/old/8050/901888-01.bin">901888-01.bin</a></dt>
+<dd>2364 ROM DOS 2.7 E000-FFFF</dd>
+<dt><a href="drives/old/8050/dos-2.7b.bin">dos-2.7b.bin</a></dt>
+<dd>CBM DOS 2.7B from the 8250LP inside Wolfgang Günther's 8296D.
+The EPROM where the code was stored carried no Commodore part number.</dd>
+<dt><a href="drives/old/8050/fdc-2.7b.bin">fdc-2.7b.bin</a></dt>
+<dd>CBM DOS 2.7B FDC ROM from the 8250LP inside Wolfgang Günther's 8296D.
+The EPROM where the code was stored carried no Commodore part number.</dd>
+<dt><a href="drives/old/8050/speeddos-c000.bin">speeddos-c000.bin</a></dt>
+<dd>SpeedDOS firmware from a 8250LP, C000-DFFF</dd>
+<dt><a href="drives/old/8050/speeddos-e000.bin">speeddos-e000.bin</a></dt>
+<dd>SpeedDOS firmware from a 8250LP, E000-FFFF</dd>
+<dt><a href="drives/old/8050/speeddos-fdc-f800.bin">speeddos-fdc-f800.bin</a></dt>
+<dd>SpeedDOS disk controller firmware from a 8250LP.
+Note that this is 2 kilobytes instead of the usual 1 kilobyte.</dd>
+</dl>
+<dl>
+<dt><a href="drives/old/8050/d/index.html">d/</a></dt>
+<dd><dl>
+<dd>The files in this directory were supplied by Olaf Seibert.</dd>
+<dt><a href="drives/old/8050/d/8250.notes">8250.notes</a></dt>
+<dd>Notes about the files in this directory.</dd>
+<dt><a href="drives/old/8050/d/8250ram00">8250ram00</a></dt>
+<dt><a href="drives/old/8050/d/8250ram10">8250ram10</a></dt>
+<dt><a href="drives/old/8050/d/8250ram43">8250ram43</a></dt>
+<dd>RAM dumps from different pages.</dd>
+<dt><a href="drives/old/8050/d/8250rom.dis">8250rom.dis</a></dt>
+<dd>A disassembly of the 901887-01 and 901888-01 ROMs.</dd>
+<dt><a href="drives/old/8050/d/8250romfdc-fc00">8250romfdc-fc00</a></dt>
+<dd>This is the contents of the 6530 RIOT chip for the floppy controller
+(unknown revision, looks like a slightly patched 901869-01)<br />
+Ville Muikkula reports that his 8250LP has a little circuit board inserted
+in the place of the floppy drive controller 6530 RIOT chip.  Located on this
+circuit board are the original 901869-01 and a 2732 EPROM chip that has a
+label with part number 251474-01B, and agrees with this dump.  The
+extraneous 3 kilobytes of the 2732 are filled with $aa.</dd>
+<dt><a href="drives/old/8050/d/8250romfdc.dis">8250romfdc.dis</a></dt>
+<dd>Disassembly of the above</dd>
+<dt><a href="drives/old/8050/d/data8250">data8250</a></dt>
+<dt><a href="drives/old/8050/d/data8250fdc">data8250fdc</a></dt>
+<dt><a href="drives/old/8050/d/labels8250">labels8250</a></dt>
+<dt><a href="drives/old/8050/d/labels8250fdc">labels8250fdc</a></dt>
+<dt><a href="drives/old/8050/d/mk8250rom.dis">mk8250rom.dis</a></dt>
+<dt><a href="drives/old/8050/d/routines">routines</a></dt>
+<dd>d65 control files for creating the disassembly listings from the
+8250 firmware</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt><a href="drives/old/8060/index.html">8060/</a></dt>
+<dd><dl>
+<dt><a href="drives/old/8060/901488-01.bin">901488-01.bin</a></dt>
+<dd>Uploaded by Michael Steil</dd>
+<dt><a href="drives/old/8060/901488-02.bin">901488-02.bin</a></dt>
+<dd>Uploaded by Michael Steil</dd>
+<dt><a href="drives/old/8060/901489-01.bin">901489-01.bin</a></dt>
+<dd>Uploaded by Michael Steil</dd>
+</dl>
+</dd>
+<dt><a href="drives/old/8280/index.html">8280/</a></dt>
+<dd><dl>
+<dd>These files were saved off some EPROM chips on a 8280 motherboard.
+Uploaded by Bo Zimmerman &lt;bo@zimmers.net&gt;.</dd>
+<dt><a href="drives/old/8280/300541-revB.bin">300541-revB.bin</a></dt>
+<dd>floppy drive controller (FDC) firmware for 8280</dd>
+<dt><a href="drives/old/8280/300542-revA.bin">300542-revA.bin</a></dt>
+<dd>CBM DOS 3.0, $c000-$dfff part, rev. A</dd>
+<dt><a href="drives/old/8280/300543-revA.bin">300543-revA.bin</a></dt>
+<dd>CBM DOS 3.0, $e000-$ffff part, rev. A</dd>
+<dt><a href="drives/old/8280/chips.txt">chips.txt</a></dt>
+<dd>A list of chips on the 8280 motherboard.  Composed by Bo Zimmerman.</dd>
+</dl>
+</dd>
+<dt><a href="drives/old/9090/index.html">9090/</a></dt>
+<dd><dl>
+<dd>The Commodore D9060 and D9090 can use the same firmware.  The difference
+between these units is that the jumper J14 on the DOS board is open in
+the D9060, and closed in the D9090 to select a 4-head vs. 6-head drive.
+The jumper J13 seems to be unused.<br />
+According to Wolfgang Günther, the EPROM type may be 2564 or 2764,
+depending on the board version ("Assy No. 300012-001, Rev.B" or
+"Assy No. 300012-002, Rev.A").  This is the case of 300516/300517 rev.C.</dd>
+<dt><a href="drives/old/9090/300515-revA.bin">300515-revA.bin</a></dt>
+<dd>D9090 ROM image from 2716 at location 4C from D9090 s/n 2041<br />
+Uploaded by Ethan Dicks &lt;erd@iname.com&gt;.  An EPROM of equal contents
+was in Bo Zimmerman's 9090.  The chip was labelled "300515 Rev A".</dd>
+<dt><a href="drives/old/9090/300515-revB.bin">300515-revB.bin</a></dt>
+<dd>D9060 ROM image from 2716 at location 4C from D9060 s/n 1533<br />
+Uploaded by Ethan Dicks &lt;erd@iname.com&gt;.  The chip was labelled
+"300515 Rev B".  2716 EPROMs with the same contents were in the D9060
+and D9090 (s/n 3677) drives of Wolfgang Günther &lt;woll@wolltronic.de&gt;.
+Those chips were labelled "300515-001" or "300515 Rev B".</dd>
+<dt><a href="drives/old/9090/300516-revB.bin">300516-revB.bin</a></dt>
+<dd>A 2564 EPROM at location 7C.  This firmware was encountered both in
+Bo Zimmerman's D9090 and in Ethan Dicks' D9060 (s/n 1470).</dd>
+<dt><a href="drives/old/9090/300516-revC.bin">300516-revC.bin</a></dt>
+<dd>A 2564/2764 EPROM at location 7C, labelled "300516 Rev. C".  This firmware
+was encountered in Wolfgang Günther's all drives.</dd>
+<dt><a href="drives/old/9090/300517-revA.bin">300517-revA.bin</a></dt>
+<dd>D9090 ROM image from an EPROM of Bo Zimmerman's 9090.</dd>
+<dt><a href="drives/old/9090/300517-revB.bin">300517-revB.bin</a></dt>
+<dd>D9060 ROM image from 2564 at location 7D from D9060 s/n 1470
+Uploaded by Ethan Dicks &lt;erd@iname.com&gt;.</dd>
+<dt><a href="drives/old/9090/300517-revC.bin">300517-revC.bin</a></dt>
+<dd>A 2564/2764 EPROM at location 7D, labelled "300517 Rev. C".  This firmware
+was encountered in Wolfgang Günther's all drives.</dd>
+<dt><a href="drives/old/9090/44-1.BIN">44-1.BIN</a></dt>
+<dd>Firmware @5B on 90x0 controller board. An N82s137N.</dd>
+<dt><a href="drives/old/9090/44-2.BIN">44-2.BIN</a></dt>
+<dd>Firmware @6B on 90x0 controller board. An N82s137N.</dd>
+<dt><a href="drives/old/9090/44-3.BIN">44-3.BIN</a></dt>
+<dd>Firmware @7B on 90x0 controller board. An N82s137N.</dd>
+<dt><a href="drives/old/9090/44-4.BIN">44-4.BIN</a></dt>
+<dd>Firmware @8B on 90x0 controller board. An N82s137N.</dd>
+<dt><a href="drives/old/9090/44-5.BIN">44-5.BIN</a></dt>
+<dd>Firmware @9B on 90x0 controller board. An N82s137N.</dd>
+<dt><a href="drives/old/9090/harddrives.zip">harddrives.zip</a></dt>
+<dd>Source Code</dd>
+<dt><a href="drives/old/9090/versions.txt">versions.txt</a></dt>
+<dd>William Levak's note on the 9060/9090 ROM versions.</dd>
+</dl>
+<dl>
+<dt><a href="../schematics/drives/old/9090/index.html">schematics@</a> (link)</dt>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt><a href="drives/other/index.html">other/</a></dt>
+<dd><dl>
+<dd>Firmware for disk drives not manufactured by Commodore.</dd>
+</dl>
+<dl>
+<dt><a href="drives/other/commander/index.html">commander/</a></dt>
+<dd><dl>
+<dd>Firmware for Commander Electronics Disk Drives</dd>
+<dt><a href="drives/other/commander/Commander_C-II_8K_ROM1.bin">Commander_C-II_8K_ROM1.bin</a></dt>
+<dd>ROM '1' for C-II 5.25dd.  Has Chinon F051 drive unit, </dd>
+<dt><a href="drives/other/commander/Commander_C-II_8K_ROM2.bin">Commander_C-II_8K_ROM2.bin</a></dt>
+<dd>ROM '2' for C-II 5.25dd.  Has Chinon F051 drive unit, </dd>
+</dl>
+</dd>
+<dt><a href="drives/other/misc/index.html">misc/</a></dt>
+<dd><dl>
+<dd>Firmware for Miscellaneous Disk Drives</dd>
+<dt><a href="drives/other/misc/Enhancer%202000%20Comtel%202.6.bin">Enhancer 2000 Comtel 2.6.bin</a></dt>
+<dd>Firmware for the Enhancer 2000 5.25" drive (1541 compat)</dd>
+<dt><a href="drives/other/misc/RF501C_D2_27C128.bin">RF501C_D2_27C128.bin</a></dt>
+<dd>RF501C floppy drive ROM (archived by @hkz@mastodon.technology)
+Firmware for the above</dd>
+<dt><a href="drives/other/misc/Rapid%20Access%20FD148.bin">Rapid Access FD148.bin</a></dt>
+<dt><a href="drives/other/misc/bluechip_fd_stockrom.bin">bluechip_fd_stockrom.bin</a></dt>
+<dd>ROM from Blue Chip 1541 compatible. Reports as V2.6.</dd>
+<dt><a href="drives/other/misc/computhink-disk-controller.zip">computhink-disk-controller.zip</a></dt>
+<dd>PET Computhink Disk Controller, includes roms, manuals</dd>
+<dt><a href="drives/other/misc/enhancer_2000.bin">enhancer_2000.bin</a></dt>
+<dd>Enhancer 2000 drive rom from Mitch Farley</dd>
+</dl>
+</dd>
+<dt><a href="drives/other/msd/index.html">msd/</a></dt>
+<dd><dl>
+<dd>These drives were manufactured by MSD Systems, Inc., 10031 Monroe,
+Suite 206, Dallas, TX 75229.  The SD-1 is a single disk drive unit,
+and the SD-2 is a dual disk drive unit.</dd>
+<dt><a href="drives/other/msd/sd-1-1.3-c000.bin">sd-1-1.3-c000.bin</a></dt>
+<dd>MSD SD-1 firmware, $c000-$dfff.</dd>
+<dt><a href="drives/other/msd/sd-1-1.3-e000.bin">sd-1-1.3-e000.bin</a></dt>
+<dd>MSD SD-1 firmware, $e000-$ffff.</dd>
+<dt><a href="drives/other/msd/sd-2-2.3-c000.bin">sd-2-2.3-c000.bin</a></dt>
+<dd>MSD SD-2 firmware, $c000-$dfff.</dd>
+<dt><a href="drives/other/msd/sd-2-2.3-e000.bin">sd-2-2.3-e000.bin</a></dt>
+<dd>MSD SD-2 firmware, $e000-$ffff.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt><a href="misc/index.html">misc/</a></dt>
+<dd><dl>
+<dt><a href="misc/c900_bios_reformat_hd.zip">c900_bios_reformat_hd.zip</a></dt>
+<dd>Custom roms for C900 to reformat hard drive, includes instructions.</dd>
+<dt><a href="misc/diag.txt">diag.txt</a></dt>
+<dd>Notes on the diagnostic cartridges Raymond Carlsen acquired.  See
+<a class="link" href="http://www.funet.fi/pub/cbm/schematics/cartridges/c64/diag/">http://www.funet.fi/pub/cbm/schematics/cartridges/c64/diag/</a>
+for the Commodore 64 diagnostic cartridge.</dd>
+<dt><a href="misc/magicboard_2516.bin">magicboard_2516.bin</a></dt>
+<dd>2k rom from PET 8032 'Magic Board" printer adapter add-on from C=.</dd>
+</dl>
+<dl>
+<dt><a href="misc/264diag/index.html">264diag/</a></dt>
+<dd><dl>
+<dt><a href="misc/264diag/264_diag_rev2.0-a.bin">264_diag_rev2.0-a.bin</a></dt>
+<dt><a href="misc/264diag/264_diag_rev2.0-b.bin">264_diag_rev2.0-b.bin</a></dt>
+<dt><a href="misc/264diag/325062-01.bin">325062-01.bin</a></dt>
+<dd>C16/C116/plus4 Diagnostic Test 1.5 UK/PAL</dd>
+<dt><a href="misc/264diag/325201-01.ted_diag_rev1.1_pal.bin">325201-01.ted_diag_rev1.1_pal.bin</a></dt>
+<dt><a href="misc/264diag/Diag264_097.zip">Diag264_097.zip</a></dt>
+<dd>Diag 264 packed from Ron Clarke.
+https://www.inchocks.co.uk/commodore/Diag264/CurrentVersion/</dd>
+<dt><a href="misc/264diag/c16-diag-rev2.0-a.bin">c16-diag-rev2.0-a.bin</a></dt>
+<dt><a href="misc/264diag/c16-diag-rev2.0-b.bin">c16-diag-rev2.0-b.bin</a></dt>
+<dt><a href="misc/264diag/c16-diag-rev2.0-c.bin">c16-diag-rev2.0-c.bin</a></dt>
+<dt><a href="misc/264diag/c16-diag-rev2.0.bin">c16-diag-rev2.0.bin</a></dt>
+<dt><a href="misc/264diag/c16_test_PAL_1.1.bin">c16_test_PAL_1.1.bin</a></dt>
+<dd>C16 test cartridge ROM 1.1, Very very similar to 325201-01 except for size,
+and a few bytes.</dd>
+<dt><a href="misc/264diag/ted_diag_rev1.3_pal.bin">ted_diag_rev1.3_pal.bin</a></dt>
+</dl>
+</dd>
+<dt><a href="misc/c128diag/index.html">c128diag/</a></dt>
+<dd><dl>
+<dt><a href="misc/c128diag/325099-01.bin">325099-01.bin</a></dt>
+<dd>Commodore 128 Diagnostic</dd>
+<dt><a href="misc/c128diag/325109-10.bin">325109-10.bin</a></dt>
+<dd>C128DCR Diagnostic</dd>
+<dt><a href="misc/c128diag/c128_burnin_rev1.0_5.6.89.bin">c128_burnin_rev1.0_5.6.89.bin</a></dt>
+<dd>c128 burn-in test rom</dd>
+<dt><a href="misc/c128diag/c128_diag_rev1.2.bin">c128_diag_rev1.2.bin</a></dt>
+<dd>c128 diagnostic cart rom</dd>
+<dt><a href="misc/c128diag/c128_diag_rev588121.zip">c128_diag_rev588121.zip</a></dt>
+<dd>C128 Diagnostic ROM, uses 586220 harness</dd>
+<dt><a href="misc/c128diag/c128_diag_rev6.8_9.11.88.bin">c128_diag_rev6.8_9.11.88.bin</a></dt>
+<dd>c128 diagnostic cartridge rom</dd>
+<dt><a href="misc/c128diag/c128_diag_rev785260-pn314061-06.zip">c128_diag_rev785260-pn314061-06.zip</a></dt>
+<dd>C128 Diagnostics ROM, Manual, and harness schematic</dd>
+<dt><a href="misc/c128diag/c128_diag_rev789010.zip">c128_diag_rev789010.zip</a></dt>
+<dd>C128 Diagnostics, uses 586220 harness</dd>
+<dt><a href="misc/c128diag/c128_diag_revs11and14-pn3255099-01.zip">c128_diag_revs11and14-pn3255099-01.zip</a></dt>
+<dd>C128 Diagnostics, 2 roms, manual, harness schematic</dd>
+<dt><a href="misc/c128diag/c128_final_burnin_rev7.0_5.6.89.bin">c128_final_burnin_rev7.0_5.6.89.bin</a></dt>
+<dd>c128 final burn-in cartridge rom</dd>
+<dt><a href="misc/c128diag/c128dcr_diag_rev10-pn325109.zip">c128dcr_diag_rev10-pn325109.zip</a></dt>
+<dd>C128DCR Integral Diagnostic rom</dd>
+</dl>
+</dd>
+<dt><a href="misc/c64carts/index.html">c64carts/</a></dt>
+<dd><dl>
+<dt><a href="misc/c64carts/251476-01.bin">251476-01.bin</a></dt>
+<dd>Rom for C64 Magic Voice cartridge, a 27128</dd>
+<dt><a href="misc/c64carts/315102-01.bin">315102-01.bin</a></dt>
+<dd>Super Games cartridge (U1)</dd>
+<dt><a href="misc/c64carts/315103-01.bin">315103-01.bin</a></dt>
+<dd>Super Games cartridge (U2)</dd>
+<dt><a href="misc/c64carts/317004-01.bin">317004-01.bin</a></dt>
+<dd>Magic Desk I (U1)</dd>
+<dt><a href="misc/c64carts/317005-01.bin">317005-01.bin</a></dt>
+<dd>Magic Desk I (U2)</dd>
+<dt><a href="misc/c64carts/317006-01.bin">317006-01.bin</a></dt>
+<dd>Magic Desk I (U3)</dd>
+<dt><a href="misc/c64carts/317007-01.bin">317007-01.bin</a></dt>
+<dd>Magic Desk I (U4)</dd>
+<dt><a href="misc/c64carts/317017-01.bin">317017-01.bin</a></dt>
+<dd>International Soccer (U1)</dd>
+<dt><a href="misc/c64carts/317018-01.bin">317018-01.bin</a></dt>
+<dd>International Soccer (U2)</dd>
+<dt><a href="misc/c64carts/317038-01.bin">317038-01.bin</a></dt>
+<dd>Jack Attack (U1)</dd>
+<dt><a href="misc/c64carts/317039-01.bin">317039-01.bin</a></dt>
+<dd>Jack Attack (U2)</dd>
+<dt><a href="misc/c64carts/324872-03.bin">324872-03.bin</a></dt>
+<dd>Der Rechenl�we: Fit in Addition und Subtraktion (U1)</dd>
+<dt><a href="misc/c64carts/324872-04.bin">324872-04.bin</a></dt>
+<dd>Der Rechenl�we: Fit in Addition und Subtraktion (U2)</dd>
+<dt><a href="misc/c64carts/324874-03.bin">324874-03.bin</a></dt>
+<dd>Der Rechenl�we: Fit in Mathematik - 1. Schuljahr (Ger) (U1)</dd>
+<dt><a href="misc/c64carts/324874-04.bin">324874-04.bin</a></dt>
+<dd>Der Rechenl�we: Fit in Mathematik - 1. Schuljahr (Ger) (U2)</dd>
+<dt><a href="misc/c64carts/325351-02.bin">325351-02.bin</a></dt>
+<dd>Jupiter Lander</dd>
+<dt><a href="misc/c64carts/325356-02.bin">325356-02.bin</a></dt>
+<dd>Clowns</dd>
+<dt><a href="misc/c64carts/325362-02.bin">325362-02.bin</a></dt>
+<dd>Kickman</dd>
+<dt><a href="misc/c64carts/325426-01.bin">325426-01.bin</a></dt>
+<dd>Tooth Invader (U1)</dd>
+<dt><a href="misc/c64carts/325427-01.bin">325427-01.bin</a></dt>
+<dd>Tooth Invader (U2)</dd>
+<dt><a href="misc/c64carts/901230-01.bin">901230-01.bin</a></dt>
+<dd>MAX Maxi-Basic Cartridge U1</dd>
+<dt><a href="misc/c64carts/901231-01.bin">901231-01.bin</a></dt>
+<dd>MAX Maxi-Basic Cartridge U2</dd>
+<dt><a href="misc/c64carts/C64104_Super_Expander-8000.bin">C64104_Super_Expander-8000.bin</a></dt>
+<dd>ROM for C64 Super Expander Cartridge</dd>
+<dt><a href="misc/c64carts/C64108_Simons_Basic_1-8000.bin">C64108_Simons_Basic_1-8000.bin</a></dt>
+<dt><a href="misc/c64carts/C64108_Simons_Basic_2-a000.bin">C64108_Simons_Basic_2-a000.bin</a></dt>
+<dd>ROM for C64 Simon's BASIC Cartridge</dd>
+<dt><a href="misc/c64carts/C64228_Financial_Advisor-8000.bin">C64228_Financial_Advisor-8000.bin</a></dt>
+<dd>ROM for C64 Financial Advisor Cartridge</dd>
+<dt><a href="misc/c64carts/C64312_Number_Nabber_Shape_Grabber-8000.bin">C64312_Number_Nabber_Shape_Grabber-8000.bin</a></dt>
+<dd>ROM for C64 Number Nabber Cartridge</dd>
+<dt><a href="misc/c64carts/C64320_A_Bee_Cs-8000.bin">C64320_A_Bee_Cs-8000.bin</a></dt>
+<dd>ROM for C64 ABCs Cartridge</dd>
+<dt><a href="misc/c64carts/C64402_Music_Machine-e000.bin">C64402_Music_Machine-e000.bin</a></dt>
+<dd>ROM for C64 Music Machine Cartridge</dd>
+<dt><a href="misc/c64carts/C64403_Music_Composer-e000.bin">C64403_Music_Composer-e000.bin</a></dt>
+<dd>ROM for C64 Music Composer Cartridge</dd>
+<dt><a href="misc/c64carts/C64601_Jupiter_Lander-e000.bin">C64601_Jupiter_Lander-e000.bin</a></dt>
+<dd>ROM for C64 Jupiter Lander Cartridge</dd>
+<dt><a href="misc/c64carts/C64602_Kickman-e000.bin">C64602_Kickman-e000.bin</a></dt>
+<dd>ROM for C64 Kickman Cartridge</dd>
+<dt><a href="misc/c64carts/C64603_Sea_Wolf-e000.bin">C64603_Sea_Wolf-e000.bin</a></dt>
+<dd>ROM for C64 Sea Wolf Cartridge</dd>
+<dt><a href="misc/c64carts/C64604_Speed_Bingo_Math-e000.bin">C64604_Speed_Bingo_Math-e000.bin</a></dt>
+<dd>ROM for C64 Speed Math/Bingo Math Cartridge</dd>
+<dt><a href="misc/c64carts/C64605_Radar_Rat_Race-e000.bin">C64605_Radar_Rat_Race-e000.bin</a></dt>
+<dd>ROM for C64 Radar Rat Race Cartridge</dd>
+<dt><a href="misc/c64carts/C64606_Clowns-e000.bin">C64606_Clowns-e000.bin</a></dt>
+<dd>ROM for C64 Clowns Cartridge</dd>
+<dt><a href="misc/c64carts/C64609_Visible_Solar_System-e000.bin">C64609_Visible_Solar_System-e000.bin</a></dt>
+<dd>ROM for C64 Visible Solar System Cartridge</dd>
+<dt><a href="misc/c64carts/C64610_Tooth_Invaders-8000.bin">C64610_Tooth_Invaders-8000.bin</a></dt>
+<dd>ROM for C64 Tooth Invaders Cartridge</dd>
+<dt><a href="misc/c64carts/C64612_Blueprint-8000.bin">C64612_Blueprint-8000.bin</a></dt>
+<dd>ROM for C64 Blueprint Cartridge</dd>
+<dt><a href="misc/c64carts/C64613_Lazarian-8000.bin">C64613_Lazarian-8000.bin</a></dt>
+<dd>ROM for C64 Lazarian Cartridge</dd>
+<dt><a href="misc/c64carts/C64614_Omega_Race-8000.bin">C64614_Omega_Race-8000.bin</a></dt>
+<dd>ROM for C64 Omega Race Cartridge</dd>
+<dt><a href="misc/c64carts/C64615_Wizard_of_Wor-8000.bin">C64615_Wizard_of_Wor-8000.bin</a></dt>
+<dd>ROM for C64 Wizard of Wor Cartridge</dd>
+<dt><a href="misc/c64carts/C64616_Le_Mans-e000.bin">C64616_Le_Mans-e000.bin</a></dt>
+<dd>ROM for C64 Le Mans Cartridge</dd>
+<dt><a href="misc/c64carts/C64617_Pinball_Spectacular_1-8000.bin">C64617_Pinball_Spectacular_1-8000.bin</a></dt>
+<dt><a href="misc/c64carts/C64617_Pinball_Spectacular_2-e000.bin">C64617_Pinball_Spectacular_2-e000.bin</a></dt>
+<dd>ROM for C64 Pinball Spectacular Cartridge</dd>
+<dt><a href="misc/c64carts/C64618_Gorf-8000.bin">C64618_Gorf-8000.bin</a></dt>
+<dd>ROM for C64 Gorf Cartridge</dd>
+<dt><a href="misc/c64carts/C64619_Solar_Fox-8000.bin">C64619_Solar_Fox-8000.bin</a></dt>
+<dd>ROM for C64 Solar Fox Cartridge</dd>
+<dt><a href="misc/c64carts/C64621_Avenger-e000.bin">C64621_Avenger-e000.bin</a></dt>
+<dd>ROM for C64 Avenger Cartridge</dd>
+<dt><a href="misc/c64carts/C64622_Super_Smash-8000.bin">C64622_Super_Smash-8000.bin</a></dt>
+<dd>ROM for C64 Super Smash Cartridge</dd>
+<dt><a href="misc/c64carts/C64623_Star_Post-8000.bin">C64623_Star_Post-8000.bin</a></dt>
+<dd>ROM for C64 Star Post Cartridge</dd>
+<dt><a href="misc/c64carts/C64624_Frog_Master-8000.bin">C64624_Frog_Master-8000.bin</a></dt>
+<dd>ROM for C64 Frog Master Cartridge</dd>
+<dt><a href="misc/c64carts/C64631_Star_Ranger-8000.bin">C64631_Star_Ranger-8000.bin</a></dt>
+<dd>ROM for C64 Star Ranger Cartridge</dd>
+<dt><a href="misc/c64carts/C64632_Dragons_Den-8000.bin">C64632_Dragons_Den-8000.bin</a></dt>
+<dd>ROM for C64 Dragons Den Cartridge</dd>
+<dt><a href="misc/c64carts/C64635_International_Soccer-8000.bin">C64635_International_Soccer-8000.bin</a></dt>
+<dd>ROM for C64 International Soccer Cartridge</dd>
+<dt><a href="misc/c64carts/C64636_Viduzzles-8000.bin">C64636_Viduzzles-8000.bin</a></dt>
+<dd>ROM for C64 Viduzzles Cartridge</dd>
+<dt><a href="misc/c64carts/C64638_Jack_Attack-8000.bin">C64638_Jack_Attack-8000.bin</a></dt>
+<dd>ROM for C64 Jack Attack Cartridge</dd>
+<dt><a href="misc/c64carts/C64801_Magic_Desk_I_(CCS)_1-8000.bin">C64801_Magic_Desk_I_(CCS)_1-8000.bin</a></dt>
+<dt><a href="misc/c64carts/C64801_Magic_Desk_I_(CCS)_2-8000.bin">C64801_Magic_Desk_I_(CCS)_2-8000.bin</a></dt>
+<dt><a href="misc/c64carts/C64801_Magic_Desk_I_(CCS)_3-8000.bin">C64801_Magic_Desk_I_(CCS)_3-8000.bin</a></dt>
+<dt><a href="misc/c64carts/C64801_Magic_Desk_I_(CCS)_4-8000.bin">C64801_Magic_Desk_I_(CCS)_4-8000.bin</a></dt>
+<dd>ROM for C64 Magic Desk (CCS) Cartridge</dd>
+<dt><a href="misc/c64carts/C64801_Magic_Desk_I_1-8000.bin">C64801_Magic_Desk_I_1-8000.bin</a></dt>
+<dt><a href="misc/c64carts/C64801_Magic_Desk_I_2-8000.bin">C64801_Magic_Desk_I_2-8000.bin</a></dt>
+<dt><a href="misc/c64carts/C64801_Magic_Desk_I_3-8000.bin">C64801_Magic_Desk_I_3-8000.bin</a></dt>
+<dt><a href="misc/c64carts/C64801_Magic_Desk_I_4-8000.bin">C64801_Magic_Desk_I_4-8000.bin</a></dt>
+<dd>ROM for C64 Magic Desk Cartridge</dd>
+<dt><a href="misc/c64carts/Comal_80_1-8000.bin">Comal_80_1-8000.bin</a></dt>
+<dt><a href="misc/c64carts/Comal_80_2-8000.bin">Comal_80_2-8000.bin</a></dt>
+<dt><a href="misc/c64carts/Comal_80_3-8000.bin">Comal_80_3-8000.bin</a></dt>
+<dt><a href="misc/c64carts/Comal_80_4-8000.bin">Comal_80_4-8000.bin</a></dt>
+<dd>ROM for C64 Comal 80 Cartridge</dd>
+<dt><a href="misc/c64carts/MAX3101_Mini_Basic-e000.bin">MAX3101_Mini_Basic-e000.bin</a></dt>
+<dd>ROM for Max Machine Mini BASIC Cartridge</dd>
+<dt><a href="misc/c64carts/MAX3102_Max_Basic_1-8000.bin">MAX3102_Max_Basic_1-8000.bin</a></dt>
+<dt><a href="misc/c64carts/MAX3102_Max_Basic_2-e000.bin">MAX3102_Max_Basic_2-e000.bin</a></dt>
+<dd>ROM for Max Machine Max BASIC Cartridge</dd>
+<dt><a href="misc/c64carts/MAX3401_Omega_Race-e000.bin">MAX3401_Omega_Race-e000.bin</a></dt>
+<dd>ROM for Max Machine Omega Race Cartridge</dd>
+<dt><a href="misc/c64carts/MAX3402_Wizard_of_Wor_Ver_1-e000.bin">MAX3402_Wizard_of_Wor_Ver_1-e000.bin</a></dt>
+<dd>ROM for Max Machine Wizard of Wor (version 1) Cartridge</dd>
+<dt><a href="misc/c64carts/MAX3402_Wizard_of_Wor_Ver_3-e000.bin">MAX3402_Wizard_of_Wor_Ver_3-e000.bin</a></dt>
+<dd>ROM for Max Machine Wizard of Wor (version 3) Cartridge</dd>
+<dt><a href="misc/c64carts/MAX3402_Wizard_of_Wor__Ver_2-e000.bin">MAX3402_Wizard_of_Wor__Ver_2-e000.bin</a></dt>
+<dd>ROM for Max Machine Wizard of Wor (version 2) Cartridge</dd>
+<dt><a href="misc/c64carts/MAX3504_Radar_Rat_Race-e000.bin">MAX3504_Radar_Rat_Race-e000.bin</a></dt>
+<dd>ROM for Max Machine Radar Rat Race Cartridge</dd>
+<dt><a href="misc/c64carts/MAX3509_Clowns-e000.bin">MAX3509_Clowns-e000.bin</a></dt>
+<dd>ROM for Max Machine Clowns Cartridge</dd>
+<dt><a href="misc/c64carts/MagicDeskwithMagicVoiceROMs.zip">MagicDeskwithMagicVoiceROMs.zip</a></dt>
+<dd>Magic Desk with Magic Voice support.  Includes 3 roms, crt file, pics.
+Provided by John Feagans and Chuck Hutchins</dd>
+<dt><a href="misc/c64carts/Sales_Cartridge-8000.bin">Sales_Cartridge-8000.bin</a></dt>
+<dd>ROM for C64 Sales Cartridge</dd>
+<dt><a href="misc/c64carts/Structured_BASIC_Waterloo_1984_original.crt">Structured_BASIC_Waterloo_1984_original.crt</a></dt>
+<dd>Waterloo Structured BASIC (16k version)</dd>
+<dt><a href="misc/c64carts/Super_Games_1-8000.bin">Super_Games_1-8000.bin</a></dt>
+<dt><a href="misc/c64carts/Super_Games_2-8000.bin">Super_Games_2-8000.bin</a></dt>
+<dt><a href="misc/c64carts/Super_Games_3-8000.bin">Super_Games_3-8000.bin</a></dt>
+<dt><a href="misc/c64carts/Super_Games_4-8000.bin">Super_Games_4-8000.bin</a></dt>
+<dd>ROM for C64 Super Games Cartridge</dd>
+<dt><a href="misc/c64carts/Waterloo_Structured_BASIC.crt">Waterloo_Structured_BASIC.crt</a></dt>
+<dd>Waterloo Structured BASIC (4k version)</dd>
+<dt><a href="misc/c64carts/Waterloo_Structured_Basic_Docs.zip">Waterloo_Structured_Basic_Docs.zip</a></dt>
+<dd>Waterloo Structured BASIC (Manual in images)</dd>
+<dt><a href="misc/c64carts/ieee488.bin">ieee488.bin</a></dt>
+<dd>Commodore 64 IEEE-488 Adapter 2732 ROM</dd>
+<dt><a href="misc/c64carts/viatel67886.bin">viatel67886.bin</a></dt>
+<dd>Firmware for C64 Australia Viatel modem</dd>
+</dl>
+<dl>
+<dt><a href="misc/c64carts/btx/index.html">btx/</a></dt>
+<dd><dl>
+<dd>BTX, or Bildschirmtext, is/was a modem-based on-line system that started
+in the 1980s.  It was run by the state-owned telephone corporation.</dd>
+<dt><a href="misc/c64carts/btx/btx-mk1-325221-02.bin">btx-mk1-325221-02.bin</a></dt>
+<dd>Firmware of a BTX decoder mark I, part number 325221-02, checksum $3E0F.
+This was copied from a 27128 EPROM labelled with the part number and
+"BTX C64 C128".</dd>
+<dt><a href="misc/c64carts/btx/btx-mk2-V30113-C375-81-1.bin">btx-mk2-V30113-C375-81-1.bin</a></dt>
+<dd>Firmware of a BTX decoder mark II, dumped from a 27256 EPROM.  The sticker
+on the erase window has a Siemens logo and "V30113-" at the top line,
+"C375-81-1" at the middle line and "( EX )" at bottom.  The checksum is
+$D68F.</dd>
+<dt><a href="misc/c64carts/btx/btx-v3.3.bin">btx-v3.3.bin</a></dt>
+<dd>Firmware of a BTX decoder mark II, version 3.3.</dd>
+<dt><a href="misc/c64carts/btx/index.html">index.html</a></dt>
+<dd>Firmware for the Buildschirmtext Decoder cartridge</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt><a href="misc/c64diag/index.html">c64diag/</a></dt>
+<dd><dl>
+<dt><a href="misc/c64diag/c64_burn-in_7.2_5.6.89.bin">c64_burn-in_7.2_5.6.89.bin</a></dt>
+<dd>C64 burn-in test rom 7.2</dd>
+<dt><a href="misc/c64diag/c64_burn-in_test.bin">c64_burn-in_test.bin</a></dt>
+<dd>C64 burn-in test rom.</dd>
+<dt><a href="misc/c64diag/c64_diag-rev781220-pn314139-03.zip">c64_diag-rev781220-pn314139-03.zip</a></dt>
+<dd>C64 Dead Test Kit, includes Manual and Cartridge ROM</dd>
+<dt><a href="misc/c64diag/c64_diag_rev4.1.1.bin">c64_diag_rev4.1.1.bin</a></dt>
+<dd>c64 diagnostic test rom v4.1.1</dd>
+<dt><a href="misc/c64diag/c64_diag_rev410.zip">c64_diag_rev410.zip</a></dt>
+<dd>C64 Diagnostic ROM, uses harness 586220</dd>
+<dt><a href="misc/c64diag/c64_diag_rev586220-pn326070-01.zip">c64_diag_rev586220-pn326070-01.zip</a></dt>
+<dt><a href="misc/c64diag/c64_final_burnin_26.10.88.bin">c64_final_burnin_26.10.88.bin</a></dt>
+<dd>C64 final burnin test rom</dd>
+<dt><a href="misc/c64diag/c64_final_burnin_3.0_5.6.89.bin">c64_final_burnin_3.0_5.6.89.bin</a></dt>
+<dd>C64 final burn-in test rom</dd>
+<dt><a href="misc/c64diag/c64_hot_burn-In.bin">c64_hot_burn-In.bin</a></dt>
+<dd>c64 hot burn in cartridge test rom</dd>
+<dt><a href="misc/c64diag/c64gs_diag.1.1.bin">c64gs_diag.1.1.bin</a></dt>
+<dd>Diagnostic rom for C64GS game system. Taken from a loose EPROM. C64
+diagnostics kit, includes rom, manual, harness schematic</dd>
+<dt><a href="misc/c64diag/c64gs_diag.2.0.bin">c64gs_diag.2.0.bin</a></dt>
+<dd>Diagnostic rom for C64GS game system. Taken from a loose EPROM.</dd>
+</dl>
+</dd>
+<dt><a href="../b/carts/index.html">cbm2carts@</a> (link)</dt>
+<dt><a href="misc/cbm_video_board/index.html">cbm_video_board/</a></dt>
+<dd><dl>
+<dt><a href="misc/cbm_video_board/cbm8296-graphic%20demo%20325006-01.d82.gz">cbm8296-graphic demo 325006-01.d82.gz</a></dt>
+<dd>Demo disk for High Res Graphic Board for CBM 8296</dd>
+<dt><a href="misc/cbm_video_board/hsgb324402-01_324992-02.bin">hsgb324402-01_324992-02.bin</a></dt>
+<dd>High Speed Graphic Board for 8296 (UE10 - HiRes Emulator)</dd>
+<dt><a href="misc/cbm_video_board/hsgb324402-01_324993-02.bin">hsgb324402-01_324993-02.bin</a></dt>
+<dd>High Speed Graphic Board for 8296 (UE9 - HiRes BASIC)</dd>
+</dl>
+</dd>
+<dt><a href="misc/chessmate/index.html">chessmate/</a></dt>
+<dd><dl>
+<dt><a href="misc/chessmate/6332-005.bin">6332-005.bin</a></dt>
+<dd>Firmware mk2</dd>
+<dt><a href="misc/chessmate/6530-024.bin">6530-024.bin</a></dt>
+<dd>MK2 Firmware from $ec00-$efff</dd>
+<dt><a href="misc/chessmate/901462-01.bin">901462-01.bin</a></dt>
+<dd>ROM dumped from Dave McMurtrie's Chessmate</dd>
+<dt><a href="misc/chessmate/901462-02.bin">901462-02.bin</a></dt>
+<dd>ROM dumped from Dave McMurtrie's Chessmate</dd>
+</dl>
+</dd>
+<dt><a href="misc/cmd/index.html">cmd/</a></dt>
+<dd><dl>
+<dt><a href="misc/cmd/scpu-dos-1.4.bin">scpu-dos-1.4.bin</a></dt>
+<dd>1.4 SuperCPU dos from SuperCPU64</dd>
+<dt><a href="misc/cmd/scpu-dos-2.04.bin">scpu-dos-2.04.bin</a></dt>
+<dd>2.04 SuperCPU dos from SuperCPU128</dd>
+</dl>
+</dd>
+<dt><a href="misc/petdiag/index.html">petdiag/</a></dt>
+<dd><dl>
+<dt><a href="misc/petdiag/2001test10.bin">2001test10.bin</a></dt>
+<dd>Diagnostic rom for original chiclet 2001 by Vossi (H7 socket)</dd>
+<dt><a href="misc/petdiag/40col_diag_20_10_1_f000.bin">40col_diag_20_10_1_f000.bin</a></dt>
+<dd>Diag rom for 40 col PET kernal socket.   Find diag clip info @
+schematics/cartridges/pet</dd>
+<dt><a href="misc/petdiag/80col_diag_v1.1.bin">80col_diag_v1.1.bin</a></dt>
+<dd>Diag rom v1,1 for 80 col PET kernal socket   Find diag clip info @
+schematics/cartridges/pet</dd>
+<dt><a href="misc/petdiag/901447-18.081c7aad.bin">901447-18.081c7aad.bin</a></dt>
+<dd>Unknown rom, probably Diagnostics-related.</dd>
+<dt><a href="misc/petdiag/901447-30-9000.bin">901447-30-9000.bin</a></dt>
+<dd>2001 diag rom @ 9000 - sys 38912 to start   Find diag clip info @
+schematics/cartridges/pet</dd>
+<dt><a href="misc/petdiag/901447-30_2001_ext_diag_unit.bin">901447-30_2001_ext_diag_unit.bin</a></dt>
+<dd>2001 diag rom for external expansion.  Might be at $9800   Find diag clip info
+@ schematics/cartridges/pet</dd>
+<dt><a href="misc/petdiag/901481-01_80col_diag_f000.bin">901481-01_80col_diag_f000.bin</a></dt>
+<dd>Diag rom for 80 col PET kernal socket   Find diag clip info @
+schematics/cartridges/pet</dd>
+<dt><a href="misc/petdiag/petdiag.zip">petdiag.zip</a></dt>
+<dd>Modification to Use the Diagnostic Test Fixture on Original PET's</dd>
+<dt><a href="misc/petdiag/pettest2kv04.zip">pettest2kv04.zip</a></dt>
+<dd>Diagnostic rom for various PETs by David Roberts</dd>
+</dl>
+</dd>
+<dt><a href="misc/plus4carts/index.html">plus4carts/</a></dt>
+<dd><dl>
+<dd>Firmware and cartridge images for the Commodore Plus/4
+Includes the Commodore 116, C16, 232, 264, and V364 computers.</dd>
+</dl>
+<dl>
+<dt><a href="../plus4/Games/carts/index.html">Games@</a> (link)</dt>
+<dt><a href="../plus4/Tools/carts/index.html">Tools@</a> (link)</dt>
+</dl>
+</dd>
+<dt><a href="misc/printerif/index.html">printerif/</a></dt>
+<dd><dl>
+<dt><a href="misc/printerif/ESL%20CO64%20Printer%20Interface-2.zip">ESL CO64 Printer Interface-2.zip</a></dt>
+<dd>Epson Printer interface uploaded by John Hardie</dd>
+<dt><a href="misc/printerif/adapter_wiesemann.bin">adapter_wiesemann.bin</a></dt>
+<dt><a href="misc/printerif/adapter_wiesemann.txt">adapter_wiesemann.txt</a></dt>
+<dd>Firmware for the Wiesemann "WW 92000/G C64/Centr", an adapter between
+the Commodore serial bus and a Centronics printer.</dd>
+</dl>
+</dd>
+<dt><a href="misc/unknown/index.html">unknown/</a></dt>
+<dd><dl>
+<dt><a href="misc/unknown/187c046f.bin">187c046f.bin</a></dt>
+<dt><a href="misc/unknown/1b0109f3.bin">1b0109f3.bin</a></dt>
+<dt><a href="misc/unknown/40-80-60h.bin">40-80-60h.bin</a></dt>
+<dt><a href="misc/unknown/4080-9in-60hz_pet_editor.bin">4080-9in-60hz_pet_editor.bin</a></dt>
+<dt><a href="misc/unknown/740turbo1-1.bin">740turbo1-1.bin</a></dt>
+<dt><a href="misc/unknown/8in-cpm-trbdos.bin">8in-cpm-trbdos.bin</a></dt>
+<dt><a href="misc/unknown/901484-03-2031ro_c000.bin">901484-03-2031ro_c000.bin</a></dt>
+<dt><a href="misc/unknown/b3e62dc9.bin">b3e62dc9.bin</a></dt>
+<dt><a href="misc/unknown/create-new-base.bin">create-new-base.bin</a></dt>
+<dt><a href="misc/unknown/sew-b4-v5-96.bin">sew-b4-v5-96.bin</a></dt>
+<dt><a href="misc/unknown/tc49b-paics.bin">tc49b-paics.bin</a></dt>
+<dt><a href="misc/unknown/ultima-ii-v1-73.bin">ultima-ii-v1-73.bin</a></dt>
+<dt><a href="misc/unknown/unmarked3.bin">unmarked3.bin</a></dt>
+<dt><a href="misc/unknown/unmarked4.bin">unmarked4.bin</a></dt>
+</dl>
+</dd>
+<dt><a href="misc/vc-20diag/index.html">vc-20diag/</a></dt>
+<dd><dl>
+<dt><a href="misc/vc-20diag/diag-vic20.bin">diag-vic20.bin</a></dt>
+<dd>The firmware of a diagnostic cartridge for the Commodore VIC-20.
+Mapped to -BLK5 ($a000).</dd>
+<dt><a href="misc/vc-20diag/vc-20-diag.324173-01.bin">vc-20-diag.324173-01.bin</a></dt>
+<dd>Another diagnostic cartridge for the Commodore VIC-20.
+Mapped to -BLK5 ($a000).</dd>
+<dt><a href="misc/vc-20diag/vc-20-diag.txt">vc-20-diag.txt</a></dt>
+<dd>Notes on the above diagnostic cartridge.</dd>
+<dt><a href="misc/vc-20diag/vc-20-diag.zip">vc-20-diag.zip</a></dt>
+<dd>Pictures of the above diagnostic cartridge and its wiring harness.</dd>
+</dl>
+</dd>
+<dt><a href="../vic20/roms/index.html">viccarts@</a> (link)</dt>
+</dl>
+</dd>
+<dt><a href="printers/index.html">printers/</a></dt>
+<dd><dl>
+<dt><a href="printers/control.txt">control.txt</a></dt>
+<dd>Control codes and secondary addresses for Commodore printers</dd>
+</dl>
+<dl>
+<dt><a href="printers/1515/index.html">1515/</a></dt>
+<dd><dl>
+<dt><a href="printers/1515/vic1515-80j5.bin">vic1515-80j5.bin</a></dt>
+<dd>rom uploaded by Bo Zimmerman</dd>
+<dt><a href="printers/1515/vic1515-jp.bin">vic1515-jp.bin</a></dt>
+<dd>Japanese rom for VIC-1515, uploaded by Christian Forstreuter</dd>
+</dl>
+</dd>
+<dt><a href="printers/1520/index.html">1520/</a></dt>
+<dd><dl>
+<dt><a href="printers/1520/1520-01.asm.html">1520-01.asm.html</a></dt>
+<dd>Firmware disassembly of rom 01 by Soci/Singular</dd>
+<dt><a href="printers/1520/1520-03.asm.html">1520-03.asm.html</a></dt>
+<dd>Firmware disassembly of rom 03 by Soci/Singular</dd>
+<dt><a href="printers/1520/325340-01.bin">325340-01.bin</a></dt>
+<dd>VC-1520 Plotter</dd>
+<dt><a href="printers/1520/325340-03.bin">325340-03.bin</a></dt>
+<dd>VC-1520 Plotter</dd>
+</dl>
+</dd>
+<dt><a href="printers/1525/index.html">1525/</a></dt>
+<dd><dl>
+<dt><a href="printers/1525/VIC1525_japan.bin">VIC1525_japan.bin</a></dt>
+</dl>
+</dd>
+<dt><a href="printers/1526/index.html">1526/</a></dt>
+<dd><dl>
+<dd>The Commodore 1526 is a dot matrix printer that attaches to the serial bus.</dd>
+<dt><a href="printers/1526/1526-07b.skand.bin">1526-07b.skand.bin</a></dt>
+<dd>Firmware of the Commodore 1526 printer with Finnish character set. It
+contains a string "COMMODORE MODEL MPS-802 PRINTER - REV 07B". This 2564
+EPROM chip was installed on a 24/28 pin ROM/EPROM pinout adapter and the
+label has the text:<br />
+CBM 1526
+VERS. 1.0<br />
+SKAND.GEN</dd>
+<dt><a href="printers/1526/1526-325341-05.bin">1526-325341-05.bin</a></dt>
+<dd>Firmware for Commodore 1526 printer</dd>
+<dt><a href="printers/1526/1526-325341-08.bin">1526-325341-08.bin</a></dt>
+<dd>Firmware for Commodore 1526 printer</dd>
+<dt><a href="printers/1526/4023-325360-02.bin">4023-325360-02.bin</a></dt>
+<dd>Firmware of the Commodore 4023 IEEE-488 printer.  Except for the interface
+this printer seems to be the same as the 1526/MPS 802.  The 2764 EPROM
+containing the firmware is labeled: 4023 /P 360-02 This EPROM is installed on
+a 24/28 pin ROM/EPROM adaptor.</dd>
+<dt><a href="printers/1526/README">README</a></dt>
+<dd>Part list and a list of ribbons that are suitable for the 1526.</dd>
+<dt><a href="printers/1526/mps802-341-07b.bin">mps802-341-07b.bin</a></dt>
+<dd>ROM from MPS-802, marked 341-07B</dd>
+<dt><a href="printers/1526/mps802_rev_7b_swedish.bin">mps802_rev_7b_swedish.bin</a></dt>
+<dd>Custom Swedish rom for 1526/mps802</dd>
+<dt><a href="printers/1526/mps802_switchable_gfx.bin">mps802_switchable_gfx.bin</a></dt>
+<dd>Switchable graphics rom uploaded by Martin Hansen</dd>
+</dl>
+</dd>
+<dt><a href="printers/3022/index.html">3022/</a></dt>
+<dd><dl>
+<dd>Firmware of the Commodore 3022 IEEE-488 printer</dd>
+<dt><a href="printers/3022/901472-03.bin">901472-03.bin</a></dt>
+<dd>CBM 2023 Firmware</dd>
+<dt><a href="printers/3022/901472-04.bin">901472-04.bin</a></dt>
+<dd>CBM 2022/2023 Firmware</dd>
+<dt><a href="printers/3022/901472-05.bin">901472-05.bin</a></dt>
+<dd>CBM 3022 Firmware</dd>
+<dt><a href="printers/3022/901472-06.bin">901472-06.bin</a></dt>
+<dd>CBM 3022 Firmware</dd>
+<dt><a href="printers/3022/901472-07.bin">901472-07.bin</a></dt>
+<dd>CBM 3022 Firmware</dd>
+<dt><a href="printers/3022/README">README</a></dt>
+<dd>Part list</dd>
+</dl>
+</dd>
+<dt><a href="printers/4022/index.html">4022/</a></dt>
+<dd><dl>
+<dt><a href="printers/4022/324764-01.bin">324764-01.bin</a></dt>
+<dd>4022 Firmware</dd>
+<dt><a href="printers/4022/901490-01.bin">901490-01.bin</a></dt>
+<dd>4022 Firmware (U8AB)</dd>
+<dt><a href="printers/4022/901631-02.bin">901631-02.bin</a></dt>
+<dd>Firmware for 4022P Bi-Directional</dd>
+</dl>
+</dd>
+<dt><a href="printers/1526/index.html">4023@</a> (link)</dt>
+<dt><a href="printers/6400/index.html">6400/</a></dt>
+<dd><dl>
+<dt><a href="printers/6400/601140-28.bin">601140-28.bin</a></dt>
+<dt><a href="printers/6400/601140-29.bin">601140-29.bin</a></dt>
+<dt><a href="printers/6400/cbm6400_rom0.bin">cbm6400_rom0.bin</a></dt>
+<dd>rom0 uploaded by Bo Zimmerman</dd>
+<dt><a href="printers/6400/cbm6400_rom1.bin">cbm6400_rom1.bin</a></dt>
+<dd>rom1 uploaded by Bo Zimmerman</dd>
+</dl>
+</dd>
+<dt><a href="printers/8023P-MPP1361/index.html">8023P-MPP1361/</a></dt>
+<dd><dl>
+<dd>These files were uploaded by William M. Levak &lt;wlevak@sdf.org&gt;.</dd>
+<dt><a href="printers/8023P-MPP1361/325320-01.bin">325320-01.bin</a></dt>
+<dd>Rom from 8023, uploaded by Bo Zimmerman</dd>
+<dt><a href="printers/8023P-MPP1361/325320-02.bin">325320-02.bin</a></dt>
+<dd>8023P firmware</dd>
+<dt><a href="printers/8023P-MPP1361/README.txt">README.txt</a></dt>
+<dd>Information about the chips in the 8023P.</dd>
+</dl>
+</dd>
+<dt><a href="printers/8028/index.html">8028/</a></dt>
+<dd><dl>
+<dd>These files were contributed by Nicolas Welte
+&lt;welte@chemie.uni-konstanz.de&gt;.</dd>
+<dt><a href="printers/8028/README">README</a></dt>
+<dd>General information about the boards inside the 8028 printer</dd>
+<dt><a href="printers/8028/UA10-CAR%2006.bin">UA10-CAR 06.bin</a></dt>
+<dd>UA10 2716 EPROM</dd>
+<dt><a href="printers/8028/UA5-M%2007%20A.bin">UA5-M 07 A.bin</a></dt>
+<dd>UA5 2764 EPROM</dd>
+<dt><a href="printers/8028/UA8-DSY%2006-2.bin">UA8-DSY 06-2.bin</a></dt>
+<dd>Second variation on UA8-DSY 06.  Sent by  Christian Forstreuter</dd>
+<dt><a href="printers/8028/UA8-DSY%2006.bin">UA8-DSY 06.bin</a></dt>
+<dd>UA8 2716 EPROM</dd>
+</dl>
+</dd>
+<dt><a href="printers/dps1101/index.html">dps1101/</a></dt>
+<dd><dl>
+<dt><a href="printers/dps1101/dps1101-0-8b.bin">dps1101-0-8b.bin</a></dt>
+</dl>
+</dd>
+<dt><a href="printers/mcs801/index.html">mcs801/</a></dt>
+<dd><dl>
+<dt><a href="printers/mcs801/mcs801-7ja-7.bin">mcs801-7ja-7.bin</a></dt>
+<dt><a href="printers/mcs801/mcs801-f7ja-1.bin">mcs801-f7ja-1.bin</a></dt>
+</dl>
+</dd>
+<dt><a href="printers/mcs810-820/index.html">mcs810-820/</a></dt>
+<dd><dl>
+<dt><a href="printers/mcs810-820/mcs810-65-1115.bin">mcs810-65-1115.bin</a></dt>
+<dt><a href="printers/mcs810-820/mcs820-65-1437.bin">mcs820-65-1437.bin</a></dt>
+</dl>
+</dd>
+<dt><a href="printers/mps1000/index.html">mps1000/</a></dt>
+<dd><dl>
+<dt><a href="printers/mps1000/mps1000-e2-ce8.bin">mps1000-e2-ce8.bin</a></dt>
+</dl>
+</dd>
+<dt><a href="printers/mps1224/index.html">mps1224/</a></dt>
+<dd><dl>
+<dt><a href="printers/mps1224/mps1224-font-ic2-sz347b-0141-8810-2.BIN">mps1224-font-ic2-sz347b-0141-8810-2.BIN</a></dt>
+<dt><a href="printers/mps1224/mps1224-font-ic3-sz347b-0141-8810-2.BIN">mps1224-font-ic3-sz347b-0141-8810-2.BIN</a></dt>
+<dt><a href="printers/mps1224/mps1224-font-ic5-0140-8809-1.BIN">mps1224-font-ic5-0140-8809-1.BIN</a></dt>
+<dt><a href="printers/mps1224/mps1224_08f9_40081_x_b.bin">mps1224_08f9_40081_x_b.bin</a></dt>
+<dt><a href="printers/mps1224/mps1224_2ffa0a_ic5_font_0140_8809-0.bin">mps1224_2ffa0a_ic5_font_0140_8809-0.bin</a></dt>
+</dl>
+</dd>
+<dt><a href="printers/mps1230/index.html">mps1230/</a></dt>
+<dd><dl>
+<dd>Firmware for the Commodore printer MPS-1230</dd>
+<dt><a href="printers/mps1230/601240-95-v1.1d-19881110.bin">601240-95-v1.1d-19881110.bin</a></dt>
+<dd>Contents of the 27C512 EPROM, labeled "PDL2".  This firmware is dated
+November 10, 1988, and it is for the German version of the printer.</dd>
+<dt><a href="printers/mps1230/mps1200-k405-0202.bin">mps1200-k405-0202.bin</a></dt>
+<dd>Read from IEC MPS-1200 board</dd>
+<dt><a href="printers/mps1230/mps1230-v11e-xxxxxx-xx.bin">mps1230-v11e-xxxxxx-xx.bin</a></dt>
+<dt><a href="printers/mps1230/mps1250_k111_0201.bin">mps1250_k111_0201.bin</a></dt>
+<dt><a href="printers/mps1230/parts.txt">parts.txt</a></dt>
+<dd>Parts and layout info for this printer.</dd>
+<dt><a href="printers/mps1230/r-1.1e-19890809.bin">r-1.1e-19890809.bin</a></dt>
+<dd>Revised firmware for MPS-1230</dd>
+</dl>
+</dd>
+<dt><a href="printers/mps1270/index.html">mps1270/</a></dt>
+<dd><dl>
+<dt><a href="printers/mps1270/mps1270-601250-54.bin">mps1270-601250-54.bin</a></dt>
+<dt><a href="printers/mps1270/mps1270a_revCSC.bin">mps1270a_revCSC.bin</a></dt>
+<dd>TI 27C512 eprom from an MPS1270A</dd>
+</dl>
+</dd>
+<dt><a href="printers/mps2020/index.html">mps2020/</a></dt>
+<dd><dl>
+<dt><a href="printers/mps2020/mps2020roms.tgz">mps2020roms.tgz</a></dt>
+<dd>roms for mps2020 24 pin printer</dd>
+</dl>
+</dd>
+<dt><a href="printers/mps801/index.html">mps801/</a></dt>
+<dd><dl>
+<dt><a href="printers/mps801/mps801-unknown2732.bin">mps801-unknown2732.bin</a></dt>
+<dd>Unknown 2732 eprom labeled "New MPS801"</dd>
+<dt><a href="printers/mps801/mps801.bin">mps801.bin</a></dt>
+<dd>Firmware of the MPS801 printer.  This is a 2732 EPROM with a paper label on it
+reading"5JW". The circuit board is labeled "SEIKOSHA GP-500J".</dd>
+<dt><a href="printers/mps801/mps801_swe.bin">mps801_swe.bin</a></dt>
+<dd>MPS801 rom with Swedish (and Finnish?) characters</dd>
+</dl>
+</dd>
+<dt><a href="printers/mps803/index.html">mps803/</a></dt>
+<dd><dl>
+<dt><a href="printers/mps803/mps803.bin">mps803.bin</a></dt>
+<dd>Firmware for mps803</dd>
+<dt><a href="printers/mps803/mps803_78c11.bin">mps803_78c11.bin</a></dt>
+<dd>Dump from 78C11 mask rom by Diego Barzon</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt><a href="speed/index.html">speed/</a></dt>
+<dd><dl>
+<dd>This directory contains firmware for computers and disk drives
+to speed up disk io.  Check the manuals area for documentation.</dd>
+<dt><a href="speed/sjdmaker-0.1.tar.gz">sjdmaker-0.1.tar.gz</a></dt>
+<dd>DOS/Unix software to convert U.S. JiffyDOS roms to Swedish</dd>
+<dt><a href="speed/sx64-flash.zip">sx64-flash.zip</a></dt>
+<dd>1541-Flash! firmware for the sx-64 and internal 1541 disk drive</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<p class="bot"><a href="../MIRRORS.html">Mirror sites</a>
+&ndash;
+<a href="../README.html">General information</a>
+&ndash;
+<a href="../FILETYPES.html">File types</a>
+&ndash;
+<a href="../crossplatform/transfer/transfer.html">Data transfer</a></p>
+<p class="bot"><small>The Commodore brandname and the chickenhead logo are
+property of Commodore International BV, a Tulip company.</small></p>
+</body></html>

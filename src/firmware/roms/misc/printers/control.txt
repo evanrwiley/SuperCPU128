@@ -1,0 +1,37 @@
+This document is derived from information composed by William Levak
+(wlevak@sdf.org), mostly from the "Pet Personal Computer Guide".
+According to him, the control codes seem to be fairly consistent
+with the IEEE printers, but the serial printers seem to be quite
+different.  The secondary address are consistent with all Commodore
+printers.
+
+Printer Control Codes
+CHR$(1)                Enhance on (rest of line).
+CHR$(17)   CRSR DWN    lower case (rest of line)
+CHR$(18)   RVS         Reverse on. (rest of line)
+CHR$(19)   HOME        Top of form if paging enabled.
+CHR$(129)              Enhance off.
+CHR$(145)  CRSR UP     upper case.
+CHR$(146)  RVS OFF     Reverse off.
+CHR$(147)  CLR         Enable paging.
+
+Secondary Addresses
+ 0  Print data exactly as received.
+ 1  Print data using format.
+ 2  Set format for printing.
+ 3  Set lines/page.
+ 4  Enable diagnostic messages.
+ 5  Define character 254.
+ 6  Set line spacing. (not all printers)
+ 7  Set text mode characters. (not all printers)
+ 8  Set graphics mode characters. (not all printers)
+ 9  Disable diagnostic messages. (not all printers)
+10  Reset printer. (not all printers)
+11  Set unidirectional printing. (8023P only)
+12  Set bidirectional printing. (8023P only)
+13  Set 15 cpi. (8023P only)
+14  Set 10 cpi. (8023P only)
+15  Enable correspondence (overstrike) mode. (8023P only)
+16  Disable correspondence (overstrike) mode. (8023P only)
+17  Print bit image graphics. (8023P only)
+18  Print received bit image graphics again. (8023P only)

@@ -1,0 +1,16 @@
+Name:
+	bsw->swe.cvt
+
+Format:
+	Converted Auto-Executable GEOS file. Convert it to GEOS with
+	Convert2.5.
+
+Description:
+	Modifies the default GEOS font (BSW) to include swedish characters
+	Å, Ä and Ö as well as É and Ü.
+
+Copyright:
+	This program is freeware.
+
+Author:
+	Irv Cobb

@@ -1,0 +1,30 @@
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CSEBA6U23I7
+set_global_assignment -name TOP_LEVEL_ENTITY supercpu_top
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "12:00:00  DECEMBER 24, 2025"
+set_global_assignment -name LAST_QUARTUS_VERSION "20.1.0 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP "-40"
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name VERILOG_FILE ../rtl/supercpu_top.v
+
+# ==============================================================================
+# PIN ASSIGNMENTS (PLACEHOLDER - DO NOT USE WITHOUT VERIFICATION)
+# ==============================================================================
+# The following assignments are based on the DE10-Nano GPIO 0/1 headers.
+# You MUST verify which C64 signal goes to which GPIO pin using a multimeter
+# or the official Sysop-64 schematic (when released).
+# ==============================================================================
+
+# Example: C64 PHI2 -> GPIO_0[0] (PIN_V12)
+# set_location_assignment PIN_V12 -to C64_PHI2
+
+# Example: C64 RESET_N -> GPIO_0[1] (PIN_E8)
+# set_location_assignment PIN_E8 -to C64_RESET_N
+
+# ==============================================================================
+# I/O STANDARDS
+# ==============================================================================
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to *

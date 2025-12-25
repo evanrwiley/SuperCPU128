@@ -1,0 +1,1148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>1520-03.asm.html</title>
+<meta name="Generator" content="Vim/7.4">
+<meta name="plugin-version" content="vim7.4_v1">
+<meta name="syntax" content="asm">
+<meta name="settings" content="use_css,no_foldcolumn,expand_tabs,prevent_copy=">
+<meta name="colorscheme" content="none">
+<style type="text/css">
+<!--
+pre { font-family: monospace; color: #000000; background-color: #ffffe7; }
+body { font-family: monospace; color: #000000; background-color: #ffffe7; }
+* { font-size: 1em; }
+.asmStrLit { color: #ff0000; }
+.asmPreProc { color: #00cf00; font-weight: bold; }
+.asmPreProc2 { color: #8c008c; font-weight: bold; }
+.asmKeyword { color: #00008c; font-weight: bold; }
+.asmType { color: #ffa600; font-weight: bold; }
+.asmAddress { color: #ef0000; }
+.asmString { color: #ffa600; }
+.asmLabel { color: #008a00; }
+.asmConst { color: #848284; }
+.asmOperator { color: #000000; }
+.asmComment { color: #a52829; font-style: italic; }
+.asmComment2 { color: #a52829; }
+-->
+</style>
+
+<script type='text/javascript'>
+<!--
+
+-->
+</script>
+</head>
+<body>
+<pre id='vimCodeElement'>
+                <span class="asmComment">; 1520 ROM 03 disassembly</span>
+
+                <span class="asmComment">; 2014 Soci/Singular</span>
+
+RAM_SIZE        <span class="asmKeyword">=</span> <span class="asmAddress">$40</span>
+ROM_START       <span class="asmKeyword">=</span> <span class="asmAddress">$800</span>
+ROM_SIZE        <span class="asmKeyword">=</span> <span class="asmAddress">$800</span>
+
+WIDTH           <span class="asmKeyword">=</span> <span class="asmAddress">480</span>
+HEIGHT          <span class="asmKeyword">=</span> <span class="asmAddress">999</span>
+COLORS          <span class="asmKeyword">=</span> <span class="asmAddress">4</span>
+LINE_HEIGHT     <span class="asmKeyword">=</span> <span class="asmAddress">10</span>
+FONT_WIDTH      <span class="asmKeyword">=</span> <span class="asmAddress">6</span>
+FONT_SIZES      <span class="asmKeyword">=</span> <span class="asmAddress">4</span>
+DASH_LENGTHS    <span class="asmKeyword">=</span> <span class="asmAddress">16</span>
+MARGIN_STEPS    <span class="asmKeyword">=</span> <span class="asmAddress">30</span>
+SETTLE_WAIT     <span class="asmKeyword">=</span> <span class="asmAddress">11382</span>
+
+IEC             <span class="asmPreProc2">.block</span>
+ATN_IN          <span class="asmKeyword">=</span> <span class="asmAddress">%00000001</span>
+CLK_IN          <span class="asmKeyword">=</span> <span class="asmAddress">%00000010</span>
+ATN_ACK         <span class="asmKeyword">=</span> <span class="asmAddress">%00100000</span>
+DATA_OUT        <span class="asmKeyword">=</span> <span class="asmAddress">%01000000</span>
+DATA_IN         <span class="asmKeyword">=</span> <span class="asmAddress">%10000000</span>
+FIRST_DEVICE    <span class="asmKeyword">=</span> <span class="asmAddress">4</span>
+DEVICE_NUMBERS  <span class="asmKeyword">=</span> <span class="asmAddress">8</span>
+LISTEN          <span class="asmKeyword">=</span> <span class="asmAddress">$20</span>
+SECOND          <span class="asmKeyword">=</span> <span class="asmAddress">$60</span>
+WAIT            <span class="asmKeyword">=</span> <span class="asmAddress">3800</span>
+                <span class="asmPreProc2">.bend</span>
+
+PEN             <span class="asmPreProc2">.block</span>
+IDLE            <span class="asmKeyword">=</span> <span class="asmAddress">%00</span>
+UP              <span class="asmKeyword">=</span> <span class="asmAddress">%01</span>
+DOWN            <span class="asmKeyword">=</span> <span class="asmAddress">%10</span>
+WAIT            <span class="asmKeyword">=</span> <span class="asmAddress">4943</span>
+STEPS           <span class="asmKeyword">=</span> <span class="asmAddress">35</span>
+                <span class="asmPreProc2">.bend</span>
+
+                <span class="asmComment">; I/O</span>
+
+port            <span class="asmPreProc2">.block</span>
+a               <span class="asmKeyword">=</span> <span class="asmAddress">$80</span>                   <span class="asmComment">; ATNIN=0, CLKIN=1, ATNACK=5, DATAOUT=6, DATAIN=7</span>
+b               <span class="asmKeyword">=</span> <span class="asmAddress">$81</span>                   <span class="asmComment">; DEVICE=0-2, LED=4, REMOVE=5, CHANGE=6, FEED=7</span>
+c               <span class="asmKeyword">=</span> <span class="asmAddress">$82</span>                   <span class="asmComment">; PENDOWN=0, PENUP=1, COLORSWITH=7</span>
+d               <span class="asmKeyword">=</span> <span class="asmAddress">$83</span>                   <span class="asmComment">; STEPX=0-3, STEPY=4-7</span>
+iec             <span class="asmKeyword">=</span> <span class="asmLabel">a</span>
+io              <span class="asmKeyword">=</span> <span class="asmLabel">b</span>
+pen             <span class="asmKeyword">=</span> <span class="asmLabel">c</span>
+stepper         <span class="asmKeyword">=</span> <span class="asmLabel">d</span>
+                <span class="asmPreProc2">.bend</span>
+latch_l         <span class="asmKeyword">=</span> <span class="asmAddress">$85</span>
+latch_now       <span class="asmKeyword">=</span> <span class="asmAddress">$88</span>
+control         <span class="asmKeyword">=</span> <span class="asmAddress">$8f</span>
+
+                *<span class="asmKeyword">=</span> <span class="asmAddress">$00</span>                  <span class="asmComment">;RAM</span>
+
+coord_s         <span class="asmPreProc">.struct</span>
+x               <span class="asmType">.word</span> <span class="asmAddress">?</span>
+y               <span class="asmType">.word</span> <span class="asmAddress">?</span>
+                <span class="asmPreProc">.ends</span>
+
+accu            <span class="asmType">.word</span> <span class="asmAddress">?</span>
+longer          <span class="asmType">.word</span> <span class="asmAddress">?</span>
+shorter         <span class="asmType">.word</span> <span class="asmAddress">?</span>
+cmd             <span class="asmType">.dstruct</span> <span class="asmLabel">coord_s</span>
+absorig         <span class="asmType">.dstruct</span> <span class="asmLabel">coord_s</span>
+relorig         <span class="asmType">.dstruct</span> <span class="asmLabel">coord_s</span>
+num_temp        <span class="asmType">.word</span> <span class="asmAddress">?</span>
+num_neg         <span class="asmType">.byte</span> <span class="asmAddress">?</span>
+count           <span class="asmType">.byte</span> <span class="asmAddress">?</span>
+fontp           <span class="asmType">.word</span> <span class="asmAddress">?</span>
+upper_lower     <span class="asmType">.byte</span> <span class="asmAddress">?</span>
+quote_counter   <span class="asmType">.byte</span> <span class="asmAddress">?</span>
+underline       <span class="asmType">.byte</span> <span class="asmAddress">?</span>
+font_tmp        <span class="asmType">.byte</span> <span class="asmAddress">?</span>
+char_size       <span class="asmType">.byte</span> <span class="asmAddress">?</span>
+current_color   <span class="asmType">.byte</span> <span class="asmAddress">?</span>
+color           <span class="asmType">.byte</span> <span class="asmAddress">?</span>
+cmd_use_pen     <span class="asmType">.byte</span> <span class="asmAddress">?</span>
+pen_state       <span class="asmType">.byte</span> <span class="asmAddress">?</span>
+char_rotation   <span class="asmType">.byte</span> <span class="asmAddress">?</span>
+dashed          <span class="asmType">.byte</span> <span class="asmAddress">?</span>
+dash_counter    <span class="asmType">.byte</span> <span class="asmAddress">?</span>
+                <span class="asmType">.byte</span> <span class="asmAddress">?</span>                 <span class="asmComment">;unused</span>
+                <span class="asmPreProc">.union</span>
+                <span class="asmPreProc">.struct</span>
+step            <span class="asmPreProc2">.block</span>
+x               <span class="asmType">.byte</span> <span class="asmAddress">?</span>
+                <span class="asmType">.byte</span> <span class="asmAddress">?</span>
+y               <span class="asmType">.byte</span> <span class="asmAddress">?</span>
+                <span class="asmPreProc2">.bend</span>
+                <span class="asmPreProc">.ends</span>
+                <span class="asmPreProc">.struct</span>
+                <span class="asmType">.byte</span> <span class="asmAddress">?</span>
+sign            <span class="asmPreProc2">.block</span>
+x               <span class="asmType">.byte</span> <span class="asmAddress">?</span>
+                <span class="asmType">.byte</span> <span class="asmAddress">?</span>
+y               <span class="asmType">.byte</span> <span class="asmAddress">?</span>
+                <span class="asmPreProc2">.bend</span>
+                <span class="asmPreProc">.ends</span>
+                <span class="asmPreProc">.endu</span>
+stepper         <span class="asmPreProc2">.block</span>
+x               <span class="asmType">.byte</span> <span class="asmAddress">?</span>
+padding         <span class="asmType">.byte</span> <span class="asmAddress">?</span>
+y               <span class="asmType">.byte</span> <span class="asmAddress">?</span>
+                <span class="asmPreProc2">.bend</span>
+was_x           <span class="asmKeyword">=</span> <span class="asmLabel">stepper</span><span class="asmOperator">.</span><span class="asmLabel">padding</span>
+serial_buf      <span class="asmType">.byte</span> <span class="asmAddress">?</span>
+serial_eot      <span class="asmType">.byte</span> <span class="asmAddress">?</span>
+
+                <span class="asmPreProc2">.cerror</span> <span class="asmOperator">*</span> <span class="asmOperator">&gt;</span> <span class="asmConst">RAM_SIZE</span> <span class="asmOperator">-</span> <span class="asmAddress">10</span><span class="asmOperator">,</span> <span class="asmString">&quot;</span><span class="asmString">Too many RAM variables</span><span class="asmString">&quot;</span>
+
+                *<span class="asmKeyword">=</span> <span class="asmConst">ROM_START</span>
+<span class="asmComment2">;</span>
+<span class="asmComment2">; Font format:</span>
+<span class="asmComment2">;</span>
+<span class="asmComment2">; %EXXXYYYP</span>
+<span class="asmComment2">; E - last command in list (1)</span>
+<span class="asmComment2">; X - x coordinate (0-7)</span>
+<span class="asmComment2">; Y - y coordinate (0-7)</span>
+<span class="asmComment2">; P - use pen (1), or just move (0)</span>
+<span class="asmComment2">;</span>
+font            <span class="asmPreProc2">.block</span>
+LOW_LINE        <span class="asmKeyword">=</span> <span class="asmAddress">$5c</span>
+PI              <span class="asmKeyword">=</span> <span class="asmAddress">$5e</span>
+SQUARE          <span class="asmKeyword">=</span> <span class="asmAddress">$5f</span>
+
+<span class="asmComment2">; converts from $PXY to %0XXXYYYP for easier editing</span>
+convert         <span class="asmPreProc">.function</span> <span class="asmOperator">*</span><span class="asmLabel">v</span>
+                <span class="asmPreProc">.endf</span> <span class="asmOperator">(</span><span class="asmLabel">v</span> <span class="asmOperator">&gt;&gt;</span> <span class="asmAddress">8</span><span class="asmOperator">)</span> <span class="asmOperator">|</span> <span class="asmOperator">((</span><span class="asmLabel">v</span> <span class="asmOperator">&amp;</span> <span class="asmAddress">7</span><span class="asmOperator">)</span> <span class="asmOperator">&lt;&lt;</span> <span class="asmAddress">1</span><span class="asmOperator">)</span> <span class="asmOperator">|</span> <span class="asmOperator">(</span><span class="asmLabel">v</span> <span class="asmOperator">&amp;</span> <span class="asmAddress">$70</span><span class="asmOperator">)</span>
+
+                <span class="asmType">.byte</span> <span class="asmAddress">$ff</span>               <span class="asmComment">;dummy</span>
+<span class="asmComment2">;SPACE</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$000</span><span class="asmOperator">)</span>
+<span class="asmComment2">;EXCLAMATION MARK</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$021</span><span class="asmOperator">,</span> <span class="asmAddress">$122</span><span class="asmOperator">,</span> <span class="asmAddress">$132</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">,</span> <span class="asmAddress">$121</span><span class="asmOperator">,</span> <span class="asmAddress">$023</span><span class="asmOperator">,</span> <span class="asmAddress">$127</span><span class="asmOperator">,</span> <span class="asmAddress">$137</span><span class="asmOperator">,</span> <span class="asmAddress">$133</span><span class="asmOperator">,</span> <span class="asmAddress">$123</span><span class="asmOperator">)</span>
+<span class="asmComment2">;QUOTATION MARK</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$017</span><span class="asmOperator">,</span> <span class="asmAddress">$116</span><span class="asmOperator">,</span> <span class="asmAddress">$037</span><span class="asmOperator">,</span> <span class="asmAddress">$136</span><span class="asmOperator">)</span>
+<span class="asmComment2">;NUMBER SIGN</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$012</span><span class="asmOperator">,</span> <span class="asmAddress">$116</span><span class="asmOperator">,</span> <span class="asmAddress">$036</span><span class="asmOperator">,</span> <span class="asmAddress">$132</span><span class="asmOperator">,</span> <span class="asmAddress">$043</span><span class="asmOperator">,</span> <span class="asmAddress">$103</span><span class="asmOperator">,</span> <span class="asmAddress">$005</span><span class="asmOperator">,</span> <span class="asmAddress">$145</span><span class="asmOperator">)</span>
+<span class="asmComment2">;DOLLAR SIGN</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$012</span><span class="asmOperator">,</span> <span class="asmAddress">$132</span><span class="asmOperator">,</span> <span class="asmAddress">$143</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">,</span> <span class="asmAddress">$114</span><span class="asmOperator">,</span> <span class="asmAddress">$105</span><span class="asmOperator">,</span> <span class="asmAddress">$116</span><span class="asmOperator">,</span> <span class="asmAddress">$136</span><span class="asmOperator">,</span> <span class="asmAddress">$027</span><span class="asmOperator">,</span> <span class="asmAddress">$121</span><span class="asmOperator">)</span>
+<span class="asmComment2">;PERCENT SIGN</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$002</span><span class="asmOperator">,</span> <span class="asmAddress">$146</span><span class="asmOperator">,</span> <span class="asmAddress">$016</span><span class="asmOperator">,</span> <span class="asmAddress">$106</span><span class="asmOperator">,</span> <span class="asmAddress">$105</span><span class="asmOperator">,</span> <span class="asmAddress">$115</span><span class="asmOperator">,</span> <span class="asmAddress">$116</span><span class="asmOperator">,</span> <span class="asmAddress">$033</span><span class="asmOperator">,</span> <span class="asmAddress">$143</span><span class="asmOperator">,</span> <span class="asmAddress">$142</span><span class="asmOperator">,</span> <span class="asmAddress">$132</span><span class="asmOperator">,</span> <span class="asmAddress">$133</span><span class="asmOperator">)</span>
+<span class="asmComment2">;AMPERSAND</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$041</span><span class="asmOperator">,</span> <span class="asmAddress">$105</span><span class="asmOperator">,</span> <span class="asmAddress">$106</span><span class="asmOperator">,</span> <span class="asmAddress">$117</span><span class="asmOperator">,</span> <span class="asmAddress">$126</span><span class="asmOperator">,</span> <span class="asmAddress">$125</span><span class="asmOperator">,</span> <span class="asmAddress">$103</span><span class="asmOperator">,</span> <span class="asmAddress">$102</span><span class="asmOperator">,</span> <span class="asmAddress">$111</span><span class="asmOperator">,</span> <span class="asmAddress">$121</span><span class="asmOperator">,</span> <span class="asmAddress">$143</span><span class="asmOperator">)</span>
+<span class="asmComment2">;APOSTROPHE</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$025</span><span class="asmOperator">,</span> <span class="asmAddress">$127</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LEFT PARENTHESIS</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$031</span><span class="asmOperator">,</span> <span class="asmAddress">$121</span><span class="asmOperator">,</span> <span class="asmAddress">$112</span><span class="asmOperator">,</span> <span class="asmAddress">$116</span><span class="asmOperator">,</span> <span class="asmAddress">$127</span><span class="asmOperator">,</span> <span class="asmAddress">$137</span><span class="asmOperator">)</span>
+<span class="asmComment2">;RIGHT PARENTHESIS</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$021</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">,</span> <span class="asmAddress">$142</span><span class="asmOperator">,</span> <span class="asmAddress">$146</span><span class="asmOperator">,</span> <span class="asmAddress">$137</span><span class="asmOperator">,</span> <span class="asmAddress">$127</span><span class="asmOperator">)</span>
+<span class="asmComment2">;ASTERISK</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$002</span><span class="asmOperator">,</span> <span class="asmAddress">$146</span><span class="asmOperator">,</span> <span class="asmAddress">$006</span><span class="asmOperator">,</span> <span class="asmAddress">$142</span><span class="asmOperator">,</span> <span class="asmAddress">$026</span><span class="asmOperator">,</span> <span class="asmAddress">$122</span><span class="asmOperator">)</span>
+<span class="asmComment2">;PLUS SIGN</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$022</span><span class="asmOperator">,</span> <span class="asmAddress">$126</span><span class="asmOperator">,</span> <span class="asmAddress">$004</span><span class="asmOperator">,</span> <span class="asmAddress">$144</span><span class="asmOperator">)</span>
+<span class="asmComment2">;COMMA</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$020</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">,</span> <span class="asmAddress">$132</span><span class="asmOperator">,</span> <span class="asmAddress">$122</span><span class="asmOperator">,</span> <span class="asmAddress">$121</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">)</span>
+<span class="asmComment2">;HYPHEN-MINUS</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$004</span><span class="asmOperator">,</span> <span class="asmAddress">$144</span><span class="asmOperator">)</span>
+<span class="asmComment2">;FULL STOP</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$021</span><span class="asmOperator">,</span> <span class="asmAddress">$122</span><span class="asmOperator">,</span> <span class="asmAddress">$132</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">,</span> <span class="asmAddress">$121</span><span class="asmOperator">)</span>
+<span class="asmComment2">;SOLIDUS</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$001</span><span class="asmOperator">,</span> <span class="asmAddress">$156</span><span class="asmOperator">)</span>
+<span class="asmComment2">;DIGIT ZERO</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$002</span><span class="asmOperator">,</span> <span class="asmAddress">$146</span><span class="asmOperator">,</span> <span class="asmAddress">$137</span><span class="asmOperator">,</span> <span class="asmAddress">$117</span><span class="asmOperator">,</span> <span class="asmAddress">$106</span><span class="asmOperator">,</span> <span class="asmAddress">$102</span><span class="asmOperator">,</span> <span class="asmAddress">$111</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">,</span> <span class="asmAddress">$142</span><span class="asmOperator">,</span> <span class="asmAddress">$146</span><span class="asmOperator">)</span>
+<span class="asmComment2">;DIGIT ONE</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$016</span><span class="asmOperator">,</span> <span class="asmAddress">$127</span><span class="asmOperator">,</span> <span class="asmAddress">$121</span><span class="asmOperator">,</span> <span class="asmAddress">$011</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">)</span>
+<span class="asmComment2">;DIGIT TWO</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$006</span><span class="asmOperator">,</span> <span class="asmAddress">$117</span><span class="asmOperator">,</span> <span class="asmAddress">$137</span><span class="asmOperator">,</span> <span class="asmAddress">$146</span><span class="asmOperator">,</span> <span class="asmAddress">$145</span><span class="asmOperator">,</span> <span class="asmAddress">$101</span><span class="asmOperator">,</span> <span class="asmAddress">$141</span><span class="asmOperator">)</span>
+<span class="asmComment2">;DIGIT THREE</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$006</span><span class="asmOperator">,</span> <span class="asmAddress">$117</span><span class="asmOperator">,</span> <span class="asmAddress">$137</span><span class="asmOperator">,</span> <span class="asmAddress">$146</span><span class="asmOperator">,</span> <span class="asmAddress">$145</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">,</span> <span class="asmAddress">$124</span><span class="asmOperator">,</span> <span class="asmAddress">$034</span><span class="asmOperator">,</span> <span class="asmAddress">$143</span><span class="asmOperator">,</span> <span class="asmAddress">$142</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">,</span> <span class="asmAddress">$111</span><span class="asmOperator">,</span> <span class="asmAddress">$102</span><span class="asmOperator">)</span>
+<span class="asmComment2">;DIGIT FOUR</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$031</span><span class="asmOperator">,</span> <span class="asmAddress">$137</span><span class="asmOperator">,</span> <span class="asmAddress">$104</span><span class="asmOperator">,</span> <span class="asmAddress">$103</span><span class="asmOperator">,</span> <span class="asmAddress">$143</span><span class="asmOperator">)</span>
+<span class="asmComment2">;DIGIT FIVE</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$002</span><span class="asmOperator">,</span> <span class="asmAddress">$111</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">,</span> <span class="asmAddress">$142</span><span class="asmOperator">,</span> <span class="asmAddress">$144</span><span class="asmOperator">,</span> <span class="asmAddress">$135</span><span class="asmOperator">,</span> <span class="asmAddress">$105</span><span class="asmOperator">,</span> <span class="asmAddress">$107</span><span class="asmOperator">,</span> <span class="asmAddress">$147</span><span class="asmOperator">)</span>
+<span class="asmComment2">;DIGIT SIX</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$004</span><span class="asmOperator">,</span> <span class="asmAddress">$115</span><span class="asmOperator">,</span> <span class="asmAddress">$135</span><span class="asmOperator">,</span> <span class="asmAddress">$144</span><span class="asmOperator">,</span> <span class="asmAddress">$142</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">,</span> <span class="asmAddress">$111</span><span class="asmOperator">,</span> <span class="asmAddress">$102</span><span class="asmOperator">,</span> <span class="asmAddress">$106</span><span class="asmOperator">,</span> <span class="asmAddress">$117</span><span class="asmOperator">,</span> <span class="asmAddress">$137</span><span class="asmOperator">,</span> <span class="asmAddress">$146</span><span class="asmOperator">)</span>
+<span class="asmComment2">;DIGIT SEVEN</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$001</span><span class="asmOperator">,</span> <span class="asmAddress">$145</span><span class="asmOperator">,</span> <span class="asmAddress">$147</span><span class="asmOperator">,</span> <span class="asmAddress">$107</span><span class="asmOperator">)</span>
+<span class="asmComment2">;DIGIT EIGHT</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$014</span><span class="asmOperator">,</span> <span class="asmAddress">$105</span><span class="asmOperator">,</span> <span class="asmAddress">$106</span><span class="asmOperator">,</span> <span class="asmAddress">$117</span><span class="asmOperator">,</span> <span class="asmAddress">$137</span><span class="asmOperator">,</span> <span class="asmAddress">$146</span><span class="asmOperator">,</span> <span class="asmAddress">$145</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">,</span> <span class="asmAddress">$143</span><span class="asmOperator">,</span> <span class="asmAddress">$142</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">,</span> <span class="asmAddress">$111</span><span class="asmOperator">,</span> <span class="asmAddress">$102</span><span class="asmOperator">,</span> <span class="asmAddress">$103</span><span class="asmOperator">,</span> <span class="asmAddress">$114</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">)</span>
+<span class="asmComment2">;DIGIT NINE</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$002</span><span class="asmOperator">,</span> <span class="asmAddress">$111</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">,</span> <span class="asmAddress">$142</span><span class="asmOperator">,</span> <span class="asmAddress">$146</span><span class="asmOperator">,</span> <span class="asmAddress">$137</span><span class="asmOperator">,</span> <span class="asmAddress">$117</span><span class="asmOperator">,</span> <span class="asmAddress">$106</span><span class="asmOperator">,</span> <span class="asmAddress">$105</span><span class="asmOperator">,</span> <span class="asmAddress">$114</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">,</span> <span class="asmAddress">$145</span><span class="asmOperator">)</span>
+<span class="asmComment2">;COLON</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$012</span><span class="asmOperator">,</span> <span class="asmAddress">$113</span><span class="asmOperator">,</span> <span class="asmAddress">$123</span><span class="asmOperator">,</span> <span class="asmAddress">$122</span><span class="asmOperator">,</span> <span class="asmAddress">$112</span><span class="asmOperator">,</span> <span class="asmAddress">$015</span><span class="asmOperator">,</span> <span class="asmAddress">$116</span><span class="asmOperator">,</span> <span class="asmAddress">$126</span><span class="asmOperator">,</span> <span class="asmAddress">$125</span><span class="asmOperator">,</span> <span class="asmAddress">$115</span><span class="asmOperator">)</span>
+<span class="asmComment2">;SEMICOLON</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$011</span><span class="asmOperator">,</span> <span class="asmAddress">$122</span><span class="asmOperator">,</span> <span class="asmAddress">$123</span><span class="asmOperator">,</span> <span class="asmAddress">$113</span><span class="asmOperator">,</span> <span class="asmAddress">$112</span><span class="asmOperator">,</span> <span class="asmAddress">$122</span><span class="asmOperator">,</span> <span class="asmAddress">$025</span><span class="asmOperator">,</span> <span class="asmAddress">$126</span><span class="asmOperator">,</span> <span class="asmAddress">$116</span><span class="asmOperator">,</span> <span class="asmAddress">$115</span><span class="asmOperator">,</span> <span class="asmAddress">$125</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LESS-THAN SIGN</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$041</span><span class="asmOperator">,</span> <span class="asmAddress">$114</span><span class="asmOperator">,</span> <span class="asmAddress">$147</span><span class="asmOperator">)</span>
+<span class="asmComment2">;EQUALS SIGN</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$013</span><span class="asmOperator">,</span> <span class="asmAddress">$143</span><span class="asmOperator">,</span> <span class="asmAddress">$015</span><span class="asmOperator">,</span> <span class="asmAddress">$145</span><span class="asmOperator">)</span>
+<span class="asmComment2">;GREATER-THAN SIGN</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$011</span><span class="asmOperator">,</span> <span class="asmAddress">$144</span><span class="asmOperator">,</span> <span class="asmAddress">$117</span><span class="asmOperator">)</span>
+<span class="asmComment2">;QUESTION MARK</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$006</span><span class="asmOperator">,</span> <span class="asmAddress">$117</span><span class="asmOperator">,</span> <span class="asmAddress">$137</span><span class="asmOperator">,</span> <span class="asmAddress">$146</span><span class="asmOperator">,</span> <span class="asmAddress">$145</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">,</span> <span class="asmAddress">$124</span><span class="asmOperator">,</span> <span class="asmAddress">$123</span><span class="asmOperator">,</span> <span class="asmAddress">$022</span><span class="asmOperator">,</span> <span class="asmAddress">$121</span><span class="asmOperator">)</span>
+<span class="asmComment2">;COMMERCIAL AT</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$033</span><span class="asmOperator">,</span> <span class="asmAddress">$135</span><span class="asmOperator">,</span> <span class="asmAddress">$115</span><span class="asmOperator">,</span> <span class="asmAddress">$112</span><span class="asmOperator">,</span> <span class="asmAddress">$132</span><span class="asmOperator">,</span> <span class="asmAddress">$143</span><span class="asmOperator">,</span> <span class="asmAddress">$145</span><span class="asmOperator">,</span> <span class="asmAddress">$136</span><span class="asmOperator">,</span> <span class="asmAddress">$116</span><span class="asmOperator">,</span> <span class="asmAddress">$105</span><span class="asmOperator">,</span> <span class="asmAddress">$102</span><span class="asmOperator">,</span> <span class="asmAddress">$111</span><span class="asmOperator">,</span> <span class="asmAddress">$141</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN CAPITAL LETTER A</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$001</span><span class="asmOperator">,</span> <span class="asmAddress">$105</span><span class="asmOperator">,</span> <span class="asmAddress">$127</span><span class="asmOperator">,</span> <span class="asmAddress">$145</span><span class="asmOperator">,</span> <span class="asmAddress">$141</span><span class="asmOperator">,</span> <span class="asmAddress">$004</span><span class="asmOperator">,</span> <span class="asmAddress">$144</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN CAPITAL LETTER B</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$001</span><span class="asmOperator">,</span> <span class="asmAddress">$107</span><span class="asmOperator">,</span> <span class="asmAddress">$137</span><span class="asmOperator">,</span> <span class="asmAddress">$146</span><span class="asmOperator">,</span> <span class="asmAddress">$145</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">,</span> <span class="asmAddress">$004</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">,</span> <span class="asmAddress">$143</span><span class="asmOperator">,</span> <span class="asmAddress">$142</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">,</span> <span class="asmAddress">$101</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN CAPITAL LETTER C</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$042</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">,</span> <span class="asmAddress">$111</span><span class="asmOperator">,</span> <span class="asmAddress">$102</span><span class="asmOperator">,</span> <span class="asmAddress">$106</span><span class="asmOperator">,</span> <span class="asmAddress">$117</span><span class="asmOperator">,</span> <span class="asmAddress">$137</span><span class="asmOperator">,</span> <span class="asmAddress">$146</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN CAPITAL LETTER D</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$001</span><span class="asmOperator">,</span> <span class="asmAddress">$107</span><span class="asmOperator">,</span> <span class="asmAddress">$137</span><span class="asmOperator">,</span> <span class="asmAddress">$146</span><span class="asmOperator">,</span> <span class="asmAddress">$142</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">,</span> <span class="asmAddress">$101</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN CAPITAL LETTER E</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$041</span><span class="asmOperator">,</span> <span class="asmAddress">$101</span><span class="asmOperator">,</span> <span class="asmAddress">$107</span><span class="asmOperator">,</span> <span class="asmAddress">$147</span><span class="asmOperator">,</span> <span class="asmAddress">$034</span><span class="asmOperator">,</span> <span class="asmAddress">$104</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN CAPITAL LETTER F</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$001</span><span class="asmOperator">,</span> <span class="asmAddress">$107</span><span class="asmOperator">,</span> <span class="asmAddress">$147</span><span class="asmOperator">,</span> <span class="asmAddress">$004</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN CAPITAL LETTER G</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$046</span><span class="asmOperator">,</span> <span class="asmAddress">$137</span><span class="asmOperator">,</span> <span class="asmAddress">$117</span><span class="asmOperator">,</span> <span class="asmAddress">$106</span><span class="asmOperator">,</span> <span class="asmAddress">$102</span><span class="asmOperator">,</span> <span class="asmAddress">$111</span><span class="asmOperator">,</span> <span class="asmAddress">$141</span><span class="asmOperator">,</span> <span class="asmAddress">$144</span><span class="asmOperator">,</span> <span class="asmAddress">$124</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN CAPITAL LETTER H</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$001</span><span class="asmOperator">,</span> <span class="asmAddress">$107</span><span class="asmOperator">,</span> <span class="asmAddress">$047</span><span class="asmOperator">,</span> <span class="asmAddress">$141</span><span class="asmOperator">,</span> <span class="asmAddress">$004</span><span class="asmOperator">,</span> <span class="asmAddress">$144</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN CAPITAL LETTER I</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$011</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">,</span> <span class="asmAddress">$021</span><span class="asmOperator">,</span> <span class="asmAddress">$127</span><span class="asmOperator">,</span> <span class="asmAddress">$017</span><span class="asmOperator">,</span> <span class="asmAddress">$137</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN CAPITAL LETTER J</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$002</span><span class="asmOperator">,</span> <span class="asmAddress">$111</span><span class="asmOperator">,</span> <span class="asmAddress">$121</span><span class="asmOperator">,</span> <span class="asmAddress">$132</span><span class="asmOperator">,</span> <span class="asmAddress">$137</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN CAPITAL LETTER K</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$001</span><span class="asmOperator">,</span> <span class="asmAddress">$107</span><span class="asmOperator">,</span> <span class="asmAddress">$047</span><span class="asmOperator">,</span> <span class="asmAddress">$103</span><span class="asmOperator">,</span> <span class="asmAddress">$014</span><span class="asmOperator">,</span> <span class="asmAddress">$141</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN CAPITAL LETTER L</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$007</span><span class="asmOperator">,</span> <span class="asmAddress">$101</span><span class="asmOperator">,</span> <span class="asmAddress">$141</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN CAPITAL LETTER M</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$001</span><span class="asmOperator">,</span> <span class="asmAddress">$107</span><span class="asmOperator">,</span> <span class="asmAddress">$125</span><span class="asmOperator">,</span> <span class="asmAddress">$124</span><span class="asmOperator">,</span> <span class="asmAddress">$125</span><span class="asmOperator">,</span> <span class="asmAddress">$147</span><span class="asmOperator">,</span> <span class="asmAddress">$141</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN CAPITAL LETTER N</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$001</span><span class="asmOperator">,</span> <span class="asmAddress">$107</span><span class="asmOperator">,</span> <span class="asmAddress">$006</span><span class="asmOperator">,</span> <span class="asmAddress">$142</span><span class="asmOperator">,</span> <span class="asmAddress">$047</span><span class="asmOperator">,</span> <span class="asmAddress">$141</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN CAPITAL LETTER O</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$002</span><span class="asmOperator">,</span> <span class="asmAddress">$106</span><span class="asmOperator">,</span> <span class="asmAddress">$117</span><span class="asmOperator">,</span> <span class="asmAddress">$137</span><span class="asmOperator">,</span> <span class="asmAddress">$146</span><span class="asmOperator">,</span> <span class="asmAddress">$142</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">,</span> <span class="asmAddress">$111</span><span class="asmOperator">,</span> <span class="asmAddress">$102</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN CAPITAL LETTER P</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$001</span><span class="asmOperator">,</span> <span class="asmAddress">$107</span><span class="asmOperator">,</span> <span class="asmAddress">$137</span><span class="asmOperator">,</span> <span class="asmAddress">$146</span><span class="asmOperator">,</span> <span class="asmAddress">$145</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">,</span> <span class="asmAddress">$104</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN CAPITAL LETTER Q</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$023</span><span class="asmOperator">,</span> <span class="asmAddress">$141</span><span class="asmOperator">,</span> <span class="asmAddress">$031</span><span class="asmOperator">,</span> <span class="asmAddress">$111</span><span class="asmOperator">,</span> <span class="asmAddress">$102</span><span class="asmOperator">,</span> <span class="asmAddress">$106</span><span class="asmOperator">,</span> <span class="asmAddress">$117</span><span class="asmOperator">,</span> <span class="asmAddress">$137</span><span class="asmOperator">,</span> <span class="asmAddress">$146</span><span class="asmOperator">,</span> <span class="asmAddress">$142</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN CAPITAL LETTER R</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$001</span><span class="asmOperator">,</span> <span class="asmAddress">$107</span><span class="asmOperator">,</span> <span class="asmAddress">$137</span><span class="asmOperator">,</span> <span class="asmAddress">$146</span><span class="asmOperator">,</span> <span class="asmAddress">$145</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">,</span> <span class="asmAddress">$104</span><span class="asmOperator">,</span> <span class="asmAddress">$014</span><span class="asmOperator">,</span> <span class="asmAddress">$141</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN CAPITAL LETTER S</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$002</span><span class="asmOperator">,</span> <span class="asmAddress">$111</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">,</span> <span class="asmAddress">$142</span><span class="asmOperator">,</span> <span class="asmAddress">$143</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">,</span> <span class="asmAddress">$114</span><span class="asmOperator">,</span> <span class="asmAddress">$105</span><span class="asmOperator">,</span> <span class="asmAddress">$106</span><span class="asmOperator">,</span> <span class="asmAddress">$117</span><span class="asmOperator">,</span> <span class="asmAddress">$137</span><span class="asmOperator">,</span> <span class="asmAddress">$146</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN CAPITAL LETTER T</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$021</span><span class="asmOperator">,</span> <span class="asmAddress">$127</span><span class="asmOperator">,</span> <span class="asmAddress">$007</span><span class="asmOperator">,</span> <span class="asmAddress">$147</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN CAPITAL LETTER U</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$007</span><span class="asmOperator">,</span> <span class="asmAddress">$102</span><span class="asmOperator">,</span> <span class="asmAddress">$111</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">,</span> <span class="asmAddress">$142</span><span class="asmOperator">,</span> <span class="asmAddress">$147</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN CAPITAL LETTER V</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$007</span><span class="asmOperator">,</span> <span class="asmAddress">$103</span><span class="asmOperator">,</span> <span class="asmAddress">$121</span><span class="asmOperator">,</span> <span class="asmAddress">$143</span><span class="asmOperator">,</span> <span class="asmAddress">$147</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN CAPITAL LETTER W</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$007</span><span class="asmOperator">,</span> <span class="asmAddress">$101</span><span class="asmOperator">,</span> <span class="asmAddress">$123</span><span class="asmOperator">,</span> <span class="asmAddress">$024</span><span class="asmOperator">,</span> <span class="asmAddress">$123</span><span class="asmOperator">,</span> <span class="asmAddress">$141</span><span class="asmOperator">,</span> <span class="asmAddress">$147</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN CAPITAL LETTER X</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$001</span><span class="asmOperator">,</span> <span class="asmAddress">$102</span><span class="asmOperator">,</span> <span class="asmAddress">$146</span><span class="asmOperator">,</span> <span class="asmAddress">$147</span><span class="asmOperator">,</span> <span class="asmAddress">$007</span><span class="asmOperator">,</span> <span class="asmAddress">$106</span><span class="asmOperator">,</span> <span class="asmAddress">$142</span><span class="asmOperator">,</span> <span class="asmAddress">$141</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN CAPITAL LETTER Y</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$021</span><span class="asmOperator">,</span> <span class="asmAddress">$124</span><span class="asmOperator">,</span> <span class="asmAddress">$146</span><span class="asmOperator">,</span> <span class="asmAddress">$147</span><span class="asmOperator">,</span> <span class="asmAddress">$007</span><span class="asmOperator">,</span> <span class="asmAddress">$106</span><span class="asmOperator">,</span> <span class="asmAddress">$124</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN CAPITAL LETTER Z</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$007</span><span class="asmOperator">,</span> <span class="asmAddress">$147</span><span class="asmOperator">,</span> <span class="asmAddress">$146</span><span class="asmOperator">,</span> <span class="asmAddress">$102</span><span class="asmOperator">,</span> <span class="asmAddress">$101</span><span class="asmOperator">,</span> <span class="asmAddress">$141</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LEFT SQUARE BRACKET</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$021</span><span class="asmOperator">,</span> <span class="asmAddress">$101</span><span class="asmOperator">,</span> <span class="asmAddress">$107</span><span class="asmOperator">,</span> <span class="asmAddress">$127</span><span class="asmOperator">)</span>
+<span class="asmComment2">;POUND SIGN</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$056</span><span class="asmOperator">,</span> <span class="asmAddress">$146</span><span class="asmOperator">,</span> <span class="asmAddress">$135</span><span class="asmOperator">,</span> <span class="asmAddress">$132</span><span class="asmOperator">,</span> <span class="asmAddress">$121</span><span class="asmOperator">,</span> <span class="asmAddress">$111</span><span class="asmOperator">,</span> <span class="asmAddress">$102</span><span class="asmOperator">,</span> <span class="asmAddress">$113</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">,</span> <span class="asmAddress">$151</span><span class="asmOperator">,</span> <span class="asmAddress">$024</span><span class="asmOperator">,</span> <span class="asmAddress">$144</span><span class="asmOperator">)</span>
+<span class="asmComment2">;RIGHT SQUARE BRACKET</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$011</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">,</span> <span class="asmAddress">$137</span><span class="asmOperator">,</span> <span class="asmAddress">$117</span><span class="asmOperator">)</span>
+<span class="asmComment2">;UPWARDS ARROW</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$021</span><span class="asmOperator">,</span> <span class="asmAddress">$126</span><span class="asmOperator">,</span> <span class="asmAddress">$004</span><span class="asmOperator">,</span> <span class="asmAddress">$126</span><span class="asmOperator">,</span> <span class="asmAddress">$144</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LEFTWARDS ARROW</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$022</span><span class="asmOperator">,</span> <span class="asmAddress">$104</span><span class="asmOperator">,</span> <span class="asmAddress">$126</span><span class="asmOperator">,</span> <span class="asmAddress">$004</span><span class="asmOperator">,</span> <span class="asmAddress">$154</span><span class="asmOperator">)</span>
+<span class="asmComment2">;BOX DRAWINGS LIGHT HORIZONTAL</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$004</span><span class="asmOperator">,</span> <span class="asmAddress">$174</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN SMALL LETTER A</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$032</span><span class="asmOperator">,</span> <span class="asmAddress">$121</span><span class="asmOperator">,</span> <span class="asmAddress">$111</span><span class="asmOperator">,</span> <span class="asmAddress">$102</span><span class="asmOperator">,</span> <span class="asmAddress">$103</span><span class="asmOperator">,</span> <span class="asmAddress">$114</span><span class="asmOperator">,</span> <span class="asmAddress">$124</span><span class="asmOperator">,</span> <span class="asmAddress">$133</span><span class="asmOperator">,</span> <span class="asmAddress">$005</span><span class="asmOperator">,</span> <span class="asmAddress">$125</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">,</span> <span class="asmAddress">$132</span><span class="asmOperator">,</span> <span class="asmAddress">$141</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN SMALL LETTER B</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$007</span><span class="asmOperator">,</span> <span class="asmAddress">$101</span><span class="asmOperator">,</span> <span class="asmAddress">$121</span><span class="asmOperator">,</span> <span class="asmAddress">$132</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">,</span> <span class="asmAddress">$125</span><span class="asmOperator">,</span> <span class="asmAddress">$105</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN SMALL LETTER C</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$032</span><span class="asmOperator">,</span> <span class="asmAddress">$121</span><span class="asmOperator">,</span> <span class="asmAddress">$111</span><span class="asmOperator">,</span> <span class="asmAddress">$102</span><span class="asmOperator">,</span> <span class="asmAddress">$104</span><span class="asmOperator">,</span> <span class="asmAddress">$115</span><span class="asmOperator">,</span> <span class="asmAddress">$125</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN SMALL LETTER D</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$035</span><span class="asmOperator">,</span> <span class="asmAddress">$115</span><span class="asmOperator">,</span> <span class="asmAddress">$104</span><span class="asmOperator">,</span> <span class="asmAddress">$102</span><span class="asmOperator">,</span> <span class="asmAddress">$111</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">,</span> <span class="asmAddress">$137</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN SMALL LETTER E</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$003</span><span class="asmOperator">,</span> <span class="asmAddress">$133</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">,</span> <span class="asmAddress">$125</span><span class="asmOperator">,</span> <span class="asmAddress">$115</span><span class="asmOperator">,</span> <span class="asmAddress">$104</span><span class="asmOperator">,</span> <span class="asmAddress">$102</span><span class="asmOperator">,</span> <span class="asmAddress">$111</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN SMALL LETTER F</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$021</span><span class="asmOperator">,</span> <span class="asmAddress">$127</span><span class="asmOperator">,</span> <span class="asmAddress">$137</span><span class="asmOperator">,</span> <span class="asmAddress">$014</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN SMALL LETTER G</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$001</span><span class="asmOperator">,</span> <span class="asmAddress">$110</span><span class="asmOperator">,</span> <span class="asmAddress">$120</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">,</span> <span class="asmAddress">$125</span><span class="asmOperator">,</span> <span class="asmAddress">$115</span><span class="asmOperator">,</span> <span class="asmAddress">$104</span><span class="asmOperator">,</span> <span class="asmAddress">$103</span><span class="asmOperator">,</span> <span class="asmAddress">$112</span><span class="asmOperator">,</span> <span class="asmAddress">$122</span><span class="asmOperator">,</span> <span class="asmAddress">$133</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN SMALL LETTER H</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$001</span><span class="asmOperator">,</span> <span class="asmAddress">$107</span><span class="asmOperator">,</span> <span class="asmAddress">$005</span><span class="asmOperator">,</span> <span class="asmAddress">$125</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN SMALL LETTER I</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$021</span><span class="asmOperator">,</span> <span class="asmAddress">$124</span><span class="asmOperator">,</span> <span class="asmAddress">$025</span><span class="asmOperator">,</span> <span class="asmAddress">$126</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN SMALL LETTER J</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$001</span><span class="asmOperator">,</span> <span class="asmAddress">$110</span><span class="asmOperator">,</span> <span class="asmAddress">$120</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">,</span> <span class="asmAddress">$035</span><span class="asmOperator">,</span> <span class="asmAddress">$136</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN SMALL LETTER K</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$031</span><span class="asmOperator">,</span> <span class="asmAddress">$113</span><span class="asmOperator">,</span> <span class="asmAddress">$007</span><span class="asmOperator">,</span> <span class="asmAddress">$101</span><span class="asmOperator">,</span> <span class="asmAddress">$002</span><span class="asmOperator">,</span> <span class="asmAddress">$135</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN SMALL LETTER L</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$017</span><span class="asmOperator">,</span> <span class="asmAddress">$111</span><span class="asmOperator">,</span> <span class="asmAddress">$121</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN SMALL LETTER M</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$001</span><span class="asmOperator">,</span> <span class="asmAddress">$105</span><span class="asmOperator">,</span> <span class="asmAddress">$004</span><span class="asmOperator">,</span> <span class="asmAddress">$115</span><span class="asmOperator">,</span> <span class="asmAddress">$124</span><span class="asmOperator">,</span> <span class="asmAddress">$121</span><span class="asmOperator">,</span> <span class="asmAddress">$024</span><span class="asmOperator">,</span> <span class="asmAddress">$135</span><span class="asmOperator">,</span> <span class="asmAddress">$144</span><span class="asmOperator">,</span> <span class="asmAddress">$141</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN SMALL LETTER N</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$001</span><span class="asmOperator">,</span> <span class="asmAddress">$105</span><span class="asmOperator">,</span> <span class="asmAddress">$104</span><span class="asmOperator">,</span> <span class="asmAddress">$115</span><span class="asmOperator">,</span> <span class="asmAddress">$125</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN SMALL LETTER O</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$002</span><span class="asmOperator">,</span> <span class="asmAddress">$104</span><span class="asmOperator">,</span> <span class="asmAddress">$115</span><span class="asmOperator">,</span> <span class="asmAddress">$125</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">,</span> <span class="asmAddress">$132</span><span class="asmOperator">,</span> <span class="asmAddress">$121</span><span class="asmOperator">,</span> <span class="asmAddress">$111</span><span class="asmOperator">,</span> <span class="asmAddress">$102</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN SMALL LETTER P</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$002</span><span class="asmOperator">,</span> <span class="asmAddress">$122</span><span class="asmOperator">,</span> <span class="asmAddress">$133</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">,</span> <span class="asmAddress">$125</span><span class="asmOperator">,</span> <span class="asmAddress">$105</span><span class="asmOperator">,</span> <span class="asmAddress">$100</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN SMALL LETTER Q</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$040</span><span class="asmOperator">,</span> <span class="asmAddress">$130</span><span class="asmOperator">,</span> <span class="asmAddress">$135</span><span class="asmOperator">,</span> <span class="asmAddress">$115</span><span class="asmOperator">,</span> <span class="asmAddress">$104</span><span class="asmOperator">,</span> <span class="asmAddress">$103</span><span class="asmOperator">,</span> <span class="asmAddress">$112</span><span class="asmOperator">,</span> <span class="asmAddress">$132</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN SMALL LETTER R</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$005</span><span class="asmOperator">,</span> <span class="asmAddress">$114</span><span class="asmOperator">,</span> <span class="asmAddress">$111</span><span class="asmOperator">,</span> <span class="asmAddress">$014</span><span class="asmOperator">,</span> <span class="asmAddress">$125</span><span class="asmOperator">,</span> <span class="asmAddress">$135</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN SMALL LETTER S</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$002</span><span class="asmOperator">,</span> <span class="asmAddress">$111</span><span class="asmOperator">,</span> <span class="asmAddress">$121</span><span class="asmOperator">,</span> <span class="asmAddress">$132</span><span class="asmOperator">,</span> <span class="asmAddress">$123</span><span class="asmOperator">,</span> <span class="asmAddress">$113</span><span class="asmOperator">,</span> <span class="asmAddress">$104</span><span class="asmOperator">,</span> <span class="asmAddress">$115</span><span class="asmOperator">,</span> <span class="asmAddress">$125</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN SMALL LETTER T</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$005</span><span class="asmOperator">,</span> <span class="asmAddress">$125</span><span class="asmOperator">,</span> <span class="asmAddress">$017</span><span class="asmOperator">,</span> <span class="asmAddress">$111</span><span class="asmOperator">,</span> <span class="asmAddress">$121</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN SMALL LETTER U</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$005</span><span class="asmOperator">,</span> <span class="asmAddress">$101</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">,</span> <span class="asmAddress">$135</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN SMALL LETTER V</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$005</span><span class="asmOperator">,</span> <span class="asmAddress">$103</span><span class="asmOperator">,</span> <span class="asmAddress">$121</span><span class="asmOperator">,</span> <span class="asmAddress">$143</span><span class="asmOperator">,</span> <span class="asmAddress">$145</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN SMALL LETTER W</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$005</span><span class="asmOperator">,</span> <span class="asmAddress">$102</span><span class="asmOperator">,</span> <span class="asmAddress">$111</span><span class="asmOperator">,</span> <span class="asmAddress">$122</span><span class="asmOperator">,</span> <span class="asmAddress">$123</span><span class="asmOperator">,</span> <span class="asmAddress">$122</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">,</span> <span class="asmAddress">$142</span><span class="asmOperator">,</span> <span class="asmAddress">$145</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN SMALL LETTER X</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$001</span><span class="asmOperator">,</span> <span class="asmAddress">$145</span><span class="asmOperator">,</span> <span class="asmAddress">$005</span><span class="asmOperator">,</span> <span class="asmAddress">$141</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN SMALL LETTER Y</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$005</span><span class="asmOperator">,</span> <span class="asmAddress">$104</span><span class="asmOperator">,</span> <span class="asmAddress">$122</span><span class="asmOperator">,</span> <span class="asmAddress">$045</span><span class="asmOperator">,</span> <span class="asmAddress">$144</span><span class="asmOperator">,</span> <span class="asmAddress">$100</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LATIN SMALL LETTER Z</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$005</span><span class="asmOperator">,</span> <span class="asmAddress">$145</span><span class="asmOperator">,</span> <span class="asmAddress">$101</span><span class="asmOperator">,</span> <span class="asmAddress">$141</span><span class="asmOperator">)</span>
+<span class="asmComment2">;BOX DRAWINGS LIGHT VERTICAL</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$030</span><span class="asmOperator">,</span> <span class="asmAddress">$137</span><span class="asmOperator">)</span>
+<span class="asmComment2">;LOW LINE</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$070</span><span class="asmOperator">,</span> <span class="asmAddress">$100</span><span class="asmOperator">)</span>
+<span class="asmComment2">;WHITE UP-POINTING TRIANGLE</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$001</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">,</span> <span class="asmAddress">$161</span><span class="asmOperator">,</span> <span class="asmAddress">$101</span><span class="asmOperator">)</span>
+<span class="asmComment2">;GREEK CAPITAL LETTER PI</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$003</span><span class="asmOperator">,</span> <span class="asmAddress">$114</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">,</span> <span class="asmAddress">$131</span><span class="asmOperator">,</span> <span class="asmAddress">$011</span><span class="asmOperator">,</span> <span class="asmAddress">$114</span><span class="asmOperator">,</span> <span class="asmAddress">$134</span><span class="asmOperator">,</span> <span class="asmAddress">$145</span><span class="asmOperator">)</span>
+<span class="asmComment2">;WHITE MEDIUM SQUARE</span>
+                <span class="asmType">.shift</span> <span class="asmOperator">convert</span><span class="asmOperator">(</span><span class="asmAddress">$001</span><span class="asmOperator">,</span> <span class="asmAddress">$107</span><span class="asmOperator">,</span> <span class="asmAddress">$157</span><span class="asmOperator">,</span> <span class="asmAddress">$151</span><span class="asmOperator">,</span> <span class="asmAddress">$101</span><span class="asmOperator">)</span>
+                <span class="asmPreProc2">.bend</span>
+<span class="asmComment2">;---------------</span>
+reset           <span class="asmKeyword">sei</span>
+                <span class="asmKeyword">ldx</span> <span class="asmOperator">#</span><span class="asmConst">RAM_SIZE</span><span class="asmOperator">-</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">txs</span>
+                <span class="asmKeyword">lda</span> <span class="asmOperator">#~</span><span class="asmConst">IEC</span><span class="asmOperator">.</span><span class="asmConst">DATA_OUT</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">port</span><span class="asmOperator">.</span><span class="asmLabel">iec</span>
+                <span class="asmKeyword">ldx</span> <span class="asmOperator">#</span><span class="asmAddress">$ff</span>
+                <span class="asmKeyword">stx</span> <span class="asmLabel">port</span><span class="asmOperator">.</span><span class="asmLabel">io</span>
+                <span class="asmKeyword">stx</span> <span class="asmLabel">port</span><span class="asmOperator">.</span><span class="asmLabel">pen</span>
+                <span class="asmKeyword">inx</span>
+                <span class="asmKeyword">stx</span> <span class="asmLabel">port</span><span class="asmOperator">.</span><span class="asmLabel">stepper</span>
+                <span class="asmKeyword">lda</span> <span class="asmOperator">#</span><span class="asmAddress">%11100000</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">control</span>
+                <span class="asmKeyword">txa</span>
+                <span class="asmKeyword">ldx</span> <span class="asmOperator">#</span><span class="asmConst">RAM_SIZE</span><span class="asmOperator">-</span><span class="asmAddress">3</span>
+zp_init         <span class="asmKeyword">sta</span> <span class="asmAddress">0</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">dex</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">zp_init</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">line_feed</span>
+                <span class="asmKeyword">lda</span> <span class="asmOperator">#</span><span class="asmAddress">4</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">count</span>
+                <span class="asmKeyword">lsr</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">char_size</span>
+stepper_init    <span class="asmKeyword">ldx</span> <span class="asmOperator">#</span><span class="asmOperator">round</span><span class="asmOperator">((</span><span class="asmConst">WIDTH</span> <span class="asmOperator">+</span> <span class="asmConst">MARGIN_STEPS</span> <span class="asmOperator">*</span> <span class="asmAddress">2.5</span><span class="asmOperator">)</span> <span class="asmOperator">/</span> <span class="asmAddress">4</span><span class="asmOperator">)</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">stepper_left</span>
+                <span class="asmKeyword">dec</span> <span class="asmLabel">count</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">stepper_init</span>
+                <span class="asmKeyword">lda</span> <span class="asmOperator">#</span><span class="asmConst">COLORS</span> <span class="asmOperator">*</span> <span class="asmAddress">3</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">count</span>
+pen_init        <span class="asmKeyword">jsr</span> <span class="asmLabel">stepper_rl</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">port</span><span class="asmOperator">.</span><span class="asmLabel">pen</span>
+                <span class="asmKeyword">bpl</span> <span class="asmLabel">pen_ok</span>
+                <span class="asmKeyword">dec</span> <span class="asmLabel">count</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">pen_init</span>
+flash_led       <span class="asmKeyword">dex</span>
+                <span class="asmKeyword">stx</span> <span class="asmLabel">port</span><span class="asmOperator">.</span><span class="asmLabel">io</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">wait_settle</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">port</span><span class="asmOperator">.</span><span class="asmLabel">stepper</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">flash_led</span>
+pen_ok          <span class="asmKeyword">ldx</span> <span class="asmOperator">#</span><span class="asmConst">PEN</span><span class="asmOperator">.</span><span class="asmConst">STEPS</span> <span class="asmOperator">+</span> <span class="asmConst">MARGIN_STEPS</span> <span class="asmOperator">+</span> <span class="asmAddress">2</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">stepper_right</span>
+-               <span class="asmKeyword">jsr</span> <span class="asmLabel">next_color</span>
+                <span class="asmKeyword">ldx</span> <span class="asmOperator">#</span><span class="asmLabel">font</span><span class="asmOperator">.</span><span class="asmConst">SQUARE</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">print_char</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">color</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">-</span>
+                <span class="asmKeyword">dec</span> <span class="asmLabel">char_size</span>
+paper_feed      <span class="asmKeyword">jsr</span> <span class="asmLabel">carriage_return</span>
+idle_loop       <span class="asmKeyword">jsr</span> <span class="asmLabel">wait_settle</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">port</span><span class="asmOperator">.</span><span class="asmLabel">stepper</span>
+iec_loop2       <span class="asmKeyword">jsr</span> <span class="asmLabel">atnack_hi</span>
+iec_loop        <span class="asmKeyword">lda</span> <span class="asmLabel">port</span><span class="asmOperator">.</span><span class="asmLabel">io</span>
+                <span class="asmKeyword">bpl</span> <span class="asmLabel">paper_feed</span>
+                <span class="asmKeyword">asl</span>
+                <span class="asmKeyword">bmi</span> <span class="asmLabel">nchange</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">next_color</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">idle_loop</span>
+nchange         <span class="asmKeyword">asl</span>
+                <span class="asmKeyword">bmi</span> <span class="asmLabel">nremove</span>
+                <span class="asmKeyword">lda</span> <span class="asmOperator">#&gt;(</span><span class="asmConst">WIDTH</span> <span class="asmOperator">+</span> <span class="asmAddress">255</span><span class="asmOperator">)</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">x</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">move_abs_pup</span>
+nremove         <span class="asmKeyword">jsr</span> <span class="asmLabel">check_iec</span>
+                <span class="asmKeyword">bpl</span> <span class="asmLabel">iec_loop</span>
+                <span class="asmKeyword">lda</span> <span class="asmOperator">#</span><span class="asmConst">IEC</span><span class="asmOperator">.</span><span class="asmConst">DATA_OUT</span> <span class="asmOperator">|</span> <span class="asmConst">IEC</span><span class="asmOperator">.</span><span class="asmConst">ATN_ACK</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">set_iec_lines</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">wait_iec</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">iecin</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">port</span><span class="asmOperator">.</span><span class="asmLabel">io</span>
+                <span class="asmKeyword">and</span> <span class="asmOperator">#</span><span class="asmConst">IEC</span><span class="asmOperator">.</span><span class="asmConst">DEVICE_NUMBERS</span><span class="asmOperator">-</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">clc</span>
+                <span class="asmKeyword">adc</span> <span class="asmOperator">#</span><span class="asmConst">IEC</span><span class="asmOperator">.</span><span class="asmConst">LISTEN</span> <span class="asmOperator">+</span> <span class="asmConst">IEC</span><span class="asmOperator">.</span><span class="asmConst">FIRST_DEVICE</span>
+                <span class="asmKeyword">cmp</span> <span class="asmLabel">serial_buf</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">device_ok</span>
+iec_skip        <span class="asmKeyword">jsr</span> <span class="asmLabel">data_hi_check</span>
+                <span class="asmKeyword">bmi</span> <span class="asmLabel">iec_skip</span>
+                <span class="asmKeyword">bpl</span> <span class="asmLabel">iec_loop2</span>
+                <span class="asmPreProc2">.cerror</span> <span class="asmConst">IEC</span><span class="asmOperator">.</span><span class="asmConst">DEVICE_NUMBERS</span> <span class="asmOperator">&amp;</span> <span class="asmOperator">(</span><span class="asmConst">IEC</span><span class="asmOperator">.</span><span class="asmConst">DEVICE_NUMBERS</span> <span class="asmOperator">-</span> <span class="asmAddress">1</span><span class="asmOperator">),</span> <span class="asmString">&quot;</span><span class="asmString">Number of modes must be power of two</span><span class="asmString">&quot;</span>
+
+device_ok       <span class="asmKeyword">jsr</span> <span class="asmLabel">check_iec</span>
+                <span class="asmKeyword">bcs</span> <span class="asmLabel">device_ok</span>
+                <span class="asmKeyword">lda</span> <span class="asmOperator">#</span><span class="asmConst">IEC</span><span class="asmOperator">.</span><span class="asmConst">SECOND</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">serial_buf</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">check_iec</span>
+                <span class="asmKeyword">bpl</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">iecin</span>
++               <span class="asmKeyword">lda</span> <span class="asmLabel">serial_buf</span>
+                <span class="asmKeyword">cmp</span> <span class="asmOperator">#</span><span class="asmConst">IEC</span><span class="asmOperator">.</span><span class="asmConst">SECOND</span>
+                <span class="asmKeyword">blt</span> <span class="asmLabel">iec_skip</span>
+                <span class="asmKeyword">cmp</span> <span class="asmOperator">#</span><span class="asmConst">IEC</span><span class="asmOperator">.</span><span class="asmConst">SECOND</span> <span class="asmOperator">+</span> <span class="asmOperator">size</span><span class="asmOperator">(</span><span class="asmLabel">modes</span><span class="asmOperator">)/</span><span class="asmAddress">2</span>
+                <span class="asmKeyword">bge</span> <span class="asmLabel">iec_skip</span>
+                <span class="asmKeyword">and</span> <span class="asmOperator">#</span><span class="asmOperator">size</span><span class="asmOperator">(</span><span class="asmLabel">modes</span><span class="asmOperator">)/</span><span class="asmAddress">2</span><span class="asmOperator">-</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">asl</span>
+                <span class="asmKeyword">tay</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">modes</span><span class="asmOperator">+</span><span class="asmAddress">1</span><span class="asmOperator">,y</span>
+                <span class="asmKeyword">pha</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">modes</span><span class="asmOperator">,y</span>
+                <span class="asmKeyword">pha</span>
+                <span class="asmKeyword">cpy</span> <span class="asmOperator">#</span><span class="asmLabel">modes</span><span class="asmOperator">.</span><span class="asmLabel">with_param</span> <span class="asmOperator">-</span> <span class="asmLabel">modes</span>
+                <span class="asmKeyword">blt</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">iecin_number</span>
+                <span class="asmKeyword">tya</span>
++               <span class="asmKeyword">rts</span>
+
+                <span class="asmPreProc2">.cerror</span> <span class="asmOperator">size</span><span class="asmOperator">(</span><span class="asmLabel">modes</span><span class="asmOperator">)</span> <span class="asmOperator">&amp;</span> <span class="asmOperator">(</span><span class="asmOperator">size</span><span class="asmOperator">(</span><span class="asmLabel">modes</span><span class="asmOperator">)</span> <span class="asmOperator">-</span> <span class="asmAddress">1</span><span class="asmOperator">),</span> <span class="asmString">&quot;</span><span class="asmString">Number of modes must be power of two</span><span class="asmString">&quot;</span>
+modes           <span class="asmPreProc2">.block</span>
+                <span class="asmType">.rta</span> <span class="asmLabel">petscii_mode</span>
+                <span class="asmType">.rta</span> <span class="asmLabel">plotter_mode</span>
+with_param      <span class="asmType">.rta</span> <span class="asmLabel">set_color</span>
+                <span class="asmType">.rta</span> <span class="asmLabel">set_size</span>
+                <span class="asmType">.rta</span> <span class="asmLabel">set_rotation</span>
+                <span class="asmType">.rta</span> <span class="asmLabel">set_dashed</span>
+                <span class="asmType">.rta</span> <span class="asmLabel">set_uplower</span>
+                <span class="asmType">.rta</span> <span class="asmLabel">reset</span>
+                <span class="asmPreProc2">.bend</span>
+<span class="asmComment2">;---------------</span>
+set_color       <span class="asmKeyword">jsr</span> <span class="asmLabel">select_pen</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">skip_rest</span>
+<span class="asmComment2">;---------------</span>
+                <span class="asmPreProc2">.cerror</span> <span class="asmConst">FONT_SIZES</span> <span class="asmOperator">&amp;</span> <span class="asmOperator">(</span><span class="asmConst">FONT_SIZES</span> <span class="asmOperator">-</span> <span class="asmAddress">1</span><span class="asmOperator">),</span> <span class="asmString">&quot;</span><span class="asmString">Font sizes must be a power of 2</span><span class="asmString">&quot;</span>
+set_size        <span class="asmKeyword">and</span> <span class="asmOperator">#</span><span class="asmConst">FONT_SIZES</span><span class="asmOperator">-</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">char_size</span>
+                <span class="asmKeyword">bpl</span> <span class="asmLabel">skip_rest</span>
+<span class="asmComment2">;---------------</span>
+set_rotation    <span class="asmKeyword">sta</span> <span class="asmLabel">char_rotation</span>
+                <span class="asmKeyword">bpl</span> <span class="asmLabel">skip_rest</span>
+<span class="asmComment2">;---------------</span>
+                <span class="asmPreProc2">.cerror</span> <span class="asmConst">DASH_LENGTHS</span> <span class="asmOperator">&amp;</span> <span class="asmOperator">(</span><span class="asmConst">DASH_LENGTHS</span> <span class="asmOperator">-</span> <span class="asmAddress">1</span><span class="asmOperator">),</span> <span class="asmString">&quot;</span><span class="asmString">Dash length must be a power of 2</span><span class="asmString">&quot;</span>
+set_dashed      <span class="asmKeyword">and</span> <span class="asmOperator">#</span><span class="asmConst">DASH_LENGTHS</span><span class="asmOperator">-</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">dashed</span>
+                <span class="asmKeyword">bpl</span> <span class="asmLabel">skip_rest</span>
+<span class="asmComment2">;---------------</span>
+set_uplower     <span class="asmKeyword">and</span> <span class="asmOperator">#</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">lsr</span>
+                <span class="asmKeyword">ror</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">upper_lower</span>
+                <span class="asmKeyword">bcc</span> <span class="asmLabel">skip_rest</span>
+-               <span class="asmKeyword">jsr</span> <span class="asmLabel">iecin</span>
+skip_rest       <span class="asmKeyword">lda</span> <span class="asmLabel">serial_eot</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">-</span>
+                <span class="asmKeyword">jmp</span> <span class="asmLabel">idle_loop</span>
+<span class="asmComment2">;---------------</span>
+iecin2          <span class="asmKeyword">lda</span> <span class="asmLabel">serial_eot</span>
+                <span class="asmKeyword">eor</span> <span class="asmOperator">#</span><span class="asmAddress">%11111111</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">at_eot</span>
+<span class="asmComment2">;---------------</span>
+iecin           <span class="asmKeyword">jsr</span> <span class="asmLabel">check_iec</span>
+                <span class="asmKeyword">bcs</span> <span class="asmLabel">iecin</span>
+-               <span class="asmKeyword">jsr</span> <span class="asmLabel">data_hi_check</span>
+                <span class="asmKeyword">and</span> <span class="asmOperator">#</span><span class="asmConst">IEC</span><span class="asmOperator">.</span><span class="asmConst">DATA_IN</span> <span class="asmOperator">&gt;&gt;</span> <span class="asmAddress">2</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">-</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">serial_eot</span>
+                <span class="asmKeyword">ldx</span> <span class="asmOperator">#</span><span class="asmAddress">9</span>
+-               <span class="asmKeyword">jsr</span> <span class="asmLabel">check_iec</span>
+                <span class="asmKeyword">bcs</span> <span class="asmLabel">neot</span>
+                <span class="asmKeyword">dex</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">-</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">data_lo</span>
+                <span class="asmKeyword">dec</span> <span class="asmLabel">serial_eot</span>
+                <span class="asmKeyword">ldx</span> <span class="asmOperator">#</span><span class="asmAddress">7</span>
+-               <span class="asmKeyword">dex</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">-</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">data_hi_check</span>
+neot            <span class="asmKeyword">ldx</span> <span class="asmOperator">#</span><span class="asmAddress">8</span>
+iecbitloop      <span class="asmKeyword">lda</span> <span class="asmLabel">port</span><span class="asmOperator">.</span><span class="asmLabel">iec</span>
+                <span class="asmKeyword">and</span> <span class="asmOperator">#</span><span class="asmConst">IEC</span><span class="asmOperator">.</span><span class="asmConst">CLK_IN</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">iecbitloop</span>
+-               <span class="asmKeyword">lda</span> <span class="asmLabel">port</span><span class="asmOperator">.</span><span class="asmLabel">iec</span>
+                <span class="asmKeyword">and</span> <span class="asmOperator">#</span><span class="asmConst">IEC</span><span class="asmOperator">.</span><span class="asmConst">CLK_IN</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">-</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">port</span><span class="asmOperator">.</span><span class="asmLabel">iec</span>
+                <span class="asmKeyword">eor</span> <span class="asmOperator">#</span><span class="asmAddress">$ff</span>
+                <span class="asmKeyword">asl</span>                     <span class="asmComment">;data</span>
+                <span class="asmKeyword">ror</span> <span class="asmLabel">serial_buf</span>
+                <span class="asmKeyword">dex</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">iecbitloop</span>
+-               <span class="asmKeyword">jsr</span> <span class="asmLabel">check_iec</span>           <span class="asmComment">;clk?</span>
+                <span class="asmKeyword">bcc</span> <span class="asmLabel">-</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">data_lo</span>
+                <span class="asmKeyword">ldx</span> <span class="asmOperator">#</span><span class="asmAddress">20</span>
+-               <span class="asmKeyword">dex</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">-</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">serial_eot</span>
+                <span class="asmKeyword">bpl</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">atnack_hi</span>
++               <span class="asmKeyword">lda</span> <span class="asmLabel">serial_buf</span>
+                <span class="asmKeyword">cmp</span> <span class="asmOperator">#</span><span class="asmString">&quot;</span><span class="asmStrLit">{cr}</span><span class="asmString">&quot;</span>
+at_eot          <span class="asmKeyword">rts</span>
+<span class="asmComment2">;---------------</span>
+atn_hi          <span class="asmKeyword">lda</span> <span class="asmOperator">#</span><span class="asmConst">IEC</span><span class="asmOperator">.</span><span class="asmConst">ATN_ACK</span>        <span class="asmComment">;unused</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">set_iec_lines</span>
+<span class="asmComment2">;---------------</span>
+data_lo         <span class="asmKeyword">lda</span> <span class="asmOperator">#</span><span class="asmConst">IEC</span><span class="asmOperator">.</span><span class="asmConst">DATA_OUT</span>
+<span class="asmComment2">;---------------</span>
+set_iec_lines   <span class="asmKeyword">ora</span> <span class="asmLabel">port</span><span class="asmOperator">.</span><span class="asmLabel">iec</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">sta_iec</span>
+<span class="asmComment2">;---------------</span>
+atnack_hi       <span class="asmKeyword">lda</span> <span class="asmOperator">#~</span><span class="asmConst">IEC</span><span class="asmOperator">.</span><span class="asmConst">ATN_ACK</span>       <span class="asmComment">;atnack</span>
+                <span class="asmKeyword">and</span> <span class="asmLabel">port</span><span class="asmOperator">.</span><span class="asmLabel">iec</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">port</span><span class="asmOperator">.</span><span class="asmLabel">iec</span>
+<span class="asmComment2">;---------------</span>
+data_hi_check   <span class="asmKeyword">lda</span> <span class="asmOperator">#~</span><span class="asmConst">IEC</span><span class="asmOperator">.</span><span class="asmConst">DATA_OUT</span>      <span class="asmComment">;data</span>
+                <span class="asmKeyword">and</span> <span class="asmLabel">port</span><span class="asmOperator">.</span><span class="asmLabel">iec</span>
+sta_iec         <span class="asmKeyword">sta</span> <span class="asmLabel">port</span><span class="asmOperator">.</span><span class="asmLabel">iec</span>
+<span class="asmComment2">;---------------</span>
+check_iec       <span class="asmKeyword">lda</span> <span class="asmLabel">port</span><span class="asmOperator">.</span><span class="asmLabel">iec</span>
+                <span class="asmKeyword">cmp</span> <span class="asmLabel">port</span><span class="asmOperator">.</span><span class="asmLabel">iec</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">check_iec</span>
+                <span class="asmKeyword">lsr</span>
+                <span class="asmKeyword">ror</span>
+                <span class="asmKeyword">rts</span>
+<span class="asmComment2">;---------------</span>
+petscii_mode    <span class="asmKeyword">jsr</span> <span class="asmLabel">iecin</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">do_cr</span>
+                <span class="asmKeyword">cmp</span> <span class="asmOperator">#</span><span class="asmString">&quot;</span><span class="asmStrLit">{lf}</span><span class="asmString">&quot;</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">do_cr</span>
+                <span class="asmKeyword">cmp</span> <span class="asmOperator">#</span><span class="asmString">&quot;</span><span class="asmStrLit">{shift return}</span><span class="asmString">&quot;</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">do_shcr</span>
+                <span class="asmKeyword">cmp</span> <span class="asmOperator">#</span><span class="asmString">&quot;</span><span class="asmStrLit">{pi}</span><span class="asmString">&quot;</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">lda</span> <span class="asmOperator">#</span><span class="asmLabel">font</span><span class="asmOperator">.</span><span class="asmConst">PI</span> <span class="asmOperator">+</span> <span class="asmAddress">$80</span>
++               <span class="asmKeyword">cmp</span> <span class="asmOperator">#</span><span class="asmString">'&quot;'</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">inc</span> <span class="asmLabel">quote_counter</span>
++               <span class="asmKeyword">eor</span> <span class="asmLabel">upper_lower</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">serial_buf</span>
+                <span class="asmKeyword">and</span> <span class="asmOperator">#</span><span class="asmAddress">%01111111</span>
+                <span class="asmKeyword">sec</span>
+                <span class="asmKeyword">sbc</span> <span class="asmOperator">#</span><span class="asmAddress">32</span>
+                <span class="asmKeyword">bge</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">quote_counter</span>
+                <span class="asmKeyword">and</span> <span class="asmOperator">#</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">underline</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">nextchar</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">serial_buf</span>
+                <span class="asmKeyword">and</span> <span class="asmOperator">#</span><span class="asmAddress">%01111111</span>
+                <span class="asmKeyword">ora</span> <span class="asmOperator">#</span><span class="asmAddress">%00100000</span>
++               <span class="asmKeyword">cmp</span> <span class="asmOperator">#</span><span class="asmAddress">64</span>
+                <span class="asmKeyword">bge</span> <span class="asmLabel">nextchar</span>
+                <span class="asmKeyword">cmp</span> <span class="asmOperator">#</span><span class="asmAddress">32</span>
+                <span class="asmKeyword">blt</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">ldx</span> <span class="asmLabel">serial_buf</span>
+                <span class="asmKeyword">bpl</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">adc</span> <span class="asmOperator">#</span><span class="asmAddress">%00011111</span>
++               <span class="asmKeyword">sta</span> <span class="asmLabel">serial_buf</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">in_printarea_x</span>
+                <span class="asmKeyword">bcc</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">carriage_return</span>
++               <span class="asmKeyword">jsr</span> <span class="asmLabel">print_buf</span>
+                <span class="asmKeyword">lsr</span> <span class="asmLabel">underline</span>
+                <span class="asmKeyword">bcc</span> <span class="asmLabel">nextchar</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">set_absorigin</span>
+                <span class="asmKeyword">ldx</span> <span class="asmOperator">#</span><span class="asmLabel">font</span><span class="asmOperator">.</span><span class="asmConst">LOW_LINE</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">print_char</span>
+nextchar        <span class="asmKeyword">lda</span> <span class="asmLabel">serial_eot</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">petscii_mode</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">skip_rest2</span>
+
+do_cr           <span class="asmKeyword">jsr</span> <span class="asmLabel">carriage_return</span>
+                <span class="asmKeyword">stx</span> <span class="asmLabel">quote_counter</span>
+                <span class="asmKeyword">stx</span> <span class="asmLabel">underline</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">nextchar</span>
+do_shcr         <span class="asmKeyword">jsr</span> <span class="asmLabel">move_left_side</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">nextchar</span>
+<span class="asmComment2">;---------------</span>
+plotter_mode    <span class="asmKeyword">jsr</span> <span class="asmLabel">iecin</span>
+                <span class="asmKeyword">stx</span> <span class="asmLabel">cmd_use_pen</span>
+                <span class="asmKeyword">cmp</span> <span class="asmOperator">#</span><span class="asmString">&quot;</span><span class="asmString">i</span><span class="asmString">&quot;</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">set_relorigin</span>
++               <span class="asmKeyword">cmp</span> <span class="asmOperator">#</span><span class="asmString">&quot;</span><span class="asmString">h</span><span class="asmString">&quot;</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">set_absorigin</span>
++               <span class="asmKeyword">cmp</span> <span class="asmOperator">#</span><span class="asmString">&quot;</span><span class="asmString">m</span><span class="asmString">&quot;</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">nuse_pen</span>
+                <span class="asmKeyword">cmp</span> <span class="asmOperator">#</span><span class="asmString">&quot;</span><span class="asmString">r</span><span class="asmString">&quot;</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">nuse_pen</span>
+                <span class="asmKeyword">cmp</span> <span class="asmOperator">#</span><span class="asmString">&quot;</span><span class="asmString">d</span><span class="asmString">&quot;</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">cmp</span> <span class="asmOperator">#</span><span class="asmString">&quot;</span><span class="asmString">j</span><span class="asmString">&quot;</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">skip_rest2</span>
++               <span class="asmKeyword">inc</span> <span class="asmLabel">cmd_use_pen</span>
+nuse_pen        <span class="asmKeyword">pha</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">iecin_number</span>
+                <span class="asmKeyword">sty</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">x</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">x</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">iecin_number</span>
+                <span class="asmKeyword">sty</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">y</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">y</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">pla</span>
+                <span class="asmKeyword">and</span> <span class="asmOperator">#</span><span class="asmAddress">%00000100</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">move_abs</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">skip_rest2</span>
++               <span class="asmKeyword">jsr</span> <span class="asmLabel">move_rel</span>
+skip_rest2      <span class="asmKeyword">jmp</span> <span class="asmLabel">skip_rest</span>
+<span class="asmComment2">;---------------</span>
+                <span class="asmPreProc2">.cerror</span> <span class="asmConst">HEIGHT</span> <span class="asmOperator">&gt;</span> <span class="asmAddress">10000</span><span class="asmOperator">,</span> <span class="asmString">&quot;</span><span class="asmString">Coordinate overflow possible</span><span class="asmString">&quot;</span>
+iecin_number    <span class="asmKeyword">lda</span> <span class="asmOperator">#</span><span class="asmOperator">ceil</span><span class="asmOperator">(</span><span class="asmOperator">log10</span><span class="asmOperator">(</span><span class="asmConst">HEIGHT</span><span class="asmOperator">-</span><span class="asmAddress">1</span><span class="asmOperator">))</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">count</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">num_clr</span>
+-               <span class="asmKeyword">jsr</span> <span class="asmLabel">iecin2</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">num_end</span>
+                <span class="asmKeyword">cmp</span> <span class="asmOperator">#</span><span class="asmString">&quot;</span><span class="asmString">.</span><span class="asmString">&quot;</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">digits_finished</span>
+                <span class="asmKeyword">cmp</span> <span class="asmOperator">#</span><span class="asmString">&quot;</span><span class="asmString">-</span><span class="asmString">&quot;</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">dec</span> <span class="asmLabel">num_neg</span>
++               <span class="asmKeyword">jsr</span> <span class="asmLabel">is_digit</span>
+                <span class="asmKeyword">bcs</span> <span class="asmLabel">-</span>
+next_digit      <span class="asmKeyword">pha</span>
+                <span class="asmKeyword">asl</span> <span class="asmLabel">num_temp</span>
+                <span class="asmKeyword">rol</span> <span class="asmLabel">num_temp</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">ldx</span> <span class="asmLabel">num_temp</span>
+                <span class="asmKeyword">ldy</span> <span class="asmLabel">num_temp</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">asl</span> <span class="asmLabel">num_temp</span>
+                <span class="asmKeyword">rol</span> <span class="asmLabel">num_temp</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">asl</span> <span class="asmLabel">num_temp</span>
+                <span class="asmKeyword">rol</span> <span class="asmLabel">num_temp</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">clc</span>
+                <span class="asmKeyword">txa</span>
+                <span class="asmKeyword">adc</span> <span class="asmLabel">num_temp</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">num_temp</span>
+                <span class="asmKeyword">tya</span>
+                <span class="asmKeyword">adc</span> <span class="asmLabel">num_temp</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">num_temp</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">pla</span>
+                <span class="asmKeyword">clc</span>
+                <span class="asmKeyword">adc</span> <span class="asmLabel">num_temp</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">num_temp</span>
+                <span class="asmKeyword">bcc</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">inc</span> <span class="asmLabel">num_temp</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
++               <span class="asmKeyword">dec</span> <span class="asmLabel">count</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">digits_finished</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">iecin2</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">num_end</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">is_digit</span>
+                <span class="asmKeyword">bcc</span> <span class="asmLabel">next_digit</span>
+-               <span class="asmKeyword">cmp</span> <span class="asmOperator">#</span><span class="asmString">&quot;</span><span class="asmString">e</span><span class="asmString">&quot;</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">num_clr</span>
++               <span class="asmKeyword">cmp</span> <span class="asmOperator">#</span><span class="asmString">&quot;</span><span class="asmString"> </span><span class="asmString">&quot;</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">num_end</span>
+                <span class="asmKeyword">cmp</span> <span class="asmOperator">#</span><span class="asmString">&quot;</span><span class="asmString">,</span><span class="asmString">&quot;</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">num_end</span>
+digits_finished <span class="asmKeyword">jsr</span> <span class="asmLabel">iecin2</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">-</span>
+num_end         <span class="asmKeyword">ldy</span> <span class="asmLabel">num_temp</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">num_temp</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">ldx</span> <span class="asmLabel">num_neg</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">nneg</span>
+<span class="asmComment2">;---------------</span>
+negate          <span class="asmKeyword">pha</span>
+                <span class="asmKeyword">tya</span>
+                <span class="asmKeyword">eor</span> <span class="asmOperator">#</span><span class="asmAddress">$ff</span>
+                <span class="asmKeyword">tay</span>
+                <span class="asmKeyword">pla</span>
+                <span class="asmKeyword">eor</span> <span class="asmOperator">#</span><span class="asmAddress">$ff</span>
+                <span class="asmKeyword">iny</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">nneg</span>
+                <span class="asmKeyword">clc</span>
+                <span class="asmKeyword">adc</span> <span class="asmOperator">#</span><span class="asmAddress">1</span>
+nneg            <span class="asmKeyword">rts</span>
+<span class="asmComment2">;---------------</span>
+num_clr         <span class="asmKeyword">lda</span> <span class="asmOperator">#</span><span class="asmAddress">0</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">num_neg</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">num_temp</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">num_temp</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">rts</span>
+<span class="asmComment2">;---------------</span>
+is_digit        <span class="asmKeyword">tax</span>
+                <span class="asmKeyword">sec</span>
+                <span class="asmKeyword">sbc</span> <span class="asmOperator">#</span><span class="asmString">&quot;</span><span class="asmString">0</span><span class="asmString">&quot;</span>
+                <span class="asmKeyword">blt</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">cmp</span> <span class="asmOperator">#</span><span class="asmAddress">10</span>
+                <span class="asmKeyword">blt</span> <span class="asmLabel">its_digit</span>
++               <span class="asmKeyword">txa</span>
+                <span class="asmKeyword">sec</span>
+its_digit       <span class="asmKeyword">rts</span>
+<span class="asmComment2">;---------------</span>
+print_buf       <span class="asmKeyword">ldx</span> <span class="asmLabel">serial_buf</span>
+<span class="asmComment2">;---------------</span>
+print_char      <span class="asmKeyword">inx</span>
+                <span class="asmKeyword">lda</span> <span class="asmOperator">#&gt;</span><span class="asmLabel">font</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">fontp</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">ldy</span> <span class="asmOperator">#&lt;</span><span class="asmLabel">font</span>
+                <span class="asmKeyword">sty</span> <span class="asmLabel">fontp</span>
+-               <span class="asmKeyword">lda</span> <span class="asmOperator">(</span><span class="asmLabel">fontp</span><span class="asmOperator">),y</span>
+                <span class="asmKeyword">bpl</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">dex</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">char_found</span>
++               <span class="asmKeyword">inc</span> <span class="asmLabel">fontp</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">-</span>
+                <span class="asmKeyword">inc</span> <span class="asmLabel">fontp</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">-</span>
+char_found      <span class="asmKeyword">jsr</span> <span class="asmLabel">set_relorigin</span>
+print_loop      <span class="asmKeyword">ldy</span> <span class="asmOperator">#</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">lda</span> <span class="asmOperator">(</span><span class="asmLabel">fontp</span><span class="asmOperator">),y</span>           <span class="asmComment">;exxxyyyp</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">font_tmp</span>
+print_last      <span class="asmKeyword">lsr</span>
+                <span class="asmKeyword">tax</span>
+                <span class="asmKeyword">and</span> <span class="asmOperator">#</span><span class="asmAddress">%111</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">y</span>
+                <span class="asmKeyword">lda</span> <span class="asmOperator">#</span><span class="asmAddress">0</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">x</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">y</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">rol</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">cmd_use_pen</span>
+                <span class="asmKeyword">txa</span>
+                <span class="asmKeyword">lsr</span>
+                <span class="asmKeyword">lsr</span>
+                <span class="asmKeyword">lsr</span>
+                <span class="asmKeyword">and</span> <span class="asmOperator">#</span><span class="asmAddress">%111</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">x</span>
+                <span class="asmKeyword">ldx</span> <span class="asmLabel">font_tmp</span>
+                <span class="asmKeyword">inx</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">char_rotation</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">ldy</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">y</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">x</span>
+                <span class="asmKeyword">eor</span> <span class="asmOperator">#</span><span class="asmAddress">%111</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">y</span>
+                <span class="asmKeyword">sty</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">x</span>
++               <span class="asmKeyword">ldx</span> <span class="asmLabel">char_size</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">+</span>
+-               <span class="asmKeyword">asl</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">x</span>
+                <span class="asmKeyword">rol</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">x</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">asl</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">y</span>
+                <span class="asmKeyword">rol</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">y</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">dex</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">-</span>
++               <span class="asmKeyword">jsr</span> <span class="asmLabel">move_rel</span>
+                <span class="asmKeyword">inc</span> <span class="asmLabel">fontp</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">inc</span> <span class="asmLabel">fontp</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
++               <span class="asmKeyword">lda</span> <span class="asmLabel">font_tmp</span>
+                <span class="asmKeyword">bpl</span> <span class="asmLabel">print_loop</span>
+                <span class="asmKeyword">cmp</span> <span class="asmOperator">#</span><span class="asmAddress">$ff</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">lda</span> <span class="asmOperator">#</span><span class="asmAddress">$ff</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">font_tmp</span>
+                <span class="asmKeyword">lda</span> <span class="asmOperator">#</span><span class="asmAddress">$80</span> <span class="asmOperator">+</span> <span class="asmOperator">(</span><span class="asmConst">FONT_WIDTH</span> <span class="asmOperator">&lt;&lt;</span> <span class="asmAddress">4</span><span class="asmOperator">)</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">print_last</span>
+
++               <span class="asmKeyword">rts</span>
+<span class="asmComment2">;---------------</span>
+move_rel        <span class="asmKeyword">ldx</span> <span class="asmOperator">#</span><span class="asmLabel">coord_s</span><span class="asmOperator">.</span><span class="asmLabel">y</span>
+-               <span class="asmKeyword">clc</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">cmd</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">adc</span> <span class="asmLabel">relorig</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">cmd</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">cmd</span><span class="asmOperator">+</span><span class="asmAddress">1</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">adc</span> <span class="asmLabel">relorig</span><span class="asmOperator">+</span><span class="asmAddress">1</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">cmd</span><span class="asmOperator">+</span><span class="asmAddress">1</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">dex</span>
+                <span class="asmKeyword">dex</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">-</span>
+<span class="asmComment2">;---------------</span>
+move_abs        <span class="asmKeyword">ldx</span> <span class="asmOperator">#</span><span class="asmLabel">coord_s</span><span class="asmOperator">.</span><span class="asmLabel">y</span>
+-               <span class="asmKeyword">sec</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">cmd</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">sbc</span> <span class="asmLabel">absorig</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">cmd</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">cmd</span><span class="asmOperator">+</span><span class="asmAddress">1</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">sbc</span> <span class="asmLabel">absorig</span><span class="asmOperator">+</span><span class="asmAddress">1</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">cmd</span><span class="asmOperator">+</span><span class="asmAddress">1</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">dex</span>
+                <span class="asmKeyword">dex</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">-</span>
+
+                <span class="asmKeyword">ldx</span> <span class="asmOperator">#</span><span class="asmLabel">coord_s</span><span class="asmOperator">.</span><span class="asmLabel">y</span>
+-               <span class="asmKeyword">ldy</span> <span class="asmLabel">cmd</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">cmd</span><span class="asmOperator">+</span><span class="asmAddress">1</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">sign</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">bpl</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">negate</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">cmd</span><span class="asmOperator">+</span><span class="asmAddress">1</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">sty</span> <span class="asmLabel">cmd</span><span class="asmOperator">,x</span>
++               <span class="asmKeyword">dex</span>
+                <span class="asmKeyword">dex</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">-</span>
+
+                <span class="asmKeyword">sec</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">y</span>
+                <span class="asmKeyword">sbc</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">x</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">y</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">sbc</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">x</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">lda</span> <span class="asmOperator">#</span><span class="asmAddress">0</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">dash_counter</span>
+                <span class="asmKeyword">rol</span>
+                <span class="asmKeyword">rol</span>
+                <span class="asmKeyword">tax</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">cmd</span><span class="asmOperator">+</span><span class="asmAddress">1</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">longer</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">lsr</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">accu</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">cmd</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">longer</span>
+                <span class="asmKeyword">ror</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">accu</span>
+                <span class="asmKeyword">txa</span>
+                <span class="asmKeyword">eor</span> <span class="asmOperator">#</span><span class="asmLabel">coord_s</span><span class="asmOperator">.</span><span class="asmLabel">y</span>
+                <span class="asmKeyword">tax</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">was_x</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">cmd</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">shorter</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">cmd</span><span class="asmOperator">+</span><span class="asmAddress">1</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">shorter</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+
+move_loop       <span class="asmKeyword">lda</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">x</span>
+                <span class="asmKeyword">ora</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">x</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">y</span>
+                <span class="asmKeyword">ora</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">y</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">move_v1</span>
+                <span class="asmKeyword">rts</span>
+
++               <span class="asmKeyword">lda</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">y</span>
+                <span class="asmKeyword">ora</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">y</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">move_h1</span>
+
+                <span class="asmKeyword">sec</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">accu</span>
+                <span class="asmKeyword">sbc</span> <span class="asmLabel">shorter</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">accu</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">accu</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">sbc</span> <span class="asmLabel">shorter</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">accu</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">blt</span> <span class="asmLabel">overf</span>
+
+                <span class="asmKeyword">lda</span> <span class="asmLabel">was_x</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">move_v1</span>
+move_h1         <span class="asmKeyword">inc</span> <span class="asmLabel">step</span><span class="asmOperator">.</span><span class="asmLabel">x</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">+</span>
+
+overf           <span class="asmKeyword">clc</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">accu</span>
+                <span class="asmKeyword">adc</span> <span class="asmLabel">longer</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">accu</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">accu</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">adc</span> <span class="asmLabel">longer</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">accu</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+
+                <span class="asmKeyword">inc</span> <span class="asmLabel">step</span><span class="asmOperator">.</span><span class="asmLabel">x</span>
+move_v1         <span class="asmKeyword">inc</span> <span class="asmLabel">step</span><span class="asmOperator">.</span><span class="asmLabel">y</span>
+
++               <span class="asmKeyword">ldx</span> <span class="asmOperator">#</span><span class="asmLabel">coord_s</span><span class="asmOperator">.</span><span class="asmLabel">y</span>
+move_xy_loop    <span class="asmKeyword">lda</span> <span class="asmLabel">sign</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">bmi</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">step1</span>
++               <span class="asmKeyword">ldy</span> <span class="asmLabel">absorig</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">absorig</span><span class="asmOperator">+</span><span class="asmAddress">1</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">bpl</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">negate</span>
++               <span class="asmKeyword">pha</span>
+                <span class="asmKeyword">tya</span>
+                <span class="asmKeyword">sec</span>
+                <span class="asmKeyword">sbc</span> <span class="asmOperator">#&lt;</span><span class="asmConst">HEIGHT</span>
+                <span class="asmKeyword">pla</span>
+                <span class="asmKeyword">sbc</span> <span class="asmOperator">#&gt;</span><span class="asmConst">HEIGHT</span>
+                <span class="asmKeyword">bge</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">txa</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">move_ib</span>
+                <span class="asmPreProc2">.cerror</span> <span class="asmConst">HEIGHT</span> <span class="asmOperator">&lt;</span> <span class="asmConst">WIDTH</span><span class="asmOperator">,</span> <span class="asmString">&quot;</span><span class="asmString">Width can't be smaller than height</span><span class="asmString">&quot;</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">in_printarea_x</span>
+                <span class="asmKeyword">bcc</span> <span class="asmLabel">move_ib</span>
++               <span class="asmKeyword">rol</span> <span class="asmLabel">cmd_use_pen</span>
+                <span class="asmKeyword">sec</span>
+                <span class="asmKeyword">ror</span> <span class="asmLabel">cmd_use_pen</span>
+                <span class="asmKeyword">bmi</span> <span class="asmLabel">move_oob</span>
+
+move_ib         <span class="asmKeyword">lda</span> <span class="asmLabel">step</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">nstep</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">sign</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">bmi</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">inc</span> <span class="asmLabel">stepper</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">inc</span> <span class="asmLabel">stepper</span><span class="asmOperator">,x</span>
++               <span class="asmKeyword">dec</span> <span class="asmLabel">stepper</span><span class="asmOperator">,x</span>
+
+move_oob        <span class="asmKeyword">lda</span> <span class="asmLabel">step</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">nstep</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">cmd</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">dec</span> <span class="asmLabel">cmd</span><span class="asmOperator">+</span><span class="asmAddress">1</span><span class="asmOperator">,x</span>
++               <span class="asmKeyword">dec</span> <span class="asmLabel">cmd</span><span class="asmOperator">,x</span>
+
+nstep           <span class="asmKeyword">lda</span> <span class="asmLabel">sign</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">bpl</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">step1</span>
++               <span class="asmKeyword">dex</span>
+                <span class="asmKeyword">dex</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">move_xy_loop</span>
+
+                <span class="asmKeyword">lda</span> <span class="asmLabel">cmd_use_pen</span>
+                <span class="asmKeyword">bpl</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">lda</span> <span class="asmOperator">#</span><span class="asmAddress">0</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">cmd_use_pen</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">pen_state</span>
++               <span class="asmKeyword">beq</span> <span class="asmLabel">pen_up</span>
+                <span class="asmKeyword">ldx</span> <span class="asmLabel">dashed</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">pen_down</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">dash_counter</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">skip_pen</span>
+                <span class="asmKeyword">stx</span> <span class="asmLabel">dash_counter</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">pen_state</span>
+                <span class="asmKeyword">and</span> <span class="asmOperator">#</span><span class="asmConst">PEN</span><span class="asmOperator">.</span><span class="asmConst">UP</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">pen_down</span>
+<span class="asmComment2">;---------------</span>
+pen_up          <span class="asmKeyword">ldx</span> <span class="asmOperator">#~</span><span class="asmConst">PEN</span><span class="asmOperator">.</span><span class="asmConst">UP</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">+</span>
+
+pen_down        <span class="asmKeyword">ldx</span> <span class="asmOperator">#~</span><span class="asmConst">PEN</span><span class="asmOperator">.</span><span class="asmConst">DOWN</span>
++               <span class="asmKeyword">cpx</span> <span class="asmLabel">pen_state</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">skip_pen</span>
+                <span class="asmKeyword">cpx</span> <span class="asmOperator">#~</span><span class="asmConst">PEN</span><span class="asmOperator">.</span><span class="asmConst">DOWN</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">wait_pen</span>
++               <span class="asmKeyword">stx</span> <span class="asmLabel">port</span><span class="asmOperator">.</span><span class="asmLabel">pen</span>
+                <span class="asmKeyword">stx</span> <span class="asmLabel">pen_state</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">wait_pen</span>
+                <span class="asmKeyword">lda</span> <span class="asmOperator">#~</span><span class="asmConst">PEN</span><span class="asmOperator">.</span><span class="asmConst">IDLE</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">port</span><span class="asmOperator">.</span><span class="asmLabel">pen</span>
+skip_pen        <span class="asmKeyword">jsr</span> <span class="asmLabel">set_stepper</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">step</span><span class="asmOperator">.</span><span class="asmLabel">x</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">step</span><span class="asmOperator">.</span><span class="asmLabel">y</span>
+                <span class="asmKeyword">dec</span> <span class="asmLabel">dash_counter</span>
+                <span class="asmKeyword">jmp</span> <span class="asmLabel">move_loop</span>
+<span class="asmComment2">;---------------</span>
+step1           <span class="asmKeyword">ldy</span> <span class="asmLabel">step</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">asl</span>
+                <span class="asmKeyword">bcs</span> <span class="asmLabel">step1_m</span>
+                <span class="asmKeyword">inc</span> <span class="asmLabel">absorig</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">inc</span> <span class="asmLabel">absorig</span><span class="asmOperator">+</span><span class="asmAddress">1</span><span class="asmOperator">,x</span>
++               <span class="asmKeyword">rts</span>
+
+step1_m         <span class="asmKeyword">lda</span> <span class="asmLabel">absorig</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">+</span>
+                <span class="asmKeyword">dec</span> <span class="asmLabel">absorig</span><span class="asmOperator">+</span><span class="asmAddress">1</span><span class="asmOperator">,x</span>
++               <span class="asmKeyword">dec</span> <span class="asmLabel">absorig</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">rts</span>
+<span class="asmComment2">;---------------</span>
+in_printarea_x  <span class="asmKeyword">sec</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">absorig</span><span class="asmOperator">.</span><span class="asmLabel">x</span>
+                <span class="asmKeyword">sbc</span> <span class="asmOperator">#&lt;</span><span class="asmConst">WIDTH</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">absorig</span><span class="asmOperator">.</span><span class="asmLabel">x</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">sbc</span> <span class="asmOperator">#&gt;</span><span class="asmConst">WIDTH</span>
+                <span class="asmKeyword">rts</span>
+<span class="asmComment2">;---------------</span>
+set_stepper     <span class="asmKeyword">lda</span> <span class="asmLabel">stepper</span><span class="asmOperator">.</span><span class="asmLabel">x</span>
+                <span class="asmKeyword">and</span> <span class="asmOperator">#</span><span class="asmOperator">size</span><span class="asmOperator">(</span><span class="asmLabel">stepconst</span><span class="asmOperator">.</span><span class="asmLabel">x</span><span class="asmOperator">)-</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">tay</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">stepconst</span><span class="asmOperator">.</span><span class="asmLabel">x</span><span class="asmOperator">,y</span>
+                <span class="asmKeyword">pha</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">stepper</span><span class="asmOperator">.</span><span class="asmLabel">y</span>
+                <span class="asmKeyword">and</span> <span class="asmOperator">#</span><span class="asmOperator">size</span><span class="asmOperator">(</span><span class="asmLabel">stepconst</span><span class="asmOperator">.</span><span class="asmLabel">y</span><span class="asmOperator">)-</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">tay</span>
+                <span class="asmKeyword">pla</span>
+                <span class="asmKeyword">ora</span> <span class="asmLabel">stepconst</span><span class="asmOperator">.</span><span class="asmLabel">y</span><span class="asmOperator">,y</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">port</span><span class="asmOperator">.</span><span class="asmLabel">stepper</span>
+<span class="asmComment2">;---------------</span>
+wait_iec        <span class="asmKeyword">lda</span> <span class="asmOperator">#&lt;</span><span class="asmConst">IEC</span><span class="asmOperator">.</span><span class="asmConst">WAIT</span>
+                <span class="asmKeyword">ldy</span> <span class="asmOperator">#&gt;</span><span class="asmConst">IEC</span><span class="asmOperator">.</span><span class="asmConst">WAIT</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">wait</span>
+<span class="asmComment2">;---------------</span>
+wait_pen        <span class="asmKeyword">lda</span> <span class="asmOperator">#&lt;</span><span class="asmConst">PEN</span><span class="asmOperator">.</span><span class="asmConst">WAIT</span>
+                <span class="asmKeyword">ldy</span> <span class="asmOperator">#&gt;</span><span class="asmConst">PEN</span><span class="asmOperator">.</span><span class="asmConst">WAIT</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">wait</span>
+<span class="asmComment2">;---------------</span>
+wait_settle     <span class="asmKeyword">lda</span> <span class="asmOperator">#&lt;</span><span class="asmConst">SETTLE_WAIT</span>
+                <span class="asmKeyword">ldy</span> <span class="asmOperator">#&gt;</span><span class="asmConst">SETTLE_WAIT</span>
+wait            <span class="asmKeyword">sta</span> <span class="asmLabel">latch_l</span>
+                <span class="asmKeyword">sty</span> <span class="asmLabel">latch_now</span>
+-               <span class="asmKeyword">lda</span> <span class="asmLabel">control</span>
+                <span class="asmKeyword">bpl</span> <span class="asmLabel">-</span>
+                <span class="asmKeyword">lda</span> <span class="asmOperator">#</span><span class="asmAddress">0</span>
+                <span class="asmKeyword">rts</span>
+
+stepconst       <span class="asmPreProc2">.block</span>
+consts          <span class="asmKeyword">=</span> <span class="asmOperator">[</span><span class="asmAddress">%1001</span><span class="asmOperator">,</span> <span class="asmAddress">%1010</span><span class="asmOperator">,</span> <span class="asmAddress">%0110</span><span class="asmOperator">,</span> <span class="asmAddress">%0101</span><span class="asmOperator">]</span>
+x               <span class="asmType">.byte</span> <span class="asmLabel">consts</span>
+y               <span class="asmType">.byte</span> <span class="asmLabel">consts</span> <span class="asmOperator">&lt;&lt;</span> <span class="asmAddress">4</span>
+                <span class="asmPreProc2">.bend</span>
+<span class="asmComment2">;---------------</span>
+carriage_return <span class="asmKeyword">jsr</span> <span class="asmLabel">move_left_side</span>
+<span class="asmComment2">;---------------</span>
+                <span class="asmPreProc2">.cerror</span> <span class="asmOperator">(</span><span class="asmConst">LINE_HEIGHT</span> <span class="asmOperator">/</span> <span class="asmAddress">2</span> <span class="asmOperator">*</span> <span class="asmConst">FONT_SIZES</span><span class="asmOperator">)</span> <span class="asmOperator">&gt;</span> <span class="asmAddress">255</span><span class="asmOperator">,</span> <span class="asmString">&quot;</span><span class="asmString">Line height too big</span><span class="asmString">&quot;</span>
+line_feed       <span class="asmKeyword">ldx</span> <span class="asmLabel">char_size</span>
+                <span class="asmKeyword">inx</span>
+                <span class="asmKeyword">lda</span> <span class="asmOperator">#</span><span class="asmConst">LINE_HEIGHT</span> <span class="asmOperator">/</span> <span class="asmAddress">2</span>
+-               <span class="asmKeyword">asl</span>
+                <span class="asmKeyword">dex</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">-</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">absorig</span><span class="asmOperator">.</span><span class="asmLabel">y</span>
+                <span class="asmKeyword">stx</span> <span class="asmLabel">absorig</span><span class="asmOperator">.</span><span class="asmLabel">y</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">move_abs_pup</span>
+<span class="asmComment2">;---------------</span>
+set_relorigin   <span class="asmKeyword">ldx</span> <span class="asmOperator">#</span><span class="asmOperator">size</span><span class="asmOperator">(</span><span class="asmLabel">relorig</span><span class="asmOperator">)</span>
+-               <span class="asmKeyword">lda</span> <span class="asmLabel">absorig</span><span class="asmOperator">-</span><span class="asmAddress">1</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">relorig</span><span class="asmOperator">-</span><span class="asmAddress">1</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">dex</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">-</span>
+                <span class="asmKeyword">rts</span>
+<span class="asmComment2">;---------------</span>
+set_absorigin   <span class="asmKeyword">ldx</span> <span class="asmOperator">#</span><span class="asmOperator">size</span><span class="asmOperator">(</span><span class="asmLabel">cmd</span><span class="asmOperator">)</span>
+-               <span class="asmKeyword">lda</span> <span class="asmLabel">relorig</span><span class="asmOperator">-</span><span class="asmAddress">1</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">cmd</span><span class="asmOperator">-</span><span class="asmAddress">1</span><span class="asmOperator">,x</span>
+                <span class="asmKeyword">dex</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">-</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">move_abs_pup</span>
+<span class="asmComment2">;---------------</span>
+move_left_side  <span class="asmKeyword">lda</span> <span class="asmOperator">#</span><span class="asmAddress">0</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">x</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">x</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">move_horiz</span>
+<span class="asmComment2">;---------------</span>
+next_color      <span class="asmKeyword">inc</span> <span class="asmLabel">color</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">color</span>
+<span class="asmComment2">;---------------</span>
+                <span class="asmPreProc2">.cerror</span> <span class="asmConst">COLORS</span> <span class="asmOperator">&amp;</span> <span class="asmOperator">(</span><span class="asmConst">COLORS</span> <span class="asmOperator">-</span> <span class="asmAddress">1</span><span class="asmOperator">),</span> <span class="asmString">&quot;</span><span class="asmString">Colors must be a power of 2</span><span class="asmString">&quot;</span>
+select_pen      <span class="asmKeyword">and</span> <span class="asmOperator">#</span><span class="asmConst">COLORS</span><span class="asmOperator">-</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">color</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">current_color</span>
+                <span class="asmKeyword">cmp</span> <span class="asmLabel">color</span>
+                <span class="asmKeyword">beq</span> <span class="asmLabel">same_color</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">absorig</span><span class="asmOperator">.</span><span class="asmLabel">x</span>
+                <span class="asmKeyword">pha</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">absorig</span><span class="asmOperator">.</span><span class="asmLabel">x</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">pha</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">pen_up</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">move_left_side</span>
+-               <span class="asmKeyword">ldx</span> <span class="asmOperator">#</span><span class="asmConst">PEN</span><span class="asmOperator">.</span><span class="asmConst">STEPS</span> <span class="asmOperator">+</span> <span class="asmConst">MARGIN_STEPS</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">stepper_left</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">stepper_rl</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">stepper_rl</span>
+                <span class="asmKeyword">ldx</span> <span class="asmOperator">#</span><span class="asmConst">PEN</span><span class="asmOperator">.</span><span class="asmConst">STEPS</span> <span class="asmOperator">+</span> <span class="asmConst">MARGIN_STEPS</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">stepper_right</span>
+                <span class="asmKeyword">inc</span> <span class="asmLabel">current_color</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">current_color</span>
+                <span class="asmKeyword">and</span> <span class="asmOperator">#</span><span class="asmConst">COLORS</span><span class="asmOperator">-</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">current_color</span>
+                <span class="asmKeyword">cmp</span> <span class="asmLabel">color</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">-</span>
+                <span class="asmKeyword">pla</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">x</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">pla</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">x</span>
+move_horiz      <span class="asmKeyword">lda</span> <span class="asmLabel">absorig</span><span class="asmOperator">.</span><span class="asmLabel">y</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">y</span>
+                <span class="asmKeyword">lda</span> <span class="asmLabel">absorig</span><span class="asmOperator">.</span><span class="asmLabel">y</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">cmd</span><span class="asmOperator">.</span><span class="asmLabel">y</span><span class="asmOperator">+</span><span class="asmAddress">1</span>
+<span class="asmComment2">;---------------</span>
+move_abs_pup    <span class="asmKeyword">lda</span> <span class="asmOperator">#</span><span class="asmAddress">%10000000</span>
+                <span class="asmKeyword">sta</span> <span class="asmLabel">cmd_use_pen</span>
+                <span class="asmKeyword">jmp</span> <span class="asmLabel">move_abs</span>
+<span class="asmComment2">;---------------</span>
+stepper_rl      <span class="asmKeyword">jsr</span> <span class="asmLabel">stepper_r</span>
+                <span class="asmKeyword">ldx</span> <span class="asmOperator">#</span><span class="asmConst">PEN</span><span class="asmOperator">.</span><span class="asmConst">STEPS</span>
+<span class="asmComment2">;---------------</span>
+stepper_left    <span class="asmKeyword">dec</span> <span class="asmLabel">stepper</span><span class="asmOperator">.</span><span class="asmLabel">x</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">set_stepper</span>
+                <span class="asmKeyword">dex</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">stepper_left</span>
+same_color      <span class="asmKeyword">rts</span>
+<span class="asmComment2">;---------------</span>
+stepper_r       <span class="asmKeyword">ldx</span> <span class="asmOperator">#</span><span class="asmConst">PEN</span><span class="asmOperator">.</span><span class="asmConst">STEPS</span>
+<span class="asmComment2">;---------------</span>
+stepper_right   <span class="asmKeyword">inc</span> <span class="asmLabel">stepper</span><span class="asmOperator">.</span><span class="asmLabel">x</span>
+                <span class="asmKeyword">jsr</span> <span class="asmLabel">set_stepper</span>
+                <span class="asmKeyword">dex</span>
+                <span class="asmKeyword">bne</span> <span class="asmLabel">stepper_right</span>
+                <span class="asmKeyword">rts</span>
+
+                <span class="asmPreProc2">.cerror</span> <span class="asmOperator">*</span> <span class="asmOperator">&gt;</span> <span class="asmLabel">vectors</span><span class="asmOperator">,</span> <span class="asmString">&quot;</span><span class="asmString">Code too long by </span><span class="asmString">&quot;</span><span class="asmOperator">,</span> <span class="asmOperator">*</span> <span class="asmOperator">-</span> <span class="asmLabel">vectors</span><span class="asmOperator">,</span> <span class="asmString">&quot;</span><span class="asmString"> bytes</span><span class="asmString">&quot;</span>
+                <span class="asmType">.fill</span> <span class="asmLabel">vectors</span> <span class="asmOperator">-</span> <span class="asmLabel">*</span><span class="asmOperator">,</span> <span class="asmAddress">$aa</span>
+
+                *<span class="asmKeyword">=</span> <span class="asmConst">ROM_START</span> <span class="asmOperator">+</span> <span class="asmConst">ROM_SIZE</span> <span class="asmOperator">-</span> <span class="asmOperator">size</span><span class="asmOperator">(</span><span class="asmLabel">vectors</span><span class="asmOperator">)</span>
+vectors         <span class="asmType">.word</span> <span class="asmLabel">reset</span><span class="asmOperator">,</span> <span class="asmLabel">reset</span><span class="asmOperator">,</span> <span class="asmLabel">reset</span>
+</pre>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->

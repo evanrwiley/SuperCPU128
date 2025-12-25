@@ -1,0 +1,28 @@
+** The Commodore 1581 is a 3,5 inch drive with serial bus connection.
+** The drive used a normal MFM controller and a double density drive
+** mechanism.  The 27256 can be used as a replacement eprom.
+
+hacks/
+  3rd party modifications to the 1581 ROM.
+
+1581.zip
+  Source Code
+
+1581-rom.318045-01.bin
+  System firmware, first version.  This chip has also been numbered
+  312558-01.
+
+1581-rom.318045-02.bin
+  System firmware, second version.
+
+1581-rom.beta.bin
+  EPROM dated 11/26/1986 from prototype 1581 in Amiga 1010 case.
+
+1581ref.txt
+1581zp.txt
+  A few cross-references for the 1581 firmware 318045-01, created
+  by Asger Alstrup <alstrup@diku.dk>.
+
+1563-rom.bin
+  ROM from a C128D / 81 with "1563" board inside.
+  

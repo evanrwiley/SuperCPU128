@@ -1,0 +1,21 @@
+{
+    "system": {
+        "clock_speed_mhz": 20,
+        "turbo_enabled": true,
+        "memory_map": "standard"
+    },
+    "memory": {
+        "super_ram_size_mb": 16,
+        "reu_enabled": true,
+        "reu_size_mb": 16
+    },
+    "video": {
+        "hdmi_enabled": true,
+        "palette": "default"
+    },
+    "ai_coprocessor": {
+        "enabled": true,
+        "api_endpoint": "http://localhost:11434",
+        "model": "codellama"
+    }
+}

@@ -1,0 +1,31 @@
+{
+  "machine": "Commodore 64",
+  "cpu": "MOS 6510 (1.02 MHz NTSC / 0.985 MHz PAL)",
+  "memory_map": {
+    "basic_ram_start": 2049,
+    "basic_ram_end": 40960,
+    "screen_ram": 1024,
+    "color_ram": 55296,
+    "io_area": 53248,
+    "kernal_rom": 57344
+  },
+  "graphics": {
+    "chip": "VIC-II (MOS 6567/6569)",
+    "resolution": "320x200",
+    "text_mode": "40x25",
+    "colors": 16,
+    "sprites": 8,
+    "notes": "Sprites are 24x21 pixels. Multicolor mode reduces horizontal resolution."
+  },
+  "audio": {
+    "chip": "SID (MOS 6581/8580)",
+    "voices": 3,
+    "registers_start": 54272
+  },
+  "coding_rules": [
+    "Zero Page $00-$01 controls memory banking.",
+    "Avoid using $0002-$008F if using BASIC.",
+    "Screen RAM is default at $0400 but can be moved via $D018.",
+    "Interrupts must save A, X, Y registers."
+  ]
+}

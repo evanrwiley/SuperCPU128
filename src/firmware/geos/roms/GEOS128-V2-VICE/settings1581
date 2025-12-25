@@ -1,0 +1,22 @@
+[C128]
+Language="de"
+MonitorDimensions="Z?jP?k??????????@????~~{~~~~~~~~~~~~~~~~~~nn????n??A?FAG??P?A????@k?????A????B????~o~~~~~~~~~w~~~~a~~~~~??????????|O@???@??B????"
+InitialDefaultDir="A:\Software_C128\GEOS128\geos128 U36"
+Window1Xpos=-805
+Window1Ypos=14
+Window0Xpos=-1686
+Window0Ypos=11
+InitialDiskDir="A:\Software_C128\GEOS128\geos128 U36"
+SoundDeviceName="dx"
+SoundBufferSize=100
+VICIIVideoCache=1
+VDCVideoCache=1
+SidEngine=1
+SidModel=1
+JoyPort1Device=3
+MouseSensitivity=25
+Drive8Type=1581
+Acia1Base=56832
+InternalFunctionName="A:\Software_C128\GEOS128\geos128 U36\Geos128Ge1581.rom"
+InternalFunctionROM=1
+

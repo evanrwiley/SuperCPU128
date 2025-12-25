@@ -1,0 +1,299 @@
+Does the DOS-ROM of the 1541-II drive recognise 1541 mechanics supported
+with a track 0 light barrier to make the drive "rattle free"?
+
+A little writeup by Wolfgang Moser, 2003-03-01
+2nd corrected edition, 2003-03-03
+3rd corrected edition, 2003-06-06
+
+
+As I checked with a 1541C drive hardware, the 1541II ROM doesn't contain
+the proper routines for recognising the track 0 sensor.
+
+I first suspected the 1541-II ROM, that it does contain the
+routines needed, because of the nearly identical serial numbers
+of the both ROMs:
+
+	1541C	-	251968-02
+	1541-II	-	251968-03
+
+
+But it doesn't. So what are the differencies of the ROMs regarding the
+track 0 light barrier sensor. Disassembling the ROMs for the 1541C and
+1541-II drives and checking mainly for the differencies regarding port A
+of the VIA at 0x1800...0x180F (port A means: 0x1801, 0x1803 and 0x180F):
+
+egrep '180(1|3|F)' *.d65dis.asm
+
+1541-II.251968-03.d65dis.asm:              L1801 = $1801
+1541-II.251968-03.d65dis.asm:              L1803 = $1803
+1541-II.251968-03.d65dis.asm:E853 AD 01 18   LDA L1801
+1541-II.251968-03.d65dis.asm:FF10 8E 03 18   STX L1803
+1541-II.251968-03.d65dis.asm:FF50 2C 01 18   BIT L1801
+1541C_.251968-02.d65dis.asm:              L1801 = $1801
+1541C_.251968-02.d65dis.asm:              L1803 = $1803
+1541C_.251968-02.d65dis.asm:              L180F = $180F
+1541C_.251968-02.d65dis.asm:E853 AD 01 18   LDA L1801
+1541C_.251968-02.d65dis.asm:FF10 8E 03 18   STX L1803
+1541C_.251968-02.d65dis.asm:FF3E AD 0F 18   LDA L180F
+1541C_.251968-02.d65dis.asm:FF41 CD 0F 18   CMP L180F
+1541C_.251968-02.d65dis.asm:FFA6 2C 01 18   BIT L1801
+
+At 0xE853 and 0xFF10 both ROMs are identical:
+
+	; Clear IRQ-Flag for port A, ATN_In at CA1
+	E853 AD 01 18   LDA L1801
+	E856 A9 01      LDA #$1
+	E858 85 7C      STA L7C
+	E85A 60         RTS
+
+	; VIA port initialisation, called from EAA0
+	FF10 8E 03 18   STX L1803
+	FF13 A9 02      LDA #$2
+	FF15 8D 00 18   STA L1800
+	FF18 A9 1A      LDA #$1A
+	FF1A 8D 02 18   STA L1802
+	FF1D 4C A7 EA   JMP LEAA7
+
+There's a little difference with the Reset routine, which calls the port
+initialisation above:
+
+	; Reset routine, calls port initialisation
+	EAA0 78         SEI
+	EAA1 D8         CLD
+       .if __1541C__
+	EAA2 A2 FE      LDX #$FE	; set PA0 as input, PA1.7 output
+       .else
+	EAA2 A2 FF      LDX #$FF	; set PAx as output
+       .endif
+	EAA4 4C 10 FF   JMP LFF10	; init VIA ports
+
+
+The "BIT L1801" can be found on both ROMs, they are a patch for
+correctly clearing the IRQ-Flag for port A, that signals an ATN_In at
+the handshake input CA1 of port A:
+
+1541C:
+	FFA6 2C 01 18   BIT L1801
+	FFA9 4C 5B E8   JMP LE85B
+
+1541II:
+	FF50 2C 01 18   BIT L1801
+	FF53 4C 5B E8   JMP LE85B
+
+
+But there are two remaining calls ("LDA L180F" and "CMP L180F") in the
+1541C-ROM, that cannot be found within the 1541-II ROM:
+
+
+	; routine, which calls the following one:
+	FA2E A5 4A      LDA L4A		; move inwards
+	FA30 10 31      BPL LFA63	; if yes, jump
+	FA32          LFA32:		;    no, move towards track 0
+	FA32 4C 36 FF   JMP LFF36	; check track 0 sensor
+	FA35          LFA35:
+	FA35 EA         NOP
+	FA36 EA         NOP
+	FA37 EA         NOP
+	FA38          LFA38:
+	FA38 4C 69 FA   JMP LFA69	; move track
+
+	; added patch just before the actual "move head" routine, which first
+	; checks the track 0 light barrier and prevents moves to the outer
+	; tracks, if a stable track-0-condition is reached
+	FF36 8A         TXA
+	FF37 48         PHA
+	FF38 98         TYA
+	FF39 48         PHA
+	FF3A A2 01      LDX #$1
+	FF3C          LFF3C:
+	FF3C A0 64      LDY #$64	; wait 100 loops at maximum
+	FF3E          LFF3E:
+	FF3E AD 0F 18   LDA L180F	; load port A
+	FF41 CD 0F 18   CMP L180F	; check if bits are stable
+	FF44 D0 20      BNE LFF66	; if unstable, jump (do move)
+	FF46          LFF46:
+	FF46 88         DEY		; loop down
+	FF47 D0 F5      BNE LFF3E	; and check again
+	FF49          LFF49:
+	FF49 CA         DEX		; loop down
+	FF4A D0 F0      BNE LFF3C	; and check again
+	FF4C          LFF4C:
+	FF4C 29 01      AND #$1		; isolate bit 0/PA0
+	FF4E F0 16      BEQ LFF66	; if low (tracks 1..4x), jump
+	FF50          LFF50:
+	FF50 AD 00 1C   LDA L1C00
+	FF53 29 03      AND #$3
+	FF55 D0 0F      BNE LFF66	; move head
+	FF57          LFF57:
+	FF57 A5 7B      LDA L7B
+	FF59 D0 0B      BNE LFF66	; move head
+	FF5B          LFF5B:
+	FF5B 68         PLA
+	FF5C A8         TAY
+	FF5D 68         PLA
+	FF5E AA         TAX
+	FF5F A9 00      LDA #$0		; don't move the head one step
+	FF61 85 4A      STA L4A		; more outerwards, jump behind
+	FF63 4C BE FA   JMP LFABE	; the "move head" routine
+	FF66          LFF66:
+	FF66 68         PLA
+	FF67 A8         TAY
+	FF68 68         PLA
+	FF69 AA         TAX
+	FF6A E6 4A      INC L4A
+	FF6C AE 00 1C   LDX L1C00
+	FF6F CA         DEX
+	FF70 4C 38 FA   JMP LFA38	; jump to "move head" routine
+
+
+Comparing the ROM of the 1541C additionally with the ROM of the 1571
+drive shows, that the "1541 DOS ROM compatibility part"
+(0xC000...0xFFFF) contains another, slightly changed routine for a
+proper track 0 light barrier check:
+
+	FF45 98         TYA
+	FF46 48         PHA
+	FF47 A0 64      LDY #$64	; wait 100 loops at maximum
+	FF49          LFF49:
+	FF49 AD 0F 18   LDA L180F	; load port A
+	FF4C 6A         ROR A		; put Bit 0 into the Carry
+	FF4D 08         PHP		; save status
+	FF4E AD 0F 18   LDA L180F	; load part A again
+	FF51 6A         ROR A		; and move Bit 0
+	FF52 6A         ROR A		; as sign (bit 7)
+	FF53 28         PLP		; get old status
+	FF54 29 80      AND #$80	; isolate sign
+	FF56 90 04      BCC LFF5C	; jump, if first read =0
+	FF58          LFF58:
+	FF58 10 1D      BPL LFF77	; move head (track != 0)
+	FF5A          LFF5A:		; if both bits were 1,
+	FF5A 30 02      BMI LFF5E	; signal is stable
+	FF5C          LFF5C:
+	FF5C 30 19      BMI LFF77	; move head, if second read =1
+	FF5E          LFF5E:
+	FF5E 88         DEY		; loop down and check again
+	FF5F D0 E8      BNE LFF49	; PA0 for stability
+	FF61          LFF61:
+	FF61 B0 14      BCS LFF77	; move head, if PA0 is stable 1
+	FF63          LFF63:
+	FF63 AD 00 1C   LDA L1C00	; probably prevent head move
+	FF66 29 03      AND #$3
+	FF68 D0 0D      BNE LFF77	; move head
+	FF6A          LFF6A:
+	FF6A A5 7B      LDA L7B
+	FF6C D0 09      BNE LFF77	; move head
+	FF6E          LFF6E:
+	FF6E 68         PLA		; PA0 is stable low, further
+	FF6F A8         TAY		; checks were done.
+	FF70 A9 00      LDA #$0		; don't move the head one step
+	FF72 85 4A      STA L4A		; more outerwards, jump behind
+	FF74 4C BE FA   JMP LFABE	; the "move head" routine	
+	FF77          LFF77:		; 
+	FF77 68         PLA
+	FF78 A8         TAY
+	FF79 E6 4A      INC L4A
+	FF7B AE 00 1C   LDX L1C00
+	FF7E CA         DEX
+	FF7F 4C 38 FA   JMP LFA38	; jump to "move head" routine
+
+Take note, that the 1571 routine prevents an outerwards head move, if
+PA0 is at a stable low state. The 1541C routine in contrast prevents the
+head move, if PA0 is at a stable high. You can find the reason for this
+behaviour at the electronics level. The light barrier signal is inverted
+twice (2x 74LS04 inverter gates) on the board of the 1541C, while it is
+only inverted once (1x 74LS14) with the 1571.
+
+
+Both routines are not optimal in my personal opinion, because they don't
+work, if there's no light barrier connected to the port pin PA0. That's
+the reason, why there's an extra jumper on most of the 1541C boards
+(JP3), which has to be opened to get the track 0 light barrier go work.
+That may also be the reason, why pin 2 of port A of the VIA is mostly
+connected to ground on most of the 1541-II mainboards. Perhaps early
+versions were equipped with a 1541C DOS ROM, so that this "fix" would be
+needed.
+
+But _why_ does the ROM not work, if the light barrier is unconneced?
+
+Let's look at the electronics first, figure 1 shows the significant
+parts out of the schematics of the 1541C mainboard. You can see, that
+the photoactive transistor of the light barrier is mounted externally,
+while the pullup and the inverters are on the 1541C board itself.
+
+	       +5V
+	        |
+	        |
+	       +++
+	       | | 47kOhm
+	       | |                              ~~~~~
+	       | |                               |
+	       +++                               |
+	        |        +---+      +---+        |
+	        +--------| 1 |O-----| 1 |O-------| PA0
+	        |        +---+      +---+        |
+	        ~~~~~                             |
+	        ~|~~~                            ~~~~~
+	         |
+	 \\>  | /
+	  \>  |/
+	   >  |\
+	      | \
+	         |
+	         |
+	       =====
+	Fig. 1: Signal preparation of the 1541C's track 0 light barrier
+
+The photoactive transistor is connected "Open Collector", that means, it
+can only produce an active low signal. Whenever light falls onto the
+transistor, it pulls the ouput line to low. If the light beam is broken
+(the head reached track 0), the outputs becomes something like an open
+state like beeing unconnected. To get the inverter input signal high in
+this situation we need the pullup resitor.
+
+
+You can see now, what happens, if the light barrier is not connected to
+the board. The desired input line is simply open, the same as if the
+transistor becomes open, because the light beam is broken. The pullup
+resistor now puts the input signal to a high, which "says" to PA0, that
+track 0 is reached by the head.
+
+Regardless if the light beam is broken (track 0 reached) or the whole
+light barrier is not mounted or not connected to the board, it both
+means the same: "Track 0 reached".
+
+And if this condition becomes true, the ROM routines prevents head moves
+to the outermost tracks. That's the reason, why the head moves inwards
+only, if you switch a 1541C on and want to access it.
+
+
+A solution may be a more intelligent track 0 check routine, that also
+makes a proof, that the track 0 light barrier is working correctly. That
+means, that such a routine has to check, that the PA0 input signal
+becomes low some time, especially, when the head is moved some tracks
+inwards. This test could be done with the reset routine, but it would be
+better to also integrate this test into the stepper routine.
+
+
+Here are some more goals, that should be reached for a fix of all modern
+1541 drives, namely the 1541C and 1541-II drives.
+
+	1. The input signal should be connected to the VIA input pin CB2
+	   instead of PA0, so that standard parallel cables can freely
+	   use port A (until know it is untested, if CB2 is "free" in a
+	   manner, so that it can be used for this purpose).
+	2. Additionally needed electronics must be as simple as
+	   possible, so that people can even add a light barrier to
+	   their 1541-II drives.
+	3. The ROM replacement should be a patched 1541-II ROM and the
+	   patch must be as compatible as possible to existing software.
+	   It would be better, the drive "rattles" with bad written
+	   software instead of not working in general.
+	4. The ROM replacements should work in every case, even if
+	   there's no light barrier connected at all. This would be
+	   fine, because everyone could use this ROM as a base for own
+	   patches, improvements or addons like speeder systems.
+	5. It may be another goal to produce a more compatible 1541 ROM
+	   part for the 1571 drive, which bases on the 1541-II ROM.
+
+
+To be done somewhere in the future, Womo <womo (at) d81 (dot) de>

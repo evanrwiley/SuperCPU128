@@ -1,0 +1,16 @@
+basic.901230-01.bin
+  CBM BASIC V2, taken from the BASIC cartridge for the Commodore MAX,
+  also known as VIC-10 or UltiMax.  Unlike the BASIC interpreter in
+  the Commodore 64, which resides at $A000-$BFFF, this one is
+  located at $8000-$9FFF.  The 2764 EPROM was hand labeled 901230-01.
+  The board in the cartridge has three chips: two 2764 EPROMs (U1, BASIC
+  and U2, KERNAL) and one HM6116P-4 SRAM (U3).  The bottom side is
+  marked FAB 326314, A/W 326315 REV A, and the top side is labelled
+  EPROM/EPROM/RAM and ASSY 326312.  See also kernal.901231-01.bin.
+  There should also be "MINI BASIC I".
+kernal.901231-01.bin
+  Commodore MAX KERNAL ROM, taken from the BASIC cartridge for the
+  Commodore MAX.  There is a copy of the standard Commodore 64 upper case
+  character set (corresponding to the first half of 901225-01) located
+  at $F000-$F7FF.  The 2764 EPROM was hand labeled 901231-01.  See also
+  basic.901230-01.bin.

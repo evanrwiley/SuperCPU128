@@ -1,0 +1,34 @@
+** Here is the firmware of the 1570, 1571 and 1571CR drives.  There are some
+** differences between these drives.  The 1570 is single-sided, while the
+** others are double-sided.  See the README file for details.
+** The 27256 eprom can be used as a firmware replacement.
+
+schematics/
+  Schematic diagrams
+
+1571.zip
+  Source Code
+
+1570-rom.315090-01.bin
+  The firmware of a 1570 disk drive.  The board may say "1571 disk", but
+  the 1570 and 1571 were very similar anyway, the most remarkable difference
+  being that the 1570 has single-sided drive mechanism.
+
+1571-rom.310654-03.bin
+  The firmware of a 128D's built-in 1571 disk drive, or of a stand-alone 1571.
+
+1571-rom.310654-04.10-12-86.d8c6.bin
+  The firmware from a CBM rom collection, uploaded by Tokra
+
+1571-rom.310654-05.bin
+  An upgrade of the above.  Corrects the bug of 310654-03 that moves the
+  R/W head between each sector when writing on the disk's top side.
+
+1571cr-rom.318047-01.bin
+  The firmware of a 128DCR's built-in 1571CR disk drive.
+
+1571cr-rom.318047-02.bin
+  Identical to 1571cr-rom.318047-01.bin, which makes this file suspicious.
+  It's been seen as an eprom in one or more boards with a printed sticker
+  label.
+

@@ -1,0 +1,22 @@
+{
+    "providers": {
+        "google": {
+            "api_key": "YOUR_GOOGLE_API_KEY",
+            "model": "gemini-pro"
+        },
+        "openai": {
+            "api_key": "YOUR_OPENAI_API_KEY",
+            "model": "gpt-4"
+        },
+        "ollama": {
+            "endpoint": "http://localhost:11434",
+            "model": "codellama"
+        }
+    },
+    "active_provider": "google",
+    "shared_memory": {
+        "request_addr": "0xFF001000",
+        "response_addr": "0xFF002000",
+        "status_reg": "0xFF000000"
+    }
+}

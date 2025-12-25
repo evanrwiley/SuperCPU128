@@ -1,0 +1,52 @@
+From: cbmvax.cbm!fred (Fred Bowen)
+Subject: 1541B ROM update
+Date: 12 Dec 86 23:14:51 GMT
+To: Commodore users
+
+
+1541B DOS ROM RELEASE NOTES
+Commodore Electronics, LTD.                     5 December 1986
+
+1541B ROM RELEASE NOTES: 251968-02   (16K byte, 300ns, checksum=$1A69)
+
+THE FOLLOWING MODIFICATIONS HAVE BEEN MADE TO THE  251968-01  ROM  CODE  TO
+CREATE A NEW ROM  RELEASED  ON  12/05/86.  THIS  RELEASE IS MADE TO  CREATE
+MASKED ROMS FOR PRODUCTION OF THE 1541B/C MODEL DISK DRIVE ONLY.
+
+1.  The interrupt rate change from 15 to 8ms for slightly better
+performance caused compatibility problems with some software that used that
+timing for its own purposes. It is now 15ms.
+
+2.  The 1541B  board  has  troubles  accessing tracks beyond 35
+attributable to the new data separator, although the problem always existed
+(wrong bit cell densities because TRKNUM only listed up to track 35).
+TRKNUM has been extended.
+
+3.  SAVE-@ (SAVE with replace) is fixed.  The variable  NODRV is now a
+16-bit addressable var,  and the STLBUF routine steals the buffer locked by
+drive one.
+
+4.  Relative File fixes (unspecified).
+
+5.  Serial bus (DEVICE NOT PRESENT) fix.  TSTATN now clears IRQ.
+
+6.  Block read fix (unspecified).
+
+7.  Write to stack area bug (unspecified).
+
+8.  Set decimal mode (SED) before disabling IRQ (SEI) fixed.
+
+9.  Disk full bug (unspecified).
+
+10.  Add copyright notice for legal types and thieves.
+
+11.  The ROM checksum adjustment byte at $C001 is now $46.
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+  PLEASE NOTE:  THIS ROM WILL _NOT_ WORK IN EARLIER 1541 PCB'S, WHICH
+REQUIRE DIFFERENT SIZED ROMS (8K),  AMONG OTHER BOARD DIFFERENCES!
+  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+-- 
+Fred Bowen
+
+Commodore Electronics, Ltd.,  1200 Wilson Drive,  West Chester,  PA,  19380
