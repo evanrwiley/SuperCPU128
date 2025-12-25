@@ -16,6 +16,13 @@ else
     exit 1
 fi
 
+# Install System Tools (SIMH for PDP-11, socat for testing)
+if command -v apt-get &> /dev/null; then
+    echo "Installing System Tools..."
+    sudo apt-get update
+    sudo apt-get install -y simh socat
+fi
+
 # 2. Compile Bridge Daemon
 echo "[2/4] Compiling Bridge Daemon..."
 cd src/software/bridge_daemon

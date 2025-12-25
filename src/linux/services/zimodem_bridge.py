@@ -2,8 +2,49 @@ import socket
 import time
 import select
 import sys
+import os
+import pty
+import subprocess
 from fpga_interface import FpgaInterface
 from config_manager import ConfigManager
+
+class LocalProcessConnection:
+    """Wraps a local subprocess (PTY) to look like a socket"""
+    def __init__(self, command):
+        self.master_fd, self.slave_fd = pty.openpty()
+        self.process = subprocess.Popen(
+            command,
+            stdin=self.slave_fd,
+            stdout=self.slave_fd,
+            stderr=self.slave_fd,
+            shell=True,
+            preexec_fn=os.setsid,
+            close_fds=True
+        )
+        os.close(self.slave_fd) # Close slave in parent
+
+    def send(self, data):
+        try:
+            os.write(self.master_fd, data)
+        except OSError:
+            pass
+
+    def recv(self, bufsize):
+        try:
+            return os.read(self.master_fd, bufsize)
+        except OSError:
+            return b""
+
+    def close(self):
+        try:
+            os.close(self.master_fd)
+            self.process.terminate()
+            self.process.wait()
+        except:
+            pass
+        
+    def fileno(self):
+        return self.master_fd
 
 class ZiModemBridge:
     def __init__(self):
@@ -99,6 +140,31 @@ class ZiModemBridge:
 
     def connect(self, addr_str):
         try:
+            # Check for Special Local Connections
+            if addr_str.upper() == "SIMH":
+                print(f"[Network] Starting Local SIMH PDP-11...")
+                self.send_to_c64(f"BOOTING PDP-11...\r\n")
+                # Assuming simh is installed and a boot script exists
+                # We use a wrapper script to handle the specific simh configuration
+                pdp_script = os.path.join(os.path.dirname(__file__), '../../../data/pdp11/run_pdp11.sh')
+                if os.path.exists(pdp_script):
+                    self.sock = LocalProcessConnection(pdp_script)
+                else:
+                    # Fallback if script missing
+                    self.sock = LocalProcessConnection("pdp11")
+                
+                self.connected = True
+                self.command_mode = False
+                return
+
+            if addr_str.upper() == "SHELL":
+                print(f"[Network] Starting Local Shell...")
+                self.send_to_c64(f"STARTING LINUX SHELL...\r\n")
+                self.sock = LocalProcessConnection("/bin/bash -i")
+                self.connected = True
+                self.command_mode = False
+                return
+
             if ":" in addr_str:
                 host, port = addr_str.split(":")
                 port = int(port)

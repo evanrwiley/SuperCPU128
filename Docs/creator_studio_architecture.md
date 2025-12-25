@@ -59,3 +59,10 @@ Every project has a `project.json` that the AI reads to understand the state.
 ## 4. Modes of Operation
 -   **Autonomous Mode**: "Fix the color clash in the sprite." -> AI edits the bytes directly.
 -   **Learning Mode**: "How do I fix the color clash?" -> AI explains Multicolor Mode constraints (2 shared colors, 1 unique).
+
+## 5. Library Integration
+The Creator Studio is tightly integrated with the **Library System** to manage assets and builds.
+
+-   **Asset Repository**: Generated sprites and SID tunes are automatically saved to the Library Database with appropriate tags (e.g., `{"type": "sprite", "tags": ["robot", "futuristic"]}`).
+-   **Version Control**: When you "Save" a project, the Library Manager creates a snapshot of the entire memory state (REU + Main RAM), allowing you to roll back to previous versions.
+-   **Reference Library**: The AI can search the Library for existing code snippets. "Find a raster interrupt routine in my library" -> The system queries the DB for items tagged "IRQ" or "Raster".

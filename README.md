@@ -16,6 +16,13 @@ The **SuperCPU Creator Studio** is a hybrid hardware/software development enviro
 ### 2. The AI Co-Processor (ARM/Linux)
 - **Bridge Daemon (`daemon.c`)**: A high-performance C service that monitors the FPGA bridge. It intercepts commands written to `$DE00` and triggers Python tools.
 - **AI Service (`creator_cli.py`)**: The "brain" of the system. It accepts natural language prompts from the C64, queries AI models (Copilot/Ollama), and generates 6502/65816 assembly or sprite/SID data.
+- **Library Manager**: A robust SQLite-backed storage system for managing C64 software.
+  - **Ingestion**: Captures programs from RAM or disk and automatically enriches them with metadata (Genre, Year, Description) using AI.
+  - **Virtual File System (VFS)**: Exposes the library to the C64 as a browsable directory structure (e.g., `//LIB/BY GENRE/ARCADE`).
+  - **Portability**: Supports JSON import/export for easy backup and editing.
+- **REU Manager**: Manages RAM Expansion Unit images.
+  - **Snapshots**: Save and load full 16MB REU states instantly.
+  - **Autoload**: Configure specific images (e.g., GEOS) to load automatically on boot.
 - **Knowledge Base**: A strict set of JSON definitions (`c64_def.json`) ensures the AI respects hardware limits (e.g., 8 sprites, 3 SID voices).
 
 ### 3. The Frontend (C64)
@@ -66,6 +73,24 @@ The **SuperCPU Creator Studio** is a hybrid hardware/software development enviro
    - Select **"Sprite Wizard"**.
    - Type: *"A walking robot facing right."*
    - The AI will generate the sprite data and load it into memory.
+
+5. **Manage Library**:
+   - **Ingest**: Load a game, then use the Linux menu or CLI to "Ingest from RAM". The AI will automatically identify the game and add metadata.
+   - **Browse**: On the C64, load the directory of the Library Drive (Device 10):
+     ```basic
+     LOAD "$", 10
+     LIST
+     ```
+     You will see categories like "ALL GAMES", "BY GENRE", etc. Navigate by loading directories:
+     ```basic
+     OPEN 1,10,0,"//LIB/BY GENRE/ARCADE/": LOAD "$",1
+     ```
+
+6. **Instant GEOS Boot**:
+   - Boot GEOS.
+   - Save the state: `reu_tool.py save geos.reu`.
+   - Set autoload: `reu_tool.py autoload --enable --file geos.reu`.
+   - Next reboot, GEOS is ready instantly.
 
 ## 📂 Project Structure
 

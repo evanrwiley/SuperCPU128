@@ -4,6 +4,7 @@ import struct
 import subprocess
 from fpga_interface import FpgaInterface
 from config_manager import ConfigManager
+from library_manager import LibraryManager
 
 # Virtual Drive Configuration
 # Maps a Linux directory to a C64 Device ID (e.g., 10)
@@ -12,7 +13,8 @@ class VirtualDriveService:
     def __init__(self):
         self.config = ConfigManager()
         self.fpga = FpgaInterface()
-        self.drives = {} # Map device_id -> path
+        self.library = LibraryManager()
+        self.drives = {} # Map device_id -> path or object
         
         self.setup_drives()
         print(f"[Drive] Service Started. Active Drives: {list(self.drives.keys())}")
@@ -34,8 +36,12 @@ class VirtualDriveService:
                     except:
                         print(f"[Drive] Failed to create local path {path}")
                         continue
-                self.drives[dev_id] = path
+                self.drives[dev_id] = {'type': 'local', 'path': path}
                 
+            elif dtype == 'library':
+                # Special Library Drive
+                self.drives[dev_id] = {'type': 'library', 'path': '//LIB'}
+
             elif dtype == 'smb':
                 # Mount SMB share
                 mount_point = f"/mnt/c64_drive_{dev_id}"
@@ -66,7 +72,14 @@ class VirtualDriveService:
         if device_id not in self.drives:
             return "DEVICE NOT PRESENT"
             
-        current_dir = self.drives[device_id]
+        drive_obj = self.drives[device_id]
+        
+        # Handle Library Drive
+        if drive_obj['type'] == 'library':
+            return self._list_library(drive_obj['path'])
+            
+        # Handle Local/SMB Drive
+        current_dir = drive_obj['path']
         try:
             files = os.listdir(current_dir)
             # Format: 0 "DISK NAME" ID 2A
@@ -88,6 +101,27 @@ class VirtualDriveService:
             return "\r".join(listing)
         except Exception as e:
             return f"ERROR: {e}"
+
+    def _list_library(self, vfs_path):
+        """Generate listing from Library Manager"""
+        items = self.library.get_virtual_listing(vfs_path)
+        
+        listing = []
+        listing.append(f'0 "LIBRARY" 00 2A')
+        
+        # Add ".." if not root
+        if vfs_path != "//LIB":
+             listing.append(f'0    ".." DIR')
+
+        for type_str, name, id_or_val in items:
+            # If it's a file (PRG), we might want to show ID or something
+            # But C64 directory is just Name + Type.
+            # We need a way to map "LOAD name" back to the ID.
+            # For now, just list them.
+            listing.append(f'1    "{name}" {type_str}')
+            
+        listing.append("0 BLOCKS FREE.")
+        return "\r".join(listing)
 
     def run(self):
         # Placeholder loop. 

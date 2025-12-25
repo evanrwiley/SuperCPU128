@@ -1,0 +1,86 @@
+{
+    "325099-01.bin": {
+        "title": "C64 Diagnostic Rev 586220",
+        "description": "The standard Commodore 64 diagnostic cartridge. Tests RAM, ROM, VIC-II, SID, CIA, and keyboard. Requires loopback harness for full port testing.",
+        "system": "C64",
+        "type": "Diagnostic"
+    },
+    "325109-10.bin": {
+        "title": "1541 Diagnostic",
+        "description": "Diagnostic ROM for the 1541 disk drive. Usually requires a modified drive or specific test harness.",
+        "system": "1541",
+        "type": "Diagnostic"
+    },
+    "c128_burnin_rev1.0_5.6.89.bin": {
+        "title": "C128 Burn-In Test Rev 1.0",
+        "description": "Factory burn-in test for Commodore 128. Used for long-term stability testing during manufacturing.",
+        "system": "C128",
+        "type": "Burn-In"
+    },
+    "c128_diag_rev1.2.bin": {
+        "title": "C128 Diagnostic Rev 1.2",
+        "description": "Early diagnostic revision for the Commodore 128. Tests VDC, VIC-IIe, SID, and memory banking.",
+        "system": "C128",
+        "type": "Diagnostic"
+    },
+    "c128_diag_rev6.8_9.11.88.bin": {
+        "title": "C128 Diagnostic Rev 6.8",
+        "description": "Late revision factory diagnostic for C128. Comprehensive testing of 80-column mode, MMU, and fast serial.",
+        "system": "C128",
+        "type": "Diagnostic"
+    },
+    "c128_final_burnin_rev7.0_5.6.89.bin": {
+        "title": "C128 Final Burn-In Rev 7.0",
+        "description": "Final factory burn-in test for C128/C128D. Runs automated cycles of memory and chip tests.",
+        "system": "C128",
+        "type": "Burn-In"
+    },
+    "c64gs_diag.1.1.bin": {
+        "title": "C64GS Diagnostic Rev 1.1",
+        "description": "Diagnostic for the C64 Games System (console). Tests the simplified hardware and joystick ports.",
+        "system": "C64GS",
+        "type": "Diagnostic"
+    },
+    "c64gs_diag.2.0.bin": {
+        "title": "C64GS Diagnostic Rev 2.0",
+        "description": "Updated diagnostic for C64GS. Includes improved controller tests.",
+        "system": "C64GS",
+        "type": "Diagnostic"
+    },
+    "c64_burn-in_7.2_5.6.89.bin": {
+        "title": "C64 Burn-In Test Rev 7.2",
+        "description": "Late era burn-in test for C64C/C64G. Used to stress test the system over time.",
+        "system": "C64",
+        "type": "Burn-In"
+    },
+    "c64_burn-in_test.bin": {
+        "title": "C64 Burn-In Test (Generic)",
+        "description": "Standard burn-in loop for C64. Displays cycling colors and tests RAM continuously.",
+        "system": "C64",
+        "type": "Burn-In"
+    },
+    "c64_diag_rev4.1.1.bin": {
+        "title": "C64 Diagnostic Rev 4.1.1",
+        "description": "Common factory diagnostic for C64. Excellent for troubleshooting bad RAM or faulty custom chips.",
+        "system": "C64",
+        "type": "Diagnostic"
+    },
+    "c64_final_burnin_26.10.88.bin": {
+        "title": "C64 Final Burn-In (1988)",
+        "description": "Factory acceptance test from 1988. Used before final packaging.",
+        "system": "C64",
+        "type": "Burn-In"
+    },
+    "c64_final_burnin_3.0_5.6.89.bin": {
+        "title": "C64 Final Burn-In Rev 3.0",
+        "description": "Updated final burn-in test from 1989.",
+        "system": "C64",
+        "type": "Burn-In"
+    },
+    "c64_hot_burn-In.bin": {
+        "title": "C64 Hot Burn-In",
+        "description": "Stress test designed to be run while the system is in a heat chamber.",
+        "system": "C64",
+        "type": "Burn-In"
+    }
+}

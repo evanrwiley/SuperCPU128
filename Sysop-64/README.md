@@ -1,5 +1,7 @@
 # SYSOP-64 - System Operator for the Commodore 64 - C64 Linux Cartridge
 
+> **Note:** This directory contains the original documentation for the Sysop-64 hardware platform. The SuperCPU project uses this hardware but runs its own custom FPGA core and software stack.
+
 ### SYSOP-64 is a cartridge for the C64 that uses the DE10-Nano to power new capabilities. It provides HDMI output at 1080P, a DMA engine and programming model, a frame buffer that can be overlaid on top of the HDMI C64 video output, and a full Linux OS.
 
 <p align="center">

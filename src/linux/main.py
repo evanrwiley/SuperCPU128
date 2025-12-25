@@ -10,12 +10,14 @@ sys.path.append(os.path.join(os.path.dirname(__file__), 'tools'))
 
 from robust_watchdog import Watchdog
 from zimodem_bridge import ZiModemBridge
+from reu_manager import ReuManager
 
 class SuperCPUService:
     def __init__(self):
         self.running = True
         self.watchdog = Watchdog()
         self.bridge = ZiModemBridge()
+        self.reu_manager = ReuManager()
         
         # Threads
         self.watchdog_thread = threading.Thread(target=self.run_watchdog)
@@ -36,6 +38,10 @@ class SuperCPUService:
             print(f"[Main] Bridge crashed: {e}")
 
     def start(self):
+        # Check REU Autoload before starting other services
+        print("[Main] Checking REU Autoload...")
+        self.reu_manager.check_autoload()
+
         self.watchdog_thread.daemon = True
         self.bridge_thread.daemon = True
         

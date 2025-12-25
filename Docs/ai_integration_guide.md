@@ -53,3 +53,32 @@ We have implemented a hardware debugger (`debug_bridge.v`) that allows VS Code t
 - **Inspect** memory and registers in real-time.
 
 This provides a "God Mode" view of the system that was impossible on original hardware.
+
+## 5. AI Metadata Enrichment
+Beyond coding assistance, the AI plays a crucial role in organizing your software library.
+
+### The "Librarian" Agent
+When you ingest a program into the Library System (from RAM or disk), the `AiEnricher` service activates.
+
+**Workflow:**
+1. **Identification**: The system extracts the filename and any internal strings (e.g., "CBM" headers).
+2. **Query**: It sends this data to the local LLM (e.g., Ollama running Llama3) with a prompt like: *"Identify this C64 game 'ZORK' and provide a summary, genre, and tags."*
+3. **Enrichment**: The AI returns a structured JSON object:
+   ```json
+   {
+     "summary": "A classic text adventure game set in the Great Underground Empire.",
+     "genre": "Interactive Fiction",
+     "tags": ["Infocom", "Text Adventure", "Fantasy"]
+   }
+   ```
+4. **Storage**: This metadata is saved to the SQLite database, making the game searchable by genre or tag on the C64.
+
+### Configuration
+You can configure the AI model and endpoint in `config/supercpu_config.json`:
+```json
+"ai_coprocessor": {
+    "enabled": true,
+    "api_endpoint": "http://localhost:11434/api/generate",
+    "model": "llama3"
+}
+```
