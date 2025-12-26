@@ -1,25 +1,35 @@
 #!/bin/bash
 
 # PDP-11 Launcher for SuperCPU
-# This script is called by the ZiModem Bridge when the user dials "ATDT SIMH"
+# Usage: ./run_pdp11.sh [system_name]
+# Example: ./run_pdp11.sh rsts
 
 PDP_DIR="$(dirname "$0")"
-cd "$PDP_DIR"
+SYSTEMS_DIR="$PDP_DIR/systems"
+DEFAULT_SYSTEM="rsts"
 
-# Check if simh is installed
+# 1. Determine System to Boot
+TARGET_SYSTEM="${1:-$DEFAULT_SYSTEM}"
+BOOT_INI="$SYSTEMS_DIR/$TARGET_SYSTEM/boot.ini"
+
+echo "SuperCPU Mainframe Launcher"
+echo "Target System: $TARGET_SYSTEM"
+
+# 2. Check for SIMH
 if ! command -v pdp11 &> /dev/null; then
     echo "Error: 'pdp11' (SIMH) is not installed."
-    echo "Please install it via: sudo apt-get install simh"
     exit 1
 fi
 
-# Check for boot configuration
-if [ ! -f "boot.ini" ]; then
-    echo "Error: boot.ini not found in $PDP_DIR"
-    echo "Please configure your PDP-11 environment."
+# 3. Check for Boot Configuration
+if [ ! -f "$BOOT_INI" ]; then
+    echo "Error: Configuration not found at $BOOT_INI"
+    echo "Available Systems:"
+    ls "$SYSTEMS_DIR" 2>/dev/null || echo "  (None found in $SYSTEMS_DIR)"
     exit 1
 fi
 
-# Run the simulator
-# We use -q for quiet startup if possible, but standard output is piped to C64
+# 4. Run the Simulator
+# We change directory to the system folder so relative paths in boot.ini work
+cd "$SYSTEMS_DIR/$TARGET_SYSTEM"
 exec pdp11 boot.ini
